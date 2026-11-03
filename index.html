@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oliveira Navarro Advocacia | Inteligência Jurídica & Presença Pública</title>
+  <meta name="description" content="Oliveira Navarro Advocacia para Negócios. Direito Tributário, Administrativo e Estratégia Jurídica em Brasília/DF. Liderança, análises de fundo e presença na imprensa nacional.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+
+  <!-- Google Fonts: Cormorant Garamond, Cinzel & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            terracotta: {
+              DEFAULT: '#DD4F1D',
+              light: '#E66838',
+              dark: '#B83B10',
+              muted: 'rgba(221, 79, 29, 0.12)'
+            },
+            espresso: {
+              DEFAULT: '#25201E',
+              deep: '#181514',
+              surface: '#2E2825',
+              border: '#453C37'
+            },
+            papyro: {
+              DEFAULT: '#F8F6F2',
+              warm: '#F1EDE5',
+              card: '#FFFFFF'
+            },
+            charcoal: '#332D2B',
+            gold: {
+              subtle: '#D4AF37',
+              muted: 'rgba(212, 175, 55, 0.15)'
+            }
+          },
+          fontFamily: {
+            serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+            display: ['Cinzel', 'Trajan Pro', 'serif'],
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Quiet Luxury custom stylings */
+    ::selection {
+      background-color: #DD4F1D;
+      color: #FFFFFF;
+    }
+    
+    /* Subtle geometric grid backdrop */
+    .luxury-grid {
+      background-image: linear-gradient(to right, rgba(221, 79, 29, 0.04) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(221, 79, 29, 0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* Monogram ON vector drawing animation */
+    @keyframes drawPath {
+      0% {
+        stroke-dashoffset: 2000;
+        opacity: 0.2;
+      }
+      50% {
+        stroke-dashoffset: 0;
+        opacity: 1;
+      }
+      100% {
+        stroke-dashoffset: 0;
+        opacity: 1;
+      }
+    }
+
+    @keyframes pulseSoft {
+      0%, 100% {
+        opacity: 0.9;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.02);
+      }
+    }
+
+    .animate-stroke {
+      stroke-dasharray: 2000;
+      animation: drawPath 3.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .pulse-subtle {
+      animation: pulseSoft 6s ease-in-out infinite;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #181514;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #453C37;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #DD4F1D;
+    }
+  </style>
+</head>
+
+<body class="bg-espresso-deep text-papyro font-sans antialiased selection:bg-terracotta selection:text-white">
+
+  <!-- TOP AUTHORITY TICKER (Press Mention) -->
+  <aside class="bg-espresso-surface border-b border-espresso-border text-xs py-2.5 px-4 tracking-wide text-zinc-300 relative z-50">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-terracotta/20 text-terracotta border border-terracotta/30 uppercase tracking-widest">
+          <span class="w-1.5 h-1.5 rounded-full bg-terracotta animate-ping"></span>
+          Na Imprensa
+        </span>
+        <span class="truncate">
+          <strong class="text-white font-medium">Record News:</strong> Dra. Tattiana Navarro analisa a transição do IVA Dual e os impactos da Reforma Tributária.
+        </span>
+      </div>
+      <a href="#na-imprensa" onclick="openRecordNewsModal()" class="text-terracotta hover:text-terracotta-light font-medium inline-flex items-center gap-1 text-xs transition-colors shrink-0">
+        Assistir Entrevista na Íntegra
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </aside>
+
+  <!-- LUXURY NAVIGATION BAR -->
+  <header class="sticky top-0 z-40 bg-espresso-deep/90 backdrop-blur-md border-b border-espresso-border/60 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo + Dynamic "ON" Monogram Brand -->
+      <a href="#" class="flex items-center gap-4 group">
+        <!-- Interactive ON Monogram Pill -->
+        <div class="relative w-12 h-12 rounded-xl bg-espresso-surface border border-espresso-border flex items-center justify-center transition-all duration-500 group-hover:border-terracotta/50 group-hover:shadow-[0_0_20px_rgba(221,79,29,0.25)]">
+          <!-- Monogram vector initials ON -->
+          <div class="flex items-center font-display font-semibold tracking-tighter text-lg">
+            <span class="text-white transition-colors duration-300 group-hover:text-terracotta">O</span>
+            <span class="text-terracotta transition-colors duration-300 group-hover:text-white">N</span>
+          </div>
+          <!-- Fine corner accent -->
+          <div class="absolute -top-1 -right-1 w-2 h-2 bg-terracotta rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        </div>
+
+        <div class="flex flex-col">
+          <span class="font-display text-sm tracking-[0.22em] text-white uppercase font-medium">Oliveira Navarro</span>
+          <span class="text-[10px] tracking-[0.3em] uppercase text-zinc-400 font-sans">Advocacia para Negócios</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden md:flex items-center gap-8 text-[13px] tracking-wider uppercase font-medium text-zinc-300">
+        <a href="#sobre" class="hover:text-terracotta transition-colors">O Escritório</a>
+        <a href="#atuacao" class="hover:text-terracotta transition-colors">Soluções</a>
+        <a href="#na-imprensa" class="text-white hover:text-terracotta transition-colors flex items-center gap-1.5">
+          <span>Na Imprensa</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-terracotta"></span>
+        </a>
+        <a href="#artigos" class="hover:text-terracotta transition-colors">Artigos & Opinião</a>
+        <a href="#contato" class="hover:text-terracotta transition-colors">Contato</a>
+      </nav>
+
+      <!-- CTA Action Button -->
+      <div class="hidden sm:flex items-center gap-4">
+        <a href="https://wa.me/556137717679?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20uma%20conversa%20estrat%C3%A9gica%20com%20a%20equipe%20do%20Oliveira%20Navarro%20Advocacia." target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-lg text-xs font-semibold uppercase tracking-widest bg-terracotta hover:bg-terracotta-light text-white transition-all duration-300 shadow-lg shadow-terracotta/20 hover:shadow-terracotta/40 flex items-center gap-2">
+          <span>Consulta Estratégica</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button id="mobileMenuBtn" aria-label="Abrir menu de navegação" class="md:hidden p-2 text-zinc-300 hover:text-white">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-espresso border-b border-espresso-border px-6 py-6 space-y-4 text-sm uppercase tracking-wider">
+      <a href="#sobre" class="block text-zinc-300 hover:text-terracotta" onclick="toggleMobileMenu()">O Escritório</a>
+      <a href="#atuacao" class="block text-zinc-300 hover:text-terracotta" onclick="toggleMobileMenu()">Soluções</a>
+      <a href="#na-imprensa" class="block text-white font-medium flex items-center justify-between" onclick="toggleMobileMenu()">
+        <span>Na Imprensa</span>
+        <span class="text-[10px] bg-terracotta/20 text-terracotta px-2 py-0.5 rounded">TV & Mídia</span>
+      </a>
+      <a href="#artigos" class="block text-zinc-300 hover:text-terracotta" onclick="toggleMobileMenu()">Artigos & Opinião</a>
+      <a href="#contato" class="block text-zinc-300 hover:text-terracotta" onclick="toggleMobileMenu()">Contato</a>
+      <div class="pt-4 border-t border-espresso-border">
+        <a href="https://wa.me/556137717679" class="block text-center py-3 bg-terracotta text-white rounded-lg font-semibold text-xs uppercase tracking-widest">
+          Falar no WhatsApp
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION: QUIET LUXURY & PURE CODE "ON" MONOGRAM (NO VIDEO) -->
+  <section class="relative min-h-[90vh] flex items-center justify-center luxury-grid overflow-hidden py-20 lg:py-28">
+    <!-- Ambient glow gradients -->
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-terracotta/10 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="absolute bottom-0 right-10 w-[400px] h-[400px] bg-espresso-border/40 rounded-full blur-[100px] pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10 text-center">
+      
+      <!-- SUBTLE BADGE -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-espresso-surface/80 border border-espresso-border/80 text-zinc-300 text-xs tracking-widest uppercase mb-8 backdrop-blur-sm">
+        <span class="w-1.5 h-1.5 rounded-full bg-terracotta"></span>
+        <span>Brasília • SAUS | Tribunais Superiores & CARF</span>
+      </div>
+
+      <!-- HERO INTERACTIVE "ON" MONOGRAM CODE ANIMATION -->
+      <div class="mx-auto mb-10 max-w-sm flex flex-col items-center justify-center group cursor-pointer" onclick="cycleMonogramState()" title="Clique para alternar a visão do Monograma ON">
+        
+        <!-- SVG Monogram Container -->
+        <div class="relative w-48 h-24 sm:w-64 sm:h-28 flex items-center justify-center p-3 rounded-2xl bg-gradient-to-b from-espresso-surface/60 to-espresso-deep/90 border border-espresso-border hover:border-terracotta/60 transition-all duration-700 shadow-2xl shadow-black/60">
+          
+          <!-- Vector Geometric Monogram derived from official branding -->
+          <svg viewBox="0 0 760 213" class="w-full h-full text-terracotta transition-transform duration-700 group-hover:scale-105" fill="none" stroke="currentColor">
+            <path 
+              class="animate-stroke"
+              stroke-width="12" 
+              stroke-linejoin="round"
+              d="M735.63,9.15h-169.79c-16.01,0-29.97,8.91-37.21,22.03-7.23-13.12-21.2-22.03-37.21-22.03H75.8c-23.41,0-42.46,19.05-42.46,42.46v103.68c0,23.41,19.05,42.46,42.46,42.46h415.62c16.21,0,30.31-9.13,37.47-22.51,7.3,12.87,21.12,21.57,36.94,21.57h169.79c23.41,0,42.46-19.05,42.46-42.46V51.6c0-23.41-19.05-42.46-42.46-42.46ZM491.42,187.96H75.8c-18.02,0-32.68-14.66-32.68-32.68V51.6c0-18.02,14.66-32.68,32.68-32.68h415.62c16.27,0,29.8,11.96,32.28,27.55-.2,1.68-.32,3.4-.32,5.13v102.74c0,1.91.14,3.79.39,5.64-2.29,15.8-15.91,27.98-32.34,27.98Z"
+              fill="rgba(221, 79, 29, 0.08)"
+            />
+          </svg>
+
+          <!-- In-Monogram Initials Overlay (O • N) -->
+          <div class="absolute inset-0 flex items-center justify-center gap-8 font-display tracking-widest text-2xl sm:text-3xl font-semibold pointer-events-none">
+            <span class="text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] transition-all duration-500 group-hover:text-terracotta">O</span>
+            <span class="text-terracotta drop-shadow-[0_2px_10px_rgba(221,79,29,0.5)] transition-all duration-500 group-hover:text-white">N</span>
+          </div>
+
+        </div>
+
+        <span class="mt-3 text-[11px] tracking-[0.25em] text-zinc-400 uppercase group-hover:text-terracotta transition-colors flex items-center gap-1.5">
+          <svg class="w-3 h-3 text-terracotta/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/></svg>
+          Iniciais &bull; Oliveira Navarro
+        </span>
+      </div>
+
+      <!-- MAIN HEADLINE: QUIET LUXURY STATEMENT -->
+      <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight text-white leading-[1.12] mb-6 max-w-4xl mx-auto">
+        Inteligência jurídica consultiva para a 
+        <em class="font-serif italic font-light text-terracotta">expansão segura</em> 
+        de grandes negócios.
+      </h1>
+
+      <p class="font-sans text-base sm:text-lg text-zinc-300 max-w-2xl mx-auto font-light leading-relaxed mb-10">
+        Com liderança feminina e atuação direta nos centros decisórios de Brasília, combinamos rigor técnico em Direito Tributário e Administrativo com visão executiva orientada a resultados.
+      </p>
+
+      <!-- HERO ACTIONS -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#na-imprensa" class="w-full sm:w-auto px-8 py-4 rounded-xl text-xs font-semibold uppercase tracking-[0.2em] bg-terracotta hover:bg-terracotta-light text-white transition-all duration-300 shadow-xl shadow-terracotta/25 hover:shadow-terracotta/40 flex items-center justify-center gap-2 group">
+          <span>Ver "Na Imprensa" & Análises</span>
+          <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+
+        <a href="#atuacao" class="w-full sm:w-auto px-8 py-4 rounded-xl text-xs font-semibold uppercase tracking-[0.2em] bg-espresso-surface hover:bg-espresso border border-espresso-border text-zinc-200 hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
+          <span>Soluções Jurídicas</span>
+        </a>
+      </div>
+
+      <!-- TRUST STRIP -->
+      <div class="mt-16 pt-10 border-t border-espresso-border/50 grid grid-cols-2 md:grid-cols-4 gap-6 text-left">
+        <div class="space-y-1">
+          <div class="text-terracotta font-serif text-2xl font-light">CARF & Tribunais</div>
+          <p class="text-xs text-zinc-400">Atuação combativa no contencioso administrativo e judicial.</p>
+        </div>
+        <div class="space-y-1">
+          <div class="text-terracotta font-serif text-2xl font-light">Reforma Tributária</div>
+          <p class="text-xs text-zinc-400">Planejamento e transição segura para o novo IVA Dual.</p>
+        </div>
+        <div class="space-y-1">
+          <div class="text-terracotta font-serif text-2xl font-light">Lei 14.133/21</div>
+          <p class="text-xs text-zinc-400">Assessoria completa em contratações públicas e licitações.</p>
+        </div>
+        <div class="space-y-1">
+          <div class="text-terracotta font-serif text-2xl font-light">Liderança Próxima</div>
+          <p class="text-xs text-zinc-400">Sócia presente e atuante em todas as tomadas de decisão.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO 1: "NA IMPRENSA" (MÓDULO DE AUTORIDADE, TV & REPORTAGENS)           -->
+  <!-- ========================================================================= -->
+  <section id="na-imprensa" class="py-24 bg-espresso relative border-t border-espresso-border scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+        <div>
+          <div class="inline-flex items-center gap-2 text-terracotta text-xs font-semibold uppercase tracking-[0.25em] mb-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-terracotta"></span>
+            Autoridade Pública & Mídia
+          </div>
+          <h2 class="font-serif text-3xl sm:text-5xl text-white font-normal">
+            Na Imprensa
+          </h2>
+          <p class="text-zinc-400 text-sm sm:text-base mt-2 max-w-xl font-light">
+            Análises técnicas e posicionamentos estratégicos do Oliveira Navarro veiculados nos principais canais de televisão, jornais e portais especializados do país.
+          </p>
+        </div>
+
+        <!-- Filter tabs for Media -->
+        <div class="flex flex-wrap gap-2 text-xs">
+          <button onclick="filterMedia('todos')" class="media-tab-btn active px-3.5 py-1.5 rounded-lg bg-terracotta text-white font-medium transition-colors">Todos</button>
+          <button onclick="filterMedia('tv')" class="media-tab-btn px-3.5 py-1.5 rounded-lg bg-espresso-surface border border-espresso-border text-zinc-300 hover:text-white transition-colors">Televisão</button>
+          <button onclick="filterMedia('jornais')" class="media-tab-btn px-3.5 py-1.5 rounded-lg bg-espresso-surface border border-espresso-border text-zinc-300 hover:text-white transition-colors">Jornais & Portais</button>
+          <button onclick="filterMedia('eventos')" class="media-tab-btn px-3.5 py-1.5 rounded-lg bg-espresso-surface border border-espresso-border text-zinc-300 hover:text-white transition-colors">Conferências</button>
+        </div>
+      </div>
+
+      <!-- FEATURED SPOTLIGHT: RECORD NEWS (A DEMANDA CENTRAL) -->
+      <div class="mb-12 rounded-2xl bg-espresso-surface border border-espresso-border overflow-hidden hover:border-terracotta/40 transition-all duration-500 shadow-2xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+          
+          <!-- Video Preview Area -->
+          <div class="lg:col-span-7 relative bg-black min-h-[320px] lg:min-h-[420px] flex items-center justify-center overflow-hidden group cursor-pointer" onclick="openRecordNewsModal()">
+            <!-- Poster Image (Foto Real da Tati no escritório/estúdio) -->
+            <img 
+              src="assets/tati-navarro-office.jpg" 
+              alt="Dra. Tattiana Navarro na Record News falando sobre Reforma Tributária" 
+              class="w-full h-full object-cover opacity-75 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700"
+            />
+            
+            <!-- Dark gradient overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-espresso-deep via-espresso-deep/40 to-transparent"></div>
+
+            <!-- TV Channel Badge -->
+            <div class="absolute top-6 left-6 z-10 flex items-center gap-2 px-3 py-1.5 rounded-md bg-red-600/90 text-white text-[11px] font-bold tracking-widest uppercase shadow-lg">
+              <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+              RECORD NEWS
+            </div>
+
+            <div class="absolute top-6 right-6 z-10 px-2.5 py-1 rounded bg-black/60 text-zinc-300 text-xs backdrop-blur-sm">
+              14:20 min &bull; Alta Definição
+            </div>
+
+            <!-- Central Luxury Play Button -->
+            <div class="relative z-10 w-20 h-20 rounded-full bg-terracotta/90 group-hover:bg-terracotta text-white flex items-center justify-center transition-all duration-500 shadow-[0_0_30px_rgba(221,79,29,0.6)] group-hover:scale-110">
+              <svg class="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+
+            <div class="absolute bottom-6 left-6 right-6 z-10 flex items-center justify-between text-xs text-zinc-300">
+              <span class="flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                Clique para reproduzir o clipe da entrevista
+              </span>
+              <span class="text-terracotta font-medium underline">Abrir vídeo</span>
+            </div>
+          </div>
+
+          <!-- Video Editorial Commentary -->
+          <div class="lg:col-span-5 p-8 lg:p-10 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 text-xs text-terracotta font-semibold uppercase tracking-wider mb-3">
+                <span>Edição Especial</span>
+                <span>&bull;</span>
+                <span>Reforma Tributária</span>
+              </div>
+
+              <h3 class="font-serif text-2xl sm:text-3xl text-white font-normal leading-snug mb-4">
+                "A transição para o IBS e CBS não é mero detalhe fiscal; exige renegociação imediata de contratos."
+              </h3>
+
+              <!-- Pull quote -->
+              <blockquote class="border-l-2 border-terracotta pl-4 italic text-zinc-300 text-sm font-serif mb-6 leading-relaxed">
+                "Quem esperar 2026 para mapear o impacto do IVA Dual na sua cadeia de suprimentos já estará em desvantagem competitiva e com risco direto de litígio fiscal."
+              </blockquote>
+
+              <p class="text-zinc-400 text-xs leading-relaxed font-light mb-6">
+                Em entrevista ao vivo à <strong>Record News</strong>, a sócia fundadora <strong>Dra. Tattiana Navarro</strong> explicou como empresas de médio e grande porte devem estruturar seus departamentos jurídicos para a convivência simultânea entre os dois sistemas tributários.
+              </p>
+            </div>
+
+            <div class="pt-6 border-t border-espresso-border flex items-center justify-between">
+              <div>
+                <p class="text-xs font-medium text-white">Dra. Tattiana Navarro</p>
+                <p class="text-[11px] text-zinc-400">Sócia-Fundadora &bull; OAB/DF</p>
+              </div>
+
+              <button onclick="openRecordNewsModal()" class="px-4 py-2 rounded-lg bg-terracotta/15 hover:bg-terracotta text-terracotta hover:text-white border border-terracotta/30 text-xs font-semibold uppercase tracking-wider transition-all">
+                Assistir Análise
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- MEDIA REPERCUSSION GRID -->
+      <div id="mediaGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Card 1: JOTA (Jornais) -->
+        <article class="media-item jornais bg-espresso-surface/70 border border-espresso-border rounded-xl p-6 hover:border-terracotta/40 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs text-zinc-400 mb-3">
+              <span class="font-semibold text-white tracking-wider">PORTAL JOTA</span>
+              <span>Opinião Jurídica</span>
+            </div>
+            <h4 class="font-serif text-lg text-white font-normal mb-2 leading-snug">
+              O voto de qualidade no CARF e os reflexos nas autuações fiscais federais.
+            </h4>
+            <p class="text-zinc-400 text-xs font-light leading-relaxed mb-4">
+              Análise técnica sobre a pacificação das regras de desempate administrativo e o retorno das garantias para contribuintes.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-espresso-border/60 flex items-center justify-between text-xs">
+            <span class="text-zinc-400">Dra. Tattiana Navarro</span>
+            <a href="https://wa.me/556137717679?text=Gostaria%20de%20receber%20o%20artigo%20do%20JOTA%20sobre%20o%20CARF" class="text-terracotta hover:underline inline-flex items-center gap-1 font-medium">
+              Ler íntegra &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 2: Valor Econômico (Jornais) -->
+        <article class="media-item jornais bg-espresso-surface/70 border border-espresso-border rounded-xl p-6 hover:border-terracotta/40 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs text-zinc-400 mb-3">
+              <span class="font-semibold text-white tracking-wider">VALOR ECONÔMICO</span>
+              <span>Mercado & Negócios</span>
+            </div>
+            <h4 class="font-serif text-lg text-white font-normal mb-2 leading-snug">
+              Precatórios Federais e a gestão de liquidez para empresas com passivos tributários.
+            </h4>
+            <p class="text-zinc-400 text-xs font-light leading-relaxed mb-4">
+              Como a compensação estratégica de precatórios tem sido utilizada para destravar capital de giro no cenário de juros elevados.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-espresso-border/60 flex items-center justify-between text-xs">
+            <span class="text-zinc-400">Equipe Tributária ON</span>
+            <a href="https://wa.me/556137717679?text=Gostaria%20de%20saber%20mais%20sobre%20a%20mat%C3%A9ria%20do%20Valor%20sobre%20Precat%C3%B3rios" class="text-terracotta hover:underline inline-flex items-center gap-1 font-medium">
+              Ler íntegra &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 3: Conferências & Eventos (Eventos) -->
+        <article class="media-item eventos bg-espresso-surface/70 border border-espresso-border rounded-xl p-6 hover:border-terracotta/40 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs text-zinc-400 mb-3">
+              <span class="font-semibold text-white tracking-wider">PAINEL INSTITUCIONAL</span>
+              <span>Brasília / DF</span>
+            </div>
+            <h4 class="font-serif text-lg text-white font-normal mb-2 leading-snug">
+              Governança e Segurança Jurídica sob a Nova Lei de Licitações (Lei 14.133).
+            </h4>
+            <p class="text-zinc-400 text-xs font-light leading-relaxed mb-4">
+              Participação em mesa de debates com gestores públicos sobre matriz de riscos e processos sancionatórios em compras públicas.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-espresso-border/60 flex items-center justify-between text-xs">
+            <span class="text-zinc-400">Dra. Mariana Albuquerque</span>
+            <a href="https://wa.me/556137717679?text=Gostaria%20de%20acesso%20aos%20slides%20do%20painel%20sobre%20Licita%C3%A7%C3%B5es" class="text-terracotta hover:underline inline-flex items-center gap-1 font-medium">
+              Ver Anais &rarr;
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Press Contact Line -->
+      <div class="mt-12 text-center text-xs text-zinc-400 border-t border-espresso-border/50 pt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <span>Assessoria de Imprensa & Solicitação de Entrevistas:</span>
+        <a href="mailto:contato@oliveiranavarro.com?subject=Solicita%C3%A7%C3%A3o%20de%20Imprensa%20-%20Oliveira%20Navarro" class="text-terracotta hover:underline font-medium">
+          contato@oliveiranavarro.com
+        </a>
+        <span class="hidden sm:inline">&bull;</span>
+        <a href="tel:+556137717679" class="text-zinc-300 hover:text-white">
+          (61) 3771-7679
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO 2: ARTIGOS & OPINIÃO (CALENDÁRIO ROTATIVO & DESTINO DE TRÁFEGO)     -->
+  <!-- ========================================================================= -->
+  <section id="artigos" class="py-24 bg-espresso-deep relative scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+        <div>
+          <div class="inline-flex items-center gap-2 text-terracotta text-xs font-semibold uppercase tracking-[0.25em] mb-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-terracotta"></span>
+            Centro de Inteligência & Opinião
+          </div>
+          <h2 class="font-serif text-3xl sm:text-5xl text-white font-normal">
+            Artigos & Análises Jurídicas
+          </h2>
+          <p class="text-zinc-400 text-sm sm:text-base mt-2 max-w-xl font-light">
+            Publicações contínuas assinadas pelo corpo jurídico do escritório. Profundidade analítica para alimentar decisores e dar destino qualificado às nossas redes.
+          </p>
+        </div>
+
+        <!-- Filter tabs for Articles -->
+        <div class="flex flex-wrap gap-2 text-xs">
+          <button onclick="filterArticles('todas')" class="article-tab-btn active px-3.5 py-1.5 rounded-lg bg-terracotta text-white font-medium transition-colors">Todas as Áreas</button>
+          <button onclick="filterArticles('tributario')" class="article-tab-btn px-3.5 py-1.5 rounded-lg bg-espresso-surface border border-espresso-border text-zinc-300 hover:text-white transition-colors">Tributário</button>
+          <button onclick="filterArticles('administrativo')" class="article-tab-btn px-3.5 py-1.5 rounded-lg bg-espresso-surface border border-espresso-border text-zinc-300 hover:text-white transition-colors">Administrativo</button>
+          <button onclick="filterArticles('precatorios')" class="article-tab-btn px-3.5 py-1.5 rounded-lg bg-espresso-surface border border-espresso-border text-zinc-300 hover:text-white transition-colors">Precatórios</button>
+        </div>
+      </div>
+
+      <!-- ARTICLES GRID (RODÍZIO DAS ASSOCIADAS + TATI NAVARRO) -->
+      <div id="articlesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Artigo 1: Tati Navarro (Destaque Tributário) -->
+        <article class="article-card tributario bg-espresso-surface border border-espresso-border rounded-2xl overflow-hidden hover:border-terracotta/50 transition-all duration-300 flex flex-col justify-between group">
+          <div class="p-8">
+            <div class="flex items-center justify-between text-xs text-zinc-400 mb-4">
+              <span class="px-2.5 py-1 rounded-full bg-terracotta/15 text-terracotta text-[11px] font-semibold tracking-wider uppercase">
+                Reforma Tributária
+              </span>
+              <span>5 min de leitura</span>
+            </div>
+
+            <h3 class="font-serif text-2xl text-white font-normal group-hover:text-terracotta transition-colors leading-snug mb-3">
+              A não-cumulatividade plena no IBS/CBS: O que muda para as empresas do Lucro Presumido e Real.
+            </h3>
+
+            <p class="text-zinc-400 text-xs sm:text-sm font-light leading-relaxed mb-6">
+              Uma dissecação prática das regras de apropriação de créditos fiscais e as armadilhas no período de transição que podem onerar contratos de prestação de serviços.
+            </p>
+          </div>
+
+          <!-- Card Footer with Author Box (Visual da Associada/Sócia) -->
+          <div class="p-8 pt-0">
+            <div class="pt-6 border-t border-espresso-border/70 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <img src="assets/tati-navarro-portrait.jpg" alt="Dra. Tattiana Navarro" class="w-10 h-10 rounded-full object-cover border border-terracotta/40">
+                <div>
+                  <h4 class="text-xs font-semibold text-white">Dra. Tattiana Navarro</h4>
+                  <p class="text-[11px] text-zinc-400">Sócia-Fundadora &bull; OAB/DF</p>
+                </div>
+              </div>
+
+              <button onclick="openArticleModal('artigo-1')" class="text-terracotta hover:text-terracotta-light text-xs font-semibold uppercase tracking-wider flex items-center gap-1">
+                <span>Ler</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Artigo 2: Dra. Mariana Albuquerque (Associada - Administrativo / Licitações) -->
+        <article class="article-card administrativo bg-espresso-surface border border-espresso-border rounded-2xl overflow-hidden hover:border-terracotta/50 transition-all duration-300 flex flex-col justify-between group">
+          <div class="p-8">
+            <div class="flex items-center justify-between text-xs text-zinc-400 mb-4">
+              <span class="px-2.5 py-1 rounded-full bg-blue-500/15 text-blue-400 text-[11px] font-semibold tracking-wider uppercase">
+                Lei 14.133/2021
+              </span>
+              <span>4 min de leitura</span>
+            </div>
+
+            <h3 class="font-serif text-2xl text-white font-normal group-hover:text-terracotta transition-colors leading-snug mb-3">
+              Processos administrativos sancionatórios em licitações: Como estruturar defesas prévias eficazes.
+            </h3>
+
+            <p class="text-zinc-400 text-xs sm:text-sm font-light leading-relaxed mb-6">
+              Análise dos novos prazos de dosimetria da pena sob a Nova Lei de Licitações e como evitar a declaração de inidoneidade da sua empresa perante órgãos públicos.
+            </p>
+          </div>
+
+          <div class="p-8 pt-0">
+            <div class="pt-6 border-t border-espresso-border/70 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-espresso border border-espresso-border flex items-center justify-center font-display text-terracotta text-sm font-bold">
+                  MA
+                </div>
+                <div>
+                  <h4 class="text-xs font-semibold text-white">Dra. Mariana Albuquerque</h4>
+                  <p class="text-[11px] text-zinc-400">Associada &bull; Direito Público</p>
+                </div>
+              </div>
+
+              <button onclick="openArticleModal('artigo-2')" class="text-terracotta hover:text-terracotta-light text-xs font-semibold uppercase tracking-wider flex items-center gap-1">
+                <span>Ler</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Artigo 3: Dra. Beatriz Mendes (Associada - CARF / Tributário) -->
+        <article class="article-card tributario bg-espresso-surface border border-espresso-border rounded-2xl overflow-hidden hover:border-terracotta/50 transition-all duration-300 flex flex-col justify-between group">
+          <div class="p-8">
+            <div class="flex items-center justify-between text-xs text-zinc-400 mb-4">
+              <span class="px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-400 text-[11px] font-semibold tracking-wider uppercase">
+                Contencioso CARF
+              </span>
+              <span>6 min de leitura</span>
+            </div>
+
+            <h3 class="font-serif text-2xl text-white font-normal group-hover:text-terracotta transition-colors leading-snug mb-3">
+              Exclusão de PIS/COFINS da própria base e subvenções para investimento após a Lei 14.789.
+            </h3>
+
+            <p class="text-zinc-400 text-xs sm:text-sm font-light leading-relaxed mb-6">
+              O novo mapa jurisprudencial no CARF e na 1ª Seção do STJ: critérios de segurança para manutenção de incentivos fiscais sem exposição a autos de infração.
+            </p>
+          </div>
+
+          <div class="p-8 pt-0">
+            <div class="pt-6 border-t border-espresso-border/70 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-espresso border border-espresso-border flex items-center justify-center font-display text-terracotta text-sm font-bold">
+                  BM
+                </div>
+                <div>
+                  <h4 class="text-xs font-semibold text-white">Dra. Beatriz Mendes</h4>
+                  <p class="text-[11px] text-zinc-400">Associada &bull; Tributário</p>
+                </div>
+              </div>
+
+              <button onclick="openArticleModal('artigo-3')" class="text-terracotta hover:text-terracotta-light text-xs font-semibold uppercase tracking-wider flex items-center gap-1">
+                <span>Ler</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Artigo 4: Precatórios Federais -->
+        <article class="article-card precatorios bg-espresso-surface border border-espresso-border rounded-2xl overflow-hidden hover:border-terracotta/50 transition-all duration-300 flex flex-col justify-between group">
+          <div class="p-8">
+            <div class="flex items-center justify-between text-xs text-zinc-400 mb-4">
+              <span class="px-2.5 py-1 rounded-full bg-amber-500/15 text-amber-400 text-[11px] font-semibold tracking-wider uppercase">
+                Precatórios & Liquidez
+              </span>
+              <span>4 min de leitura</span>
+            </div>
+
+            <h3 class="font-serif text-2xl text-white font-normal group-hover:text-terracotta transition-colors leading-snug mb-3">
+              Due diligence em aquisição de precatórios federais: Blindagem contra fraudes e vícios de origem.
+            </h3>
+
+            <p class="text-zinc-400 text-xs sm:text-sm font-light leading-relaxed mb-6">
+              O checklist que todo CFO deve exigir antes de utilizar títulos judiciais para quitação de tributos federais ou garantia de operações financeiras.
+            </p>
+          </div>
+
+          <div class="p-8 pt-0">
+            <div class="pt-6 border-t border-espresso-border/70 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <img src="assets/tati-navarro-portrait.jpg" alt="Dra. Tattiana Navarro" class="w-10 h-10 rounded-full object-cover border border-terracotta/40">
+                <div>
+                  <h4 class="text-xs font-semibold text-white">Dra. Tattiana Navarro & Equipe</h4>
+                  <p class="text-[11px] text-zinc-400">Núcleo de Precatórios</p>
+                </div>
+              </div>
+
+              <button onclick="openArticleModal('artigo-4')" class="text-terracotta hover:text-terracotta-light text-xs font-semibold uppercase tracking-wider flex items-center gap-1">
+                <span>Ler</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- EDITORIAL ROTATION CALLOUT (SOP Box) -->
+      <div class="mt-16 p-8 rounded-2xl bg-espresso-surface/40 border border-espresso-border flex flex-col md:flex-row items-center justify-between gap-6 text-zinc-300">
+        <div class="space-y-1">
+          <p class="text-xs text-terracotta font-semibold uppercase tracking-widest">Calendário Editorial Rotativo</p>
+          <h4 class="font-serif text-xl text-white font-normal">Todas as semanas, uma nova análise de fundo assinada por uma de nossas especialistas.</h4>
+          <p class="text-xs text-zinc-400 font-light">Conteúdo técnico de alto nível concebido para alimentar o tráfego do LinkedIn e as decisões dos nossos clientes corporativos.</p>
+        </div>
+
+        <a href="https://wa.me/556137717679?text=Ol%C3%A1%2C%20gostaria%20de%20receber%20as%20an%C3%A1lises%20jur%C3%ADdicas%20do%20Oliveira%20Navarro%20por%20e-mail%20ou%20WhatsApp." class="px-6 py-3 rounded-xl bg-espresso border border-espresso-border hover:border-terracotta text-white text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap">
+          Inscrever-se no Informativo
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO 3: O ESCRITÓRIO & LIDERANÇA FEMININA (PROXIMIDADE E RIGOR TÉCNICO)  -->
+  <!-- ========================================================================= -->
+  <section id="sobre" class="py-24 bg-espresso relative border-t border-espresso-border scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Portrait Column (Fotografia Real da Tati em Brasília) -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative rounded-2xl overflow-hidden border border-espresso-border shadow-2xl">
+            <img 
+              src="assets/tati-navarro-portrait.jpg" 
+              alt="Dra. Tattiana Navarro, sócia fundadora do Oliveira Navarro Advocacia em Brasília" 
+              class="w-full h-[540px] object-cover object-top"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-espresso-deep via-transparent to-transparent"></div>
+            
+            <div class="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-espresso-deep/80 backdrop-blur-md border border-espresso-border">
+              <h4 class="font-serif text-lg text-white font-normal">Dra. Tattiana Navarro</h4>
+              <p class="text-xs text-terracotta font-medium tracking-wide">Sócia-Fundadora &bull; Advogada Tributarista</p>
+              <p class="text-[11px] text-zinc-400 mt-1">Especialista em Direito Tributário, Estratégia de Negócios e Presença Pública em Brasília/DF.</p>
+            </div>
+          </div>
+
+          <!-- Decorative badge -->
+          <div class="absolute -top-4 -right-4 w-24 h-24 rounded-full bg-terracotta/10 border border-terracotta/30 flex items-center justify-center backdrop-blur-sm hidden sm:flex">
+            <span class="font-display text-xs text-terracotta tracking-widest uppercase text-center font-bold">SAUS<br>DF</span>
+          </div>
+        </div>
+
+        <!-- Narrative Column -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 text-terracotta text-xs font-semibold uppercase tracking-[0.25em]">
+            <span class="w-1.5 h-1.5 rounded-full bg-terracotta"></span>
+            Quem Somos & Filosofia
+          </div>
+
+          <h2 class="font-serif text-3xl sm:text-5xl text-white font-normal leading-tight">
+            Advocacia para Negócios. Cultura justa, inclusiva e transformadora.
+          </h2>
+
+          <p class="text-zinc-300 text-sm sm:text-base leading-relaxed font-light">
+            O <strong>Oliveira Navarro Advocacia</strong> nasceu da convicção de que o direito corporativo não deve ser um entrave burocrático, mas uma ferramenta habilitadora de crescimento sustentável e mitigação ativa de riscos.
+          </p>
+
+          <p class="text-zinc-400 text-sm leading-relaxed font-light">
+            Sediados no Setor de Autarquias Sul (SAUS) em Brasília, estamos a poucos minutos dos Tribunais Superiores (STF, STJ) e dos órgãos colegiados da administração pública federal (CARF, TCU e Ministérios). Isso garante aos nossos clientes uma atuação ágil, atenta às oscilações regulatórias e próxima dos centros de decisão.
+          </p>
+
+          <!-- Core Pillars -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+            <div class="p-4 rounded-xl bg-espresso-surface border border-espresso-border">
+              <span class="text-terracotta font-serif text-lg block mb-1">01. Proximidade Real</span>
+              <p class="text-xs text-zinc-400">Atendimento personalizado pelas sócias e associadas sêniores, sem intermediários desavisados.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-espresso-surface border border-espresso-border">
+              <span class="text-terracotta font-serif text-lg block mb-1">02. Rigor Sem Juridiquês</span>
+              <p class="text-xs text-zinc-400">Relatórios objetivos, matrizes de risco claras e linguagem executiva compreensível para conselhos.</p>
+            </div>
+          </div>
+
+          <div class="pt-4 flex items-center gap-6">
+            <a href="#contato" class="px-6 py-3 rounded-xl text-xs font-semibold uppercase tracking-widest bg-terracotta hover:bg-terracotta-light text-white transition-all">
+              Agendar Conversa
+            </a>
+            <a href="https://instagram.com/oliveiranavarro.adv" target="_blank" rel="noopener noreferrer" class="text-xs text-zinc-300 hover:text-terracotta flex items-center gap-2">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              <span>@oliveiranavarro.adv</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO 4: ÁREAS DE SOLUÇÃO (DIREITO TRIBUTÁRIO, ADMINISTRATIVO & PRECATÓRIOS) -->
+  <!-- ========================================================================= -->
+  <section id="atuacao" class="py-24 bg-espresso-deep relative scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 text-terracotta text-xs font-semibold uppercase tracking-[0.25em] mb-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-terracotta"></span>
+          Especialidades Técnicas
+        </div>
+        <h2 class="font-serif text-3xl sm:text-5xl text-white font-normal">
+          Soluções em Inteligência Jurídica
+        </h2>
+        <p class="text-zinc-400 text-sm mt-3 font-light">
+          Segurança legal orientada à expansão e proteção patrimonial de empresas de médio e grande porte.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Área 1 -->
+        <div class="p-8 rounded-2xl bg-espresso-surface border border-espresso-border hover:border-terracotta/50 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-terracotta/15 text-terracotta flex items-center justify-center font-display font-bold text-lg mb-6">
+            01
+          </div>
+          <h3 class="font-serif text-2xl text-white font-normal mb-3">Direito Tributário</h3>
+          <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed font-light mb-6">
+            Gestão e recuperação de créditos federais, defesas combativas no contencioso administrativo (CARF), adequação e planejamento estratégico para a Reforma Tributária (IBS/CBS).
+          </p>
+          <ul class="space-y-2 text-xs text-zinc-300">
+            <li class="flex items-center gap-2">&bull; Recuperação de Tributos Federais</li>
+            <li class="flex items-center gap-2">&bull; Contencioso Estratégico no CARF</li>
+            <li class="flex items-center gap-2">&bull; Consultoria Tributária Preventiva</li>
+          </ul>
+        </div>
+
+        <!-- Área 2 -->
+        <div class="p-8 rounded-2xl bg-espresso-surface border border-espresso-border hover:border-terracotta/50 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-terracotta/15 text-terracotta flex items-center justify-center font-display font-bold text-lg mb-6">
+            02
+          </div>
+          <h3 class="font-serif text-2xl text-white font-normal mb-3">Direito Administrativo</h3>
+          <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed font-light mb-6">
+            Assessoria de ponta em licitações e contratos públicos sob a Lei 14.133/2021, defesas em processos sancionatórios e representação qualificada perante Tribunais de Contas (TCU/TCEs).
+          </p>
+          <ul class="space-y-2 text-xs text-zinc-300">
+            <li class="flex items-center gap-2">&bull; Radar e Impugnação de Editais</li>
+            <li class="flex items-center gap-2">&bull; Defesas em Sanções Administrativas</li>
+            <li class="flex items-center gap-2">&bull; Atuação perante o TCU</li>
+          </ul>
+        </div>
+
+        <!-- Área 3 -->
+        <div class="p-8 rounded-2xl bg-espresso-surface border border-espresso-border hover:border-terracotta/50 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-terracotta/15 text-terracotta flex items-center justify-center font-display font-bold text-lg mb-6">
+            03
+          </div>
+          <h3 class="font-serif text-2xl text-white font-normal mb-3">Precatórios Federais</h3>
+          <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed font-light mb-6">
+            Due diligence aprofundada na cessão de créditos judiciais, estruturação para compensação tributária e alavancagem de liquidez corporativa com estrita observância das ECs 113 e 114.
+          </p>
+          <ul class="space-y-2 text-xs text-zinc-300">
+            <li class="flex items-center gap-2">&bull; Auditoria de Origem do Crédito</li>
+            <li class="flex items-center gap-2">&bull; Compensação de Débitos Tributários</li>
+            <li class="flex items-center gap-2">&bull; Mitigação de Riscos de Cessão</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- MÓDULO DE CONVERSÃO / TRÁFEGO PAGO (PIXEL AGENCY DESTINATION)             -->
+  <!-- ========================================================================= -->
+  <section class="py-20 bg-gradient-to-b from-espresso to-espresso-deep border-t border-espresso-border">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-terracotta/20 text-terracotta text-xs font-semibold uppercase tracking-widest mb-6">
+        Destino Direto &bull; Anúncios LinkedIn & Instagram
+      </div>
+
+      <h2 class="font-serif text-3xl sm:text-5xl text-white font-normal mb-4">
+        Sua empresa está preparada para as mudanças tributárias e regulatórias?
+      </h2>
+
+      <p class="text-zinc-300 text-sm sm:text-base font-light max-w-xl mx-auto mb-8">
+        Antecipe-se a autuações e identifique créditos legítimos com a assessoria direta de um escritório sediado no coração institucional de Brasília.
+      </p>
+
+      <div class="p-8 rounded-2xl bg-espresso-surface border border-espresso-border text-left shadow-2xl">
+        <h3 class="text-xs font-semibold text-terracotta uppercase tracking-wider mb-4">Selecione seu tema de interesse prioritário:</h3>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 text-xs text-zinc-200">
+          <label class="flex items-center gap-2.5 p-3 rounded-lg bg-espresso border border-espresso-border hover:border-terracotta/40 cursor-pointer transition-colors">
+            <input type="radio" name="interesse" value="Reforma Tributária" checked class="text-terracotta focus:ring-terracotta">
+            <span>Diagnóstico de Reforma Tributária</span>
+          </label>
+          <label class="flex items-center gap-2.5 p-3 rounded-lg bg-espresso border border-espresso-border hover:border-terracotta/40 cursor-pointer transition-colors">
+            <input type="radio" name="interesse" value="Recuperação de Créditos / CARF" class="text-terracotta focus:ring-terracotta">
+            <span>Recuperação de Créditos & CARF</span>
+          </label>
+          <label class="flex items-center gap-2.5 p-3 rounded-lg bg-espresso border border-espresso-border hover:border-terracotta/40 cursor-pointer transition-colors">
+            <input type="radio" name="interesse" value="Licitações Lei 14.133" class="text-terracotta focus:ring-terracotta">
+            <span>Licitações e Sanções (Lei 14.133)</span>
+          </label>
+          <label class="flex items-center gap-2.5 p-3 rounded-lg bg-espresso border border-espresso-border hover:border-terracotta/40 cursor-pointer transition-colors">
+            <input type="radio" name="interesse" value="Due Diligence Precatórios" class="text-terracotta focus:ring-terracotta">
+            <span>Due Diligence de Precatórios</span>
+          </label>
+        </div>
+
+        <button onclick="enviarDiagnosticoWhatsApp()" class="w-full py-4 rounded-xl bg-terracotta hover:bg-terracotta-light text-white font-semibold text-xs uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-2 shadow-lg shadow-terracotta/25">
+          <span>Iniciar Diálogo Estratégico com Nossa Equipe</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </button>
+
+        <p class="text-[11px] text-zinc-400 text-center mt-3">
+          Atendimento confidencial e seguro sob estrito sigilo profissional (OAB/DF).
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO 5: CONTATO & LOCALIZAÇÃO (SAUS BRASÍLIA)                             -->
+  <!-- ========================================================================= -->
+  <section id="contato" class="py-24 bg-espresso relative border-t border-espresso-border scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Contact details -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="inline-flex items-center gap-2 text-terracotta text-xs font-semibold uppercase tracking-[0.25em]">
+            <span class="w-1.5 h-1.5 rounded-full bg-terracotta"></span>
+            Atendimento Executivo
+          </div>
+
+          <h2 class="font-serif text-3xl sm:text-4xl text-white font-normal">
+            Estamos em Brasília, atuando em escala nacional.
+          </h2>
+
+          <p class="text-zinc-300 text-xs sm:text-sm font-light leading-relaxed">
+            Agende uma reunião presencial em nossa sede ou uma conferência estratégica online com nossas sócias.
+          </p>
+
+          <div class="space-y-4 pt-4 text-xs text-zinc-300">
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-terracotta shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <div>
+                <strong class="text-white block font-medium">Sede Brasília:</strong>
+                SAUS, Quadra 05, Lote 02, Bloco N, Sala 709<br>
+                Brasília – DF | CEP: 70.070-913
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-terracotta shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              <div>
+                <strong class="text-white">Telefone Comercial / WhatsApp:</strong><br>
+                (61) 3771-7679
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-terracotta shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <div>
+                <strong class="text-white">E-mail Institucional:</strong><br>
+                contato@oliveiranavarro.com
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="lg:col-span-7 bg-espresso-surface border border-espresso-border rounded-2xl p-8 sm:p-10 shadow-2xl">
+          <h3 class="font-serif text-2xl text-white font-normal mb-2">Envie sua Mensagem</h3>
+          <p class="text-xs text-zinc-400 mb-6">Retornaremos o contato em menos de 2 horas em horário comercial.</p>
+
+          <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs uppercase tracking-wider text-zinc-400 mb-1.5">Seu Nome / Cargo</label>
+                <input id="formNome" type="text" required placeholder="Ex: Roberto Silva (CFO)" class="w-full px-4 py-3 rounded-lg bg-espresso border border-espresso-border text-white text-xs focus:border-terracotta focus:outline-none">
+              </div>
+              <div>
+                <label class="block text-xs uppercase tracking-wider text-zinc-400 mb-1.5">Empresa</label>
+                <input id="formEmpresa" type="text" placeholder="Nome da sua empresa" class="w-full px-4 py-3 rounded-lg bg-espresso border border-espresso-border text-white text-xs focus:border-terracotta focus:outline-none">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs uppercase tracking-wider text-zinc-400 mb-1.5">E-mail Corporativo</label>
+                <input id="formEmail" type="email" required placeholder="roberto@empresa.com.br" class="w-full px-4 py-3 rounded-lg bg-espresso border border-espresso-border text-white text-xs focus:border-terracotta focus:outline-none">
+              </div>
+              <div>
+                <label class="block text-xs uppercase tracking-wider text-zinc-400 mb-1.5">WhatsApp / Celular</label>
+                <input id="formTelefone" type="tel" required placeholder="(61) 99999-9999" class="w-full px-4 py-3 rounded-lg bg-espresso border border-espresso-border text-white text-xs focus:border-terracotta focus:outline-none">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-zinc-400 mb-1.5">Resumo da Demanda / Assunto</label>
+              <textarea id="formMensagem" rows="4" placeholder="Descreva sucintamente sua dúvida fiscal, regulatória ou demanda de licitação..." class="w-full px-4 py-3 rounded-lg bg-espresso border border-espresso-border text-white text-xs focus:border-terracotta focus:outline-none"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-4 rounded-xl bg-terracotta hover:bg-terracotta-light text-white font-semibold text-xs uppercase tracking-widest transition-all">
+              Enviar Solicitação de Atendimento
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LUXURY FOOTER -->
+  <footer class="bg-espresso-deep border-t border-espresso-border text-zinc-400 text-xs py-14">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
+      
+      <!-- Brand & Info -->
+      <div class="flex items-center gap-4">
+        <img src="assets/logo.svg" alt="Oliveira Navarro Advocacia" class="h-8 brightness-125">
+        <div class="text-[11px] leading-tight">
+          <p class="text-white font-medium">Oliveira Navarro Advocacia</p>
+          <p class="text-zinc-400">Sociedade de Advogadas &bull; Brasília/DF</p>
+        </div>
+      </div>
+
+      <!-- Compliance note -->
+      <p class="text-[11px] text-zinc-400 max-w-md text-center md:text-left">
+        Conteúdo meramente informativo, pautado pelo rigor ético e em estrita conformidade com o Código de Ética e Disciplina da OAB.
+      </p>
+
+      <!-- Copyright -->
+      <div class="text-[11px] text-zinc-400 text-right">
+        &copy; 2026 Oliveira Navarro Advocacia.<br>Todos os direitos reservados.
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: RECORD NEWS INTERVIEW PLAYER (AUTORIDADE DA TATI)                  -->
+  <!-- ========================================================================= -->
+  <div id="recordNewsModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-4 sm:p-6 transition-all duration-300">
+    <div class="relative w-full max-w-4xl bg-espresso-surface border border-espresso-border rounded-2xl overflow-hidden shadow-2xl">
+      
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between p-4 px-6 border-b border-espresso-border bg-espresso">
+        <div class="flex items-center gap-3">
+          <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-red-600 text-white uppercase tracking-wider">RECORD NEWS</span>
+          <span class="text-xs text-white font-medium">Entrevista: Dra. Tattiana Navarro sobre Reforma Tributária</span>
+        </div>
+        <button onclick="closeRecordNewsModal()" class="text-zinc-400 hover:text-white p-1 rounded-lg">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Embedded Video Responsive Container -->
+      <div class="relative pb-[56.25%] bg-black">
+        <iframe 
+          id="recordNewsIframe"
+          class="absolute inset-0 w-full h-full"
+          src="" 
+          title="Dra. Tattiana Navarro na Record News"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-6 bg-espresso-deep border-t border-espresso-border flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="text-xs text-zinc-300">
+          <span class="text-terracotta font-semibold">Tópicos abordados:</span> IVA Dual, compensação de créditos acumulados e cronograma de transição 2026-2033.
+        </div>
+        <a href="https://wa.me/556137717679?text=Ol%C3%A1%2C%20assisti%20%C3%A0%20entrevista%20da%20Dra.%20Tattiana%20na%20Record%20News%20e%20gostaria%20de%20conversar%20sobre%20Reforma%20Tribut%C3%A1ria." target="_blank" class="px-5 py-2.5 rounded-lg bg-terracotta hover:bg-terracotta-light text-white text-xs font-semibold uppercase tracking-wider transition-colors shrink-0">
+          Falar com a Especialista
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: LONG-FORM ARTICLE DRAWER (QUIET LUXURY READING MODE)               -->
+  <!-- ========================================================================= -->
+  <div id="articleModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden overflow-y-auto p-4 sm:p-8 flex justify-center">
+    <div class="relative w-full max-w-3xl bg-papyro text-charcoal rounded-2xl shadow-2xl overflow-hidden my-auto border border-zinc-200">
+      
+      <!-- Reading Progress Bar -->
+      <div class="h-1 bg-terracotta/20 w-full sticky top-0 z-30">
+        <div id="readProgress" class="h-full bg-terracotta w-0 transition-all duration-150"></div>
+      </div>
+
+      <!-- Top Close Bar -->
+      <div class="p-6 pb-2 flex items-center justify-between border-b border-zinc-200/80 bg-papyro-warm">
+        <span id="modalArticleCategory" class="text-xs font-bold uppercase tracking-widest text-terracotta">ÁREA TRIBUTÁRIA</span>
+        <button onclick="closeArticleModal()" class="text-zinc-500 hover:text-charcoal p-1.5 rounded-full hover:bg-zinc-200/50 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Article Content Body -->
+      <div class="p-8 sm:p-12 space-y-6">
+        
+        <h2 id="modalArticleTitle" class="font-serif text-3xl sm:text-4xl text-charcoal font-semibold leading-tight">
+          Título do Artigo
+        </h2>
+
+        <!-- Author Byline -->
+        <div class="flex items-center gap-3 py-4 border-y border-zinc-200/80 text-xs text-zinc-600">
+          <div id="modalAuthorAvatar" class="w-10 h-10 rounded-full bg-terracotta text-white flex items-center justify-center font-bold">
+            TN
+          </div>
+          <div>
+            <div id="modalAuthorName" class="font-semibold text-charcoal text-sm">Dra. Tattiana Navarro</div>
+            <div id="modalAuthorRole" class="text-zinc-500">Sócia-Fundadora &bull; Publicado pelo Núcleo de Inteligência</div>
+          </div>
+          <div class="ml-auto text-zinc-500" id="modalReadTime">5 min de leitura</div>
+        </div>
+
+        <!-- Rendered Text -->
+        <div id="modalArticleBody" class="prose prose-zinc max-w-none text-sm sm:text-base leading-relaxed space-y-4 font-light text-zinc-800">
+          <!-- Conteúdo dinâmico injetado via JS -->
+        </div>
+
+        <!-- Lead Generation CTA inside Article -->
+        <div class="mt-10 p-6 rounded-xl bg-terracotta/10 border border-terracotta/30 text-charcoal">
+          <h4 class="font-serif text-lg font-semibold text-terracotta mb-1">Deseja aprofundar essa tese para o seu negócio?</h4>
+          <p class="text-xs text-zinc-600 mb-4">Converse diretamente com a equipe do Oliveira Navarro para uma avaliação técnica preliminar da sua demanda.</p>
+          <a id="modalCtaLink" href="#" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-terracotta text-white text-xs font-semibold uppercase tracking-wider hover:bg-terracotta-dark transition-colors">
+            <span>Conversar via WhatsApp</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT CONTROLLERS                                                     -->
+  <!-- ========================================================================= -->
+  <script>
+    // Articles Database for Rotating Editorial Showcase
+    const articlesDB = {
+      'artigo-1': {
+        category: 'DIREITO TRIBUTÁRIO & REFORMA',
+        title: 'A não-cumulatividade plena no IBS/CBS: O que muda para as empresas do Lucro Presumido e Real.',
+        author: 'Dra. Tattiana Navarro',
+        authorRole: 'Sócia-Fundadora • Especialista em Tributação Federal',
+        avatarHtml: '<img src="assets/tati-navarro-portrait.jpg" class="w-10 h-10 rounded-full object-cover">',
+        readTime: '5 min de leitura',
+        body: `
+          <p>A Emenda Constitucional da Reforma Tributária traz como pilar a simplificação da arrecadação sobre o consumo com a instituição do IVA Dual: o Imposto sobre Bens e Serviços (IBS), de competência subnacional, e a Contribuição sobre Bens e Serviços (CBS), de competência federal.</p>
+          <p>No entanto, para os tomadores de decisão em médias e grandes empresas, a principal transformação reside na <strong>redefinição do princípio da não-cumulatividade</strong>. Sob a sistemática anterior do PIS/COFINS e ICMS, o creditamento dependia de infindáveis batalhas conceituais sobre o que configurava ou não "insumo essencial".</p>
+          <blockquote class="border-l-4 border-terracotta pl-4 italic my-4 text-zinc-700">"Na nova legislação complementar, o critério passa a ser essencialmente financeiro: se o bem ou serviço foi tributado na etapa anterior, gera direito a crédito, salvo raras exceções de uso e consumo pessoal."</blockquote>
+          <p>Para empresas hoje enquadradas no Lucro Presumido que prestam serviços a pessoas jurídicas (B2B), a mudança de alíquotas exigirá reestruturação urgente dos contratos vigentes para evitar absorção indevida da nova carga tributária.</p>
+          <p>Recomendamos que os departamentos fiscais iniciem de imediato o levantamento dos impactos marginais da transição para preservar a rentabilidade operacional.</p>
+        `
+      },
+      'artigo-2': {
+        category: 'DIREITO ADMINISTRATIVO & LICITAÇÕES',
+        title: 'Processos administrativos sancionatórios em licitações: Como estruturar defesas prévias eficazes sob a Lei 14.133.',
+        author: 'Dra. Mariana Albuquerque',
+        authorRole: 'Advogada Associada • Especialista em Licitações Públicas',
+        avatarHtml: '<div class="w-10 h-10 rounded-full bg-terracotta text-white flex items-center justify-center font-bold">MA</div>',
+        readTime: '4 min de leitura',
+        body: `
+          <p>A Lei nº 14.133/2021 estabeleceu um marco regulatório mais rígido e sofisticado para os processos de compras governamentais, trazendo alterações substanciais no regime de sanções aplicáveis aos fornecedores do Estado.</p>
+          <p>Com a extinção da antiga suspensão temporária de participação em licitações e o fortalecimento do impedimento de licitar e da declaração de inidoneidade, a fase de <strong>defesa prévia tornou-se o momento processual mais crítico</strong> para a sobrevivência da contratada.</p>
+          <blockquote class="border-l-4 border-terracotta pl-4 italic my-4 text-zinc-700">"A dosimetria da sanção não pode ser automática; ela deve obrigatoriamente ponderar a gravidade da conduta, a vantagem auferida, o histórico da empresa e a implantação de programas de integridade."</blockquote>
+          <p>Demonstrar prontamente a ausência de dolo e a existência de medidas de compliance mitiga expressivamente o risco de aplicação da penalidade máxima de inidoneidade perante o SICAF e os Tribunais de Contas.</p>
+        `
+      },
+      'artigo-3': {
+        category: 'CONTENCIOSO TRIBUTÁRIO NO CARF',
+        title: 'Exclusão de PIS/COFINS da própria base e subvenções para investimento após a Lei 14.789.',
+        author: 'Dra. Beatriz Mendes',
+        authorRole: 'Advogada Associada • Contencioso Administrativo e Judicial',
+        avatarHtml: '<div class="w-10 h-10 rounded-full bg-terracotta text-white flex items-center justify-center font-bold">BM</div>',
+        readTime: '6 min de leitura',
+        body: `
+          <p>As recentes alterações no regime de subvenções governamentais para custeio e investimento provocaram uma corrida aos tribunais e ao Conselho Administrativo de Recursos Fiscais (CARF).</p>
+          <p>A nova disciplina imposta pela Lei nº 14.789 revogou o tratamento anterior e introduziu o sistema de crédito fiscal compensável, impactando diretamente empresas beneficiárias de incentivos estaduais de ICMS.</p>
+          <p>Nossa equipe tem monitorado atentamente os precedentes da Câmara Superior de Recursos Fiscais (CSRF) para fundamentar defesas administrativas que resguardem direitos adquiridos em períodos anteriores à vigência da nova norma.</p>
+        `
+      },
+      'artigo-4': {
+        category: 'GESTÃO ESTRATÉGICA DE PRECATÓRIOS',
+        title: 'Due diligence em aquisição de precatórios federais: Blindagem contra fraudes e vícios de origem.',
+        author: 'Dra. Tattiana Navarro & Equipe',
+        authorRole: 'Núcleo Especializado em Precatórios Federais',
+        avatarHtml: '<img src="assets/tati-navarro-portrait.jpg" class="w-10 h-10 rounded-full object-cover">',
+        readTime: '4 min de leitura',
+        body: `
+          <p>A utilização de precatórios federais como mecanismo de liquidação tributária e alavancagem de balanço tornou-se uma ferramenta financeira de alto valor sob a regência das Emendas Constitucionais 113 e 114.</p>
+          <p>Contudo, o mercado secundário de títulos judiciais exige uma auditoria minuciosa de legitimidade: cadeia sucessória, inexistência de penhoras no processo originário e higidez do trânsito em julgado nos Tribunais Regionais Federais (TRFs).</p>
+          <p>No Oliveira Navarro, estruturamos pareceres de conformidade que garantem à empresa compradora a segurança absoluta de que o título está desimpedido para homologação judicial e fiscal.</p>
+        `
+      }
+    };
+
+    // Filter Media items
+    function filterMedia(category) {
+      document.querySelectorAll('.media-tab-btn').forEach(btn => btn.classList.remove('active', 'bg-terracotta', 'text-white'));
+      event.target.classList.add('active', 'bg-terracotta', 'text-white');
+
+      const items = document.querySelectorAll('.media-item');
+      items.forEach(item => {
+        if (category === 'todos' || item.classList.contains(category)) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Filter Articles items
+    function filterArticles(category) {
+      document.querySelectorAll('.article-tab-btn').forEach(btn => btn.classList.remove('active', 'bg-terracotta', 'text-white'));
+      event.target.classList.add('active', 'bg-terracotta', 'text-white');
+
+      const cards = document.querySelectorAll('.article-card');
+      cards.forEach(card => {
+        if (category === 'todas' || card.classList.contains(category)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Record News Modal
+    function openRecordNewsModal() {
+      const modal = document.getElementById('recordNewsModal');
+      const iframe = document.getElementById('recordNewsIframe');
+      // Using YouTube video embed for Record News Reforma Tributária
+      iframe.src = "https://www.youtube-nocookie.com/embed/UuYMiA4_WeE?autoplay=1&rel=0";
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeRecordNewsModal() {
+      const modal = document.getElementById('recordNewsModal');
+      const iframe = document.getElementById('recordNewsIframe');
+      iframe.src = "";
+      modal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Article Reader Modal
+    function openArticleModal(articleId) {
+      const data = articlesDB[articleId];
+      if (!data) return;
+
+      document.getElementById('modalArticleCategory').innerText = data.category;
+      document.getElementById('modalArticleTitle').innerText = data.title;
+      document.getElementById('modalAuthorName').innerText = data.author;
+      document.getElementById('modalAuthorRole').innerText = data.authorRole;
+      document.getElementById('modalAuthorAvatar').innerHTML = data.avatarHtml;
+      document.getElementById('modalReadTime').innerText = data.readTime;
+      document.getElementById('modalArticleBody').innerHTML = data.body;
+      
+      const whatsappMsg = encodeURIComponent(`Olá, li o artigo "${data.title}" no site do Oliveira Navarro e gostaria de conversar com o escritório sobre o tema.`);
+      document.getElementById('modalCtaLink').href = `https://wa.me/556137717679?text=${whatsappMsg}`;
+
+      const modal = document.getElementById('articleModal');
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('readProgress').style.width = '20%';
+    }
+
+    function closeArticleModal() {
+      const modal = document.getElementById('articleModal');
+      modal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Mobile Menu
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    }
+    document.getElementById('mobileMenuBtn').addEventListener('click', toggleMobileMenu);
+
+    // Interactive Monogram click effect
+    let monogramState = 0;
+    function cycleMonogramState() {
+      monogramState = (monogramState + 1) % 2;
+      const subtitle = document.querySelector('.animate-stroke');
+      if (subtitle) {
+        subtitle.style.stroke = monogramState === 1 ? '#FFFFFF' : '#DD4F1D';
+      }
+    }
+
+    // Conversion form for paid traffic
+    function enviarDiagnosticoWhatsApp() {
+      const radios = document.getElementsByName('interesse');
+      let selecionado = 'Reforma Tributária';
+      for (const r of radios) {
+        if (r.checked) {
+          selecionado = r.value;
+          break;
+        }
+      }
+      const msg = encodeURIComponent(`Olá, gostaria de solicitar uma avaliação estratégica com a equipe do Oliveira Navarro sobre: ${selecionado}.`);
+      window.open(`https://wa.me/556137717679?text=${msg}`, '_blank');
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const nome = document.getElementById('formNome').value;
+      const empresa = document.getElementById('formEmpresa').value;
+      const email = document.getElementById('formEmail').value;
+      const tel = document.getElementById('formTelefone').value;
+      const mensagem = document.getElementById('formMensagem').value;
+
+      const texto = encodeURIComponent(`*Novo Contato via Site Oliveira Navarro:*\n- *Nome:* ${nome}\n- *Empresa:* ${empresa}\n- *E-mail:* ${email}\n- *Telefone:* ${tel}\n- *Mensagem:* ${mensagem}`);
+      window.open(`https://wa.me/556137717679?text=${texto}`, '_blank');
+    }
+
+    // Close modals on Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeRecordNewsModal();
+        closeArticleModal();
+      }
+    });
+  </script>
+
+</body>
+</html>
