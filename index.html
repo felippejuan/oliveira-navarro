@@ -129,7 +129,7 @@
 <body class="bg-olina-coolGray text-olina-coffee font-sans antialiased overflow-x-hidden selection:bg-olina-orange selection:text-white">
 
   <!-- 1. DISCREET & LUXURY NAVIGATION BAR (FLOATING OVER HERO) -->
-  <header id="mainHeader" class="fixed top-0 left-0 right-0 z-50 bg-olina-coffeeDeep/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+  <header id="mainHeader" class="fixed top-0 left-0 right-0 z-50 bg-transparent border-b border-transparent transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-6">
       
       <!-- LOGO OFICIAL OLIVEIRA NAVARRO (Símbolo dos Retângulos Arredondados + Wordmark) -->
@@ -186,8 +186,8 @@
     </div>
   </header>
 
-  <!-- 2. HERO SECTION: 100% VÍDEO CINEMATOGRÁFICO LIMPO (SEM BOTÕES PESADOS NEM RETÂNGULOS) -->
-  <section id="hero" class="relative w-full h-[92vh] lg:h-screen min-h-[600px] flex items-end overflow-hidden bg-olina-coffeeDeep">
+  <!-- 2. HERO SECTION COM VÍDEO 100% CINEMATOGRÁFICO & RADAR DOCKED COM FOLGA DO PISO -->
+  <section id="hero" class="relative w-full h-[100dvh] min-h-[660px] flex flex-col justify-between overflow-hidden bg-olina-coffeeDeep select-none">
     
     <!-- O VÍDEO 100% PROTAGONISTA (OLIVEIRA.MP4) -->
     <video 
@@ -204,138 +204,134 @@
     </video>
 
     <!-- VINHETA SUAVE (GRADIENTE ULTRA-LEVE PARA LEGIBILIDADE SEM TAPAR O VÍDEO) -->
-    <div class="absolute inset-0 bg-gradient-to-t from-olina-coffeeDeep/90 via-black/15 to-black/35 pointer-events-none"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-olina-coffeeDeep/95 via-black/20 to-black/35 pointer-events-none"></div>
 
-    <!-- CONTEÚDO SOBREPOSTO SOB O VÍDEO (DISCRETO, QUIET LUXURY, SEM BOTÕES GRANDÕES) -->
-    <div class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
+    <!-- ESPAÇAMENTO SUPERIOR (PARA COMPENSAR O NAVBAR FLUTUANTE) -->
+    <div class="w-full pt-20 sm:pt-24 pointer-events-none"></div>
+
+    <!-- CONTEÚDO SOBREPOSTO: HEADLINE & TEXTO DE APOIO -->
+    <div class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-auto pb-4 sm:pb-6">
       
       <div class="max-w-2xl text-white">
         
         <!-- HEADLINE OFICIAL: "dos negócios" na linha debaixo especificamente no mobile -->
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.18] sm:leading-tight mb-4 drop-shadow-md">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.18] sm:leading-tight mb-3 sm:mb-4 drop-shadow-md">
           <span class="block sm:inline">Advocacia no ritmo</span>
           <span class="block sm:inline text-olina-orange font-extrabold">dos negócios.</span>
         </h1>
 
         <!-- Texto de apoio limpo -->
-        <p class="text-sm sm:text-base text-zinc-300 font-light leading-relaxed mb-6 max-w-lg drop-shadow">
+        <p class="text-xs sm:text-sm lg:text-base text-zinc-300 font-light leading-relaxed max-w-lg drop-shadow">
           Soluções jurídicas consultivas, estratégicas e seguras para decisões complexas no ambiente corporativo nacional.
         </p>
 
-        <!-- Indicador Sutil e Minimalista de Scroll (Substitui os botões grandões e pesados) -->
-        <div class="pt-2">
-          <a 
-            href="#radar-section" 
-            class="inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.22em] text-zinc-300 hover:text-white transition-colors group"
-          >
-            <span>Role para explorar</span>
-            <svg class="w-3.5 h-3.5 text-olina-orange transition-transform duration-300 group-hover:translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
-          </a>
-        </div>
-
       </div>
 
     </div>
 
-  </section>
-
-  <!-- 3. FAIXA "RADAR DE MERCADO & REGULAÇÃO" (ESTÉTICA EDITORIAL SOFISTICADA / FULL-WIDTH EDGE-TO-EDGE) -->
-  <section id="radar-section" class="border-y border-olina-coffeeBorder/80 bg-olina-coffeeDeep relative overflow-hidden select-none z-30 shadow-2xl">
-    
-    <!-- Linha 1: Rótulo Arquitetônico Superior (Discreto & Editorial no topo do ticker) -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 border-b border-white/5 flex items-center justify-between text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] text-zinc-400">
-      <div class="flex items-center gap-2">
-        <span class="section-pill-mini"></span>
-        <span>Radar de Mercado & Regulação</span>
-      </div>
-      <div class="flex items-center gap-1.5 text-zinc-400 font-medium">
-        <span class="w-1.5 h-1.5 rounded-full bg-olina-orange pulse-dot"></span>
-        <span class="hidden sm:inline">Atualizações em Tempo Real</span>
-        <span class="sm:hidden">Ao Vivo</span>
-      </div>
-    </div>
-
-    <!-- Linha 2: Ticker 100% Full-Width Contínuo (Sem blocos fixos atrapalhando a leitura no mobile) -->
-    <div class="w-full overflow-hidden py-3 text-xs tracking-wider">
-      <div class="animate-marquee flex items-center text-zinc-300 font-light whitespace-nowrap">
+    <!-- 3. FAIXA "RADAR DE MERCADO & REGULAÇÃO" (DOCKED COM FOLGA ATÉ O PISO DA HERO SECTION) -->
+    <div id="radar-container" class="relative z-30 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 sm:pb-10 lg:pb-12">
+      
+      <!-- CÁPSULA ARQUITETÔNICA ELEGANTE FLUTUANTE SOBRE O PISO -->
+      <div class="rounded-2xl border border-white/10 bg-olina-coffeeDeep/90 backdrop-blur-md shadow-2xl overflow-hidden">
         
-        <!-- Item 1: Record News -->
-        <div onclick="openRecordNewsModal()" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-          <span class="font-bold text-white tracking-widest text-[11px] uppercase">RECORD NEWS</span>
-          <span class="text-olina-orange font-bold">—</span>
-          <span>Dra. Tattiana Navarro analisa a transição do IVA Dual e os impactos nos contratos B2B</span>
-          <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Assistir</span>
+        <!-- Linha 1: Rótulo Arquitetônico Superior com "ÚLTIMAS:" -->
+        <div class="px-4 sm:px-6 py-2 border-b border-white/5 flex items-center justify-between text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-zinc-400">
+          <div class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-olina-orange pulse-dot"></span>
+            <span class="text-white font-extrabold">ÚLTIMAS:</span>
+            <span>RADAR DE MERCADO & REGULAÇÃO</span>
+          </div>
+          <div class="hidden sm:flex items-center gap-1.5 text-zinc-400 font-medium text-[10px]">
+            <span>Atualizações Contínuas</span>
+          </div>
         </div>
 
-        <span class="text-white/20 select-none">•</span>
+        <!-- Linha 2: Ticker 100% Full-Width Contínuo -->
+        <div class="w-full overflow-hidden py-2.5 text-xs tracking-wider">
+          <div class="animate-marquee flex items-center text-zinc-300 font-light whitespace-nowrap">
+            
+            <!-- Item 1: Record News -->
+            <div onclick="openRecordNewsModal()" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
+              <span class="font-bold text-white tracking-widest text-[11px] uppercase">RECORD NEWS</span>
+              <span class="text-olina-orange font-bold">—</span>
+              <span>Dra. Tattiana Navarro analisa a transição do IVA Dual e os impactos nos contratos B2B</span>
+              <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Assistir</span>
+            </div>
 
-        <!-- Item 2: Reforma Tributária Artigo -->
-        <div onclick="openArticleModal('artigo-1')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-          <span class="font-bold text-white tracking-widest text-[11px] uppercase">REFORMA TRIBUTÁRIA</span>
-          <span class="text-olina-orange font-bold">—</span>
-          <span>A não-cumulatividade plena no IBS/CBS e impactos no Lucro Real e Presumido</span>
-          <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ler</span>
-        </div>
+            <span class="text-white/20 select-none">•</span>
 
-        <span class="text-white/20 select-none">•</span>
+            <!-- Item 2: Reforma Tributária Artigo -->
+            <div onclick="openArticleModal('artigo-1')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
+              <span class="font-bold text-white tracking-widest text-[11px] uppercase">REFORMA TRIBUTÁRIA</span>
+              <span class="text-olina-orange font-bold">—</span>
+              <span>A não-cumulatividade plena no IBS/CBS e impactos no Lucro Real e Presumido</span>
+              <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ler</span>
+            </div>
 
-        <!-- Item 3: CARF / CSRF -->
-        <div onclick="openArticleModal('artigo-3')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-          <span class="font-bold text-white tracking-widest text-[11px] uppercase">CARF / CSRF</span>
-          <span class="text-olina-orange font-bold">—</span>
-          <span>Novos critérios para subvenções de investimento após a vigência da Lei 14.789</span>
-          <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ver Tese</span>
-        </div>
+            <span class="text-white/20 select-none">•</span>
 
-        <span class="text-white/20 select-none">•</span>
+            <!-- Item 3: CARF / CSRF -->
+            <div onclick="openArticleModal('artigo-3')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
+              <span class="font-bold text-white tracking-widest text-[11px] uppercase">CARF / CSRF</span>
+              <span class="text-olina-orange font-bold">—</span>
+              <span>Novos critérios para subvenções de investimento após a vigência da Lei 14.789</span>
+              <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ver Tese</span>
+            </div>
 
-        <!-- Item 4: Licitações 14.133 -->
-        <div onclick="openArticleModal('artigo-2')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-          <span class="font-bold text-white tracking-widest text-[11px] uppercase">LICITAÇÕES 14.133</span>
-          <span class="text-olina-orange font-bold">—</span>
-          <span>Processos sancionatórios e defesas prévias perante órgãos de controle</span>
-          <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ler</span>
-        </div>
+            <span class="text-white/20 select-none">•</span>
 
-        <span class="text-white/20 select-none">•</span>
+            <!-- Item 4: Licitações 14.133 -->
+            <div onclick="openArticleModal('artigo-2')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
+              <span class="font-bold text-white tracking-widest text-[11px] uppercase">LICITAÇÕES 14.133</span>
+              <span class="text-olina-orange font-bold">—</span>
+              <span>Processos sancionatórios e defesas prévias perante órgãos de controle</span>
+              <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ler</span>
+            </div>
 
-        <!-- Item 5: Precatórios Federais -->
-        <div onclick="openArticleModal('artigo-4')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-          <span class="font-bold text-white tracking-widest text-[11px] uppercase">PRECATÓRIOS FEDERAIS</span>
-          <span class="text-olina-orange font-bold">—</span>
-          <span>Due diligence fiduciária e gestão de liquidez em compensações fiscais</span>
-          <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Consultar</span>
-        </div>
+            <span class="text-white/20 select-none">•</span>
 
-        <span class="text-white/20 select-none">•</span>
+            <!-- Item 5: Precatórios Federais -->
+            <div onclick="openArticleModal('artigo-4')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
+              <span class="font-bold text-white tracking-widest text-[11px] uppercase">PRECATÓRIOS FEDERAIS</span>
+              <span class="text-olina-orange font-bold">—</span>
+              <span>Due diligence fiduciária e gestão de liquidez em compensações fiscais</span>
+              <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Consultar</span>
+            </div>
 
-        <!-- DUPLICAÇÃO EXATA PARA SCROLL CONTÍNUO E SUAVE SEM TRANCO -->
-        <div onclick="openRecordNewsModal()" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-          <span class="font-bold text-white tracking-widest text-[11px] uppercase">RECORD NEWS</span>
-          <span class="text-olina-orange font-bold">—</span>
-          <span>Dra. Tattiana Navarro analisa a transição do IVA Dual e os impactos nos contratos B2B</span>
-          <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Assistir</span>
-        </div>
+            <span class="text-white/20 select-none">•</span>
 
-        <span class="text-white/20 select-none">•</span>
+            <!-- DUPLICAÇÃO EXATA PARA SCROLL CONTÍNUO E SUAVE SEM TRANCO -->
+            <div onclick="openRecordNewsModal()" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
+              <span class="font-bold text-white tracking-widest text-[11px] uppercase">RECORD NEWS</span>
+              <span class="text-olina-orange font-bold">—</span>
+              <span>Dra. Tattiana Navarro analisa a transição do IVA Dual e os impactos nos contratos B2B</span>
+              <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Assistir</span>
+            </div>
 
-        <div onclick="openArticleModal('artigo-1')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-          <span class="font-bold text-white tracking-widest text-[11px] uppercase">REFORMA TRIBUTÁRIA</span>
-          <span class="text-olina-orange font-bold">—</span>
-          <span>A não-cumulatividade plena no IBS/CBS e impactos no Lucro Real e Presumido</span>
-          <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ler</span>
-        </div>
+            <span class="text-white/20 select-none">•</span>
 
-        <span class="text-white/20 select-none">•</span>
+            <div onclick="openArticleModal('artigo-1')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
+              <span class="font-bold text-white tracking-widest text-[11px] uppercase">REFORMA TRIBUTÁRIA</span>
+              <span class="text-olina-orange font-bold">—</span>
+              <span>A não-cumulatividade plena no IBS/CBS e impactos no Lucro Real e Presumido</span>
+              <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ler</span>
+            </div>
 
-        <div onclick="openArticleModal('artigo-3')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-          <span class="font-bold text-white tracking-widest text-[11px] uppercase">CARF / CSRF</span>
-          <span class="text-olina-orange font-bold">—</span>
-          <span>Novos critérios para subvenções de investimento após a vigência da Lei 14.789</span>
-          <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ver Tese</span>
+            <span class="text-white/20 select-none">•</span>
+
+            <div onclick="openArticleModal('artigo-3')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
+              <span class="font-bold text-white tracking-widest text-[11px] uppercase">CARF / CSRF</span>
+              <span class="text-olina-orange font-bold">—</span>
+              <span>Novos critérios para subvenções de investimento após a vigência da Lei 14.789</span>
+              <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ver Tese</span>
+            </div>
+
+          </div>
         </div>
 
       </div>
+
     </div>
 
   </section>
@@ -1137,12 +1133,31 @@
       document.body.style.overflow = 'auto';
     }
 
-    // 5. MOBILE MENU
+    // 5. HEADER SCROLL & MOBILE MENU (Alternativa 1A: Transparente no topo, Frosted Glass ao rolar)
+    const header = document.getElementById('mainHeader');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    function updateHeaderAppearance() {
+      const isMenuOpen = mobileMenu && !mobileMenu.classList.contains('hidden');
+      if (window.scrollY > 20 || isMenuOpen) {
+        header.classList.remove('bg-transparent', 'border-transparent');
+        header.classList.add('bg-olina-coffeeDeep/95', 'backdrop-blur-md', 'border-white/10', 'shadow-xl');
+      } else {
+        header.classList.remove('bg-olina-coffeeDeep/95', 'backdrop-blur-md', 'border-white/10', 'shadow-xl');
+        header.classList.add('bg-transparent', 'border-transparent');
+      }
+    }
+
     function toggleMobileMenu() {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('hidden');
+      if (mobileMenu) {
+        mobileMenu.classList.toggle('hidden');
+        updateHeaderAppearance();
+      }
     }
     document.getElementById('mobileMenuBtn').addEventListener('click', toggleMobileMenu);
+
+    window.addEventListener('scroll', updateHeaderAppearance, { passive: true });
+    updateHeaderAppearance();
 
     // 6. CONVERSION DISPATCHER (ADS PIXEL / WHATSAPP)
     function enviarDiagnosticoWhatsApp() {
