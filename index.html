@@ -7,7 +7,7 @@
   <meta name="description" content="Oliveira Navarro Advocacia para Negócios. Direito Tributário, Administrativo e Estratégia Jurídica em Brasília/DF. Liderança feminina, análises de fundo e presença na imprensa nacional.">
   
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <link rel="icon" type="image/svg+xml" href="assets/logo-white.svg">
 
   <!-- Google Fonts: Official Brand Typography (Cairo) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,15 +28,14 @@
               orangeHover: '#C44316',
               orangeMuted: 'rgba(221, 79, 29, 0.12)',
               coffee: '#3F3835',       // Pantone Turkish Coffee (Cinza Escuro / Tipografia Principal)
-              coffeeDeep: '#231E1C',   // Tom escuro arquitetônico para o Hero/Navbar
-              coffeeSurface: '#2E2825',
-              coffeeBorder: '#4E4642',
+              coffeeDeep: '#1E1A18',   // Tom escuro arquitetônico para o Navbar & Dark blocks
+              coffeeSurface: '#2B2523',
+              coffeeBorder: '#453C37',
               coolGray: '#EAEAEA',     // Pantone Cool Gray 1 (Cor Principal de Fundo Recomendada)
               coolGrayLight: '#F5F5F5',
               blueGray: '#B0BDC4',     // Pantone 7542 U (Cinza Azulado de Suporte)
               blueGrayLight: '#D8DFE3',
-              cardLight: '#FFFFFF',
-              charcoalText: '#2B2624'
+              cardLight: '#FFFFFF'
             }
           },
           fontFamily: {
@@ -59,21 +58,6 @@
       color: #FFFFFF;
     }
 
-    /* Custom architectural grid backdrop */
-    .arch-grid-dark {
-      background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-      background-size: 48px 48px;
-    }
-
-    .arch-grid-light {
-      background-image: 
-        linear-gradient(to right, rgba(63, 56, 53, 0.05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(63, 56, 53, 0.05) 1px, transparent 1px);
-      background-size: 48px 48px;
-    }
-
     /* Infinite Marquee Animation (Financial Ticker Style) */
     @keyframes marqueeScroll {
       0% { transform: translateX(0); }
@@ -83,16 +67,11 @@
     .animate-marquee {
       display: flex;
       width: max-content;
-      animation: marqueeScroll 38s linear infinite;
+      animation: marqueeScroll 36s linear infinite;
     }
 
     .animate-marquee:hover, .animate-marquee:focus-within {
       animation-play-state: paused;
-    }
-
-    /* Smooth switch toggle transition */
-    .switch-thumb {
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
     }
 
     /* Subtle pulsing badge */
@@ -106,14 +85,14 @@
 
     /* Custom scrollbar */
     ::-webkit-scrollbar {
-      width: 7px;
+      width: 6px;
     }
     ::-webkit-scrollbar-track {
-      background: #231E1C;
+      background: #1E1A18;
     }
     ::-webkit-scrollbar-thumb {
-      background: #4E4642;
-      border-radius: 4px;
+      background: #453C37;
+      border-radius: 3px;
     }
     ::-webkit-scrollbar-thumb:hover {
       background: #DD4F1D;
@@ -127,324 +106,237 @@
       background-color: #DD4F1D;
       display: inline-block;
     }
+
+    /* Smooth video fade in */
+    .hero-video {
+      transition: opacity 1s ease-in-out;
+    }
   </style>
 </head>
 
 <body class="bg-olina-coolGray text-olina-coffee font-sans antialiased overflow-x-hidden selection:bg-olina-orange selection:text-white">
 
-  <!-- 1. STICKY TOP AUTHORITY NAVIGATION BAR -->
-  <header id="mainHeader" class="sticky top-0 z-50 bg-olina-coffeeDeep/95 backdrop-blur-md border-b border-olina-coffeeBorder/60 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+  <!-- 1. DISCREET & LUXURY NAVIGATION BAR (FLOATING OVER HERO) -->
+  <header id="mainHeader" class="fixed top-0 left-0 right-0 z-50 bg-olina-coffeeDeep/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-6">
       
-      <!-- Brand Signature: Official Logo / Modular ON -->
-      <a href="#" class="flex items-center gap-3.5 group">
-        <!-- Official Modular Capsule Icon -->
-        <div class="relative flex items-center h-10 px-3 rounded-full bg-olina-coffeeSurface border border-olina-coffeeBorder group-hover:border-olina-orange/60 transition-all duration-300">
-          <div class="flex items-center gap-1.5">
-            <span class="w-2.5 h-2.5 rounded-full bg-olina-orange"></span>
-            <span class="text-white font-extrabold text-sm tracking-wider">ON</span>
-          </div>
-        </div>
-        <div class="flex flex-col">
-          <span class="text-white font-bold text-sm sm:text-base tracking-[0.16em] uppercase">Oliveira Navarro</span>
-          <span class="text-[10px] text-zinc-400 font-medium tracking-[0.24em] uppercase -mt-0.5">Advocacia para Negócios</span>
-        </div>
+      <!-- LOGO OFICIAL OLIVEIRA NAVARRO (Símbolo dos Retângulos Arredondados + Wordmark) -->
+      <a href="#" class="flex items-center group transition-opacity hover:opacity-95" aria-label="Oliveira Navarro Início">
+        <img 
+          src="assets/logo-white.svg" 
+          alt="Oliveira Navarro Advocacia" 
+          class="h-8 sm:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+        />
       </a>
 
-      <!-- Desktop Dynamic Switch Capsule (Locks into Header on Scroll) -->
-      <div id="headerSwitchPill" class="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-olina-coffeeSurface/80 border border-olina-coffeeBorder text-xs transition-all duration-500 opacity-0 -translate-y-2 pointer-events-none">
-        <span class="text-zinc-300 uppercase tracking-wider text-[11px] font-semibold pl-1">Advocacia no ritmo dos negócios</span>
-        <span class="px-2 py-0.5 rounded-full bg-olina-orange text-white text-[10px] font-bold tracking-wider">ON</span>
-      </div>
-
-      <!-- Desktop Nav Items -->
-      <nav class="hidden lg:flex items-center gap-7 text-[13px] tracking-wider uppercase font-semibold text-zinc-300">
-        <a href="#hero" class="hover:text-olina-orange transition-colors">Início</a>
-        <a href="#na-imprensa" class="text-white hover:text-olina-orange transition-colors flex items-center gap-1.5">
-          <span>Na Imprensa</span>
-          <span class="w-1.5 h-1.5 rounded-full bg-olina-orange"></span>
-        </a>
-        <a href="#artigos" class="hover:text-olina-orange transition-colors">Artigos & Opinião</a>
-        <a href="#atuacao" class="hover:text-olina-orange transition-colors">Soluções</a>
-        <a href="#sobre" class="hover:text-olina-orange transition-colors">O Escritório</a>
-        <a href="#contato" class="hover:text-olina-orange transition-colors">Contato</a>
+      <!-- MENU DISCRETO & ELEGANTE (QUIET LUXURY - SEM POLUIÇÃO VISUAL) -->
+      <nav class="hidden lg:flex items-center gap-8 text-[13px] font-normal tracking-[0.14em] text-zinc-300">
+        <a href="#hero" class="hover:text-white transition-colors duration-200">Início</a>
+        <a href="#na-imprensa" class="hover:text-white transition-colors duration-200">Na Imprensa</a>
+        <a href="#artigos" class="hover:text-white transition-colors duration-200">Artigos</a>
+        <a href="#atuacao" class="hover:text-white transition-colors duration-200">Soluções</a>
+        <a href="#sobre" class="hover:text-white transition-colors duration-200">O Escritório</a>
+        <a href="#contato" class="hover:text-white transition-colors duration-200">Contato</a>
       </nav>
 
-      <!-- CTA Button -->
-      <div class="hidden sm:flex items-center gap-3">
-        <a href="https://wa.me/556137717679?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20uma%20conversa%20estrat%C3%A9gica%20com%20o%20escrit%C3%B3rio%20Oliveira%20Navarro." target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-olina-orange hover:bg-olina-orangeHover text-white transition-all duration-300 shadow-md shadow-olina-orange/20 flex items-center gap-2">
+      <!-- CTA REFINADO (DISCRETO & SOFISTICADO) -->
+      <div class="hidden sm:flex items-center">
+        <a 
+          href="https://wa.me/556137717679?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20uma%20conversa%20estrat%C3%A9gica%20com%20o%20escrit%C3%B3rio%20Oliveira%20Navarro." 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="px-4 py-2 rounded-full border border-white/20 hover:border-olina-orange/80 text-zinc-200 hover:text-white bg-white/5 hover:bg-white/10 text-xs font-medium tracking-wider transition-all duration-300 flex items-center gap-2"
+        >
           <span>Consulta Estratégica</span>
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          <svg class="w-3.5 h-3.5 text-olina-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
         </a>
       </div>
 
       <!-- Mobile Menu Toggle Button -->
-      <button id="mobileMenuBtn" aria-label="Abrir menu" class="lg:hidden p-2 text-zinc-300 hover:text-white focus:outline-none">
+      <button id="mobileMenuBtn" aria-label="Abrir menu de navegação" class="lg:hidden p-2 text-zinc-300 hover:text-white focus:outline-none">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
     </div>
 
     <!-- Mobile Dropdown Menu -->
-    <div id="mobileMenu" class="hidden lg:hidden bg-olina-coffeeDeep border-b border-olina-coffeeBorder px-6 py-6 space-y-4 text-sm font-semibold uppercase tracking-wider text-zinc-200">
-      <a href="#hero" class="block hover:text-olina-orange" onclick="toggleMobileMenu()">Início</a>
-      <a href="#na-imprensa" class="block text-white flex items-center justify-between" onclick="toggleMobileMenu()">
-        <span>Na Imprensa</span>
-        <span class="text-[10px] bg-olina-orange text-white px-2 py-0.5 rounded-full font-bold">TV & Mídia</span>
-      </a>
-      <a href="#artigos" class="block hover:text-olina-orange" onclick="toggleMobileMenu()">Artigos & Opinião</a>
-      <a href="#atuacao" class="block hover:text-olina-orange" onclick="toggleMobileMenu()">Soluções em Inteligência Jurídica</a>
-      <a href="#sobre" class="block hover:text-olina-orange" onclick="toggleMobileMenu()">O Escritório & Liderança</a>
-      <a href="#contato" class="block hover:text-olina-orange" onclick="toggleMobileMenu()">Contato</a>
-      <div class="pt-4 border-t border-olina-coffeeBorder">
-        <a href="https://wa.me/556137717679" class="block text-center py-3 bg-olina-orange text-white rounded-full font-bold text-xs uppercase tracking-widest shadow-lg">
+    <div id="mobileMenu" class="hidden lg:hidden bg-olina-coffeeDeep/95 backdrop-blur-xl border-b border-white/10 px-6 py-6 space-y-4 text-sm font-medium tracking-wider text-zinc-200">
+      <a href="#hero" class="block hover:text-white py-1" onclick="toggleMobileMenu()">Início</a>
+      <a href="#na-imprensa" class="block hover:text-white py-1" onclick="toggleMobileMenu()">Na Imprensa</a>
+      <a href="#artigos" class="block hover:text-white py-1" onclick="toggleMobileMenu()">Artigos & Opinião</a>
+      <a href="#atuacao" class="block hover:text-white py-1" onclick="toggleMobileMenu()">Soluções</a>
+      <a href="#sobre" class="block hover:text-white py-1" onclick="toggleMobileMenu()">O Escritório</a>
+      <a href="#contato" class="block hover:text-white py-1" onclick="toggleMobileMenu()">Contato</a>
+      <div class="pt-4 border-t border-white/10">
+        <a href="https://wa.me/556137717679" class="block text-center py-2.5 bg-olina-orange text-white rounded-full font-bold text-xs uppercase tracking-widest shadow-lg">
           Falar no WhatsApp
         </a>
       </div>
     </div>
   </header>
 
-  <!-- 2. HERO SECTION: BENTO GRID ARQUITETÔNICO & "SWITCH ON" INTERATIVO (OPÇÃO A) -->
-  <section id="hero" class="relative bg-olina-coffeeDeep text-white arch-grid-dark pt-12 pb-16 lg:pt-16 lg:pb-20 border-b border-olina-coffeeBorder/60 overflow-hidden">
+  <!-- 2. HERO SECTION: 100% VÍDEO PROTAGONISTA (OLIVEIRA.MP4) + TEXTO SUBTILMENTE SOBREPOSTO -->
+  <section id="hero" class="relative w-full h-[92vh] lg:h-screen min-h-[620px] flex items-end overflow-hidden bg-olina-coffeeDeep">
     
-    <!-- Ambient orange glow subtle lights -->
-    <div class="absolute -top-32 right-1/4 w-[500px] h-[500px] bg-olina-orange/10 rounded-full blur-[120px] pointer-events-none"></div>
-    <div class="absolute -bottom-32 -left-20 w-[400px] h-[400px] bg-olina-blueGray/10 rounded-full blur-[100px] pointer-events-none"></div>
+    <!-- O VÍDEO 100% PROTAGONISTA (OLIVEIRA.MP4) -->
+    <video 
+      id="mainHeroVideo"
+      autoplay 
+      muted 
+      loop 
+      playsinline 
+      preload="auto"
+      class="hero-video absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
+    >
+      <source src="assets/oliveira.mp4" type="video/mp4">
+      Seu navegador não suporta vídeos HTML5.
+    </video>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- VINHETA SUAVE (GRADIENTE ULTRA-LEVE PARA LEGIBILIDADE SEM TAPAR O VÍDEO) -->
+    <div class="absolute inset-0 bg-gradient-to-t from-olina-coffeeDeep via-black/20 to-black/40 pointer-events-none"></div>
 
-      <!-- TOP ARCHITECTURAL HAIRLINE & COORDENADAS (Estilo Guia da Marca Pág. 34) -->
-      <div class="flex items-center justify-between text-[11px] text-zinc-400 font-medium uppercase tracking-[0.2em] pb-8 border-b border-white/10 mb-10">
-        <div class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-olina-orange pulse-dot"></span>
-          <span>Brasília • SAUS | Tribunais Superiores & CARF</span>
-        </div>
-        <div class="hidden md:flex items-center gap-4 text-zinc-400">
-          <span>15°47'38"S 47°52'58"W</span>
-          <span class="text-white/20">|</span>
-          <span class="text-olina-orange font-bold">Liderança Feminina</span>
-        </div>
-      </div>
-
-      <!-- BENTO GRID PRINCIPAL -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
-        
-        <!-- CARD 1: PITCH EDITORIAL & SWITCH ON INTERATIVO (7 Colunas) -->
-        <div class="lg:col-span-7 flex flex-col justify-between p-6 sm:p-8 lg:p-10 rounded-3xl bg-olina-coffeeSurface/90 border border-olina-coffeeBorder shadow-2xl relative overflow-hidden group">
-          
-          <!-- Subtle corner accent -->
-          <div class="absolute top-0 right-0 w-32 h-32 bg-olina-orange/10 rounded-bl-[80px] pointer-events-none transition-transform duration-500 group-hover:scale-110"></div>
-
-          <div>
-            <!-- Pill de Marca + Tagline -->
-            <div class="inline-flex items-center gap-2.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold uppercase tracking-wider text-zinc-300 mb-6">
-              <span class="section-pill-tag"></span>
-              <span>Oliveira Navarro Advocacia</span>
-            </div>
-
-            <!-- Título Principal Oficial (Cairo Bold - Tipografia de Alto Impacto do Manual) -->
-            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] mb-6">
-              Advocacia no <span class="text-olina-orange underline decoration-olina-orange/40 underline-offset-8">ritmo</span> dos negócios.
-            </h1>
-
-            <p class="text-base sm:text-lg text-zinc-300 font-light leading-relaxed mb-8 max-w-xl">
-              Acreditamos que uma nova abordagem do Direito pede uma advocacia que fale a língua do empresariado. Próxima, proativa e orientada à viabilização de crescimento seguro.
-            </p>
-          </div>
-
-          <!-- THE INTERACTIVE "SWITCH ON" COMPONENT (Fiel à Página 31 do Manual) -->
-          <div class="pt-6 border-t border-white/10">
-            <div class="text-[11px] font-bold uppercase tracking-widest text-zinc-400 mb-3 flex items-center justify-between">
-              <span>Identidade Modular & Status Operacional</span>
-              <span class="text-olina-orange text-[10px]">Clique no Switch para alternar</span>
-            </div>
-
-            <!-- Switch Capsule Component (Desktop & Mobile Proportional) -->
-            <div 
-              id="heroSwitchContainer"
-              onclick="toggleHeroSwitch()"
-              role="button"
-              tabindex="0"
-              aria-label="Alternar modo de presença institucional"
-              class="w-full cursor-pointer select-none rounded-2xl sm:rounded-full bg-olina-coffeeDeep p-2 sm:p-2.5 border border-white/20 hover:border-olina-orange/70 transition-all duration-300 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 group/switch focus:outline-none focus:ring-2 focus:ring-olina-orange"
-            >
-              <!-- Left Compartment: Official Slogan Text -->
-              <div class="flex items-center gap-3 pl-2 sm:pl-4 text-center sm:text-left">
-                <div id="switchIndicatorDot" class="w-2.5 h-2.5 rounded-full bg-olina-orange shrink-0 pulse-dot"></div>
-                <div class="flex flex-col">
-                  <span id="switchMainText" class="text-xs sm:text-sm font-extrabold tracking-[0.14em] uppercase text-white transition-colors duration-300">
-                    ADVOCACIA NO RITMO DOS NEGÓCIOS
-                  </span>
-                  <span id="switchSubText" class="text-[10px] text-zinc-400 font-medium tracking-wider">
-                    Modo Ativo: Mapeamento de Cenários & Defesa Estratégica
-                  </span>
-                </div>
-              </div>
-
-              <!-- Right Compartment: Interactive "ON" Switch Button -->
-              <div class="flex items-center gap-2 shrink-0">
-                <div class="relative flex items-center bg-olina-coffeeSurface rounded-full p-1 border border-white/10 w-28 h-11 transition-all duration-300">
-                  <!-- Sliding Pill Background -->
-                  <div id="switchThumb" class="absolute top-1 left-1 w-13 h-9 rounded-full bg-olina-orange switch-thumb shadow-md flex items-center justify-center">
-                    <span id="switchThumbLabel" class="text-white font-black text-sm tracking-widest">ON</span>
-                  </div>
-                  <!-- Alternative State Target Area -->
-                  <div class="w-full flex items-center justify-between px-3 text-[11px] font-bold text-zinc-400 pointer-events-none">
-                    <span>OFF</span>
-                    <span class="opacity-0">ON</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Quick Micro-Action Links -->
-            <div class="mt-6 flex flex-wrap items-center gap-4">
-              <a href="#na-imprensa" class="px-5 py-2.5 rounded-full bg-olina-orange hover:bg-olina-orangeHover text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md shadow-olina-orange/20 flex items-center gap-2">
-                <span>Ver Dra. Tati na Imprensa</span>
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-              </a>
-              <a href="#artigos" class="px-5 py-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 text-white text-xs font-bold uppercase tracking-wider transition-all">
-                Explorar Análises Técnicas
-              </a>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- CARD 2: FOTOGRAFIA AUTORAL & AUTORIDADE EXECUTIVA (5 Colunas) -->
-        <div class="lg:col-span-5 flex flex-col justify-between rounded-3xl bg-olina-coffeeSurface/90 border border-olina-coffeeBorder p-6 sm:p-8 relative overflow-hidden shadow-2xl">
-          
-          <!-- Image Container with Boutique Frame -->
-          <div class="relative w-full aspect-[4/3] sm:aspect-[16/11] rounded-2xl overflow-hidden mb-6 border border-white/10 group">
-            <img 
-              src="assets/tati-navarro-office.jpg" 
-              alt="Dra. Tattiana Navarro no escritório Oliveira Navarro em Brasília" 
-              class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-            />
-            <!-- Gradient Overlay -->
-            <div class="absolute inset-0 bg-gradient-to-t from-olina-coffeeDeep via-transparent to-transparent opacity-80"></div>
-            
-            <!-- Floating Badge: Record News Highlight -->
-            <div onclick="openRecordNewsModal()" class="cursor-pointer absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-olina-coffeeDeep/90 backdrop-blur-md border border-white/15 flex items-center justify-between gap-3 hover:border-olina-orange/80 transition-all">
-              <div class="flex items-center gap-2.5">
-                <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping"></span>
-                <div class="flex flex-col">
-                  <span class="text-[10px] uppercase font-bold text-olina-orange tracking-widest">Destaque em TV Aberta</span>
-                  <span class="text-xs font-bold text-white leading-tight">Record News: Reforma Tributária & B2B</span>
-                </div>
-              </div>
-              <span class="text-xs bg-olina-orange text-white px-2 py-1 rounded-md font-bold uppercase tracking-wider shrink-0 flex items-center gap-1">
-                <span>Play</span>
-                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
-              </span>
-            </div>
-          </div>
-
-          <!-- Sócia-Fundadora Bio Snip -->
-          <div>
-            <div class="flex items-baseline justify-between mb-2">
-              <h3 class="text-xl font-extrabold text-white">Dra. Tattiana Navarro</h3>
-              <span class="text-xs font-bold uppercase text-olina-orange tracking-widest">Sócia-Fundadora</span>
-            </div>
-            <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed font-light mb-4">
-              Advogada tributarista com sólida atuação consultiva e contenciosa. Liderança em reestruturações fiscais, defesa no CARF, Tribunais Superiores e gestão de precatórios de alta liquidez.
-            </p>
-            
-            <!-- Credenciais em Pílulas -->
-            <div class="grid grid-cols-2 gap-2 text-[11px] font-semibold text-zinc-300">
-              <div class="p-2 rounded-lg bg-white/5 border border-white/10 flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-olina-orange"></span>
-                <span>CARF & Tribunais Sup.</span>
-              </div>
-              <div class="p-2 rounded-lg bg-white/5 border border-white/10 flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-olina-orange"></span>
-                <span>Reforma Tributária</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <!-- 3. FAIXA CONTÍNUA "RADAR DE NEGÓCIOS & IMPRENSA" (MARQUEE INFINITO ESTILO BLOOMBERG / VALOR) -->
-    <div class="mt-12 lg:mt-16 border-y border-white/15 bg-olina-coffeeSurface/95 backdrop-blur-md py-3 text-xs tracking-wider relative overflow-hidden select-none">
+    <!-- CONTEÚDO SOBREPOSTO SOB O VÍDEO (DISCRETO & ELEGANTE) -->
+    <div class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-14 sm:pb-16 lg:pb-20">
       
-      <!-- Label Fixo na Esquerda -->
-      <div class="absolute left-0 top-0 bottom-0 z-20 px-4 sm:px-6 bg-olina-coffeeDeep flex items-center gap-2.5 border-r border-white/15 shadow-xl">
-        <span class="w-2 h-2 rounded-full bg-olina-orange pulse-dot"></span>
-        <span class="font-extrabold uppercase text-[11px] tracking-[0.16em] text-white whitespace-nowrap">
-          RADAR DE NEGÓCIOS
-        </span>
-      </div>
-
-      <!-- Ticker Marquee Track -->
-      <div class="animate-marquee pl-44 sm:pl-56 flex items-center gap-8 text-zinc-300">
+      <div class="max-w-2xl text-white">
         
-        <!-- Item 1: Record News -->
-        <div onclick="openRecordNewsModal()" class="cursor-pointer inline-flex items-center gap-2 hover:text-white transition-colors group/item">
-          <span class="px-2 py-0.5 rounded bg-red-600/30 text-red-400 border border-red-500/40 text-[10px] font-black uppercase">RECORD NEWS</span>
-          <span class="font-medium">Tattiana Navarro analisa a transição do IVA Dual e os reflexos imediatos nos contratos B2B</span>
-          <span class="text-olina-orange font-bold group-hover/item:translate-x-1 transition-transform">➔ Assistir</span>
+        <!-- Badge Sutil de Localização e Tribunais -->
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/40 border border-white/15 text-zinc-300 text-[11px] font-medium uppercase tracking-[0.2em] mb-4 backdrop-blur-md">
+          <span class="w-1.5 h-1.5 rounded-full bg-olina-orange pulse-dot"></span>
+          <span>Brasília • Tribunais Superiores & CARF</span>
         </div>
 
-        <span class="text-white/20">•</span>
+        <!-- Tagline Oficial da Marca (Discreta, Sem Clutter) -->
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight mb-4 drop-shadow-lg">
+          Advocacia no <span class="text-olina-orange font-extrabold">ritmo</span> dos negócios.
+        </h1>
 
-        <!-- Item 2: Reforma Tributária Artigo -->
-        <div onclick="openArticleModal('artigo-1')" class="cursor-pointer inline-flex items-center gap-2 hover:text-white transition-colors group/item">
-          <span class="px-2 py-0.5 rounded bg-olina-orange/20 text-olina-orange border border-olina-orange/40 text-[10px] font-black uppercase">ANÁLISE FISCAL</span>
-          <span class="font-medium">A não-cumulatividade plena no IBS/CBS e impactos no Lucro Real e Presumido</span>
-          <span class="text-olina-orange font-bold group-hover/item:translate-x-1 transition-transform">➔ Ler Análise</span>
-        </div>
+        <p class="text-sm sm:text-base text-zinc-300 font-light leading-relaxed mb-6 max-w-lg drop-shadow">
+          Soluções jurídicas consultivas, estratégicas e seguras para decisões complexas no ambiente corporativo nacional.
+        </p>
 
-        <span class="text-white/20">•</span>
-
-        <!-- Item 3: JOTA / CARF -->
-        <div onclick="openArticleModal('artigo-3')" class="cursor-pointer inline-flex items-center gap-2 hover:text-white transition-colors group/item">
-          <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-400/30 text-[10px] font-black uppercase">CARF / CSRF</span>
-          <span class="font-medium">Novos critérios para subvenções de investimento após a vigência da Lei 14.789</span>
-          <span class="text-olina-orange font-bold group-hover/item:translate-x-1 transition-transform">➔ Ver Tese</span>
-        </div>
-
-        <span class="text-white/20">•</span>
-
-        <!-- Item 4: Licitações 14.133 -->
-        <div onclick="openArticleModal('artigo-2')" class="cursor-pointer inline-flex items-center gap-2 hover:text-white transition-colors group/item">
-          <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 text-[10px] font-black uppercase">LICITAÇÕES PÚBLICAS</span>
-          <span class="font-medium">Processos sancionatórios e defesas prévias sob a nova Lei 14.133</span>
-          <span class="text-olina-orange font-bold group-hover/item:translate-x-1 transition-transform">➔ Ler Artigo</span>
-        </div>
-
-        <span class="text-white/20">•</span>
-
-        <!-- Item 5: Precatórios Federais -->
-        <div onclick="openArticleModal('artigo-4')" class="cursor-pointer inline-flex items-center gap-2 hover:text-white transition-colors group/item">
-          <span class="px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-400/30 text-[10px] font-black uppercase">PRECATÓRIOS</span>
-          <span class="font-medium">Due diligence em cessão e compensação de ativos judiciais de alta liquidez</span>
-          <span class="text-olina-orange font-bold group-hover/item:translate-x-1 transition-transform">➔ Consultar</span>
-        </div>
-
-        <span class="text-white/20">•</span>
-
-        <!-- DUPLICAÇÃO PARA SCROLL INFINITO CONTÍNUO SEM CORTE -->
-        <div onclick="openRecordNewsModal()" class="cursor-pointer inline-flex items-center gap-2 hover:text-white transition-colors group/item">
-          <span class="px-2 py-0.5 rounded bg-red-600/30 text-red-400 border border-red-500/40 text-[10px] font-black uppercase">RECORD NEWS</span>
-          <span class="font-medium">Tattiana Navarro analisa a transição do IVA Dual e os reflexos imediatos nos contratos B2B</span>
-          <span class="text-olina-orange font-bold group-hover/item:translate-x-1 transition-transform">➔ Assistir</span>
-        </div>
-
-        <span class="text-white/20">•</span>
-
-        <div onclick="openArticleModal('artigo-1')" class="cursor-pointer inline-flex items-center gap-2 hover:text-white transition-colors group/item">
-          <span class="px-2 py-0.5 rounded bg-olina-orange/20 text-olina-orange border border-olina-orange/40 text-[10px] font-black uppercase">ANÁLISE FISCAL</span>
-          <span class="font-medium">A não-cumulatividade plena no IBS/CBS e impactos no Lucro Real e Presumido</span>
-          <span class="text-olina-orange font-bold group-hover/item:translate-x-1 transition-transform">➔ Ler Análise</span>
+        <!-- Botões de Ação Discretos Sobrepostos -->
+        <div class="flex flex-wrap items-center gap-3">
+          <button 
+            onclick="openRecordNewsModal()" 
+            class="px-5 py-2.5 rounded-full bg-olina-orange hover:bg-olina-orangeHover text-white text-xs font-bold uppercase tracking-wider transition-all shadow-lg shadow-olina-orange/30 flex items-center gap-2"
+          >
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
+            <span>Ver na Record News</span>
+          </button>
+          
+          <a 
+            href="#na-imprensa" 
+            class="px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-medium uppercase tracking-wider transition-all backdrop-blur-sm flex items-center gap-1.5"
+          >
+            <span>Explorar Repercussão</span>
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </a>
         </div>
 
       </div>
+
     </div>
 
+    <!-- CONTROLES MÍNIMOS DE VÍDEO (DISCRETO NO CANTO INFERIOR DIREITO) -->
+    <div class="absolute bottom-6 right-4 sm:right-8 z-30 flex items-center gap-2">
+      <button 
+        id="videoMuteToggle" 
+        onclick="toggleVideoSound()" 
+        aria-label="Alternar áudio do vídeo"
+        class="w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 border border-white/15 text-zinc-300 hover:text-white flex items-center justify-center transition-all backdrop-blur-sm"
+      >
+        <svg id="muteIconMuted" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></svg>
+        <svg id="muteIconAudible" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>
+      </button>
+
+      <button 
+        id="videoPlayToggle" 
+        onclick="toggleVideoPlay()" 
+        aria-label="Pausar ou reproduzir vídeo"
+        class="w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 border border-white/15 text-zinc-300 hover:text-white flex items-center justify-center transition-all backdrop-blur-sm"
+      >
+        <svg id="playIconPause" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6"/></svg>
+        <svg id="playIconPlay" class="w-3.5 h-3.5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
+      </button>
+    </div>
+
+  </section>
+
+  <!-- 3. FAIXA CONTÍNUA "RADAR DE NEGÓCIOS & IMPRENSA" (APARECE QUANDO VOCÊ ABAIXA A PÁGINA) -->
+  <section id="radar-section" class="border-y border-olina-coffeeBorder/80 bg-olina-coffeeDeep text-xs tracking-wider relative overflow-hidden select-none z-30 shadow-2xl">
+    
+    <!-- Label Fixo na Esquerda -->
+    <div class="absolute left-0 top-0 bottom-0 z-20 px-4 sm:px-6 bg-olina-coffeeDeep flex items-center gap-2.5 border-r border-white/15 shadow-xl">
+      <span class="w-2 h-2 rounded-full bg-olina-orange pulse-dot"></span>
+      <span class="font-extrabold uppercase text-[11px] tracking-[0.16em] text-white whitespace-nowrap">
+        RADAR DE NEGÓCIOS
+      </span>
+    </div>
+
+    <!-- Ticker Marquee Track -->
+    <div class="animate-marquee py-3.5 pl-48 sm:pl-60 flex items-center gap-8 text-zinc-300">
+      
+      <!-- Item 1: Record News -->
+      <div onclick="openRecordNewsModal()" class="cursor-pointer inline-flex items-center gap-2 hover:text-white transition-colors group/item">
+        <span class="px-2 py-0.5 rounded bg-red-600/30 text-red-400 border border-red-500/40 text-[10px] font-black uppercase">RECORD NEWS</span>
+        <span class="font-medium">Tattiana Navarro analisa a transição do IVA Dual e os reflexos imediatos nos contratos B2B</span>
+        <span class="text-olina-orange font-bold group-hover/item:translate-x-1 transition-transform">➔ Assistir</span>
+      </div>
+
+      <span class="text-white/20">•</span>
+
+      <!-- Item 2: Reforma Tributária Artigo -->
+      <div onclick="openArticleModal('artigo-1')" class="cursor-pointer inline-flex items-center gap-2 hover:text-white transition-colors group/item">
+        <span class="px-2 py-0.5 rounded bg-olina-orange/20 text-olina-orange border border-olina-orange/40 text-[10px] font-black uppercase">ANÁLISE FISCAL</span>
+        <span class="font-medium">A não-cumulatividade plena no IBS/CBS e impactos no Lucro Real e Presumido</span>
+        <span class="text-olina-orange font-bold group-hover/item:translate-x-1 transition-transform">➔ Ler Análise</span>
+      </div>
+
+      <span class="text-white/20">•</span>
+
+      <!-- Item 3: JOTA / CARF -->
+      <div onclick="openArticleModal('artigo-3')" class="cursor-pointer inline-flex items-center gap-2 hover:text-white transition-colors group/item">
+        <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-400/30 text-[10px] font-black uppercase">CARF / CSRF</span>
+        <span class="font-medium">Novos critérios para subvenções de investimento após a vigência da Lei 14.789</span>
+        <span class="text-olina-orange font-bold group-hover/item:translate-x-1 transition-transform">➔ Ver Tese</span>
+      </div>
+
+      <span class="text-white/20">•</span>
+
+      <!-- Item 4: Licitações 14.133 -->
+      <div onclick="openArticleModal('artigo-2')" class="cursor-pointer inline-flex items-center gap-2 hover:text-white transition-colors group/item">
+        <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 text-[10px] font-black uppercase">LICITAÇÕES PÚBLICAS</span>
+        <span class="font-medium">Processos sancionatórios e defesas prévias sob a nova Lei 14.133</span>
+        <span class="text-olina-orange font-bold group-hover/item:translate-x-1 transition-transform">➔ Ler Artigo</span>
+      </div>
+
+      <span class="text-white/20">•</span>
+
+      <!-- Item 5: Precatórios Federais -->
+      <div onclick="openArticleModal('artigo-4')" class="cursor-pointer inline-flex items-center gap-2 hover:text-white transition-colors group/item">
+        <span class="px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-400/30 text-[10px] font-black uppercase">PRECATÓRIOS</span>
+        <span class="font-medium">Due diligence em cessão e compensação de ativos judiciais de alta liquidez</span>
+        <span class="text-olina-orange font-bold group-hover/item:translate-x-1 transition-transform">➔ Consultar</span>
+      </div>
+
+      <span class="text-white/20">•</span>
+
+      <!-- DUPLICAÇÃO PARA FLUXO INFINITO CONTÍNUO SEM CORTE -->
+      <div onclick="openRecordNewsModal()" class="cursor-pointer inline-flex items-center gap-2 hover:text-white transition-colors group/item">
+        <span class="px-2 py-0.5 rounded bg-red-600/30 text-red-400 border border-red-500/40 text-[10px] font-black uppercase">RECORD NEWS</span>
+        <span class="font-medium">Tattiana Navarro analisa a transição do IVA Dual e os reflexos imediatos nos contratos B2B</span>
+        <span class="text-olina-orange font-bold group-hover/item:translate-x-1 transition-transform">➔ Assistir</span>
+      </div>
+
+      <span class="text-white/20">•</span>
+
+      <div onclick="openArticleModal('artigo-1')" class="cursor-pointer inline-flex items-center gap-2 hover:text-white transition-colors group/item">
+        <span class="px-2 py-0.5 rounded bg-olina-orange/20 text-olina-orange border border-olina-orange/40 text-[10px] font-black uppercase">ANÁLISE FISCAL</span>
+        <span class="font-medium">A não-cumulatividade plena no IBS/CBS e impactos no Lucro Real e Presumido</span>
+        <span class="text-olina-orange font-bold group-hover/item:translate-x-1 transition-transform">➔ Ler Análise</span>
+      </div>
+
+    </div>
   </section>
 
   <!-- 4. SEÇÃO "NA IMPRENSA" (VITRINE DE AUTORIDADE & REPERCUSSÃO PÚBLICA) -->
@@ -464,7 +356,7 @@
               Na Imprensa
             </h2>
             <p class="mt-3 text-base sm:text-lg text-zinc-600 font-light max-w-2xl">
-              Entrevistas, debates e análises das sócias sobre os temas que redefinem o ambiente fiscal e regulatório do país.
+              Entrevistas de TV, matérias de jornais e análises das sócias sobre os temas que pautam a economia e o debate regulatório nacional.
             </p>
           </div>
 
@@ -902,7 +794,7 @@
   </section>
 
   <!-- 8. MÓDULO DE CONVERSÃO PARA TRÁFEGO PAGO (DESTINO ADS PIXEL / WHATSAPP DIRETO) -->
-  <section id="contato" class="py-20 lg:py-28 bg-olina-coffeeDeep text-white arch-grid-dark relative">
+  <section id="contato" class="py-20 lg:py-28 bg-olina-coffeeDeep text-white relative">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="p-8 sm:p-12 lg:p-16 rounded-3xl bg-olina-coffeeSurface border border-olina-coffeeBorder shadow-2xl relative overflow-hidden">
@@ -965,15 +857,11 @@
       
       <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
         
-        <!-- Logo & Tagline -->
+        <!-- Logo & Descrição -->
         <div class="md:col-span-2 space-y-4">
-          <div class="flex items-center gap-3">
-            <div class="flex items-center h-8 px-2.5 rounded-full bg-olina-coffeeSurface border border-white/10">
-              <span class="w-2 h-2 rounded-full bg-olina-orange mr-1.5"></span>
-              <span class="text-white font-black text-xs tracking-wider">ON</span>
-            </div>
-            <span class="text-white font-extrabold text-sm uppercase tracking-widest">Oliveira Navarro Advocacia</span>
-          </div>
+          <a href="#" class="inline-block">
+            <img src="assets/logo-white.svg" alt="Oliveira Navarro Advocacia" class="h-8 w-auto">
+          </a>
           <p class="text-zinc-400 max-w-sm leading-relaxed">
             Advocacia no ritmo dos negócios. Soluções consultivas, estratégicas e seguras para empresas que moldam a economia real.
           </p>
@@ -986,7 +874,7 @@
         <div>
           <h4 class="text-xs font-bold uppercase text-olina-orange tracking-widest mb-4">Navegação</h4>
           <ul class="space-y-2.5 text-zinc-300">
-            <li><a href="#hero" class="hover:text-olina-orange transition-colors">Início & Radar</a></li>
+            <li><a href="#hero" class="hover:text-olina-orange transition-colors">Início</a></li>
             <li><a href="#na-imprensa" class="hover:text-olina-orange transition-colors">Na Imprensa (TV & Portais)</a></li>
             <li><a href="#artigos" class="hover:text-olina-orange transition-colors">Artigos de Opinião</a></li>
             <li><a href="#atuacao" class="hover:text-olina-orange transition-colors">Soluções Jurídicas</a></li>
@@ -1105,7 +993,7 @@
     </div>
   </div>
 
-  <!-- 12. LOGIC JAVASCRIPT: VIBE CODING, INTERACTIVE SWITCH & MODALS -->
+  <!-- 12. LOGIC JAVASCRIPT: VÍDEO CONTROLS, MODALS & DISPATCHERS -->
   <script>
     // Database of Articles
     const articlesDB = {
@@ -1165,77 +1053,38 @@
       }
     };
 
-    // 1. INTERACTIVE "SWITCH ON" COMPONENT LOGIC (OPÇÃO A)
-    let switchStateOn = true;
-    
-    // Luxury Web Audio synthetic haptic click sound
-    function playLuxuryClickSound(frequency = 320) {
-      try {
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(frequency, audioCtx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(80, audioCtx.currentTime + 0.04);
-        gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.04);
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-        osc.start();
-        osc.stop(audioCtx.currentTime + 0.04);
-      } catch (e) {
-        // AudioContext not allowed or not supported; silent fallback
+    // 1. VIDEO PLAY / PAUSE & MUTE TOGGLE
+    const videoElem = document.getElementById('mainHeroVideo');
+    function toggleVideoPlay() {
+      if (!videoElem) return;
+      const playIcon = document.getElementById('playIconPlay');
+      const pauseIcon = document.getElementById('playIconPause');
+      if (videoElem.paused) {
+        videoElem.play();
+        playIcon.classList.add('hidden');
+        pauseIcon.classList.remove('hidden');
+      } else {
+        videoElem.pause();
+        playIcon.classList.remove('hidden');
+        pauseIcon.classList.add('hidden');
       }
     }
 
-    function toggleHeroSwitch() {
-      switchStateOn = !switchStateOn;
-      const thumb = document.getElementById('switchThumb');
-      const thumbLabel = document.getElementById('switchThumbLabel');
-      const dot = document.getElementById('switchIndicatorDot');
-      const mainText = document.getElementById('switchMainText');
-      const subText = document.getElementById('switchSubText');
-
-      if (switchStateOn) {
-        playLuxuryClickSound(440);
-        thumb.style.transform = 'translateX(0)';
-        thumb.style.backgroundColor = '#DD4F1D';
-        thumbLabel.innerText = 'ON';
-        dot.style.backgroundColor = '#DD4F1D';
-        dot.classList.add('pulse-dot');
-        mainText.innerText = 'ADVOCACIA NO RITMO DOS NEGÓCIOS';
-        mainText.style.color = '#FFFFFF';
-        subText.innerText = 'Modo Ativo: Mapeamento de Cenários & Defesa Estratégica';
+    function toggleVideoSound() {
+      if (!videoElem) return;
+      const mutedIcon = document.getElementById('muteIconMuted');
+      const audibleIcon = document.getElementById('muteIconAudible');
+      videoElem.muted = !videoElem.muted;
+      if (videoElem.muted) {
+        mutedIcon.classList.remove('hidden');
+        audibleIcon.classList.add('hidden');
       } else {
-        playLuxuryClickSound(220);
-        // Slide thumb to the right
-        thumb.style.transform = 'translateX(40px)';
-        thumb.style.backgroundColor = '#3F3835';
-        thumbLabel.innerText = 'OFF';
-        dot.style.backgroundColor = '#7A7A7A';
-        dot.classList.remove('pulse-dot');
-        mainText.innerText = 'OLIVEIRA NAVARRO ADVOCACIA';
-        mainText.style.color = '#B0BDC4';
-        subText.innerText = 'Clique novamente para reconectar o ritmo dos negócios';
+        mutedIcon.classList.add('hidden');
+        audibleIcon.classList.remove('hidden');
       }
     }
 
-    // 2. SCROLL OBSERVER: DOCK MINI SWITCH CAPSULE INTO HEADER
-    window.addEventListener('scroll', () => {
-      const headerSwitchPill = document.getElementById('headerSwitchPill');
-      const heroSection = document.getElementById('hero');
-      const heroBottom = heroSection.getBoundingClientRect().bottom;
-
-      if (heroBottom < 100) {
-        headerSwitchPill.classList.remove('opacity-0', '-translate-y-2', 'pointer-events-none');
-        headerSwitchPill.classList.add('opacity-100', 'translate-y-0');
-      } else {
-        headerSwitchPill.classList.add('opacity-0', '-translate-y-2', 'pointer-events-none');
-        headerSwitchPill.classList.remove('opacity-100', 'translate-y-0');
-      }
-    });
-
-    // 3. MEDIA FILTER
+    // 2. MEDIA FILTER
     function filterMedia(category) {
       document.querySelectorAll('.media-tab-btn').forEach(btn => {
         btn.classList.remove('active', 'bg-olina-coffee', 'text-white');
@@ -1254,7 +1103,7 @@
       });
     }
 
-    // 4. ARTICLE FILTER
+    // 3. ARTICLE FILTER
     function filterArticles(category) {
       document.querySelectorAll('.article-tab-btn').forEach(btn => {
         btn.classList.remove('active', 'bg-olina-coffee', 'text-white');
@@ -1273,7 +1122,7 @@
       });
     }
 
-    // 5. RECORD NEWS MODAL
+    // 4. RECORD NEWS MODAL
     function openRecordNewsModal() {
       const modal = document.getElementById('recordNewsModal');
       const iframe = document.getElementById('recordNewsIframe');
@@ -1290,7 +1139,7 @@
       document.body.style.overflow = 'auto';
     }
 
-    // 6. ARTICLE READER MODAL (DRAWER)
+    // 5. ARTICLE READER MODAL (DRAWER)
     function openArticleModal(articleId) {
       const data = articlesDB[articleId];
       if (!data) return;
@@ -1318,14 +1167,14 @@
       document.body.style.overflow = 'auto';
     }
 
-    // 7. MOBILE MENU
+    // 6. MOBILE MENU
     function toggleMobileMenu() {
       const menu = document.getElementById('mobileMenu');
       menu.classList.toggle('hidden');
     }
     document.getElementById('mobileMenuBtn').addEventListener('click', toggleMobileMenu);
 
-    // 8. CONVERSION DISPATCHER (ADS PIXEL / WHATSAPP)
+    // 7. CONVERSION DISPATCHER (ADS PIXEL / WHATSAPP)
     function enviarDiagnosticoWhatsApp() {
       const radios = document.getElementsByName('interesse');
       let selecionado = 'Reforma Tributária (IBS/CBS)';
