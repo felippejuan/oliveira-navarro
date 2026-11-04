@@ -6,12 +6,12 @@
   <title>Oliveira Navarro Advocacia | Advocacia no ritmo dos negócios</title>
   <meta name="description" content="Oliveira Navarro Advocacia para Negócios. Direito Tributário, Administrativo e Estratégia Jurídica em Brasília/DF. Liderança feminina, análises de fundo e presença na imprensa nacional.">
   
-  <!-- Favicons Oficiais Oliveira Navarro (ON) -->
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=20261104c">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png?v=20261104c">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png?v=20261104c">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=20261104c">
-  <link rel="shortcut icon" href="favicon.ico?v=20261104c">
+  <!-- Favicons Oficiais Oliveira Navarro (ON) - Ultra High Contrast Vibe -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=20261104d">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png?v=20261104d">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png?v=20261104d">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=20261104d">
+  <link rel="shortcut icon" href="favicon.ico?v=20261104d">
 
   <!-- Google Fonts: Official Brand Typography (Cairo) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -128,6 +128,15 @@
 
 <body class="bg-olina-coolGray text-olina-coffee font-sans antialiased overflow-x-hidden selection:bg-olina-orange selection:text-white">
 
+  <!-- 0. MANTHEY COLUMN TRANSITION OVERLAY (STAGGERED 5-COLUMN / 3-COLUMN CURTAIN) -->
+  <div id="columnCurtain" class="fixed inset-0 z-[100] pointer-events-none grid grid-cols-3 sm:grid-cols-5 divide-x divide-white/10" aria-hidden="true">
+    <div class="curtain-bar bg-olina-coffeeDeep h-full transform translate-y-full will-change-transform"></div>
+    <div class="curtain-bar bg-olina-coffeeDeep h-full transform translate-y-full will-change-transform"></div>
+    <div class="curtain-bar bg-olina-coffeeDeep h-full transform translate-y-full will-change-transform"></div>
+    <div class="curtain-bar hidden sm:block bg-olina-coffeeDeep h-full transform translate-y-full will-change-transform"></div>
+    <div class="curtain-bar hidden sm:block bg-olina-coffeeDeep h-full transform translate-y-full will-change-transform"></div>
+  </div>
+
   <!-- 1. DISCREET & LUXURY NAVIGATION BAR (FLOATING OVER HERO) -->
   <header id="mainHeader" class="fixed top-0 left-0 right-0 z-50 bg-transparent border-b border-transparent transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-6">
@@ -214,10 +223,10 @@
       
       <div class="max-w-2xl text-white">
         
-        <!-- HEADLINE OFICIAL: "dos negócios" na linha debaixo especificamente no mobile -->
+        <!-- HEADLINE OFICIAL: "ritmo" e "negócios" em laranja; "dos negócios" na 2ª linha no mobile -->
         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.18] sm:leading-tight mb-3 sm:mb-4 drop-shadow-md">
-          <span class="block sm:inline">Advocacia no ritmo</span>
-          <span class="block sm:inline text-olina-orange font-extrabold">dos negócios.</span>
+          <span class="block sm:inline">Advocacia no <span class="text-olina-orange font-extrabold">ritmo</span></span>
+          <span class="block sm:inline">dos <span class="text-olina-orange font-extrabold">negócios.</span></span>
         </h1>
 
         <!-- Texto de apoio limpo -->
@@ -332,6 +341,37 @@
     </div>
 
   </section>
+
+  <!-- 3.5 TRANSIÇÃO DE SEÇÕES EM COLUNAS ARQUITETÔNICAS (PORSCHE / MANTHEY COLUMN TRANSITION) -->
+  <div id="hero-column-transition" class="relative w-full bg-olina-coffeeDeep overflow-hidden select-none -mb-px" style="height: clamp(80px, 12vw, 150px);">
+    
+    <!-- Linhas Guia Verticais Arquitetônicas em Fundo (Grid Hairlines) -->
+    <div class="absolute inset-0 grid grid-cols-3 sm:grid-cols-5 divide-x divide-white/[0.06] pointer-events-none">
+      <div></div><div></div><div></div>
+      <div class="hidden sm:block"></div>
+      <div class="hidden sm:block"></div>
+    </div>
+    
+    <!-- Escadaria de Colunas Vibe Coding (Adaptação Mobile 3 Colunas & Desktop 5 Colunas) -->
+    <div class="relative w-full h-full grid grid-cols-3 sm:grid-cols-5 divide-x divide-zinc-300/40 items-end">
+      
+      <!-- Coluna 1: 100% (Preenchimento Total) -->
+      <div class="stair-col h-full bg-olina-coolGray border-r border-zinc-300/40 will-change-transform"></div>
+      
+      <!-- Coluna 2: 75% no Desktop, 55% no Mobile -->
+      <div class="stair-col h-[55%] sm:h-[75%] bg-olina-coolGray border-r border-zinc-300/40 will-change-transform"></div>
+      
+      <!-- Coluna 3: 50% no Desktop, 20% no Mobile -->
+      <div class="stair-col h-[20%] sm:h-[50%] bg-olina-coolGray border-r border-zinc-300/40 will-change-transform"></div>
+      
+      <!-- Coluna 4: 25% no Desktop -->
+      <div class="stair-col hidden sm:block h-[25%] bg-olina-coolGray border-r border-zinc-300/40 will-change-transform"></div>
+      
+      <!-- Coluna 5: 10% no Desktop -->
+      <div class="stair-col hidden sm:block h-[10%] bg-olina-coolGray will-change-transform"></div>
+      
+    </div>
+  </div>
 
   <!-- 4. SEÇÃO "NA IMPRENSA" (VITRINE DE AUTORIDADE & REPERCUSSÃO PÚBLICA) -->
   <section id="na-imprensa" class="py-20 lg:py-28 bg-olina-coolGray relative border-b border-zinc-300/80">
@@ -787,6 +827,22 @@
     </div>
   </section>
 
+  <!-- 7.5 TRANSIÇÃO DE SEÇÕES EM COLUNAS ARQUITETÔNICAS (LIGHT PARA DARK) -->
+  <div class="relative w-full bg-olina-coolGrayLight overflow-hidden select-none -mb-px" style="height: clamp(70px, 10vw, 120px);">
+    <div class="absolute inset-0 grid grid-cols-3 sm:grid-cols-5 divide-x divide-black/[0.04] pointer-events-none">
+      <div></div><div></div><div></div>
+      <div class="hidden sm:block"></div>
+      <div class="hidden sm:block"></div>
+    </div>
+    <div class="relative w-full h-full grid grid-cols-3 sm:grid-cols-5 divide-x divide-white/10 items-end">
+      <div class="h-[10%] sm:h-[15%] bg-olina-coffeeDeep border-r border-white/5"></div>
+      <div class="h-[35%] sm:h-[35%] bg-olina-coffeeDeep border-r border-white/5"></div>
+      <div class="h-[70%] sm:h-[55%] bg-olina-coffeeDeep border-r border-white/5"></div>
+      <div class="hidden sm:block h-[75%] bg-olina-coffeeDeep border-r border-white/5"></div>
+      <div class="hidden sm:block h-full bg-olina-coffeeDeep"></div>
+    </div>
+  </div>
+
   <!-- 8. MÓDULO DE CONVERSÃO PARA TRÁFEGO PAGO (DESTINO ADS PIXEL / WHATSAPP DIRETO) -->
   <section id="contato" class="py-20 lg:py-28 bg-olina-coffeeDeep text-white relative">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1177,6 +1233,94 @@
         closeArticleModal();
       }
     });
+
+    // 7. MANTHEY COLUMN TRANSITION ENGINE (VIBE CODING)
+    function setupColumnTransitions() {
+      const curtain = document.getElementById('columnCurtain');
+      const bars = curtain ? curtain.querySelectorAll('.curtain-bar') : [];
+
+      // Intercept anchor clicks for the luxury staggered 5-column wipe
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if (!targetId || targetId === '#' || targetId.length < 2) return;
+          const targetEl = document.querySelector(targetId);
+          if (!targetEl) return;
+
+          e.preventDefault();
+          
+          if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+            updateHeaderAppearance();
+          }
+
+          if (!curtain || bars.length === 0) {
+            targetEl.scrollIntoView({ behavior: 'smooth' });
+            return;
+          }
+
+          curtain.classList.remove('pointer-events-none');
+          
+          // Phase 1: Wipe IN from bottom with stagger
+          bars.forEach((bar, i) => {
+            bar.style.transition = 'transform 0.45s cubic-bezier(0.77, 0, 0.175, 1)';
+            bar.style.transitionDelay = `${i * 45}ms`;
+            bar.style.transform = 'translateY(0%)';
+          });
+
+          // Phase 2: Scroll to target and Wipe OUT to top with stagger
+          setTimeout(() => {
+            targetEl.scrollIntoView({ behavior: 'auto' });
+            
+            bars.forEach((bar, i) => {
+              bar.style.transitionDelay = `${i * 45}ms`;
+              bar.style.transform = 'translateY(-100%)';
+            });
+
+            // Reset curtain after wipe out
+            setTimeout(() => {
+              curtain.classList.add('pointer-events-none');
+              bars.forEach(bar => {
+                bar.style.transition = 'none';
+                bar.style.transform = 'translateY(100%)';
+              });
+            }, 600);
+          }, 380);
+        });
+      });
+
+      // Scroll-linked dynamic expansion for the hero stepped staircase
+      const heroTransition = document.getElementById('hero-column-transition');
+      if (heroTransition) {
+        const stairCols = heroTransition.querySelectorAll('.stair-col');
+        const defaultHeights = [100, 75, 50, 25, 10];
+        const mobileDefaultHeights = [100, 55, 20];
+
+        function handleStaircaseScroll() {
+          const rect = heroTransition.getBoundingClientRect();
+          const winHeight = window.innerHeight;
+          
+          if (rect.top < winHeight && rect.bottom > 0) {
+            const progress = Math.min(1, Math.max(0, (winHeight - rect.top) / (winHeight * 0.75)));
+            const isMobile = window.innerWidth < 640;
+            const bases = isMobile ? mobileDefaultHeights : defaultHeights;
+
+            stairCols.forEach((col, idx) => {
+              if (idx < bases.length) {
+                const base = bases[idx];
+                const current = base + (100 - base) * Math.pow(progress, 1.4);
+                col.style.height = `${current}%`;
+              }
+            });
+          }
+        }
+
+        window.addEventListener('scroll', handleStaircaseScroll, { passive: true });
+        handleStaircaseScroll();
+      }
+    }
+
+    setupColumnTransitions();
   </script>
 
 </body>
