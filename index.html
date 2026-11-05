@@ -131,13 +131,12 @@
 
 <body class="bg-olina-coolGray text-olina-coffee font-sans antialiased overflow-x-hidden selection:bg-olina-orange selection:text-white">
 
-  <!-- 0. MANTHEY COLUMN TRANSITION OVERLAY (STAGGERED 5-COLUMN / 3-COLUMN CURTAIN) -->
-  <div id="columnCurtain" class="fixed inset-0 z-[100] pointer-events-none grid grid-cols-3 sm:grid-cols-5 divide-x divide-white/10" aria-hidden="true">
-    <div class="curtain-bar bg-olina-coffeeDeep h-full transform translate-y-full will-change-transform"></div>
-    <div class="curtain-bar bg-olina-coffeeDeep h-full transform translate-y-full will-change-transform"></div>
-    <div class="curtain-bar bg-olina-coffeeDeep h-full transform translate-y-full will-change-transform"></div>
-    <div class="curtain-bar hidden sm:block bg-olina-coffeeDeep h-full transform translate-y-full will-change-transform"></div>
-    <div class="curtain-bar hidden sm:block bg-olina-coffeeDeep h-full transform translate-y-full will-change-transform"></div>
+  <!-- 0. GUIA ARQUITETÔNICO DE 4 COLUNAS (INVISÍVEL EM REPOUSO - SÓ APARECE DURANTE A TRANSIÇÃO NO SCROLL) -->
+  <div id="global-vault-hairlines" class="fixed inset-0 z-[35] pointer-events-none grid grid-cols-4 opacity-0 transition-opacity duration-150" aria-hidden="true">
+    <div class="vault-hairline-col border-r border-white/15 h-full"></div>
+    <div class="vault-hairline-col border-r border-white/15 h-full"></div>
+    <div class="vault-hairline-col border-r border-white/15 h-full"></div>
+    <div class="h-full"></div>
   </div>
 
   <!-- 1. DISCREET & LUXURY NAVIGATION BAR (FLOATING OVER HERO) -->
@@ -299,8 +298,8 @@
     </div>
   </header>
 
-  <!-- 2. HERO SECTION -->
-  <section id="hero" class="relative w-full h-[100dvh] min-h-[660px] overflow-hidden bg-olina-coffeeDeep flex flex-col justify-between select-none">
+  <!-- 2. HERO SECTION (PINNED BASE PARA TRANSIÇÃO DE 4 COLUNAS) -->
+  <section id="hero" class="sticky top-0 w-full h-[100dvh] min-h-[660px] overflow-hidden bg-olina-coffeeDeep z-10 flex flex-col justify-between select-none">
     
     <!-- O VÍDEO 100% PROTAGONISTA (OLIVEIRA.MP4) -->
     <video 
@@ -441,8 +440,18 @@
     </div>
   </section>
 
-  <!-- 3. SEÇÃO "QUEM SOMOS" -->
-  <section id="quem-somos" class="relative py-24 lg:py-32 bg-olina-coolGray border-b border-zinc-300/80">
+  <!-- CONTAINER PRINCIPAL DE SEÇÕES (SEMPRE ACIMA DA HERO COM TRANSIÇÃO DE 4 COLUNAS DEFAULT) -->
+  <main id="mainContent" class="relative z-20">
+
+  <!-- 3. SEÇÃO "QUEM SOMOS" (DEFAULT 4-COLUMN TRANSITION) -->
+  <section id="quem-somos" class="vault-section relative z-20 py-24 lg:py-32 border-b border-zinc-300/80" data-line-theme="light">
+    <!-- 4-COLUMN STAGGERED STAIRCASE BACKGROUND -->
+    <div class="vault-col-group absolute inset-x-0 top-0 -bottom-[32vh] -z-10 grid grid-cols-4 pointer-events-none" aria-hidden="true">
+      <div class="vault-col bg-olina-coolGray h-full w-full will-change-transform border-t border-r border-transparent"></div>
+      <div class="vault-col bg-olina-coolGray h-full w-full will-change-transform border-t border-r border-transparent"></div>
+      <div class="vault-col bg-olina-coolGray h-full w-full will-change-transform border-t border-r border-transparent"></div>
+      <div class="vault-col bg-olina-coolGray h-full w-full will-change-transform border-t border-transparent"></div>
+    </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Seção Header com Pílula Oficial de 12px e Hairline -->
@@ -508,11 +517,18 @@
   </section>
 
   <!-- 4. SEÇÃO "NA IMPRENSA" (VITRINE DE AUTORIDADE & REPERCUSSÃO PÚBLICA) -->
-  <section id="na-imprensa" class="py-20 lg:py-28 bg-olina-coolGray relative border-b border-zinc-300/80">
+  <section id="na-imprensa" class="vault-section py-20 lg:py-28 relative z-20 border-b border-zinc-300/80" data-line-theme="light">
+    <!-- 4-COLUMN STAGGERED STAIRCASE BACKGROUND -->
+    <div class="vault-col-group absolute inset-x-0 top-0 -bottom-[32vh] -z-10 grid grid-cols-4 pointer-events-none" aria-hidden="true">
+      <div class="vault-col bg-olina-coolGrayLight h-full w-full will-change-transform border-t border-r border-transparent"></div>
+      <div class="vault-col bg-olina-coolGrayLight h-full w-full will-change-transform border-t border-r border-transparent"></div>
+      <div class="vault-col bg-olina-coolGrayLight h-full w-full will-change-transform border-t border-r border-transparent"></div>
+      <div class="vault-col bg-olina-coolGrayLight h-full w-full will-change-transform border-t border-transparent"></div>
+    </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Seção Header com Pílula Oficial de 12px e Hairline (Páginas 2 a 39 do Guia) -->
-      <div class="mb-14">
+      <div class="mb-14 reveal-item transition-all duration-700 opacity-0 transform translate-y-8">
         <div class="flex items-center gap-3 mb-3">
           <span class="section-pill-tag"></span>
           <span class="text-xs font-bold uppercase tracking-[0.25em] text-olina-orange">Presença & Autoridade Pública</span>
@@ -664,11 +680,18 @@
   </section>
 
   <!-- 5. SEÇÃO "ARTIGOS & OPINIÃO" (RODÍZIO DAS ADVOGADAS ASSOCIADAS & GAVETA DE LEITURA) -->
-  <section id="artigos" class="py-20 lg:py-28 bg-olina-coolGrayLight relative border-b border-zinc-300/80">
+  <section id="artigos" class="vault-section py-20 lg:py-28 relative z-20 border-b border-zinc-300/80" data-line-theme="light">
+    <!-- 4-COLUMN STAGGERED STAIRCASE BACKGROUND -->
+    <div class="vault-col-group absolute inset-x-0 top-0 -bottom-[32vh] -z-10 grid grid-cols-4 pointer-events-none" aria-hidden="true">
+      <div class="vault-col bg-olina-coolGray h-full w-full will-change-transform border-t border-r border-transparent"></div>
+      <div class="vault-col bg-olina-coolGray h-full w-full will-change-transform border-t border-r border-transparent"></div>
+      <div class="vault-col bg-olina-coolGray h-full w-full will-change-transform border-t border-r border-transparent"></div>
+      <div class="vault-col bg-olina-coolGray h-full w-full will-change-transform border-t border-transparent"></div>
+    </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Seção Header com Pílula Oficial de 12px e Hairline -->
-      <div class="mb-14">
+      <div class="mb-14 reveal-item transition-all duration-700 opacity-0 transform translate-y-8">
         <div class="flex items-center gap-3 mb-3">
           <span class="section-pill-tag"></span>
           <span class="text-xs font-bold uppercase tracking-[0.25em] text-olina-orange">Centro de Inteligência Jurídica</span>
@@ -821,11 +844,18 @@
 
 
   <!-- 7. SEÇÃO "SOLUÇÕES EM INTELIGÊNCIA JURÍDICA" -->
-  <section id="atuacao" class="py-20 lg:py-28 bg-olina-coolGrayLight relative border-b border-zinc-300/80">
+  <section id="atuacao" class="vault-section py-20 lg:py-28 relative z-20 border-b border-zinc-300/80" data-line-theme="light">
+    <!-- 4-COLUMN STAGGERED STAIRCASE BACKGROUND -->
+    <div class="vault-col-group absolute inset-x-0 top-0 -bottom-[32vh] -z-10 grid grid-cols-4 pointer-events-none" aria-hidden="true">
+      <div class="vault-col bg-olina-coolGrayLight h-full w-full will-change-transform border-t border-r border-transparent"></div>
+      <div class="vault-col bg-olina-coolGrayLight h-full w-full will-change-transform border-t border-r border-transparent"></div>
+      <div class="vault-col bg-olina-coolGrayLight h-full w-full will-change-transform border-t border-r border-transparent"></div>
+      <div class="vault-col bg-olina-coolGrayLight h-full w-full will-change-transform border-t border-transparent"></div>
+    </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Seção Header com Pílula Oficial de 12px e Hairline -->
-      <div class="mb-14">
+      <div class="mb-14 reveal-item transition-all duration-700 opacity-0 transform translate-y-8">
         <div class="flex items-center gap-3 mb-3">
           <span class="section-pill-tag"></span>
           <span class="text-xs font-bold uppercase tracking-[0.25em] text-olina-orange">Áreas de Especialização</span>
@@ -897,27 +927,18 @@
     </div>
   </section>
 
-  <!-- 7.5 TRANSIÇÃO DE SEÇÕES EM COLUNAS ARQUITETÔNICAS (LIGHT PARA DARK) -->
-  <div class="relative w-full bg-olina-coolGrayLight overflow-hidden select-none -mb-px" style="height: clamp(70px, 10vw, 120px);">
-    <div class="absolute inset-0 grid grid-cols-3 sm:grid-cols-5 divide-x divide-black/[0.04] pointer-events-none">
-      <div></div><div></div><div></div>
-      <div class="hidden sm:block"></div>
-      <div class="hidden sm:block"></div>
-    </div>
-    <div class="relative w-full h-full grid grid-cols-3 sm:grid-cols-5 divide-x divide-white/10 items-end">
-      <div class="h-[10%] sm:h-[15%] bg-olina-coffeeDeep border-r border-white/5"></div>
-      <div class="h-[35%] sm:h-[35%] bg-olina-coffeeDeep border-r border-white/5"></div>
-      <div class="h-[70%] sm:h-[55%] bg-olina-coffeeDeep border-r border-white/5"></div>
-      <div class="hidden sm:block h-[75%] bg-olina-coffeeDeep border-r border-white/5"></div>
-      <div class="hidden sm:block h-full bg-olina-coffeeDeep"></div>
-    </div>
-  </div>
-
   <!-- 8. MÓDULO DE CONVERSÃO PARA TRÁFEGO PAGO (DESTINO ADS PIXEL / WHATSAPP DIRETO) -->
-  <section id="contato" class="py-20 lg:py-28 bg-olina-coffeeDeep text-white relative">
+  <section id="contato" class="vault-section py-20 lg:py-28 text-white relative z-20" data-line-theme="dark">
+    <!-- 4-COLUMN STAGGERED STAIRCASE BACKGROUND (DARK COFFEE) -->
+    <div class="vault-col-group absolute inset-x-0 top-0 -bottom-[32vh] -z-10 grid grid-cols-4 pointer-events-none" aria-hidden="true">
+      <div class="vault-col bg-olina-coffeeDeep h-full w-full will-change-transform border-t border-r border-transparent"></div>
+      <div class="vault-col bg-olina-coffeeDeep h-full w-full will-change-transform border-t border-r border-transparent"></div>
+      <div class="vault-col bg-olina-coffeeDeep h-full w-full will-change-transform border-t border-r border-transparent"></div>
+      <div class="vault-col bg-olina-coffeeDeep h-full w-full will-change-transform border-t border-transparent"></div>
+    </div>
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="p-8 sm:p-12 lg:p-16 rounded-3xl bg-olina-coffeeSurface border border-olina-coffeeBorder shadow-2xl relative overflow-hidden">
+      <div class="p-8 sm:p-12 lg:p-16 rounded-3xl bg-olina-coffeeSurface border border-olina-coffeeBorder shadow-2xl relative overflow-hidden reveal-item transition-all duration-700 opacity-0 transform translate-y-8">
         
         <div class="relative z-10 text-center max-w-2xl mx-auto mb-10">
           <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-olina-orange/20 border border-olina-orange/30 text-olina-orange text-xs font-bold uppercase tracking-widest mb-4">
@@ -972,7 +993,7 @@
   </section>
 
   <!-- 9. RODAPÉ INSTITUCIONAL (GUIA DE IDENTIDADE VISUAL 2024) -->
-  <footer class="bg-olina-coffeeDeep text-white border-t border-olina-coffeeBorder py-14 text-xs font-light">
+  <footer class="relative z-20 bg-olina-coffeeDeep text-white border-t border-olina-coffeeBorder py-14 text-xs font-light">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
@@ -1028,6 +1049,8 @@
 
     </div>
   </footer>
+
+  </main>
 
   <!-- 10. MODAL: TRANSMISSÃO RECORD NEWS (EM TELA CHEIA LIMPA) -->
   <div id="recordNewsModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
@@ -1321,7 +1344,7 @@
       }
     });
 
-    // 7. LENIS SMOOTH SCROLL & REVEAL-ON-SCROLL ENGINE
+    // 7. LENIS SMOOTH SCROLL & DEFAULT 4-COLUMN SECTION TRANSITION ENGINE
     let lenis = null;
     if (typeof Lenis !== 'undefined') {
       try {
@@ -1342,11 +1365,78 @@
       }
     }
 
+    // Motor Default de Transição em 4 Colunas (Ativo em TODAS as Seções)
+    const heroSectionEl = document.getElementById('hero');
+    const quemSomosEl = document.getElementById('quem-somos');
+    const globalHairlines = document.getElementById('global-vault-hairlines');
+    const vaultSections = document.querySelectorAll('.vault-section');
+    const stepMultipliersVh = [-26, -18, -10, -2];
+
+    function updateAllFourColumnTransitions() {
+      const vh = window.innerHeight || 800;
+      const scrollY = window.scrollY || window.pageYOffset || 0;
+      let maxActiveEnvelope = 0;
+
+      // Blindagem da Hero: invisível assim que Quem Somos cobre 100% da tela (impede repetição em Na Imprensa)
+      if (heroSectionEl && quemSomosEl) {
+        const qsRect = quemSomosEl.getBoundingClientRect();
+        if (qsRect.top <= 2) {
+          heroSectionEl.style.visibility = 'hidden';
+        } else {
+          heroSectionEl.style.visibility = 'visible';
+        }
+      }
+
+      vaultSections.forEach((sec) => {
+        const rect = sec.getBoundingClientRect();
+        const cols = sec.querySelectorAll('.vault-col');
+        if (!cols.length) return;
+
+        // Progresso da transição (0 antes de entrar na tela, 0..1 subindo, 1 quando assentada)
+        const rawProgress = (vh - rect.top) / (vh * 0.88);
+        const p = Math.min(1, Math.max(0, rawProgress));
+
+        // Curva que é 0 no repouso (p=0), abre os 4 degraus na subida (0<p<1) e zera ao assentar (p=1)
+        const envelope = (scrollY > 3 && p > 0.005 && p < 0.995)
+          ? Math.pow(Math.sin(p * Math.PI), 0.8)
+          : 0;
+
+        if (envelope > maxActiveEnvelope) {
+          maxActiveEnvelope = envelope;
+        }
+
+        const isDark = sec.getAttribute('data-line-theme') === 'dark';
+        const borderAlpha = (envelope * (isDark ? 0.22 : 0.20)).toFixed(3);
+        const borderColor = isDark
+          ? `rgba(255, 255, 255, ${borderAlpha})`
+          : `rgba(63, 56, 53, ${borderAlpha})`;
+
+        cols.forEach((col, idx) => {
+          const offsetVh = stepMultipliersVh[idx % 4] * envelope;
+          col.style.transform = `translate3d(0, ${offsetVh.toFixed(2)}vh, 0)`;
+          col.style.borderColor = borderColor;
+        });
+      });
+
+      // As linhas divisórias das 4 colunas SÓ aparecem durante o movimento de transição e somem depois
+      if (globalHairlines) {
+        if (scrollY > 3 && maxActiveEnvelope > 0.04) {
+          globalHairlines.style.opacity = (maxActiveEnvelope * 0.75).toFixed(2);
+        } else {
+          globalHairlines.style.opacity = '0';
+        }
+      }
+    }
+
     if (lenis) {
       lenis.on('scroll', () => {
         updateHeaderAppearance();
+        updateAllFourColumnTransitions();
       });
     }
+    window.addEventListener('scroll', updateAllFourColumnTransitions, { passive: true });
+    window.addEventListener('resize', updateAllFourColumnTransitions, { passive: true });
+    updateAllFourColumnTransitions();
 
     // Scroll-driven gradual reveal for sections and items
     const revealObserver = new IntersectionObserver((entries) => {
