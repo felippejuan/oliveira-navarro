@@ -322,8 +322,8 @@
       <!-- VINHETA SUAVE (GRADIENTE ULTRA-LEVE PARA LEGIBILIDADE SEM TAPAR O VÍDEO) -->
       <div class="absolute inset-0 bg-gradient-to-t from-olina-coffeeDeep/90 via-black/20 to-black/35 pointer-events-none"></div>
 
-      <!-- LINHAS ARQUITETÔNICAS VERTICAIS SUTIS (HAIRLINES 4 COLUNAS SOBRE O VÍDEO - PORSCHE MANTHEY) -->
-      <div class="absolute inset-0 grid grid-cols-4 divide-x divide-white/[0.08] pointer-events-none z-10" aria-hidden="true">
+      <!-- LINHAS ARQUITETÔNICAS VERTICAIS SUTIS (HAIRLINES 4 COLUNAS - SÓ APARECEM AO ROLAR) -->
+      <div id="hero-grid-hairlines" class="absolute inset-0 grid grid-cols-4 divide-x divide-white/10 pointer-events-none z-10 opacity-0 transition-opacity duration-200" aria-hidden="true">
         <div></div><div></div><div></div><div></div>
       </div>
 
@@ -1377,6 +1377,17 @@
 
         const scrolled = -rect.top;
         const progress = Math.min(1, Math.max(0, scrolled / totalTravel));
+
+        // Hairlines de divisão: invisíveis no topo (repouso) e surgem suavemente ao iniciar a descida
+        const hairlines = document.getElementById('hero-grid-hairlines');
+        if (hairlines) {
+          if (progress > 0.005) {
+            const lineOpacity = Math.min(1, progress * 10);
+            hairlines.style.opacity = lineOpacity.toFixed(2);
+          } else {
+            hairlines.style.opacity = '0';
+          }
+        }
 
         slices.forEach((slice, i) => {
           const range = ranges[i % ranges.length];
