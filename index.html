@@ -187,6 +187,53 @@
       display: inline-block;
     }
 
+    /* Micro-animação do 'hífen gordinho' que se expande para 'ON' (Quem Somos) */
+    .on-pill-indicator {
+      width: 26px;
+      height: 10px;
+      background-color: #D6CEC5;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    .on-pill-indicator .on-text {
+      color: #FFFFFF;
+      font-size: 8.5px;
+      font-weight: 800;
+      font-family: 'Cairo', 'Plus Jakarta Sans', sans-serif;
+      letter-spacing: 0.08em;
+      line-height: 1;
+      opacity: 0;
+      transform: scale(0.65) translateY(1px);
+      transition: opacity 0.35s ease 0.1s, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) 0.08s;
+      pointer-events: none;
+    }
+
+    /* Estado ATIVO (laranja terracota oficial com ON em branco com glow suave) */
+    .on-pill-indicator.active {
+      width: 38px;
+      height: 17px;
+      background-color: #DD4F1D;
+      box-shadow: 0 2px 10px rgba(221, 79, 29, 0.38), 0 0 0 1px rgba(221, 79, 29, 0.2);
+    }
+
+    .on-pill-indicator.active .on-text {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+
+    .on-pill-indicator:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 14px rgba(221, 79, 29, 0.45);
+    }
+
     /* Hero video smooth display */
     .hero-video {
       transition: opacity 1s ease-in-out;
@@ -522,7 +569,9 @@
       <!-- Seção Header com Pílula Oficial de 12px e Hairline -->
       <div class="mb-14 reveal-item transition-all duration-700 opacity-0 transform translate-y-8">
         <div class="flex items-center gap-3 mb-3">
-          <span class="section-pill-tag"></span>
+          <div id="eyebrow-on-pill" class="on-pill-indicator group" onclick="toggleOnPill(true)" title="Status de Prontidão: ON">
+            <span class="on-text">ON</span>
+          </div>
           <span class="text-xs font-bold uppercase tracking-[0.25em] text-olina-orange">Posicionamento & Cultura</span>
         </div>
         <div class="w-full h-px bg-olina-coffee/15 mb-6"></div>
@@ -2008,5 +2057,64 @@
     })();
   </script>
 
+  <!-- MICROINTERAÇÃO DO HÍFEN GORDINHO ➔ PÍLULA ON (QUEM SOMOS) -->
+  <script>
+    (function() {
+      function setupOnPill() {
+        const onPill = document.getElementById('eyebrow-on-pill');
+        if (!onPill) return;
+
+        window.activatePill = function() {
+          if (onPill && !onPill.classList.contains('active')) {
+            onPill.classList.add('active');
+          }
+        };
+
+        window.deactivatePill = function() {
+          if (onPill && onPill.classList.contains('active')) {
+            onPill.classList.remove('active');
+          }
+        };
+
+        window.toggleOnPill = function(fromClick) {
+          if (!onPill) return;
+          if (onPill.classList.contains('active')) {
+            onPill.classList.remove('active');
+            if (fromClick) {
+              setTimeout(function() {
+                if (onPill) onPill.classList.add('active');
+              }, 1800);
+            }
+          } else {
+            onPill.classList.add('active');
+          }
+        };
+
+        // Ativação suave ao rolar até a seção com IntersectionObserver
+        if ('IntersectionObserver' in window) {
+          const pillObserver = new IntersectionObserver(function(entries) {
+            if (entries[0].isIntersecting) {
+              window.activatePill();
+            }
+          }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+          pillObserver.observe(onPill);
+        }
+
+        // Listener de scroll adicional para prontidão imediata
+        window.addEventListener('scroll', function() {
+          const rect = onPill.getBoundingClientRect();
+          if (rect.top <= window.innerHeight * 0.85 && rect.bottom >= -200) {
+            window.activatePill();
+          }
+        }, { passive: true });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupOnPill);
+      } else {
+        setupOnPill();
+      }
+    })();
+  </script>
 </body>
 </html>
