@@ -2086,15 +2086,35 @@
         };
 
         // Preenchimento dirigido pelo scroll: cinza -> laranja (direita p/ esquerda); ON ao completar.
+        // Transição gradual e mais lenta: inicia quando o hífen entra no campo de visão
+        // e só completa 100% (todo laranja + texto ON) quando a seção estiver 85% preenchida na tela.
+        const sec = document.getElementById('quem-somos');
+
         function update() {
           if (clickLock) return;
-          const vh = window.innerHeight;
-          const top = onPill.getBoundingClientRect().top;
-          let p = (vh * 0.88 - top) / (vh * 0.33);
+          const vh = window.innerHeight || 800;
+          const secRect = sec ? sec.getBoundingClientRect() : null;
+          const pillRect = onPill.getBoundingClientRect();
+
+          // Progresso de preenchimento da seção na viewport (0 ao tocar base, 1 ao assentar no topo)
+          const sectionFill = secRect ? (vh - secRect.top) / vh : 0;
+
+          // Início suave: quando o hífen surge na borda inferior da tela
+          // Término: exatamente quando a seção atinge 85% de preenchimento
+          const pillOffset = secRect ? (pillRect.top - secRect.top) : 160;
+          const startFill = Math.max(0.08, Math.min(0.22, (pillOffset - 30) / vh));
+          const endFill = 0.85;
+
+          let p = (sectionFill - startFill) / (endFill - startFill);
           p = Math.max(0, Math.min(1, p));
-          fill.style.clipPath = 'inset(0 0 0 ' + ((1 - p) * 100).toFixed(1) + '%)';
-          if (p >= 1) onPill.classList.add('active');
-          else onPill.classList.remove('active');
+
+          if (p >= 0.99) {
+            fill.style.clipPath = 'inset(0 0 0 0%)';
+            onPill.classList.add('active');
+          } else {
+            fill.style.clipPath = 'inset(0 0 0 ' + ((1 - p) * 100).toFixed(1) + '%)';
+            onPill.classList.remove('active');
+          }
         }
         window.addEventListener('scroll', update, { passive: true });
         window.addEventListener('resize', update);
