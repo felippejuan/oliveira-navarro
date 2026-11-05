@@ -20,6 +20,7 @@
 
   <!-- Lenis Smooth Scroll (Inércia e Rolagem Suave 60fps) -->
   <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -103,6 +104,32 @@
     }
     ::-webkit-scrollbar-thumb:hover {
       background: #DD4F1D;
+    }
+
+    /* Quem Somos: painel de Eixos Estratégicos (apenas esta seção) */
+    .qs-axes-panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.25) 100%);
+      border: 1px solid rgba(63,56,53,0.12);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .qs-pillar {
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(63,56,53,0.12);
+      transition: transform .5s cubic-bezier(0.16,1,0.3,1), border-color .3s, background .3s, box-shadow .3s;
+      cursor: pointer;
+    }
+    .qs-pillar:hover { border-color: rgba(221,79,29,0.45); }
+    .qs-pillar.is-active {
+      background: #fff;
+      border-color: #DD4F1D;
+      box-shadow: 0 16px 36px -8px rgba(221,79,29,0.14), 0 4px 16px rgba(26,24,22,0.05);
+    }
+    .qs-pillar .qs-pillar-tag { opacity: 0; transition: opacity .3s; }
+    .qs-pillar:hover .qs-pillar-tag, .qs-pillar.is-active .qs-pillar-tag { opacity: 1; }
+    @media (min-width: 1024px) {
+      .qs-pillar:hover { transform: translateX(-4px); }
+      .qs-pillar.is-active { transform: translateX(-6px); }
     }
 
     /* Architectural section divider pill (Official avocado.design brand element) */
@@ -466,48 +493,70 @@
         </h2>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-        
-        <!-- Manifesto da Marca (Texto Oficial das Páginas 20 a 23 do Guia) -->
-        <div class="lg:col-span-7 space-y-6 text-zinc-700 leading-relaxed font-light text-base sm:text-lg reveal-item transition-all duration-700 delay-100 opacity-0 transform translate-y-8">
-          <p class="font-bold text-xl sm:text-2xl text-olina-coffee leading-snug">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
+
+        <!-- Coluna esquerda: manifesto (texto oficial do Guia) -->
+        <div class="lg:col-span-4 space-y-5 text-zinc-700 leading-relaxed font-light text-base reveal-item transition-all duration-700 delay-100 opacity-0 transform translate-y-8">
+          <blockquote class="font-bold text-xl sm:text-2xl text-olina-coffee leading-snug border-l-2 border-olina-orange pl-4">
             "Acreditamos que a evolução da advocacia é vital para servir o empresário de maneira eficiente, passando da era da instrução para a antecipação."
-          </p>
+          </blockquote>
           <p>
             No <strong>Oliveira Navarro Advocacia</strong>, atuamos no constante mapeamento de cenários estratégicos para identificação de oportunidades ocultas e mitigação rigorosa de passivos fiscais e regulatórios.
           </p>
           <p>
             Promovemos uma <strong>cultura ética e inclusiva</strong>. Celebramos a <strong>liderança feminina</strong> em um mercado historicamente tradicional. Geramos líderes e atuamos como agentes de inovação, conectados diretamente com as decisões dos Tribunais Superiores e órgãos de controle sediados em Brasília.
           </p>
-          
-          <!-- Pilares Estruturais da Marca (Ícones Modulares) -->
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
-            <div class="p-4 rounded-xl bg-white border border-zinc-300/80 shadow-sm hover:border-olina-orange transition-colors">
-              <span class="text-xs font-black uppercase text-olina-orange tracking-widest block mb-1">01. Próxima</span>
-              <p class="text-xs text-zinc-600">Comunicação direta entre sócias e decisores corporativos.</p>
-            </div>
-            <div class="p-4 rounded-xl bg-white border border-zinc-300/80 shadow-sm hover:border-olina-orange transition-colors">
-              <span class="text-xs font-black uppercase text-olina-orange tracking-widest block mb-1">02. Proativa</span>
-              <p class="text-xs text-zinc-600">Antecipação de teses e riscos antes da consolidação do dano.</p>
-            </div>
-            <div class="p-4 rounded-xl bg-white border border-zinc-300/80 shadow-sm hover:border-olina-orange transition-colors">
-              <span class="text-xs font-black uppercase text-olina-orange tracking-widest block mb-1">03. Estratégica</span>
-              <p class="text-xs text-zinc-600">Alinhamento estrito aos objetivos de balanço e fluxo de caixa.</p>
-            </div>
-          </div>
         </div>
 
-        <!-- Coluna Visual com Retrato Real no SAUS Brasília -->
-        <div class="lg:col-span-5 relative reveal-item transition-all duration-700 delay-200 opacity-0 transform translate-y-8">
-          <div class="relative rounded-3xl overflow-hidden border border-zinc-300 shadow-2xl group">
-            <img src="assets/tati-navarro-office.jpg" alt="Oliveira Navarro SAUS Brasília" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105">
-            <div class="absolute inset-0 bg-gradient-to-t from-olina-coffeeDeep/90 via-transparent to-transparent"></div>
-            
-            <div class="absolute bottom-6 left-6 right-6 text-white">
-              <span class="text-[10px] uppercase font-bold tracking-widest text-olina-orange block mb-1">Brasília / DF</span>
-              <h4 class="text-lg font-bold">SAUS, Quadra 05, Lote 02 • Bloco N, Sala 709</h4>
-              <p class="text-xs text-zinc-300 font-light mt-1">Presença estratégica a minutos dos Ministérios, CARF, STJ e STF.</p>
-            </div>
+        <!-- Coluna central: A Justiça (traços construídos conforme a rolagem) -->
+        <div id="qs-justica" class="lg:col-span-4 relative h-[420px] sm:h-[460px] lg:h-[540px] select-none" aria-hidden="true">
+          <canvas id="qs-justica-canvas" class="absolute inset-0 w-full h-full block outline-none lg:cursor-grab" style="touch-action: pan-y;"></canvas>
+        </div>
+
+        <!-- Coluna direita: Eixos Estratégicos -->
+        <div class="lg:col-span-4 qs-axes-panel p-5 lg:p-6 rounded-3xl reveal-item transition-all duration-700 delay-200 opacity-0 transform translate-y-8">
+          <div class="flex items-center gap-2.5 border-b border-olina-coffee/15 pb-3 mb-3">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-olina-orange opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-olina-orange"></span>
+            </span>
+            <span class="text-xs font-bold tracking-[0.25em] uppercase text-olina-coffee">Eixos Estratégicos</span>
+          </div>
+
+          <div class="space-y-3">
+            <button type="button" class="qs-pillar is-active w-full text-left p-4 rounded-2xl" data-pillar="0">
+              <span class="flex items-center justify-between">
+                <span class="flex items-center gap-3">
+                  <span class="qs-pillar-num text-xs font-black tracking-wider text-olina-orange">01</span>
+                  <span class="qs-pillar-line h-px w-4 bg-olina-orange"></span>
+                  <span class="text-xs uppercase tracking-widest font-bold text-olina-coffee">Próxima</span>
+                </span>
+                <span class="qs-pillar-tag text-[10px] tracking-wider uppercase font-semibold text-olina-orange">Conectado</span>
+              </span>
+              <span class="block mt-2.5 text-xs text-zinc-600 leading-relaxed">Comunicação direta entre sócias e decisores corporativos.</span>
+            </button>
+            <button type="button" class="qs-pillar w-full text-left p-4 rounded-2xl" data-pillar="1">
+              <span class="flex items-center justify-between">
+                <span class="flex items-center gap-3">
+                  <span class="qs-pillar-num text-xs font-black tracking-wider text-zinc-400">02</span>
+                  <span class="qs-pillar-line h-px w-4 bg-zinc-300"></span>
+                  <span class="text-xs uppercase tracking-widest font-bold text-olina-coffee">Proativa</span>
+                </span>
+                <span class="qs-pillar-tag text-[10px] tracking-wider uppercase font-semibold text-olina-orange">Explorar</span>
+              </span>
+              <span class="block mt-2.5 text-xs text-zinc-600 leading-relaxed">Antecipação de teses e riscos antes da consolidação do dano.</span>
+            </button>
+            <button type="button" class="qs-pillar w-full text-left p-4 rounded-2xl" data-pillar="2">
+              <span class="flex items-center justify-between">
+                <span class="flex items-center gap-3">
+                  <span class="qs-pillar-num text-xs font-black tracking-wider text-zinc-400">03</span>
+                  <span class="qs-pillar-line h-px w-4 bg-zinc-300"></span>
+                  <span class="text-xs uppercase tracking-widest font-bold text-olina-coffee">Estratégica</span>
+                </span>
+                <span class="qs-pillar-tag text-[10px] tracking-wider uppercase font-semibold text-olina-orange">Explorar</span>
+              </span>
+              <span class="block mt-2.5 text-xs text-zinc-600 leading-relaxed">Alinhamento estrito aos objetivos de balanço e fluxo de caixa.</span>
+            </button>
           </div>
         </div>
 
@@ -1486,6 +1535,270 @@
         }
       });
     });
+  </script>
+
+  <!-- QUEM SOMOS: A Justiça (Ceschiatti, 1961) construída traço a traço pela rolagem -->
+  <script>
+    (function () {
+      function init() {
+        const host = document.getElementById('qs-justica');
+        const canvas = document.getElementById('qs-justica-canvas');
+        if (!host || !canvas) return;
+        if (typeof THREE === 'undefined') { host.style.display = 'none'; return; }
+
+        let renderer;
+        try {
+          renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+        } catch (err) { host.style.display = 'none'; return; }
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 50);
+        const statue = new THREE.Group();
+        scene.add(statue);
+
+        const INK = 0x2B2421, INK2 = 0x4A423E, INK3 = 0x8A847C, TERRA = 0xDD4F1D;
+        const mk = (color, opacity) => new THREE.LineBasicMaterial({ color, transparent: true, opacity });
+        const matPrimary = mk(INK, 0.92);
+        const matSecondary = mk(INK2, 0.45);
+        const matSubtle = mk(INK3, 0.30);
+        const matTerra = mk(TERRA, 0.95);
+
+        // Cada traço pertence a um estágio (0..1): define quando começa a ser desenhado na rolagem
+        const strokes = [];
+        const SPAN = 0.32;
+        function S(pts, mat, stage, closed) {
+          const v = pts.map(p => new THREE.Vector3(p[0], p[1], p[2]));
+          const curve = new THREE.CatmullRomCurve3(v, !!closed, 'centripetal', 0.5);
+          const geom = new THREE.BufferGeometry().setFromPoints(curve.getPoints(80));
+          const line = new THREE.Line(geom, mat);
+          statue.add(line);
+          strokes.push({ line, count: 81, stage });
+        }
+
+        // Estágios: pedestal 0 -> manto .12 -> tronco .26 -> braços .38 -> cabeça .5 -> espada/venda .66
+        const ST_BASE = 0, ST_MANTLE = 0.12, ST_TORSO = 0.26, ST_ARMS = 0.38, ST_HEAD = 0.5, ST_SWORD = 0.66;
+
+        // Pedestal
+        S([[-0.52,1.30,-0.22],[-0.52,1.30,0.15],[-0.46,0.18,0.25],[-0.54,0.18,-0.26],[-0.52,1.30,-0.22]], matSubtle, ST_BASE, true);
+        S([[0.52,1.30,-0.22],[0.52,1.30,0.15],[0.46,0.18,0.25],[0.54,0.18,-0.26],[0.52,1.30,-0.22]], matSubtle, ST_BASE, true);
+        S([[-0.72,0.06,-0.35],[0.72,0.06,-0.35],[0.72,0.06,1.15],[-0.72,0.06,1.15],[-0.72,0.06,-0.35]], matSecondary, ST_BASE, true);
+        S([[-0.92,-0.08,-0.48],[0.92,-0.08,-0.48],[0.92,-0.08,1.30],[-0.92,-0.08,1.30],[-0.92,-0.08,-0.48]], matSubtle, ST_BASE, true);
+        // Pés
+        S([[-0.24,0.22,0.76],[-0.22,0.16,0.92],[-0.20,0.08,1.04],[-0.14,0.08,1.02],[-0.12,0.14,0.88],[-0.14,0.22,0.76]], matPrimary, ST_BASE);
+        S([[0.14,0.22,0.76],[0.12,0.14,0.88],[0.14,0.08,1.02],[0.20,0.08,1.04],[0.22,0.16,0.92],[0.24,0.22,0.76]], matPrimary, ST_BASE);
+
+        // Manto
+        S([[-0.42,1.35,0.30],[-0.38,1.40,0.52],[-0.32,1.35,0.65],[-0.30,0.95,0.70],[-0.26,0.50,0.75],[-0.24,0.26,0.78]], matPrimary, ST_MANTLE);
+        S([[0.42,1.35,0.30],[0.38,1.40,0.52],[0.32,1.35,0.65],[0.30,0.95,0.70],[0.26,0.50,0.75],[0.24,0.26,0.78]], matPrimary, ST_MANTLE);
+        S([[0.00,1.36,0.55],[0.00,1.10,0.62],[0.02,0.75,0.68],[0.00,0.38,0.73],[0.00,0.22,0.76]], matPrimary, ST_MANTLE);
+        [
+          [[-0.20,1.36,0.58],[-0.18,0.90,0.66],[-0.16,0.32,0.74]],
+          [[ 0.20,1.36,0.58],[ 0.18,0.90,0.66],[ 0.16,0.32,0.74]],
+          [[-0.36,1.10,0.54],[-0.34,0.65,0.60],[-0.30,0.24,0.68]],
+          [[ 0.36,1.10,0.54],[ 0.34,0.65,0.60],[ 0.30,0.24,0.68]]
+        ].forEach(p => S(p, matSecondary, ST_MANTLE + 0.04));
+        S([[-0.44,1.25,0.20],[-0.46,0.80,0.32],[-0.42,0.30,0.44],[-0.36,0.18,0.54]], matSecondary, ST_MANTLE + 0.04);
+        S([[0.44,1.25,0.20],[0.46,0.80,0.32],[0.42,0.30,0.44],[0.36,0.18,0.54]], matSecondary, ST_MANTLE + 0.04);
+        S([[-0.34,0.20,0.72],[-0.20,0.24,0.76],[0.00,0.22,0.78],[0.20,0.24,0.76],[0.34,0.20,0.72]], matPrimary, ST_MANTLE);
+
+        // Tronco e cintura
+        S([[-0.38,2.15,-0.02],[-0.28,1.82,0.05],[-0.30,1.55,0.12],[-0.42,1.35,0.30]], matPrimary, ST_TORSO);
+        S([[0.38,2.15,-0.02],[0.28,1.82,0.05],[0.30,1.55,0.12],[0.42,1.35,0.30]], matPrimary, ST_TORSO);
+        S([[0.00,2.38,-0.16],[0.00,2.00,-0.18],[0.00,1.62,-0.20],[0.00,1.25,-0.20]], matPrimary, ST_TORSO);
+        // Busto cônico
+        S([[-0.04,2.18,0.24],[-0.14,2.10,0.42],[-0.26,1.95,0.32],[-0.24,1.82,0.18],[-0.08,1.84,0.22]], matPrimary, ST_TORSO + 0.04);
+        S([[-0.02,2.24,0.20],[-0.14,2.10,0.42],[-0.14,1.88,0.26]], matSecondary, ST_TORSO + 0.04);
+        S([[0.04,2.18,0.24],[0.14,2.10,0.42],[0.26,1.95,0.32],[0.24,1.82,0.18],[0.08,1.84,0.22]], matPrimary, ST_TORSO + 0.04);
+        S([[0.02,2.24,0.20],[0.14,2.10,0.42],[0.14,1.88,0.26]], matSecondary, ST_TORSO + 0.04);
+        S([[0.00,2.20,0.26],[0.00,1.92,0.24],[0.00,1.70,0.18]], matPrimary, ST_TORSO + 0.04);
+
+        // Braços e mãos
+        S([[-0.42,2.22,0.00],[-0.48,1.85,0.08],[-0.46,1.48,0.22],[-0.36,1.43,0.46],[-0.26,1.42,0.54]], matPrimary, ST_ARMS);
+        S([[-0.32,1.88,0.06],[-0.36,1.52,0.22],[-0.28,1.46,0.44]], matSecondary, ST_ARMS);
+        S([[0.42,2.22,0.00],[0.48,1.85,0.08],[0.46,1.48,0.22],[0.36,1.43,0.46],[0.26,1.42,0.54]], matPrimary, ST_ARMS);
+        S([[0.32,1.88,0.06],[0.36,1.52,0.22],[0.28,1.46,0.44]], matSecondary, ST_ARMS);
+        S([[-0.32,1.46,0.50],[-0.25,1.48,0.55],[-0.20,1.42,0.56],[-0.22,1.36,0.52]], matPrimary, ST_ARMS + 0.04);
+        S([[0.32,1.46,0.50],[0.25,1.48,0.55],[0.20,1.42,0.56],[0.22,1.36,0.52]], matPrimary, ST_ARMS + 0.04);
+        // Pescoço e ombros
+        S([[-0.10,2.76,0.00],[-0.11,2.50,0.02],[-0.18,2.36,0.04],[-0.42,2.22,0.00]], matPrimary, ST_ARMS);
+        S([[0.10,2.76,0.00],[0.11,2.50,0.02],[0.18,2.36,0.04],[0.42,2.22,0.00]], matPrimary, ST_ARMS);
+
+        // Cabeça
+        S([[0.00,3.42,-0.06],[0.00,3.32,-0.22],[0.00,3.08,-0.18],[0.00,2.76,-0.15],[0.00,2.40,-0.16]], matPrimary, ST_HEAD);
+        S([[0.00,3.42,-0.06],[0.00,3.34,0.08],[0.00,3.16,0.16],[0.00,2.96,0.14],[0.00,2.82,0.22],[0.00,2.62,0.12],[0.00,2.38,0.14],[0.00,2.14,0.32]], matPrimary, ST_HEAD);
+        S([[-0.14,3.30,-0.05],[-0.12,3.40,-0.12],[0.00,3.44,-0.18],[0.12,3.40,-0.12],[0.14,3.30,-0.05],[0.10,3.18,-0.14],[0.00,3.16,-0.18],[-0.10,3.18,-0.14]], matSecondary, ST_HEAD + 0.04, true);
+        S([[-0.14,3.18,0.02],[-0.12,2.98,0.08],[-0.06,2.84,0.18],[0.00,2.82,0.22]], matPrimary, ST_HEAD + 0.04);
+        S([[0.14,3.18,0.02],[0.12,2.98,0.08],[0.06,2.84,0.18],[0.00,2.82,0.22]], matPrimary, ST_HEAD + 0.04);
+        S([[-0.15,3.14,-0.02],[0.00,3.12,-0.18],[0.15,3.14,-0.02]], matSecondary, ST_HEAD + 0.04);
+
+        // Venda (terracota)
+        S([[-0.15,3.14,-0.02],[-0.12,3.16,0.12],[0.00,3.17,0.18],[0.12,3.16,0.12],[0.15,3.14,-0.02]], matTerra, ST_SWORD);
+        S([[-0.14,3.08,-0.02],[-0.11,3.10,0.13],[0.00,3.11,0.19],[0.11,3.10,0.13],[0.14,3.08,-0.02]], matTerra, ST_SWORD);
+        // Espada (terracota)
+        S([[-0.82,1.40,0.54],[-0.40,1.40,0.55],[0.00,1.40,0.56],[0.32,1.40,0.55],[0.46,1.40,0.54]], matTerra, ST_SWORD);
+        S([[-0.80,1.34,0.53],[-0.40,1.34,0.54],[0.00,1.34,0.55],[0.32,1.34,0.54],[0.46,1.34,0.53]], matTerra, ST_SWORD);
+        S([[-0.80,1.34,0.53],[-0.86,1.37,0.535],[-0.82,1.40,0.54]], matTerra, ST_SWORD);
+        S([[0.46,1.46,0.54],[0.46,1.28,0.53]], matTerra, ST_SWORD);
+        S([[0.46,1.37,0.535],[0.68,1.37,0.53]], matTerra, ST_SWORD);
+        S([[0.68,1.41,0.53],[0.72,1.37,0.53],[0.68,1.33,0.53],[0.65,1.37,0.53],[0.68,1.41,0.53]], matTerra, ST_SWORD, true);
+
+        // Anéis orbitais e pontinhos discretos (aparecem por último)
+        const aura = new THREE.Group();
+        statue.add(aura);
+        const rings = [];
+        for (let i = 0; i < 3; i++) {
+          const radius = 1.55 + i * 0.4;
+          const pts = [];
+          for (let k = 0; k <= 72; k++) {
+            const a = (k / 72) * Math.PI * 2;
+            pts.push(new THREE.Vector3(Math.cos(a) * radius, -0.05 + 0.05 * Math.sin(a * 4 + i), Math.sin(a) * radius * 0.85));
+          }
+          const base = i === 0 ? 0.28 : 0.16;
+          const m = mk(i === 0 ? TERRA : 0xB9B0A5, 0);
+          const ring = new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), m);
+          aura.add(ring);
+          rings.push({ ring, mat: m, base });
+        }
+
+        const PC = 60;
+        const pGeo = new THREE.BufferGeometry();
+        const pPos = new Float32Array(PC * 3);
+        const pVel = [];
+        for (let i = 0; i < PC; i++) {
+          pVel.push({ speedY: 0.0015 + Math.random() * 0.0025, angle: Math.random() * Math.PI * 2, radius: 1.0 + Math.random() * 1.5, angSpeed: 0.002 + Math.random() * 0.004 });
+          pPos[i * 3 + 1] = Math.random() * 4.4 - 0.2;
+        }
+        pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+        const pMat = new THREE.PointsMaterial({ color: TERRA, size: 2.4, sizeAttenuation: false, transparent: true, opacity: 0, depthWrite: false });
+        const particles = new THREE.Points(pGeo, pMat);
+        aura.add(particles);
+
+        // Eixos: rotação da escultura por pilar
+        const states = [
+          { rotY: 0.25, rotX: 0.02, camY: 1.75 },
+          { rotY: -0.40, rotX: 0.06, camY: 1.60 },
+          { rotY: 0.85, rotX: 0.01, camY: 1.95 }
+        ];
+        let tRotY = states[0].rotY, tRotX = states[0].rotX, tCamY = states[0].camY;
+        let dragYaw = 0, tiltX = 0, tiltY = 0;
+
+        const pillars = Array.prototype.slice.call(document.querySelectorAll('#quem-somos .qs-pillar'));
+        function selectPillar(idx) {
+          pillars.forEach((el, i) => {
+            const on = i === idx;
+            el.classList.toggle('is-active', on);
+            const num = el.querySelector('.qs-pillar-num');
+            const line = el.querySelector('.qs-pillar-line');
+            const tag = el.querySelector('.qs-pillar-tag');
+            if (num) { num.classList.toggle('text-olina-orange', on); num.classList.toggle('text-zinc-400', !on); }
+            if (line) { line.classList.toggle('bg-olina-orange', on); line.classList.toggle('bg-zinc-300', !on); }
+            if (tag) tag.textContent = on ? 'Conectado' : 'Explorar';
+          });
+          const st = states[idx];
+          tRotY = st.rotY; tRotX = st.rotX; tCamY = st.camY;
+          dragYaw = 0;
+          pMat.opacity = Math.min(0.4, pMat.opacity + 0.15); // pulso sutil
+        }
+        pillars.forEach((el, i) => el.addEventListener('click', () => selectPillar(i)));
+
+        // Arraste (somente mouse; em touch a página continua rolando)
+        let dragging = false, lastX = 0;
+        canvas.addEventListener('pointerdown', (e) => {
+          if (e.pointerType !== 'mouse') return;
+          dragging = true; lastX = e.clientX;
+        });
+        window.addEventListener('pointerup', () => { dragging = false; });
+        window.addEventListener('pointermove', (e) => {
+          if (dragging) { dragYaw += (e.clientX - lastX) * 0.0075; lastX = e.clientX; }
+          if (e.pointerType === 'mouse') {
+            const r = host.getBoundingClientRect();
+            tiltY = ((e.clientX - (r.left + r.width / 2)) / window.innerWidth) * 0.35;
+            tiltX = ((e.clientY - (r.top + r.height / 2)) / window.innerHeight) * 0.12;
+          }
+        }, { passive: true });
+
+        function resize() {
+          const w = Math.max(host.clientWidth, 1), h = Math.max(host.clientHeight, 1);
+          renderer.setSize(w, h, false);
+          camera.aspect = w / h;
+          camera.position.set(0, 1.75, w / h < 0.85 ? 9.6 : 8.2);
+          camera.lookAt(0, 1.5, 0);
+          statue.position.y = -0.10;
+          camera.updateProjectionMatrix();
+        }
+        window.addEventListener('resize', resize, { passive: true });
+        resize();
+
+        // Progresso de rolagem -> quanto da escultura já foi desenhada
+        function targetProgress() {
+          if (reduce) return 1;
+          const vh = window.innerHeight || 800;
+          const r = host.getBoundingClientRect();
+          const startTop = vh * 0.95;
+          const endTop = vh * 0.5 - r.height / 2;
+          const p = (startTop - r.top) / Math.max(startTop - endTop, 1);
+          return Math.min(1, Math.max(0, p));
+        }
+        let prog = targetProgress();
+        const ease = (t) => t * t * (3 - 2 * t);
+
+        let visible = true, running = false, last = performance.now();
+        function tick(now) {
+          if (!visible) { running = false; return; }
+          const dt = Math.min((now - last) / 1000, 0.05);
+          last = now;
+          const t = now * 0.001;
+
+          prog += (targetProgress() - prog) * 0.12;
+          const p = Math.min(1, Math.max(0, prog * 1.02));
+          strokes.forEach((s) => {
+            const local = ease(Math.min(1, Math.max(0, (p - s.stage * 0.9) / SPAN)));
+            const n = Math.round(local * s.count);
+            s.line.geometry.setDrawRange(0, n);
+            s.line.visible = n > 1;
+          });
+
+          const auraP = ease(Math.min(1, Math.max(0, (p - 0.78) / 0.22)));
+          rings.forEach((r) => { r.mat.opacity = r.base * auraP; r.ring.rotation.y += 0.0015; });
+          const targetPOp = 0.22 * auraP;
+          pMat.opacity += (targetPOp - pMat.opacity) * 0.08;
+          const pos = pGeo.attributes.position.array;
+          for (let i = 0; i < PC; i++) {
+            const v = pVel[i];
+            v.angle += v.angSpeed;
+            pos[i * 3] = Math.cos(v.angle) * v.radius;
+            pos[i * 3 + 2] = Math.sin(v.angle) * v.radius;
+            pos[i * 3 + 1] += v.speedY;
+            if (pos[i * 3 + 1] > 4.2) pos[i * 3 + 1] = -0.2;
+          }
+          pGeo.attributes.position.needsUpdate = true;
+
+          const sway = reduce ? 0 : Math.sin(t * 0.45) * 0.10;
+          statue.rotation.y += ((tRotY + dragYaw + tiltY + sway) - statue.rotation.y) * 0.07;
+          statue.rotation.x += ((tRotX + tiltX) - statue.rotation.x) * 0.07;
+          camera.position.y += (tCamY - camera.position.y) * 0.04;
+          camera.lookAt(0, 1.5, 0);
+
+          renderer.render(scene, camera);
+          requestAnimationFrame(tick);
+        }
+        function start() { if (running) return; running = true; last = performance.now(); requestAnimationFrame(tick); }
+
+        if ('IntersectionObserver' in window) {
+          new IntersectionObserver((entries) => {
+            visible = entries[0].isIntersecting;
+            if (visible) start();
+          }, { rootMargin: '120px 0px' }).observe(host);
+        }
+        start();
+      }
+
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+      else init();
+    })();
+
   </script>
 
 </body>
