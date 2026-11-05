@@ -141,7 +141,7 @@
   </div>
 
   <!-- 1. DISCREET & LUXURY NAVIGATION BAR (FLOATING OVER HERO) -->
-  <header id="mainHeader" class="fixed top-0 left-0 right-0 z-50 bg-olina-coffeeDeep/95 backdrop-blur-md border-b border-white/10 shadow-xl transition-all duration-300">
+  <header id="mainHeader" class="fixed top-0 left-0 right-0 z-50 bg-transparent border-b border-transparent transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-6">
       
       <!-- LOGO OFICIAL OLIVEIRA NAVARRO (Símbolo dos Retângulos Arredondados + Wordmark) -->
@@ -182,8 +182,8 @@
       </button>
     </div>
 
-    <!-- DOCKED PERMANENT TICKER BAR (ALWAYS VISIBLE & ROTATING ACROSS ENTIRE SITE) -->
-    <div id="header-ticker" class="w-full bg-black/40 border-t border-white/10 py-1.5 sm:py-2 overflow-hidden text-[11px] sm:text-xs tracking-wider">
+    <!-- DOCKED STICKY TICKER BAR (ACOPLADO AO HEADER AO ROLAR A PÁGINA) -->
+    <div id="header-ticker" class="w-full bg-black/60 border-t border-transparent overflow-hidden text-[11px] sm:text-xs tracking-wider transition-all duration-300 max-h-0 opacity-0 py-0 pointer-events-none">
       <div class="animate-marquee flex items-center text-zinc-200 font-light whitespace-nowrap">
         
         <!-- Record News -->
@@ -327,11 +327,11 @@
         <div></div><div></div><div></div><div></div>
       </div>
 
-      <!-- ESPAÇAMENTO SUPERIOR (PARA COMPENSAR O NAVBAR + TICKER DOCKED) -->
-      <div class="w-full pt-28 sm:pt-36 pointer-events-none"></div>
+      <!-- ESPAÇAMENTO SUPERIOR (PARA COMPENSAR O NAVBAR FLUTUANTE) -->
+      <div class="w-full pt-20 sm:pt-24 pointer-events-none"></div>
 
-      <!-- CONTEÚDO SOBREPOSTO: HEADLINE & TEXTO DE APOIO -->
-      <div class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-auto pb-14 sm:pb-20 pointer-events-auto">
+      <!-- CONTEÚDO SOBREPOSTO: HEADLINE & TEXTO DE APOIO (ELEVADO / ÓTICA BALANCED LUXURY) -->
+      <div class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-auto py-6 sm:py-10 pointer-events-auto">
         <div class="max-w-2xl text-white">
           <!-- HEADLINE OFICIAL: "ritmo" e "negócios" em laranja; "dos negócios" na 2ª linha no mobile -->
           <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.18] sm:leading-tight mb-3 sm:mb-4 drop-shadow-md">
@@ -344,6 +344,108 @@
             Soluções jurídicas consultivas, estratégicas e seguras para decisões complexas no ambiente corporativo nacional.
           </p>
         </div>
+      </div>
+
+      <!-- 3. FAIXA RADAR NO PISO DA HERO (DOCKED NO RODAPÉ DO HERO QUANDO NO TOPO) -->
+      <div id="hero-bottom-ticker" class="relative z-20 w-full bg-olina-coffeeDeep/95 backdrop-blur-md border-t border-white/15 pb-[env(safe-area-inset-bottom,0px)]">
+        
+        <!-- Linha 1: Rótulo Arquitetônico Superior com "ÚLTIMAS:" -->
+        <div class="w-full border-b border-white/10 px-4 sm:px-6 lg:px-8 py-2">
+          <div class="max-w-7xl mx-auto flex items-center justify-between text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-zinc-300">
+            <div class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-olina-orange pulse-dot"></span>
+              <span class="text-white font-extrabold">ÚLTIMAS:</span>
+              <span class="text-zinc-200">RADAR DE MERCADO & REGULAÇÃO</span>
+            </div>
+            <div class="hidden sm:flex items-center gap-1.5 text-zinc-400 font-medium text-[10px]">
+              <span>Atualizações Contínuas</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Linha 2: Ticker 100% Full-Width Contínuo -->
+        <div class="w-full overflow-hidden py-2.5 sm:py-3 text-xs tracking-wider">
+          <div class="animate-marquee flex items-center text-zinc-200 font-light whitespace-nowrap">
+            
+            <!-- Item 1: Record News -->
+            <div onclick="openRecordNewsModal()" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
+              <span class="font-bold text-white tracking-widest text-[11px] uppercase">RECORD NEWS</span>
+              <span class="text-olina-orange font-bold">—</span>
+              <span>Dra. Tattiana Navarro analisa a transição do IVA Dual e os impactos nos contratos B2B</span>
+              <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Assistir</span>
+            </div>
+
+            <span class="text-white/20 select-none">•</span>
+
+            <!-- Item 2: Reforma Tributária Artigo -->
+            <div onclick="openArticleModal('artigo-1')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
+              <span class="font-bold text-white tracking-widest text-[11px] uppercase">REFORMA TRIBUTÁRIA</span>
+              <span class="text-olina-orange font-bold">—</span>
+              <span>A não-cumulatividade plena no IBS/CBS e impactos no Lucro Real e Presumido</span>
+              <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ler</span>
+            </div>
+
+            <span class="text-white/20 select-none">•</span>
+
+            <!-- Item 3: CARF / CSRF -->
+            <div onclick="openArticleModal('artigo-3')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
+              <span class="font-bold text-white tracking-widest text-[11px] uppercase">CARF / CSRF</span>
+              <span class="text-olina-orange font-bold">—</span>
+              <span>Novos critérios para subvenções de investimento após a vigência da Lei 14.789</span>
+              <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ver Tese</span>
+            </div>
+
+            <span class="text-white/20 select-none">•</span>
+
+            <!-- Item 4: Licitações 14.133 -->
+            <div onclick="openArticleModal('artigo-2')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
+              <span class="font-bold text-white tracking-widest text-[11px] uppercase">LICITAÇÕES 14.133</span>
+              <span class="text-olina-orange font-bold">—</span>
+              <span>Processos sancionatórios e defesas prévias perante órgãos de controle</span>
+              <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ler</span>
+            </div>
+
+            <span class="text-white/20 select-none">•</span>
+
+            <!-- Item 5: Precatórios Federais -->
+            <div onclick="openArticleModal('artigo-4')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
+              <span class="font-bold text-white tracking-widest text-[11px] uppercase">PRECATÓRIOS FEDERAIS</span>
+              <span class="text-olina-orange font-bold">—</span>
+              <span>Due diligence fiduciária e gestão de liquidez em compensações fiscais</span>
+              <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Consultar</span>
+            </div>
+
+            <span class="text-white/20 select-none">•</span>
+
+            <!-- DUPLICAÇÃO EXATA PARA SCROLL CONTÍNUO E SUAVE SEM TRANCO -->
+            <div onclick="openRecordNewsModal()" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
+              <span class="font-bold text-white tracking-widest text-[11px] uppercase">RECORD NEWS</span>
+              <span class="text-olina-orange font-bold">—</span>
+              <span>Dra. Tattiana Navarro analisa a transição do IVA Dual e os impactos nos contratos B2B</span>
+              <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Assistir</span>
+            </div>
+
+            <span class="text-white/20 select-none">•</span>
+
+            <div onclick="openArticleModal('artigo-1')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
+              <span class="font-bold text-white tracking-widest text-[11px] uppercase">REFORMA TRIBUTÁRIA</span>
+              <span class="text-olina-orange font-bold">—</span>
+              <span>A não-cumulatividade plena no IBS/CBS e impactos no Lucro Real e Presumido</span>
+              <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ler</span>
+            </div>
+
+            <span class="text-white/20 select-none">•</span>
+
+            <div onclick="openArticleModal('artigo-3')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
+              <span class="font-bold text-white tracking-widest text-[11px] uppercase">CARF / CSRF</span>
+              <span class="text-olina-orange font-bold">—</span>
+              <span>Novos critérios para subvenções de investimento após a vigência da Lei 14.789</span>
+              <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ver Tese</span>
+            </div>
+
+          </div>
+        </div>
+
       </div>
 
       <!-- DETAILS.SO VAULT: 4-COLUMN STAGGERED WIPE OVERLAY (bg-olina-coolGray) -->
@@ -1170,19 +1272,39 @@
       document.body.style.overflow = 'auto';
     }
 
-    // 5. HEADER SCROLL & MOBILE MENU (PERMANENTE COM TICKER ACOPLADO)
+    // 5. HEADER SCROLL & MOBILE MENU (TRANSPARENTE NO HERO / ACOPLADO FROSTED GLASS AO ROLAR)
     const header = document.getElementById('mainHeader');
+    const headerTicker = document.getElementById('header-ticker');
     const mobileMenu = document.getElementById('mobileMenu');
 
     function updateHeaderAppearance() {
-      if (header) {
+      if (!header) return;
+      const isMenuOpen = mobileMenu && !mobileMenu.classList.contains('hidden');
+      const scrolled = window.scrollY > 40;
+
+      if (scrolled || isMenuOpen) {
+        header.classList.remove('bg-transparent', 'border-transparent');
         header.classList.add('bg-olina-coffeeDeep/95', 'backdrop-blur-md', 'border-white/10', 'shadow-xl');
+        
+        if (headerTicker) {
+          headerTicker.classList.remove('max-h-0', 'opacity-0', 'py-0', 'border-transparent', 'pointer-events-none');
+          headerTicker.classList.add('max-h-16', 'opacity-100', 'py-1.5', 'sm:py-2', 'border-white/10', 'pointer-events-auto');
+        }
+      } else {
+        header.classList.remove('bg-olina-coffeeDeep/95', 'backdrop-blur-md', 'border-white/10', 'shadow-xl');
+        header.classList.add('bg-transparent', 'border-transparent');
+        
+        if (headerTicker) {
+          headerTicker.classList.add('max-h-0', 'opacity-0', 'py-0', 'border-transparent', 'pointer-events-none');
+          headerTicker.classList.remove('max-h-16', 'opacity-100', 'py-1.5', 'sm:py-2', 'border-white/10', 'pointer-events-auto');
+        }
       }
     }
 
     function toggleMobileMenu() {
       if (mobileMenu) {
         mobileMenu.classList.toggle('hidden');
+        updateHeaderAppearance();
       }
     }
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -1190,6 +1312,7 @@
       mobileMenuBtn.addEventListener('click', toggleMobileMenu);
     }
 
+    window.addEventListener('scroll', updateHeaderAppearance, { passive: true });
     updateHeaderAppearance();
 
     // 6. CONVERSION DISPATCHER (ADS PIXEL / WHATSAPP)
@@ -1264,7 +1387,10 @@
       }
 
       if (lenis) {
-        lenis.on('scroll', updateColumnScrub);
+        lenis.on('scroll', () => {
+          updateColumnScrub();
+          updateHeaderAppearance();
+        });
       }
       window.addEventListener('scroll', updateColumnScrub, { passive: true });
       window.addEventListener('resize', updateColumnScrub, { passive: true });
