@@ -6,17 +6,20 @@
   <title>Oliveira Navarro Advocacia | Advocacia no ritmo dos negócios</title>
   <meta name="description" content="Oliveira Navarro Advocacia para Negócios. Direito Tributário, Administrativo e Estratégia Jurídica em Brasília/DF. Liderança feminina, análises de fundo e presença na imprensa nacional.">
   
-  <!-- Favicons Oficiais Oliveira Navarro (ON) - Ultra High Contrast Vibe -->
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=20261104d">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png?v=20261104d">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png?v=20261104d">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=20261104d">
-  <link rel="shortcut icon" href="favicon.ico?v=20261104d">
+  <!-- Favicons Oficiais Oliveira Navarro (ON) - Tamanho Clássico Elegante -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=20261104e">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png?v=20261104e">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png?v=20261104e">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=20261104e">
+  <link rel="shortcut icon" href="favicon.ico?v=20261104e">
 
   <!-- Google Fonts: Official Brand Typography (Cairo) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Lenis Smooth Scroll (Inércia e Rolagem Suave 60fps) -->
+  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -138,8 +141,8 @@
   </div>
 
   <!-- 1. DISCREET & LUXURY NAVIGATION BAR (FLOATING OVER HERO) -->
-  <header id="mainHeader" class="fixed top-0 left-0 right-0 z-50 bg-transparent border-b border-transparent transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-6">
+  <header id="mainHeader" class="fixed top-0 left-0 right-0 z-50 bg-olina-coffeeDeep/95 backdrop-blur-md border-b border-white/10 shadow-xl transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-6">
       
       <!-- LOGO OFICIAL OLIVEIRA NAVARRO (Símbolo dos Retângulos Arredondados + Wordmark) -->
       <a href="#" class="flex items-center group transition-opacity hover:opacity-95" aria-label="Oliveira Navarro Início">
@@ -179,6 +182,107 @@
       </button>
     </div>
 
+    <!-- DOCKED PERMANENT TICKER BAR (ALWAYS VISIBLE & ROTATING ACROSS ENTIRE SITE) -->
+    <div id="header-ticker" class="w-full bg-black/40 border-t border-white/10 py-1.5 sm:py-2 overflow-hidden text-[11px] sm:text-xs tracking-wider">
+      <div class="animate-marquee flex items-center text-zinc-200 font-light whitespace-nowrap">
+        
+        <!-- Record News -->
+        <div onclick="openRecordNewsModal()" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
+          <span class="font-bold text-white tracking-widest text-[11px] uppercase">RECORD NEWS</span>
+          <span class="text-olina-orange font-bold">—</span>
+          <span>Dra. Tattiana Navarro analisa a transição do IVA Dual e os impactos nos contratos B2B</span>
+          <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Assistir</span>
+        </div>
+
+        <span class="text-white/20 select-none">•</span>
+
+        <!-- Reforma Tributária -->
+        <div onclick="openArticleModal('artigo-1')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
+          <span class="font-bold text-white tracking-widest text-[11px] uppercase">REFORMA TRIBUTÁRIA</span>
+          <span class="text-olina-orange font-bold">—</span>
+          <span>A não-cumulatividade plena no IBS/CBS e impactos no Lucro Real e Presumido</span>
+          <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ler</span>
+        </div>
+
+        <span class="text-white/20 select-none">•</span>
+
+        <!-- CARF / CSRF -->
+        <div onclick="openArticleModal('artigo-3')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
+          <span class="font-bold text-white tracking-widest text-[11px] uppercase">CARF / CSRF</span>
+          <span class="text-olina-orange font-bold">—</span>
+          <span>Novos critérios para subvenções de investimento após a vigência da Lei 14.789</span>
+          <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ver Tese</span>
+        </div>
+
+        <span class="text-white/20 select-none">•</span>
+
+        <!-- Licitações 14.133 -->
+        <div onclick="openArticleModal('artigo-2')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
+          <span class="font-bold text-white tracking-widest text-[11px] uppercase">LICITAÇÕES 14.133</span>
+          <span class="text-olina-orange font-bold">—</span>
+          <span>Processos sancionatórios e defesas prévias perante órgãos de controle</span>
+          <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ler</span>
+        </div>
+
+        <span class="text-white/20 select-none">•</span>
+
+        <!-- Precatórios Federais -->
+        <div onclick="openArticleModal('artigo-4')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
+          <span class="font-bold text-white tracking-widest text-[11px] uppercase">PRECATÓRIOS FEDERAIS</span>
+          <span class="text-olina-orange font-bold">—</span>
+          <span>Due diligence fiduciária e gestão de liquidez em compensações fiscais</span>
+          <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Consultar</span>
+        </div>
+
+        <span class="text-white/20 select-none">•</span>
+
+        <!-- DUPLICATE SET FOR SEAMLESS 100% INFINITE LOOP -->
+        <div onclick="openRecordNewsModal()" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
+          <span class="font-bold text-white tracking-widest text-[11px] uppercase">RECORD NEWS</span>
+          <span class="text-olina-orange font-bold">—</span>
+          <span>Dra. Tattiana Navarro analisa a transição do IVA Dual e os impactos nos contratos B2B</span>
+          <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Assistir</span>
+        </div>
+
+        <span class="text-white/20 select-none">•</span>
+
+        <div onclick="openArticleModal('artigo-1')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
+          <span class="font-bold text-white tracking-widest text-[11px] uppercase">REFORMA TRIBUTÁRIA</span>
+          <span class="text-olina-orange font-bold">—</span>
+          <span>A não-cumulatividade plena no IBS/CBS e impactos no Lucro Real e Presumido</span>
+          <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ler</span>
+        </div>
+
+        <span class="text-white/20 select-none">•</span>
+
+        <div onclick="openArticleModal('artigo-3')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
+          <span class="font-bold text-white tracking-widest text-[11px] uppercase">CARF / CSRF</span>
+          <span class="text-olina-orange font-bold">—</span>
+          <span>Novos critérios para subvenções de investimento após a vigência da Lei 14.789</span>
+          <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ver Tese</span>
+        </div>
+
+        <span class="text-white/20 select-none">•</span>
+
+        <div onclick="openArticleModal('artigo-2')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
+          <span class="font-bold text-white tracking-widest text-[11px] uppercase">LICITAÇÕES 14.133</span>
+          <span class="text-olina-orange font-bold">—</span>
+          <span>Processos sancionatórios e defesas prévias perante órgãos de controle</span>
+          <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ler</span>
+        </div>
+
+        <span class="text-white/20 select-none">•</span>
+
+        <div onclick="openArticleModal('artigo-4')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
+          <span class="font-bold text-white tracking-widest text-[11px] uppercase">PRECATÓRIOS FEDERAIS</span>
+          <span class="text-olina-orange font-bold">—</span>
+          <span>Due diligence fiduciária e gestão de liquidez em compensações fiscais</span>
+          <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Consultar</span>
+        </div>
+
+      </div>
+    </div>
+
     <!-- Mobile Dropdown Menu -->
     <div id="mobileMenu" class="hidden lg:hidden bg-olina-coffeeDeep/98 backdrop-blur-xl border-b border-white/10 px-6 py-6 space-y-4 text-xs font-bold uppercase tracking-[0.18em] text-white">
       <a href="#hero" class="block hover:text-olina-orange py-1 text-white" onclick="toggleMobileMenu()">INÍCIO</a>
@@ -195,183 +299,63 @@
     </div>
   </header>
 
-  <!-- 2. HERO SECTION COM VÍDEO 100% CINEMATOGRÁFICO & RADAR DOCKED COM FOLGA DO PISO -->
-  <section id="hero" class="relative w-full h-[100dvh] min-h-[660px] flex flex-col justify-between overflow-hidden bg-olina-coffeeDeep select-none">
+  <!-- 2. HERO SECTION COM DETAILS.SO VAULT PINNED COLUMN TRANSITION -->
+  <section id="hero" class="relative w-full h-[220vh] bg-olina-coffeeDeep">
     
-    <!-- O VÍDEO 100% PROTAGONISTA (OLIVEIRA.MP4) -->
-    <video 
-      id="mainHeroVideo"
-      autoplay 
-      muted 
-      loop 
-      playsinline 
-      preload="auto"
-      class="hero-video absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
-    >
-      <source src="assets/oliveira.mp4" type="video/mp4">
-      Seu navegador não suporta vídeos HTML5.
-    </video>
-
-    <!-- VINHETA SUAVE (GRADIENTE ULTRA-LEVE PARA LEGIBILIDADE SEM TAPAR O VÍDEO) -->
-    <div class="absolute inset-0 bg-gradient-to-t from-olina-coffeeDeep/95 via-black/20 to-black/35 pointer-events-none"></div>
-
-    <!-- ESPAÇAMENTO SUPERIOR (PARA COMPENSAR O NAVBAR FLUTUANTE) -->
-    <div class="w-full pt-20 sm:pt-24 pointer-events-none"></div>
-
-    <!-- CONTEÚDO SOBREPOSTO: HEADLINE & TEXTO DE APOIO -->
-    <div class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-auto pb-4 sm:pb-6">
+    <!-- INNER PINNED FRAME: STICKY TOP-0 100dvh OVERFLOW-HIDDEN -->
+    <div id="heroStickyFrame" class="sticky top-0 w-full h-[100dvh] overflow-hidden bg-olina-coffeeDeep flex flex-col justify-between">
       
-      <div class="max-w-2xl text-white">
-        
-        <!-- HEADLINE OFICIAL: "ritmo" e "negócios" em laranja; "dos negócios" na 2ª linha no mobile -->
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.18] sm:leading-tight mb-3 sm:mb-4 drop-shadow-md">
-          <span class="block sm:inline">Advocacia no <span class="text-olina-orange font-extrabold">ritmo</span></span>
-          <span class="block sm:inline">dos <span class="text-olina-orange font-extrabold">negócios.</span></span>
-        </h1>
+      <!-- O VÍDEO 100% PROTAGONISTA (OLIVEIRA.MP4) -->
+      <video 
+        id="mainHeroVideo"
+        autoplay 
+        muted 
+        loop 
+        playsinline 
+        preload="auto"
+        class="hero-video absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
+      >
+        <source src="assets/oliveira.mp4" type="video/mp4">
+        Seu navegador não suporta vídeos HTML5.
+      </video>
 
-        <!-- Texto de apoio limpo -->
-        <p class="text-xs sm:text-sm lg:text-base text-zinc-300 font-light leading-relaxed max-w-lg drop-shadow">
-          Soluções jurídicas consultivas, estratégicas e seguras para decisões complexas no ambiente corporativo nacional.
-        </p>
+      <!-- VINHETA SUAVE (GRADIENTE ULTRA-LEVE PARA LEGIBILIDADE SEM TAPAR O VÍDEO) -->
+      <div class="absolute inset-0 bg-gradient-to-t from-olina-coffeeDeep/90 via-black/20 to-black/35 pointer-events-none"></div>
 
+      <!-- LINHAS ARQUITETÔNICAS VERTICAIS SUTIS (HAIRLINES 4 COLUNAS SOBRE O VÍDEO - PORSCHE MANTHEY) -->
+      <div class="absolute inset-0 grid grid-cols-4 divide-x divide-white/[0.08] pointer-events-none z-10" aria-hidden="true">
+        <div></div><div></div><div></div><div></div>
       </div>
 
-    </div>
+      <!-- ESPAÇAMENTO SUPERIOR (PARA COMPENSAR O NAVBAR + TICKER DOCKED) -->
+      <div class="w-full pt-28 sm:pt-36 pointer-events-none"></div>
 
-    <!-- 3. FAIXA "RADAR DE MERCADO & REGULAÇÃO" (FULL-WIDTH EDGE-TO-EDGE, ENCOSTADA NO PISO, BORDAS RETAS/QUADRADAS) -->
-    <div id="radar-container" class="relative z-30 w-full bg-olina-coffeeDeep/95 backdrop-blur-md border-t border-white/15 shadow-2xl rounded-none pb-[env(safe-area-inset-bottom,0px)]">
-      
-      <!-- Linha 1: Rótulo Arquitetônico Superior com "ÚLTIMAS:" -->
-      <div class="w-full border-b border-white/10 px-4 sm:px-6 lg:px-8 py-2">
-        <div class="max-w-7xl mx-auto flex items-center justify-between text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-zinc-300">
-          <div class="flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-olina-orange pulse-dot"></span>
-            <span class="text-white font-extrabold">ÚLTIMAS:</span>
-            <span class="text-zinc-200">RADAR DE MERCADO & REGULAÇÃO</span>
-          </div>
-          <div class="hidden sm:flex items-center gap-1.5 text-zinc-400 font-medium text-[10px]">
-            <span>Atualizações Contínuas</span>
-          </div>
+      <!-- CONTEÚDO SOBREPOSTO: HEADLINE & TEXTO DE APOIO -->
+      <div class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-auto pb-14 sm:pb-20 pointer-events-auto">
+        <div class="max-w-2xl text-white">
+          <!-- HEADLINE OFICIAL: "ritmo" e "negócios" em laranja; "dos negócios" na 2ª linha no mobile -->
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.18] sm:leading-tight mb-3 sm:mb-4 drop-shadow-md">
+            <span class="block sm:inline">Advocacia no <span class="text-olina-orange font-extrabold">ritmo</span></span>
+            <span class="block sm:inline">dos <span class="text-olina-orange font-extrabold">negócios.</span></span>
+          </h1>
+
+          <!-- Texto de apoio limpo -->
+          <p class="text-xs sm:text-sm lg:text-base text-zinc-300 font-light leading-relaxed max-w-lg drop-shadow">
+            Soluções jurídicas consultivas, estratégicas e seguras para decisões complexas no ambiente corporativo nacional.
+          </p>
         </div>
       </div>
 
-      <!-- Linha 2: Ticker 100% Full-Width Contínuo -->
-      <div class="w-full overflow-hidden py-2.5 sm:py-3 text-xs tracking-wider">
-        <div class="animate-marquee flex items-center text-zinc-200 font-light whitespace-nowrap">
-          
-          <!-- Item 1: Record News -->
-          <div onclick="openRecordNewsModal()" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-            <span class="font-bold text-white tracking-widest text-[11px] uppercase">RECORD NEWS</span>
-            <span class="text-olina-orange font-bold">—</span>
-            <span>Dra. Tattiana Navarro analisa a transição do IVA Dual e os impactos nos contratos B2B</span>
-            <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Assistir</span>
-          </div>
-
-          <span class="text-white/20 select-none">•</span>
-
-          <!-- Item 2: Reforma Tributária Artigo -->
-          <div onclick="openArticleModal('artigo-1')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-            <span class="font-bold text-white tracking-widest text-[11px] uppercase">REFORMA TRIBUTÁRIA</span>
-            <span class="text-olina-orange font-bold">—</span>
-            <span>A não-cumulatividade plena no IBS/CBS e impactos no Lucro Real e Presumido</span>
-            <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ler</span>
-          </div>
-
-          <span class="text-white/20 select-none">•</span>
-
-          <!-- Item 3: CARF / CSRF -->
-          <div onclick="openArticleModal('artigo-3')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-            <span class="font-bold text-white tracking-widest text-[11px] uppercase">CARF / CSRF</span>
-            <span class="text-olina-orange font-bold">—</span>
-            <span>Novos critérios para subvenções de investimento após a vigência da Lei 14.789</span>
-            <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ver Tese</span>
-          </div>
-
-          <span class="text-white/20 select-none">•</span>
-
-          <!-- Item 4: Licitações 14.133 -->
-          <div onclick="openArticleModal('artigo-2')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-            <span class="font-bold text-white tracking-widest text-[11px] uppercase">LICITAÇÕES 14.133</span>
-            <span class="text-olina-orange font-bold">—</span>
-            <span>Processos sancionatórios e defesas prévias perante órgãos de controle</span>
-            <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ler</span>
-          </div>
-
-          <span class="text-white/20 select-none">•</span>
-
-          <!-- Item 5: Precatórios Federais -->
-          <div onclick="openArticleModal('artigo-4')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-            <span class="font-bold text-white tracking-widest text-[11px] uppercase">PRECATÓRIOS FEDERAIS</span>
-            <span class="text-olina-orange font-bold">—</span>
-            <span>Due diligence fiduciária e gestão de liquidez em compensações fiscais</span>
-            <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Consultar</span>
-          </div>
-
-          <span class="text-white/20 select-none">•</span>
-
-          <!-- DUPLICAÇÃO EXATA PARA SCROLL CONTÍNUO E SUAVE SEM TRANCO -->
-          <div onclick="openRecordNewsModal()" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-            <span class="font-bold text-white tracking-widest text-[11px] uppercase">RECORD NEWS</span>
-            <span class="text-olina-orange font-bold">—</span>
-            <span>Dra. Tattiana Navarro analisa a transição do IVA Dual e os impactos nos contratos B2B</span>
-            <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Assistir</span>
-          </div>
-
-          <span class="text-white/20 select-none">•</span>
-
-          <div onclick="openArticleModal('artigo-1')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-            <span class="font-bold text-white tracking-widest text-[11px] uppercase">REFORMA TRIBUTÁRIA</span>
-            <span class="text-olina-orange font-bold">—</span>
-            <span>A não-cumulatividade plena no IBS/CBS e impactos no Lucro Real e Presumido</span>
-            <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ler</span>
-          </div>
-
-          <span class="text-white/20 select-none">•</span>
-
-          <div onclick="openArticleModal('artigo-3')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-            <span class="font-bold text-white tracking-widest text-[11px] uppercase">CARF / CSRF</span>
-            <span class="text-olina-orange font-bold">—</span>
-            <span>Novos critérios para subvenções de investimento após a vigência da Lei 14.789</span>
-            <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ver Tese</span>
-          </div>
-
-        </div>
+      <!-- DETAILS.SO VAULT: 4-COLUMN STAGGERED WIPE OVERLAY (bg-olina-coolGray) -->
+      <div id="vaultColumnOverlay" class="absolute inset-0 z-30 grid grid-cols-4 divide-x divide-zinc-300/40 pointer-events-none" aria-hidden="true">
+        <div class="vault-column-slice bg-olina-coolGray h-full w-full will-change-transform" style="transform: translate3d(0, 100.5%, 0);"></div>
+        <div class="vault-column-slice bg-olina-coolGray h-full w-full will-change-transform" style="transform: translate3d(0, 100.5%, 0);"></div>
+        <div class="vault-column-slice bg-olina-coolGray h-full w-full will-change-transform" style="transform: translate3d(0, 100.5%, 0);"></div>
+        <div class="vault-column-slice bg-olina-coolGray h-full w-full will-change-transform" style="transform: translate3d(0, 100.5%, 0);"></div>
       </div>
 
     </div>
-
   </section>
-
-  <!-- 3.5 TRANSIÇÃO DE SEÇÕES EM COLUNAS ARQUITETÔNICAS (PORSCHE / MANTHEY COLUMN TRANSITION) -->
-  <div id="hero-column-transition" class="relative w-full bg-olina-coffeeDeep overflow-hidden select-none -mb-px" style="height: clamp(80px, 12vw, 150px);">
-    
-    <!-- Linhas Guia Verticais Arquitetônicas em Fundo (Grid Hairlines) -->
-    <div class="absolute inset-0 grid grid-cols-3 sm:grid-cols-5 divide-x divide-white/[0.06] pointer-events-none">
-      <div></div><div></div><div></div>
-      <div class="hidden sm:block"></div>
-      <div class="hidden sm:block"></div>
-    </div>
-    
-    <!-- Escadaria de Colunas Vibe Coding (Adaptação Mobile 3 Colunas & Desktop 5 Colunas) -->
-    <div class="relative w-full h-full grid grid-cols-3 sm:grid-cols-5 divide-x divide-zinc-300/40 items-end">
-      
-      <!-- Coluna 1: 100% (Preenchimento Total) -->
-      <div class="stair-col h-full bg-olina-coolGray border-r border-zinc-300/40 will-change-transform"></div>
-      
-      <!-- Coluna 2: 75% no Desktop, 55% no Mobile -->
-      <div class="stair-col h-[55%] sm:h-[75%] bg-olina-coolGray border-r border-zinc-300/40 will-change-transform"></div>
-      
-      <!-- Coluna 3: 50% no Desktop, 20% no Mobile -->
-      <div class="stair-col h-[20%] sm:h-[50%] bg-olina-coolGray border-r border-zinc-300/40 will-change-transform"></div>
-      
-      <!-- Coluna 4: 25% no Desktop -->
-      <div class="stair-col hidden sm:block h-[25%] bg-olina-coolGray border-r border-zinc-300/40 will-change-transform"></div>
-      
-      <!-- Coluna 5: 10% no Desktop -->
-      <div class="stair-col hidden sm:block h-[10%] bg-olina-coolGray will-change-transform"></div>
-      
-    </div>
-  </div>
 
   <!-- 4. SEÇÃO "NA IMPRENSA" (VITRINE DE AUTORIDADE & REPERCUSSÃO PÚBLICA) -->
   <section id="na-imprensa" class="py-20 lg:py-28 bg-olina-coolGray relative border-b border-zinc-300/80">
@@ -1186,30 +1170,26 @@
       document.body.style.overflow = 'auto';
     }
 
-    // 5. HEADER SCROLL & MOBILE MENU (Alternativa 1A: Transparente no topo, Frosted Glass ao rolar)
+    // 5. HEADER SCROLL & MOBILE MENU (PERMANENTE COM TICKER ACOPLADO)
     const header = document.getElementById('mainHeader');
     const mobileMenu = document.getElementById('mobileMenu');
 
     function updateHeaderAppearance() {
-      const isMenuOpen = mobileMenu && !mobileMenu.classList.contains('hidden');
-      if (window.scrollY > 20 || isMenuOpen) {
-        header.classList.remove('bg-transparent', 'border-transparent');
+      if (header) {
         header.classList.add('bg-olina-coffeeDeep/95', 'backdrop-blur-md', 'border-white/10', 'shadow-xl');
-      } else {
-        header.classList.remove('bg-olina-coffeeDeep/95', 'backdrop-blur-md', 'border-white/10', 'shadow-xl');
-        header.classList.add('bg-transparent', 'border-transparent');
       }
     }
 
     function toggleMobileMenu() {
       if (mobileMenu) {
         mobileMenu.classList.toggle('hidden');
-        updateHeaderAppearance();
       }
     }
-    document.getElementById('mobileMenuBtn').addEventListener('click', toggleMobileMenu);
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    }
 
-    window.addEventListener('scroll', updateHeaderAppearance, { passive: true });
     updateHeaderAppearance();
 
     // 6. CONVERSION DISPATCHER (ADS PIXEL / WHATSAPP)
@@ -1234,93 +1214,86 @@
       }
     });
 
-    // 7. MANTHEY COLUMN TRANSITION ENGINE (VIBE CODING)
-    function setupColumnTransitions() {
-      const curtain = document.getElementById('columnCurtain');
-      const bars = curtain ? curtain.querySelectorAll('.curtain-bar') : [];
-
-      // Intercept anchor clicks for the luxury staggered 5-column wipe
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          const targetId = this.getAttribute('href');
-          if (!targetId || targetId === '#' || targetId.length < 2) return;
-          const targetEl = document.querySelector(targetId);
-          if (!targetEl) return;
-
-          e.preventDefault();
-          
-          if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-            mobileMenu.classList.add('hidden');
-            updateHeaderAppearance();
-          }
-
-          if (!curtain || bars.length === 0) {
-            targetEl.scrollIntoView({ behavior: 'smooth' });
-            return;
-          }
-
-          curtain.classList.remove('pointer-events-none');
-          
-          // Phase 1: Wipe IN from bottom with stagger
-          bars.forEach((bar, i) => {
-            bar.style.transition = 'transform 0.45s cubic-bezier(0.77, 0, 0.175, 1)';
-            bar.style.transitionDelay = `${i * 45}ms`;
-            bar.style.transform = 'translateY(0%)';
-          });
-
-          // Phase 2: Scroll to target and Wipe OUT to top with stagger
-          setTimeout(() => {
-            targetEl.scrollIntoView({ behavior: 'auto' });
-            
-            bars.forEach((bar, i) => {
-              bar.style.transitionDelay = `${i * 45}ms`;
-              bar.style.transform = 'translateY(-100%)';
-            });
-
-            // Reset curtain after wipe out
-            setTimeout(() => {
-              curtain.classList.add('pointer-events-none');
-              bars.forEach(bar => {
-                bar.style.transition = 'none';
-                bar.style.transform = 'translateY(100%)';
-              });
-            }, 600);
-          }, 380);
+    // 7. LENIS SMOOTH SCROLL & DETAILS.SO VAULT COLUMN TRANSITION ENGINE
+    let lenis = null;
+    if (typeof Lenis !== 'undefined') {
+      try {
+        lenis = new Lenis({
+          duration: 1.15,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          smoothWheel: true,
+          smoothTouch: false,
         });
-      });
 
-      // Scroll-linked dynamic expansion for the hero stepped staircase
-      const heroTransition = document.getElementById('hero-column-transition');
-      if (heroTransition) {
-        const stairCols = heroTransition.querySelectorAll('.stair-col');
-        const defaultHeights = [100, 75, 50, 25, 10];
-        const mobileDefaultHeights = [100, 55, 20];
-
-        function handleStaircaseScroll() {
-          const rect = heroTransition.getBoundingClientRect();
-          const winHeight = window.innerHeight;
-          
-          if (rect.top < winHeight && rect.bottom > 0) {
-            const progress = Math.min(1, Math.max(0, (winHeight - rect.top) / (winHeight * 0.75)));
-            const isMobile = window.innerWidth < 640;
-            const bases = isMobile ? mobileDefaultHeights : defaultHeights;
-
-            stairCols.forEach((col, idx) => {
-              if (idx < bases.length) {
-                const base = bases[idx];
-                const current = base + (100 - base) * Math.pow(progress, 1.4);
-                col.style.height = `${current}%`;
-              }
-            });
-          }
+        function raf(time) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
         }
-
-        window.addEventListener('scroll', handleStaircaseScroll, { passive: true });
-        handleStaircaseScroll();
+        requestAnimationFrame(raf);
+      } catch (err) {
+        console.warn('Lenis could not be initialized:', err);
       }
     }
 
-    setupColumnTransitions();
+    function setupDetailsSoVaultTransition() {
+      const heroSection = document.getElementById('hero');
+      const slices = document.querySelectorAll('.vault-column-slice');
+      if (!heroSection || slices.length === 0) return;
+
+      const ranges = [
+        { start: 0.00, end: 0.65 },
+        { start: 0.12, end: 0.77 },
+        { start: 0.24, end: 0.89 },
+        { start: 0.35, end: 1.00 }
+      ];
+
+      function updateColumnScrub() {
+        const rect = heroSection.getBoundingClientRect();
+        const totalTravel = heroSection.offsetHeight - window.innerHeight;
+        if (totalTravel <= 0) return;
+
+        const scrolled = -rect.top;
+        const progress = Math.min(1, Math.max(0, scrolled / totalTravel));
+
+        slices.forEach((slice, i) => {
+          const range = ranges[i % ranges.length];
+          const colProgress = Math.min(1, Math.max(0, (progress - range.start) / (range.end - range.start)));
+          const translateY = (1 - colProgress) * 100.5;
+          slice.style.transform = `translate3d(0, ${translateY.toFixed(2)}%, 0)`;
+        });
+      }
+
+      if (lenis) {
+        lenis.on('scroll', updateColumnScrub);
+      }
+      window.addEventListener('scroll', updateColumnScrub, { passive: true });
+      window.addEventListener('resize', updateColumnScrub, { passive: true });
+      updateColumnScrub();
+    }
+
+    // Anchor Link Smooth Scrolling with Lenis
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (!targetId || targetId === '#' || targetId.length < 2) return;
+        const targetEl = document.querySelector(targetId);
+        if (!targetEl) return;
+
+        e.preventDefault();
+        
+        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+        }
+
+        if (lenis) {
+          lenis.scrollTo(targetEl, { offset: -90 });
+        } else {
+          targetEl.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    setupDetailsSoVaultTransition();
   </script>
 
 </body>

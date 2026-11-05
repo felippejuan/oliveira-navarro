@@ -1,28 +1,29 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <defs>
     <style>
-      .bg { fill: #181514; }
+      .bg { fill: #1E1A18; stroke: #453C37; stroke-width: 1.5; }
       .letter-o {
-        font-family: 'Cairo', system-ui, -apple-system, sans-serif;
+        font-family: 'Cairo', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         font-weight: 900;
-        font-size: 46px;
-        fill: #FF5514;
+        font-size: 35px;
+        fill: #DD4F1D;
         text-anchor: end;
         dominant-baseline: central;
       }
       .letter-n {
-        font-family: 'Cairo', system-ui, -apple-system, sans-serif;
+        font-family: 'Cairo', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         font-weight: 900;
-        font-size: 46px;
+        font-size: 35px;
         fill: #FFFFFF;
         text-anchor: start;
         dominant-baseline: central;
       }
     </style>
   </defs>
-  <!-- Fundo Escuro com cantos arredondados -->
-  <rect class="bg" x="0.5" y="0.5" width="63" height="63" rx="15" ry="15"/>
-  <!-- Letras ON com contraste elétrico e tamanho ampliado -->
-  <text x="32" y="32" class="letter-o">O</text>
-  <text x="31" y="32" class="letter-n">N</text>
+  <!-- Squircle Fundo Café Profundo (#1E1A18) com borda arquitetônica sutil -->
+  <rect class="bg" x="0.75" y="0.75" width="62.5" height="62.5" rx="14" ry="14"/>
+  <!-- Letra O em Laranja Pantone 1665 C -->
+  <text x="31" y="32.5" class="letter-o">O</text>
+  <!-- Letra N em Branco Puro -->
+  <text x="31" y="32.5" class="letter-n">N</text>
 </svg>
