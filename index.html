@@ -299,8 +299,8 @@
     </div>
   </header>
 
-  <!-- 2. HERO SECTION COM REVELAÇÃO SUAVE (STICKY PINNED OVERLAP) -->
-  <section id="hero" class="sticky top-0 w-full h-[100dvh] min-h-[660px] overflow-hidden bg-olina-coffeeDeep z-10 flex flex-col justify-between select-none">
+  <!-- 2. HERO SECTION -->
+  <section id="hero" class="relative w-full h-[100dvh] min-h-[660px] overflow-hidden bg-olina-coffeeDeep flex flex-col justify-between select-none">
     
     <!-- O VÍDEO 100% PROTAGONISTA (OLIVEIRA.MP4) -->
     <video 
@@ -441,8 +441,8 @@
     </div>
   </section>
 
-  <!-- 3. SEÇÃO "QUEM SOMOS" (EMERGE SUAVEMENTE AO DESCER - SEM LINHAS VERTICAIS) -->
-  <section id="quem-somos" class="relative z-20 py-24 lg:py-32 bg-olina-coolGray border-b border-zinc-300/80 shadow-2xl">
+  <!-- 3. SEÇÃO "QUEM SOMOS" -->
+  <section id="quem-somos" class="relative py-24 lg:py-32 bg-olina-coolGray border-b border-zinc-300/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Seção Header com Pílula Oficial de 12px e Hairline -->
@@ -1379,10 +1379,20 @@
           mobileMenu.classList.add('hidden');
         }
 
+        if (targetId === '#hero') {
+          if (lenis) {
+            lenis.scrollTo(0, { duration: 1.0 });
+          } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+          return;
+        }
+
         if (lenis) {
-          lenis.scrollTo(targetEl, { offset: -90 });
+          lenis.scrollTo(targetEl, { offset: -100, duration: 1.0 });
         } else {
-          targetEl.scrollIntoView({ behavior: 'smooth' });
+          const y = targetEl.getBoundingClientRect().top + window.pageYOffset - 100;
+          window.scrollTo({ top: y, behavior: 'smooth' });
         }
       });
     });
