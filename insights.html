@@ -1,0 +1,2466 @@
+<!DOCTYPE html>
+
+
+
+<html lang="pt-BR" class="scroll-smooth">
+
+
+
+<head>
+
+
+
+  <meta charset="UTF-8">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+  <title>Insights & Inteligência Jurídica | Oliveira Navarro Advocacia</title>
+
+
+
+  <meta name="description" content="Acervo completo de Insights, artigos de fundo, teses e análises estratégicas do Oliveira Navarro Advocacia para Negócios.">
+
+
+
+  
+
+
+
+  <!-- Favicons Oficiais Oliveira Navarro (ON) - Fundo Laranja (#DD4F1D) e ON Branco -->
+
+
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=20261106_on_white">
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png?v=20261106_on_white">
+
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png?v=20261106_on_white">
+
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=20261106_on_white">
+
+
+
+  <link rel="shortcut icon" href="favicon.ico?v=20261106_on_white">
+
+
+
+
+
+
+
+  <!-- Google Fonts: Official Brand Typography -->
+
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+
+
+
+
+
+  <!-- Tailwind CSS CDN -->
+
+
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+
+
+  <script>
+
+
+
+    tailwind.config = {
+
+
+
+      darkMode: 'class',
+
+
+
+      theme: {
+
+
+
+        extend: {
+
+
+
+          colors: {
+
+
+
+            olina: {
+
+
+
+              orange: '#DD4F1D',
+
+
+
+              orangeHover: '#C44316',
+
+
+
+              orangeMuted: 'rgba(221, 79, 29, 0.12)',
+
+
+
+              coffee: '#3F3835',
+
+
+
+              coffeeDeep: '#1E1A18',
+
+
+
+              coffeeSurface: '#2B2523',
+
+
+
+              coffeeBorder: '#453C37',
+
+
+
+              coolGray: '#EAEAEA',
+
+
+
+              coolGrayLight: '#F5F5F5',
+
+
+
+              cardLight: '#FFFFFF'
+
+
+
+            }
+
+
+
+          },
+
+
+
+          fontFamily: {
+
+
+
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+
+
+
+            cairo: ['Cairo', 'sans-serif'],
+
+
+
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+
+
+
+            cinzel: ['Cinzel', 'serif']
+
+
+
+          }
+
+
+
+        }
+
+
+
+      }
+
+
+
+    }
+
+
+
+  </script>
+
+
+
+
+
+
+
+  <style>
+
+
+
+    /* Pílula ON Oficial Interativa */
+
+
+
+    .on-pill-indicator {
+
+
+
+      display: inline-flex;
+
+
+
+      align-items: center;
+
+
+
+      position: relative;
+
+
+
+      width: 44px;
+
+
+
+      height: 22px;
+
+
+
+      border-radius: 9999px;
+
+
+
+      background-color: #DD4F1D;
+
+
+
+      border: 1px solid rgba(221, 79, 29, 0.85);
+
+
+
+      cursor: pointer;
+
+
+
+      user-select: none;
+
+
+
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+
+
+    }
+
+
+
+    .on-pill-indicator .on-fill {
+
+
+
+      position: absolute;
+
+
+
+      top: 2px;
+
+
+
+      left: 2px;
+
+
+
+      width: 16px;
+
+
+
+      height: 16px;
+
+
+
+      border-radius: 9999px;
+
+
+
+      background-color: #FFFFFF;
+
+
+
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+
+
+
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+
+
+    }
+
+
+
+    .on-pill-indicator .on-text {
+
+
+
+      position: absolute;
+
+
+
+      right: 5px;
+
+
+
+      font-family: 'Cairo', sans-serif;
+
+
+
+      font-weight: 900;
+
+
+
+      font-size: 9.5px;
+
+
+
+      letter-spacing: 0.05em;
+
+
+
+      color: #FFFFFF;
+
+
+
+      line-height: 1;
+
+
+
+    }
+
+
+
+  </style>
+
+
+
+</head>
+
+
+
+
+
+
+
+<body class="bg-olina-coolGray text-olina-coffee font-sans antialiased overflow-x-hidden selection:bg-olina-orange selection:text-white min-h-screen flex flex-col justify-between">
+
+
+
+
+
+
+
+  <!-- 1. NAVIGATION BAR OFICIAL (FROSTED GLASS SÓLIDO) -->
+
+
+
+  <header id="mainHeader" class="sticky top-0 left-0 right-0 z-50 bg-[#1E1A18] backdrop-blur-md border-b border-white/10 shadow-xl transition-all duration-300" style="background-color: #1E1A18;">
+
+
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-6">
+
+
+
+      
+
+
+
+      <!-- LOGO OFICIAL OLIVEIRA NAVARRO -->
+
+
+
+      <a href="index.html" class="flex items-center group transition-opacity hover:opacity-95" aria-label="Oliveira Navarro Início">
+
+
+
+        <img 
+
+
+
+          src="assets/logo-white.svg" 
+
+
+
+          alt="Oliveira Navarro Advocacia" 
+
+
+
+          class="h-8 sm:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+
+
+
+        />
+
+
+
+      </a>
+
+
+
+
+
+
+
+      <!-- MENU DISCRETO & ELEGANTE -->
+
+
+
+      <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-[11px] xl:text-[12px] font-bold tracking-[0.16em] xl:tracking-[0.18em] uppercase text-white whitespace-nowrap">
+
+
+
+        <a href="index.html#hero" class="whitespace-nowrap text-zinc-300 hover:text-white transition-colors duration-200">INÍCIO</a>
+
+
+
+        <a href="index.html#quem-somos" class="whitespace-nowrap text-zinc-300 hover:text-white transition-colors duration-200">QUEM SOMOS</a>
+
+
+
+        <a href="imprensa.html" class="whitespace-nowrap text-zinc-300 hover:text-white transition-colors duration-200">NA IMPRENSA</a>
+
+
+
+        <a href="insights.html" class="whitespace-nowrap text-olina-orange border-b-2 border-olina-orange pb-0.5">INSIGHTS</a>
+
+
+
+        <a href="index.html#contato" class="whitespace-nowrap text-zinc-300 hover:text-white transition-colors duration-200">CONTATO</a>
+
+
+
+      </nav>
+
+
+
+
+
+
+
+      <!-- CTA REFINADO -->
+
+
+
+      <div class="hidden sm:flex items-center gap-3">
+
+
+
+        <a 
+
+
+
+          href="index.html#artigos" 
+
+
+
+          class="px-4 py-2 rounded-full border border-white/20 hover:border-white/50 text-zinc-300 hover:text-white text-xs font-bold uppercase tracking-wider transition-all duration-200 flex items-center gap-1.5"
+
+
+
+        >
+
+
+
+          <span>← Voltar</span>
+
+
+
+        </a>
+
+
+
+        <a 
+
+
+
+          href="https://wa.me/556137717679?text=Ol%C3%A1.%20Gostaria%20de%20iniciar%20um%20atendimento%20com%20a%20equipe%20do%20Oliveira%20Navarro." 
+
+
+
+          target="_blank" 
+
+
+
+          rel="noopener noreferrer" 
+
+
+
+          class="px-4 py-2 rounded-full border border-white/35 hover:border-olina-orange text-white bg-white/10 hover:bg-olina-orange/20 text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center gap-2 drop-shadow-sm"
+
+
+
+        >
+
+
+
+          <span>ATENDIMENTO EXECUTIVO</span>
+
+
+
+          <svg class="w-3.5 h-3.5 text-olina-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+
+
+
+        </a>
+
+
+
+      </div>
+
+
+
+
+
+
+
+      <!-- Mobile Menu Toggle Button -->
+
+
+
+      <button id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Abrir menu de navegação" class="lg:hidden p-2 text-white hover:text-olina-orange focus:outline-none">
+
+
+
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+
+
+
+      </button>
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <!-- Mobile Dropdown Menu -->
+
+
+
+    <div id="mobileMenu" class="hidden lg:hidden bg-olina-coffeeDeep/98 backdrop-blur-xl border-b border-white/10 px-6 py-6 space-y-4 text-xs font-bold uppercase tracking-[0.18em] text-white">
+
+
+
+      <a href="index.html#hero" class="block hover:text-olina-orange py-1 text-zinc-300" onclick="toggleMobileMenu()">INÍCIO</a>
+
+
+
+      <a href="index.html#quem-somos" class="block hover:text-olina-orange py-1 text-zinc-300" onclick="toggleMobileMenu()">QUEM SOMOS</a>
+
+
+
+      <a href="imprensa.html" class="block hover:text-olina-orange py-1 text-zinc-300" onclick="toggleMobileMenu()">NA IMPRENSA</a>
+
+
+
+      <a href="insights.html" class="block text-olina-orange font-bold py-1" onclick="toggleMobileMenu()">INSIGHTS</a>
+
+
+
+      <a href="index.html#contato" class="block hover:text-olina-orange py-1 text-zinc-300" onclick="toggleMobileMenu()">CONTATO</a>
+
+
+
+      <div class="pt-4 border-t border-white/10 flex flex-col gap-2">
+
+
+
+        <a href="index.html#artigos" class="block text-center py-2 rounded-full border border-white/20 text-white text-xs font-bold uppercase">
+
+
+
+          ← Voltar à Home
+
+
+
+        </a>
+
+
+
+                <div class="flex items-center gap-2.5 pt-2">
+
+
+
+          <!-- WhatsApp Oficial -->
+
+
+
+          <a href="https://wa.me/556137717679?text=Ol%C3%A1.%20Gostaria%20de%20iniciar%20um%20atendimento%20com%20a%20equipe%20do%20Oliveira%20Navarro." target="_blank" rel="noopener noreferrer" class="flex-1 py-2.5 px-3 bg-olina-orange hover:bg-olina-orangeHover text-white rounded-full font-bold text-xs uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 transition-all">
+
+
+
+            <svg class="w-4 h-4 text-white fill-current shrink-0" viewBox="0 0 24 24">
+
+
+
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+
+
+
+            </svg>
+
+
+
+            <span>ATENDIMENTO EXECUTIVO</span>
+
+
+
+          </a>
+
+
+
+          <!-- Instagram -->
+
+
+
+          <a href="https://www.instagram.com/oliveirasnavarro.on" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-10 h-10 rounded-full border border-white/20 hover:border-olina-orange text-zinc-300 hover:text-olina-orange flex items-center justify-center transition-all bg-white/5 shrink-0">
+
+
+
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+
+
+
+          </a>
+
+
+
+          <!-- Facebook -->
+
+
+
+          <a href="https://www.facebook.com/people/Oliveira-Navarro/61553449779063/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-10 h-10 rounded-full border border-white/20 hover:border-olina-orange text-zinc-300 hover:text-olina-orange flex items-center justify-center transition-all bg-white/5 shrink-0">
+
+
+
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+
+
+
+          </a>
+
+
+
+        </div>
+
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+  </header>
+
+
+
+
+
+
+
+  <!-- 2. HERO DA PÁGINA: ACERVO DE INSIGHTS & INTELIGÊNCIA JURÍDICA -->
+
+
+
+  <section class="bg-[#1E1A18] text-white py-14 sm:py-20 relative overflow-hidden border-b border-white/10" style="background-color: #1E1A18;">
+
+
+
+    <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-olina-orange/10 blur-3xl pointer-events-none"></div>
+
+
+
+    <div class="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-black/50 blur-3xl pointer-events-none"></div>
+
+
+
+
+
+
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+
+
+      
+
+
+
+      <div class="max-w-4xl space-y-4">
+
+
+
+        <div class="flex items-center gap-3">
+
+
+
+          <span class="w-5 h-[2px] bg-olina-orange inline-block rounded-full"></span>
+
+
+
+          <span class="text-xs font-bold uppercase tracking-[0.25em] text-olina-orange">Inteligência Jurídica & Produção Editorial</span>
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+
+
+
+          Insights
+
+
+
+        </h1>
+
+
+
+
+
+
+
+        <p class="text-base sm:text-lg md:text-xl text-zinc-300 font-light max-w-3xl leading-relaxed">
+
+
+
+          Conteúdo de fundo, teses tributárias e análises regulatórias elaboradas pelas advogadas do escritório para embasar tomadas de decisão de executivos e conselhos fiscais.
+
+
+
+        </p>
+
+
+
+      </div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+  </section>
+
+
+
+
+
+
+
+  <!-- 3. BARRA DE BUSCA EM TEMPO REAL & CONTROLE -->
+  <section class="bg-white border-b border-zinc-200/90 py-3.5 sm:py-4 sticky top-16 sm:top-20 z-40 shadow-sm backdrop-blur-md bg-white/95">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="relative w-full max-w-xl">
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder="Pesquisar por tema, tese jurídica, autor ou palavra-chave..." 
+          oninput="filterInsightsList()"
+          class="w-full pl-10 pr-4 py-2.5 rounded-full bg-zinc-100 border border-zinc-300 text-xs sm:text-sm text-olina-coffee placeholder-zinc-400 focus:outline-none focus:border-olina-orange focus:bg-white transition-all"
+        />
+        <svg class="w-4 h-4 text-zinc-400 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-600 p-1">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+  <!-- 4. GRID COMPLETO DE INSIGHTS (DIRETO NO GRID, SEM DESTAQUE) -->
+
+
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-1 w-full">
+
+
+
+    
+
+
+
+    <!-- Grid Completo de Cards -->
+
+
+
+    <div id="insightsGridContainer" class="flex flex-col gap-4 sm:gap-5 w-full">
+
+
+
+      <!-- Renderizado dinamicamente via data/artigos.json -->
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <!-- Mensagem de Busca Vazia -->
+
+
+
+    <div id="noResultsMsg" class="hidden py-16 text-center">
+
+
+
+      <div class="w-16 h-16 rounded-full bg-zinc-200 text-zinc-500 mx-auto flex items-center justify-center mb-4">
+
+
+
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+
+
+
+      </div>
+
+
+
+      <h3 class="text-lg font-bold text-olina-coffee mb-1">Nenhum insight encontrado</h3>
+
+
+
+      <p class="text-sm text-zinc-500">Tente buscar por outras palavras-chave ou limpe o campo de busca.</p>
+
+
+
+      <button onclick="clearSearch()" class="mt-4 px-5 py-2 rounded-full bg-olina-coffee text-white text-xs font-bold uppercase tracking-wider hover:bg-olina-coffeeDeep transition-all">
+
+
+
+        Ver Todos os Insights
+
+
+
+      </button>
+
+
+
+    </div>
+
+
+
+
+
+
+
+  </main>
+
+
+
+
+
+
+
+  <!-- 5. GAVETA DE LEITURA EDITORIAL DE ARTIGOS (READER DRAWER) -->
+
+
+
+  <div id="articleModal" class="hidden fixed inset-0 z-50 flex items-center justify-end bg-black/80 backdrop-blur-sm" onclick="closeArticleModal(event)">
+
+
+
+    <div class="w-full max-w-2xl h-full bg-white text-olina-coffee overflow-y-auto flex flex-col justify-between shadow-2xl relative" onclick="event.stopPropagation()">
+
+
+
+      
+
+
+
+      <!-- Progress Bar de Leitura -->
+
+
+
+      <div class="sticky top-0 left-0 right-0 h-1.5 bg-zinc-200 z-30">
+
+
+
+        <div id="readProgress" class="h-full bg-olina-orange transition-all duration-300 w-0"></div>
+
+
+
+      </div>
+
+
+
+
+
+
+
+      <!-- Drawer Header -->
+
+
+
+      <div class="p-6 sm:p-8 pb-4 flex items-center justify-between border-b border-zinc-100 sticky top-1.5 bg-white/95 backdrop-blur-md z-20">
+
+
+
+        <span id="modalArticleCategory" class="text-xs font-bold uppercase tracking-widest text-olina-orange">
+
+
+
+          Categoria
+
+
+
+        </span>
+
+
+
+        <button onclick="closeArticleModal()" class="p-2 rounded-full hover:bg-zinc-100 text-zinc-600 transition-colors">
+
+
+
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+
+
+
+        </button>
+
+
+
+      </div>
+
+
+
+
+
+
+
+      <!-- Article Content Body -->
+
+
+
+      <div class="p-6 sm:p-8 flex-1">
+
+
+
+        <div class="flex items-center gap-3 mb-6">
+
+
+
+          <div id="modalAuthorAvatar"></div>
+
+
+
+          <div>
+
+
+
+            <div id="modalAuthorName" class="text-sm font-bold text-olina-coffee"></div>
+
+
+
+            <div id="modalAuthorRole" class="text-xs text-zinc-500 font-medium"></div>
+
+
+
+          </div>
+
+
+
+          <span class="text-zinc-300 mx-2">•</span>
+
+
+
+          <span id="modalReadTime" class="text-xs text-zinc-400 font-semibold"></span>
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <h2 id="modalArticleTitle" class="text-2xl sm:text-3xl font-extrabold text-olina-coffee leading-tight mb-8"></h2>
+
+
+
+
+
+
+
+        <div id="modalArticleBody" class="prose text-zinc-700 leading-relaxed font-light text-base space-y-4"></div>
+
+
+
+      </div>
+
+
+
+
+
+
+
+      <!-- Drawer Footer CTA -->
+
+
+
+      <div class="p-6 sm:p-8 bg-zinc-50 border-t border-zinc-200 flex flex-col sm:flex-row items-center justify-between gap-4 sticky bottom-0">
+
+
+
+        <div>
+
+
+
+          <span class="text-xs text-zinc-500 uppercase tracking-widest font-bold block mb-1">Análise Estratégica</span>
+
+
+
+          <p class="text-sm font-bold text-olina-coffee">Deseja avaliar o impacto desta tese no seu negócio?</p>
+
+
+
+        </div>
+
+
+
+        <a id="modalCtaLink" href="#" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full bg-olina-orange hover:bg-olina-orangeHover text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md shrink-0 flex items-center gap-2">
+
+
+
+          <span>Consultar Equipe</span>
+
+
+
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+
+
+
+        </a>
+
+
+
+      </div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+  </div>
+
+
+
+
+
+
+
+  <!-- 6. FOOTER OFICIAL OLIVEIRA NAVARRO -->
+
+
+
+  <footer class="bg-olina-coffeeDeep text-white border-t border-white/10 py-12">
+
+
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+
+
+
+        <div class="md:col-span-2">
+
+
+
+          <a href="index.html" class="inline-block mb-4">
+
+
+
+            <img src="assets/logo-white.svg" alt="Oliveira Navarro Advocacia" class="h-8 w-auto">
+
+
+
+          </a>
+
+
+
+          <p class="text-xs text-zinc-400 leading-relaxed max-w-sm">
+
+
+
+            Oliveira Navarro Advocacia para Negócios. Direito Tributário, Compras Governamentais e Inteligência Regulatória em Brasília/DF.
+
+
+
+          </p>
+
+
+
+          <div class="mt-5 flex items-center gap-3">
+
+
+
+            <span class="text-[11px] uppercase tracking-wider text-zinc-400 font-semibold mr-1">Redes Sociais:</span>
+
+
+
+            <!-- Instagram Oficial -->
+
+
+
+            <a 
+
+
+
+              href="https://www.instagram.com/oliveirasnavarro.on" 
+
+
+
+              target="_blank" 
+
+
+
+              rel="noopener noreferrer" 
+
+
+
+              aria-label="Instagram Oliveira Navarro" 
+
+
+
+              title="Siga no Instagram @oliveirasnavarro.on"
+
+
+
+              class="w-9 h-9 rounded-full border border-white/20 hover:border-olina-orange text-zinc-300 hover:text-olina-orange flex items-center justify-center transition-all duration-200 group"
+
+
+
+            >
+
+
+
+              <svg class="w-4 h-4 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+
+
+
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+
+
+
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+
+
+
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+
+
+
+              </svg>
+
+
+
+            </a>
+
+
+
+            <!-- Facebook Oficial -->
+
+
+
+            <a 
+
+
+
+              href="https://www.facebook.com/people/Oliveira-Navarro/61553449779063/" 
+
+
+
+              target="_blank" 
+
+
+
+              rel="noopener noreferrer" 
+
+
+
+              aria-label="Facebook Oliveira Navarro" 
+
+
+
+              title="Acompanhe no Facebook"
+
+
+
+              class="w-9 h-9 rounded-full border border-white/20 hover:border-olina-orange text-zinc-300 hover:text-olina-orange flex items-center justify-center transition-all duration-200 group"
+
+
+
+            >
+
+
+
+              <svg class="w-4 h-4 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+
+
+
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+
+
+
+              </svg>
+
+
+
+            </a>
+
+
+
+          </div>
+
+
+
+        </div>
+
+
+
+        <div>
+
+
+
+          <h4 class="text-xs font-bold uppercase tracking-widest text-olina-orange mb-4">Navegação</h4>
+
+
+
+          <ul class="space-y-2 text-xs text-zinc-400">
+
+
+
+            <li><a href="index.html#hero" class="hover:text-olina-orange transition-colors">Início</a></li>
+
+
+
+            <li><a href="index.html#quem-somos" class="hover:text-olina-orange transition-colors">Quem Somos</a></li>
+
+
+
+            <li><a href="imprensa.html" class="hover:text-olina-orange transition-colors">Na Imprensa</a></li>
+
+
+
+            <li><a href="insights.html" class="text-olina-orange font-bold transition-colors">Insights</a></li>
+
+
+
+            <li><a href="index.html#contato" class="hover:text-olina-orange transition-colors">Contato</a></li>
+
+
+
+          </ul>
+
+
+
+        </div>
+
+
+
+        <div>
+
+
+
+          <h4 class="text-xs font-bold uppercase tracking-widest text-olina-orange mb-4">Contato Institucional</h4>
+
+
+
+          <p class="text-xs text-zinc-400 leading-relaxed">
+
+
+
+            Brasília / DF • Brasil<br>
+
+
+
+            Atendimento Corporativo Nacional
+
+
+
+          </p>
+
+
+
+          <a href="https://wa.me/556137717679" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 mt-4 text-xs font-bold text-olina-orange hover:text-white transition-colors">
+
+
+
+            <span>+55 (61) 3771-7679</span>
+
+
+
+            <span>➔</span>
+
+
+
+          </a>
+
+
+
+        </div>
+
+
+
+      </div>
+
+
+
+      <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+
+
+
+        <p>© 2026 Oliveira Navarro Advocacia. Todos os direitos reservados.</p>
+
+
+
+        <p class="font-medium">Advocacia no ritmo dos negócios.</p>
+
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+  </footer>
+
+
+
+
+
+
+
+  <!-- SCRIPT ENGINE -->
+
+
+
+  <script>
+
+
+
+    const DEFAULT_ARTIGOS_DATA = [
+
+
+
+      {
+
+
+
+        id: "artigo-1",
+
+
+
+        destaqueTicker: true,
+
+
+
+        tickerBadge: "REFORMA TRIBUTÁRIA",
+
+
+
+        tickerTexto: "A não-cumulatividade plena no IBS/CBS e impactos no Lucro Real e Presumido",
+
+
+
+        tickerAcao: "➔ Ler Tese",
+
+
+
+        categoria: "tributario",
+
+
+
+        categoriaBadge: "Direito Tributário",
+
+
+
+        tempoLeitura: "5 min",
+
+
+
+        titulo: "A não-cumulatividade plena no IBS/CBS e seus reflexos no Lucro Real e Presumido.",
+
+
+
+        resumo: "Como a unificação dos tributos sobre o consumo desafia o planejamento tributário vigente e quais créditos merecem atenção.",
+
+
+
+        autor: "Dra. Tattiana de Navarro",
+
+
+
+        cargo: "Sócia-Fundadora",
+
+
+
+        authorRole: "Sócia-Fundadora • Especialista em Direito Tributário",
+
+
+
+        avatar: "assets/tattiana-navarro-portrait.jpg",
+
+
+
+        isAvatarImg: true,
+
+
+
+        data: "Março 2026",
+
+
+
+        conteudoHtml: "<p>A promulgação da Emenda Constitucional nº 132/2023 inaugurou a mais profunda transformação no sistema tributário nacional das últimas cinco décadas. Com a substituição do PIS, COFINS, ICMS e ISS pelo Imposto sobre Bens e Serviços (IBS) e pela Contribuição sobre Bens e Serviços (CBS), a lógica de apuração fiscal das pessoas jurídicas entra em novo paradigma.</p><p>O coração do novo sistema é a <strong>não-cumulatividade plena</strong>. Em tese, qualquer aquisição de bens ou serviços vinculados à atividade econômica da empresa gerará direito a crédito imediato. Contudo, a contrapartida reside no mecanismo do <em>split payment</em> - a retenção na fonte do tributo no ato do pagamento financeiro.</p><blockquote class=\"border-l-4 border-olina-orange pl-4 italic my-6 text-zinc-800 bg-zinc-100 p-3 rounded-r-lg font-medium\">\"As empresas que postergarem a renegociação de suas cláusulas contratuais de compras e fornecimento sofrerão impacto severo em capital de giro logo no primeiro ano de transição.\"</blockquote><p>Para o contribuinte, a prioridade não é aguardar 2026, mas iniciar imediatamente o diagnóstico do perfil de suas contratações B2B, quantificando o efeito nas margens e reestruturando a governança de conformidade fiscal.</p>"
+
+
+
+      },
+
+
+
+      {
+
+
+
+        id: "artigo-2",
+
+
+
+        destaqueTicker: true,
+
+
+
+        tickerBadge: "LICITAÇÕES 14.133",
+
+
+
+        tickerTexto: "Processos sancionatórios e defesas prévias perante órgãos de controle",
+
+
+
+        tickerAcao: "➔ Ler",
+
+
+
+        categoria: "administrativo",
+
+
+
+        categoriaBadge: "Licitações & Contratos",
+
+
+
+        tempoLeitura: "4 min",
+
+
+
+        titulo: "Processos administrativos sancionatórios em licitações: Como estruturar defesas prévias sob a Lei 14.133.",
+
+
+
+        resumo: "A dosimetria da sanção e o papel das medidas de integridade para evitar a declaração de inidoneidade perante o SICAF.",
+
+
+
+        autor: "Dra. Mariana Albuquerque",
+
+
+
+        cargo: "Advogada Associada",
+
+
+
+        authorRole: "Advogada Associada • Direito Administrativo & Regulatório",
+
+
+
+        avatar: "MA",
+
+
+
+        avatarBg: "bg-olina-coffeeDeep",
+
+
+
+        isAvatarImg: false,
+
+
+
+        data: "Fevereiro 2026",
+
+
+
+        conteudoHtml: "<p>A consolidação da Nova Lei de Licitações (Lei 14.133/2021) conferiu aos órgãos públicos instrumentos mais céleres e incisivos de responsabilização das contratadas. O risco de sanções como o impedimento de licitar ou a declaração de inidoneidade exige das diretorias jurídicas corporativas uma postura imediata de contenção probatória.</p><p>A jurisprudência contemporânea dos Tribunais de Contas tem reiterado a obrigatoriedade da observância estrita ao <strong>princípio da dosimetria</strong>. Falhas executivas desprovidas de má-fé ou dano ao erário não podem ensejar a aplicação mecânica da penalidade máxima.</p><blockquote class=\"border-l-4 border-olina-orange pl-4 italic my-6 text-zinc-800 bg-zinc-100 p-3 rounded-r-lg font-medium\">\"A comprovação prévia de um programa de compliance efetivo e a rápida reparação do incidente contratual reduzem drasticamente o risco sancionatório nos Tribunais de Contas.\"</blockquote><p>Na prática, a atuação estratégica nos primeiros cinco dias de notificação é o divisor de águas entre a preservação dos contratos vigentes e a descontinuidade operacional da empresa no mercado público.</p>"
+
+
+
+      },
+
+
+
+      {
+
+
+
+        id: "artigo-3",
+
+
+
+        destaqueTicker: true,
+
+
+
+        tickerBadge: "SUBVENÇÕES ICMS",
+
+
+
+        tickerTexto: "A exclusão de PIS/COFINS e subvenções para investimento após a Lei 14.789",
+
+
+
+        tickerAcao: "➔ Ver Tese",
+
+
+
+        categoria: "tributario",
+
+
+
+        categoriaBadge: "CARF & Tribunais",
+
+
+
+        tempoLeitura: "6 min",
+
+
+
+        titulo: "Exclusão de PIS/COFINS da própria base e subvenções para investimento após a Lei 14.789.",
+
+
+
+        resumo: "O posicionamento do Ministério da Fazenda e as teses de defesa tributária para empresas com incentivos de ICMS.",
+
+
+
+        autor: "Dra. Beatriz Mendes",
+
+
+
+        cargo: "Advogada Associada",
+
+
+
+        authorRole: "Advogada Associada • Contencioso Tributário & CARF",
+
+
+
+        avatar: "BM",
+
+
+
+        avatarBg: "bg-olina-orange",
+
+
+
+        isAvatarImg: false,
+
+
+
+        data: "Janeiro 2026",
+
+
+
+        conteudoHtml: "<p>A edição da Lei 14.789/2023 alterou radicalmente o tratamento fiscal das subvenções de ICMS para investimento, revogando o art. 30 da Lei 12.973/14 e impondo regime de crédito fiscal restrito. A medida provocou onda de judicialização por parte de grandes indústrias e redes varejistas.</p><p>As teses de defesa sustentam que a União Federal violou o <strong>pacto federativo</strong> ao buscar tributar indiretamente incentivos outorgados pelos Estados no exercício de sua competência constitucional tributária.</p><blockquote class=\"border-l-4 border-olina-orange pl-4 italic my-6 text-zinc-800 bg-zinc-100 p-3 rounded-r-lg font-medium\">\"A imunidade recíproca e o respeito aos atos jurídicos perfeitos permanecem como escudos basilares contra a tributação federal predatória dos incentivos regionais.\"</blockquote><p>O escritório assessora empresas em ações declaratórias com pedido liminar para afastar as restrições da nova sistemática e resguardar a competitividade de suas plantas produtivas.</p>"
+
+
+
+      },
+
+
+
+      {
+
+
+
+        id: "artigo-4",
+
+
+
+        destaqueTicker: true,
+
+
+
+        tickerBadge: "PRECATÓRIOS FEDERAIS",
+
+
+
+        tickerTexto: "Due diligence fiduciária e higidez na liquidação de passivos",
+
+
+
+        tickerAcao: "➔ Ler",
+
+
+
+        categoria: "precatorios",
+
+
+
+        categoriaBadge: "Precatórios Federais",
+
+
+
+        tempoLeitura: "4 min",
+
+
+
+        titulo: "Due diligence em aquisição de precatórios federais: Blindagem contra fraudes e vícios de origem.",
+
+
+
+        resumo: "A verificação da cadeia sucessória e a higidez do título judicial para garantir homologação em compensações fiscais.",
+
+
+
+        autor: "Tattiana de Navarro & Equipe",
+
+
+
+        cargo: "Núcleo Precatórios",
+
+
+
+        authorRole: "Núcleo de Precatórios Federais & Estruturação Financeira",
+
+
+
+        avatar: "TP",
+
+
+
+        avatarBg: "bg-zinc-800",
+
+
+
+        isAvatarImg: false,
+
+
+
+        data: "Dezembro 2025",
+
+
+
+        conteudoHtml: "<p>A utilização de precatórios federais para liquidação de passivos tributários e otimização de balanço consolidou-se como estratégia financeira indispensável após as Emendas Constitucionais 113 e 114.</p><p>Entretanto, o mercado secundário de títulos judiciais impõe auditoria rigorosa de titularidade: higidez da cadeia sucessória, ausência de penhoras ocultas e certificação definitiva do trânsito em julgado perante os Tribunais Regionais Federais (TRFs).</p><blockquote class=\"border-l-4 border-olina-orange pl-4 italic my-6 text-zinc-800 bg-zinc-100 p-3 rounded-r-lg font-medium\">\"Um laudo de conformidade fiduciária robusto é a única salvaguarda que impede glosas fiscais futuras e anulações em âmbito administrativo.\"</blockquote><p>No Oliveira Navarro, emitimos laudos de conformidade fiduciária que outorgam à empresa adquirente a tranquilidade necessária para efetivar a compensação sem risco de glosa fiscal futura.</p>"
+
+
+
+      }
+
+
+
+    ];
+
+
+
+
+
+
+
+    let allInsights = DEFAULT_ARTIGOS_DATA;
+
+
+
+    const articlesDB = {};
+
+
+
+
+
+
+
+    function populateArticlesDB(items) {
+
+
+
+      items.forEach(art => {
+
+
+
+        articlesDB[art.id] = {
+
+
+
+          category: (art.categoriaBadge || art.categoria).toUpperCase(),
+
+
+
+          title: art.titulo,
+
+
+
+          author: art.autor,
+
+
+
+          authorRole: art.authorRole || art.cargo,
+
+
+
+          avatarHtml: art.isAvatarImg
+
+
+
+            ? `<img src="${art.avatar}" class="w-10 h-10 rounded-full object-cover border border-olina-orange" alt="${art.autor}">`
+
+
+
+            : `<div class="w-10 h-10 rounded-full ${art.avatarBg || 'bg-olina-coffee'} text-white flex items-center justify-center font-bold text-xs">${art.avatar}</div>`,
+
+
+
+          readTime: `${art.tempoLeitura} de leitura`,
+
+
+
+          body: art.conteudoHtml
+
+
+
+        };
+
+
+
+      });
+
+
+
+    }
+
+
+
+
+
+
+
+    function renderInsightsGrid(items) {
+
+
+
+      const container = document.getElementById('insightsGridContainer');
+
+
+
+      const noResults = document.getElementById('noResultsMsg');
+
+
+
+      const counter = document.getElementById('resultsCounter');
+
+
+
+
+
+
+
+      if (!container) return;
+
+
+
+
+
+
+
+      if (!items || items.length === 0) {
+
+
+
+        container.innerHTML = '';
+
+
+
+        if (noResults) noResults.classList.remove('hidden');
+
+
+
+        if (counter) counter.innerText = 'Nenhum resultado';
+
+
+
+        return;
+
+
+
+      }
+
+
+
+
+
+
+
+      if (noResults) noResults.classList.add('hidden');
+
+
+
+      if (counter) {
+
+
+
+        counter.innerText = `Exibindo ${items.length} ${items.length === 1 ? 'análise' : 'análises de fundo'}`;
+
+
+
+      }
+
+
+
+
+
+
+
+      container.innerHTML = items.map(art => {
+
+
+
+        const avatarSnippet = art.isAvatarImg
+
+
+
+          ? `<img src="${art.avatar}" class="w-10 h-10 rounded-full object-cover border border-olina-orange/40 shrink-0" alt="${art.autor}">`
+
+
+
+          : `<div class="w-10 h-10 rounded-full ${art.avatarBg || 'bg-olina-coffee'} text-white flex items-center justify-center font-bold text-xs shrink-0">${art.avatar}</div>`;
+
+
+
+
+
+
+
+        return `
+
+
+
+          <article 
+
+
+
+            onclick="openArticleModal('${art.id}')" 
+
+
+
+            class="w-full p-6 sm:p-7 rounded-2xl sm:rounded-3xl bg-white border border-zinc-200/90 shadow-sm hover:shadow-xl hover:border-olina-orange/40 transition-all duration-300 group cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-6"
+
+
+
+          >
+
+
+
+            <div class="flex-1 space-y-2.5">
+
+
+
+              <!-- Metadados -->
+
+
+
+              <div class="flex flex-wrap items-center gap-2.5 text-xs">
+
+
+
+                <span class="px-2.5 py-1 rounded bg-zinc-100 border border-zinc-200/80 text-olina-coffee font-extrabold uppercase tracking-wider text-[11px] group-hover:bg-olina-coffee group-hover:text-white transition-colors">
+
+
+
+                  ${art.categoriaBadge || art.categoria}
+
+
+
+                </span>
+
+
+
+                <span class="text-zinc-300">•</span>
+
+
+
+                <span class="text-olina-orange font-bold uppercase tracking-wider text-[11px]">
+
+
+
+                  ${art.tempoLeitura} de leitura
+
+
+
+                </span>
+
+
+
+              </div>
+
+
+
+
+
+
+
+              <!-- Título Amplo com Escala Imponente -->
+
+
+
+              <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-olina-coffee group-hover:text-olina-orange transition-colors leading-snug">
+
+
+
+                ${art.titulo}
+
+
+
+              </h3>
+
+
+
+
+
+
+
+              <!-- Lead / Resumo Editorial Completo -->
+
+
+
+              <p class="text-xs sm:text-sm md:text-[15px] text-zinc-600 font-light leading-relaxed max-w-4xl">
+
+
+
+                ${art.resumo}
+
+
+
+              </p>
+
+
+
+
+
+
+
+              <!-- Rodapé Mobile -->
+
+
+
+              <div class="flex sm:hidden items-center justify-between pt-3 border-t border-zinc-100">
+
+
+
+                <div class="flex items-center gap-2">
+
+
+
+                  ${avatarSnippet}
+
+
+
+                  <div class="flex flex-col">
+
+
+
+                    <span class="text-xs font-bold text-olina-coffee">${art.autor}</span>
+
+
+
+                    <span class="text-[10px] text-zinc-500 font-medium">${art.cargo || art.authorRole}</span>
+
+
+
+                  </div>
+
+
+
+                </div>
+
+
+
+                <span class="text-xs font-bold text-olina-orange flex items-center gap-1">
+
+
+
+                  <span>Ler artigo</span>
+
+
+
+                  <span>➔</span>
+
+
+
+                </span>
+
+
+
+              </div>
+
+
+
+            </div>
+
+
+
+
+
+
+
+            <!-- Coluna Direita Desktop: Autor + Botão com Seta -->
+
+
+
+            <div class="hidden md:flex flex-col items-end justify-between shrink-0 pl-6 border-l border-zinc-100 min-w-[220px] space-y-4 self-stretch">
+
+
+
+              <div class="flex items-center gap-3 text-right">
+
+
+
+                <div class="flex flex-col items-end">
+
+
+
+                  <span class="block text-xs font-bold text-olina-coffee">${art.autor}</span>
+
+
+
+                  <span class="text-[11px] text-zinc-400 font-light">${art.cargo || art.authorRole}</span>
+
+
+
+                </div>
+
+
+
+                ${avatarSnippet}
+
+
+
+              </div>
+
+
+
+              
+
+
+
+              <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-50 group-hover:bg-olina-orange group-hover:text-white text-olina-coffee text-xs font-bold uppercase tracking-wider border border-zinc-200 group-hover:border-olina-orange transition-all shadow-sm">
+
+
+
+                <span>Ler Artigo Completo</span>
+
+
+
+                <span class="text-olina-orange group-hover:text-white group-hover:translate-x-1 transition-transform">➔</span>
+
+
+
+              </div>
+
+
+
+            </div>
+
+
+
+          </article>
+
+
+
+        `;
+
+
+
+      }).join('');
+
+
+
+    }
+
+
+
+
+
+
+
+    function filterInsightsList() {
+
+
+
+      const q = document.getElementById('searchInput').value.trim().toLowerCase();
+
+
+
+      const clearBtn = document.getElementById('clearSearchBtn');
+
+
+
+      if (clearBtn) {
+
+
+
+        if (q.length > 0) clearBtn.classList.remove('hidden');
+
+
+
+        else clearBtn.classList.add('hidden');
+
+
+
+      }
+
+
+
+
+
+
+
+      if (!q) {
+
+
+
+        renderInsightsGrid(allInsights);
+
+
+
+        return;
+
+
+
+      }
+
+
+
+
+
+
+
+      const filtered = allInsights.filter(item => {
+
+
+
+        const textToSearch = [
+
+
+
+          item.titulo,
+
+
+
+          item.resumo,
+
+
+
+          item.autor,
+
+
+
+          item.categoriaBadge,
+
+
+
+          item.categoria,
+
+
+
+          item.cargo
+
+
+
+        ].filter(Boolean).join(' ').toLowerCase();
+
+
+
+
+
+
+
+        return textToSearch.includes(q);
+
+
+
+      });
+
+
+
+
+
+
+
+      renderInsightsGrid(filtered);
+
+
+
+    }
+
+
+
+
+
+
+
+    function clearSearch() {
+
+
+
+      const input = document.getElementById('searchInput');
+
+
+
+      if (input) input.value = '';
+
+
+
+      filterInsightsList();
+
+
+
+    }
+
+
+
+
+
+
+
+    // Modal Drawer
+
+
+
+    function openArticleModal(articleId) {
+
+
+
+      const data = articlesDB[articleId];
+
+
+
+      if (!data) return;
+
+
+
+
+
+
+
+      document.getElementById('modalArticleCategory').innerText = data.category;
+
+
+
+      document.getElementById('modalArticleTitle').innerText = data.title;
+
+
+
+      document.getElementById('modalAuthorName').innerText = data.author;
+
+
+
+      document.getElementById('modalAuthorRole').innerText = data.authorRole;
+
+
+
+      document.getElementById('modalAuthorAvatar').innerHTML = data.avatarHtml;
+
+
+
+      document.getElementById('modalReadTime').innerText = data.readTime;
+
+
+
+      document.getElementById('modalArticleBody').innerHTML = data.body;
+
+
+
+      
+
+
+
+            const whatsappMsg = encodeURIComponent(`Olá, li o artigo "${data.title}" no portal do Oliveira Navarro e gostaria de consultar a equipe jurídica.`);
+
+      document.getElementById('modalCtaLink').href = `https://wa.me/556137717679?text=${whatsappMsg}`;
+
+
+
+      const modal = document.getElementById('articleModal');
+
+      if (modal) {
+
+        modal.classList.remove('hidden');
+
+        document.body.style.overflow = 'hidden';
+
+      }
+
+
+
+      // Reset scroll & progress
+
+      const modalContainer = modal ? modal.querySelector('.overflow-y-auto') : null;
+
+      if (modalContainer) {
+
+        modalContainer.scrollTop = 0;
+
+        modalContainer.onscroll = () => {
+
+          const total = modalContainer.scrollHeight - modalContainer.clientHeight;
+
+          const p = total > 0 ? (modalContainer.scrollTop / total) * 100 : 0;
+
+          const bar = document.getElementById('readProgress');
+
+          if (bar) bar.style.width = `${p}%`;
+
+        };
+
+      }
+
+    }
+
+
+
+    function closeArticleModal(e) {
+
+      if (e && e.target && e.target !== e.currentTarget && !e.target.closest('button')) return;
+
+      const modal = document.getElementById('articleModal');
+
+      if (modal) {
+
+        modal.classList.add('hidden');
+
+        document.body.style.overflow = 'auto';
+
+      }
+
+    }
+
+
+
+    function toggleMobileMenu() {
+
+      const menu = document.getElementById('mobileMenu');
+
+      if (menu) menu.classList.toggle('hidden');
+
+    }
+
+
+
+    async function initInsights() {
+
+      try {
+
+        const res = await fetch('data/artigos.json');
+
+        if (res.ok) {
+
+          allInsights = await res.json();
+
+        }
+
+      } catch (err) {
+
+        console.warn('Usando base local de artigos:', err);
+
+      }
+
+      populateArticlesDB(allInsights);
+
+      renderInsightsGrid(allInsights);
+
+
+
+      // Deep Linking via hash
+
+      if (window.location.hash) {
+
+        const id = window.location.hash.replace('#artigo/', '').replace('#', '');
+
+        if (articlesDB[id]) {
+
+          setTimeout(() => openArticleModal(id), 300);
+
+        }
+
+      }
+
+    }
+
+
+
+    document.addEventListener('DOMContentLoaded', initInsights);
+
+  </script>
+
+</body>
+
+</html>

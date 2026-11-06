@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <defs>
     <style>
-      .bg { fill: #1E1A18; stroke: #453C37; stroke-width: 1.5; }
+      .bg { fill: #DD4F1D; stroke: #C44316; stroke-width: 1; }
       .letter-o {
         font-family: 'Cairo', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         font-weight: 900;
         font-size: 35px;
-        fill: #DD4F1D;
+        fill: #FFFFFF;
         text-anchor: end;
         dominant-baseline: central;
       }
@@ -20,10 +20,9 @@
       }
     </style>
   </defs>
-  <!-- Squircle Fundo Café Profundo (#1E1A18) com borda arquitetônica sutil -->
+  <!-- Squircle Fundo Laranja Oficial Pantone 1665 C (#DD4F1D) -->
   <rect class="bg" x="0.75" y="0.75" width="62.5" height="62.5" rx="14" ry="14"/>
-  <!-- Letra O em Laranja Pantone 1665 C -->
+  <!-- Letras ON em Branco Puro (#FFFFFF) -->
   <text x="31" y="32.5" class="letter-o">O</text>
-  <!-- Letra N em Branco Puro -->
   <text x="31" y="32.5" class="letter-n">N</text>
 </svg>

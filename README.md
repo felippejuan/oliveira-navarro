@@ -30,7 +30,7 @@ Ambiente web e Centro de Inteligência Jurídica do escritório **Oliveira Navar
 - **Bento Grid Inspirado em Brasília:** Esquadrias modulares e coordenadas do SAUS / Brasília integradas no design.
 
 ### 4. Centro de Inteligência Jurídica & Rodízio Editorial
-- Destaque para a sócia-fundadora (**Dra. Tattiana Navarro**) e para as advogadas associadas (**Dra. Mariana Albuquerque**, **Dra. Beatriz Mendes**), evidenciando a solidez institucional e a liderança feminina do escritório.
+- Destaque para a sócia-fundadora (**Dra. Tattiana de Navarro**) e para as advogadas associadas (**Dra. Mariana Albuquerque**, **Dra. Beatriz Mendes**), evidenciando a solidez institucional e a liderança feminina do escritório.
 - Gaveta de leitura (*Reader Drawer*) com barra de progresso e call-to-action contextual direcionado ao WhatsApp.
 
 ### 5. Otimização para Tráfego Pago (Agência Pixel)
