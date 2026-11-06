@@ -13,10 +13,11 @@
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=20261104e">
   <link rel="shortcut icon" href="favicon.ico?v=20261104e">
 
-  <!-- Google Fonts: Official Brand Typography (Cairo) -->
+  <!-- Google Fonts: Official Brand Typography (Cairo, Cormorant Garamond, Cinzel, JetBrains Mono, Plus Jakarta Sans & Material Symbols) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cairo:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@1,400;1,500;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cairo:wght@300;400;500;600;700;800;900&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 
   <!-- Lenis Smooth Scroll (Inércia e Rolagem Suave 60fps) -->
   <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
@@ -44,10 +45,21 @@
               blueGray: '#B0BDC4',     // Pantone 7542 U (Cinza Azulado de Suporte)
               blueGrayLight: '#D8DFE3',
               cardLight: '#FFFFFF'
+            },
+            luxury: {
+              sand: '#F5F2EB',
+              paper: '#FAF8F4',
+              clay: '#C86D51',
+              darkClay: '#A34E35',
+              charcoal: '#1A1816',
+              stone: '#E4DFD5',
+              muted: '#6E6963'
             }
           },
           fontFamily: {
-            sans: ['Cairo', 'system-ui', '-apple-system', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'Cairo', 'system-ui', '-apple-system', 'sans-serif'],
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
             display: ['Cairo', 'sans-serif']
           }
         }
@@ -91,6 +103,112 @@
       animation: subtlePulse 2.5s ease-in-out infinite;
     }
 
+    .font-serif-luxury {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+    .font-cinzel {
+      font-family: 'Cinzel', serif;
+    }
+
+
+
+    /* Continuous Seamless Marquee Keyframes */
+    @keyframes marqueeScrollLeft {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes marqueeScrollRight {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+
+    .animate-marquee-left {
+      display: flex;
+      width: max-content;
+      animation: marqueeScrollLeft 34s linear infinite;
+    }
+    .animate-marquee-right {
+      display: flex;
+      width: max-content;
+      animation: marqueeScrollRight 34s linear infinite;
+    }
+    .animate-marquee-left:hover,
+    .animate-marquee-right:hover {
+      animation-play-state: paused;
+    }
+
+    /* Granulação sutil de papel algodão / editorial financeiro */
+    .film-grain {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 5;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Animação contínua das 3 fileiras (Direita -> Esquerda -> Direita) */
+    @keyframes marqueeRight {
+      0% { transform: translate3d(-50%, 0, 0); }
+      100% { transform: translate3d(0%, 0, 0); }
+    }
+    @keyframes marqueeLeft {
+      0% { transform: translate3d(0%, 0, 0); }
+      100% { transform: translate3d(-50%, 0, 0); }
+    }
+
+    .track-right-1 {
+      display: flex;
+      width: max-content;
+      animation: marqueeRight 58s linear infinite;
+    }
+    .track-left-2 {
+      display: flex;
+      width: max-content;
+      animation: marqueeLeft 52s linear infinite;
+    }
+    .track-right-3 {
+      display: flex;
+      width: max-content;
+      animation: marqueeRight 64s linear infinite;
+    }
+
+    .ribbon-row:hover .track-right-1,
+    .ribbon-row:hover .track-left-2,
+    .ribbon-row:hover .track-right-3 {
+      animation-play-state: paused;
+    }
+
+    /* Fade suave nas extremidades laterais */
+    .ribbon-fade {
+      mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+    }
+
+    /* Cartões das fileiras estilo Private Banking / Terminal Institucional */
+    .practice-item {
+      background: rgba(255, 255, 255, 0.84);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(26, 24, 22, 0.08);
+      border-left: 2px solid rgba(200, 109, 81, 0.45);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 20px -6px rgba(26, 24, 22, 0.04);
+    }
+
+    .practice-item:hover {
+      background: #FFFFFF;
+      border-color: rgba(200, 109, 81, 0.35);
+      border-left-color: #C86D51;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px -10px rgba(200, 109, 81, 0.14);
+    }
+
+    /* Halo central protetor para garantir zero sobreposição visual com a tipografia */
+    .hero-radial-shield {
+      background: radial-gradient(ellipse 52% 48% at 50% 44%, rgba(250, 248, 244, 0.94) 15%, rgba(245, 242, 235, 0.65) 58%, rgba(245, 242, 235, 0) 100%);
+    }
+
     /* Custom scrollbar */
     ::-webkit-scrollbar {
       width: 6px;
@@ -109,10 +227,10 @@
     /* Assinatura Caligráfica Nobre Alex Brush (Efeito Caneta-Tinteiro) */
     .sig-noble-text {
       font-family: 'Alex Brush', cursive;
-      font-size: 44px;
+      font-size: clamp(28px, 7.8vw, 44px);
       font-weight: 400;
-      color: #241F1D;
-      letter-spacing: 0.035em;
+      color: #8C827A; /* Cinza claro elegante e suave */
+      letter-spacing: 0.025em;
       line-height: 1.15;
       display: inline-block;
       white-space: nowrap;
@@ -129,7 +247,8 @@
       clip-path: inset(0 0 0 0);
     }
     .sig-noble-flourish {
-      width: 320px;
+      width: 100%;
+      max-width: 300px;
       height: 18px;
       overflow: visible;
       margin-top: -6px;
@@ -144,30 +263,35 @@
       stroke-dashoffset: 0;
     }
 
-    /* Quem Somos: painel de Eixos Estratégicos (apenas esta seção) */
+    /* Quem Somos: Eixos Estratégicos 100% Integrados (Zero Caixas, Quiet Luxury) */
     .qs-axes-panel {
-      background: linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.25) 100%);
-      border: 1px solid rgba(63,56,53,0.12);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background: transparent;
+      border: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
     }
     .qs-pillar {
-      background: rgba(255,255,255,0.7);
-      border: 1px solid rgba(63,56,53,0.12);
-      transition: transform .5s cubic-bezier(0.16,1,0.3,1), border-color .3s, background .3s, box-shadow .3s;
+      background: transparent;
+      border: none;
+      border-left: 2px solid rgba(63, 56, 53, 0.15);
+      border-radius: 0 12px 12px 0;
+      transition: all .35s cubic-bezier(0.16, 1, 0.3, 1);
       cursor: pointer;
     }
-    .qs-pillar:hover { border-color: rgba(221,79,29,0.45); }
-    .qs-pillar.is-active {
-      background: #fff;
-      border-color: #DD4F1D;
-      box-shadow: 0 16px 36px -8px rgba(221,79,29,0.14), 0 4px 16px rgba(26,24,22,0.05);
+    .qs-pillar:hover {
+      border-left-color: rgba(221, 79, 29, 0.5);
+      background: rgba(255, 255, 255, 0.3);
     }
-    .qs-pillar .qs-pillar-tag { opacity: 0; transition: opacity .3s; }
+    .qs-pillar.is-active {
+      background: rgba(255, 255, 255, 0.55);
+      border-left-color: #DD4F1D;
+      box-shadow: none;
+    }
+    .qs-pillar .qs-pillar-tag { opacity: 0.6; transition: opacity .3s; }
     .qs-pillar:hover .qs-pillar-tag, .qs-pillar.is-active .qs-pillar-tag { opacity: 1; }
     @media (min-width: 1024px) {
-      .qs-pillar:hover { transform: translateX(-4px); }
-      .qs-pillar.is-active { transform: translateX(-6px); }
+      .qs-pillar:hover { transform: translateX(3px); }
+      .qs-pillar.is-active { transform: translateX(6px); }
     }
 
     /* Architectural section divider pill (Official avocado.design brand element) */
@@ -243,6 +367,35 @@
       box-shadow: 0 4px 14px rgba(221, 79, 29, 0.45);
     }
 
+    /* Versão ampliada e calibrada exclusiva para a Seção de Contato (#contato-on-pill) */
+    #contato-on-pill {
+      width: 58px;
+      height: 24px;
+    }
+    @media (min-width: 640px) {
+      #contato-on-pill {
+        width: 68px;
+        height: 27px;
+      }
+    }
+    #contato-on-pill .on-text {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+    }
+    @media (min-width: 640px) {
+      #contato-on-pill .on-text {
+        font-size: 13px;
+        letter-spacing: 0.14em;
+      }
+    }
+    #contato-on-pill.active {
+      box-shadow: 0 4px 18px rgba(221, 79, 29, 0.45), 0 0 0 1px rgba(221, 79, 29, 0.25);
+    }
+    #contato-on-pill:hover {
+      transform: scale(1.06);
+      box-shadow: 0 6px 22px rgba(221, 79, 29, 0.52);
+    }
+
     /* Hero video smooth display */
     .hero-video {
       transition: opacity 1s ease-in-out;
@@ -251,14 +404,6 @@
 </head>
 
 <body class="bg-olina-coolGray text-olina-coffee font-sans antialiased overflow-x-hidden selection:bg-olina-orange selection:text-white">
-
-  <!-- 0. GUIA ARQUITETÔNICO DE 4 COLUNAS (INVISÍVEL EM REPOUSO - SÓ APARECE DURANTE A TRANSIÇÃO NO SCROLL) -->
-  <div id="global-vault-hairlines" class="fixed inset-0 z-[35] pointer-events-none grid grid-cols-4 opacity-0 transition-opacity duration-150" aria-hidden="true">
-    <div class="vault-hairline-col border-r border-white/15 h-full"></div>
-    <div class="vault-hairline-col border-r border-white/15 h-full"></div>
-    <div class="vault-hairline-col border-r border-white/15 h-full"></div>
-    <div class="h-full"></div>
-  </div>
 
   <!-- 1. DISCREET & LUXURY NAVIGATION BAR (FLOATING OVER HERO) -->
   <header id="mainHeader" class="fixed top-0 left-0 right-0 z-50 bg-transparent border-b border-transparent transition-all duration-300">
@@ -273,14 +418,13 @@
         />
       </a>
 
-      <!-- MENU DISCRETO & ELEGANTE (QUIET LUXURY - LETRAS MAIÚSCULAS & BRANCO SÓLIDO) -->
-      <nav class="hidden lg:flex items-center gap-8 text-[12px] font-bold tracking-[0.18em] uppercase text-white">
-        <a href="#hero" class="text-white hover:text-olina-orange transition-colors duration-200 drop-shadow-sm">INÍCIO</a>
-        <a href="#quem-somos" class="text-white hover:text-olina-orange transition-colors duration-200 drop-shadow-sm">QUEM SOMOS</a>
-        <a href="#na-imprensa" class="text-white hover:text-olina-orange transition-colors duration-200 drop-shadow-sm">NA IMPRENSA</a>
-        <a href="#artigos" class="text-white hover:text-olina-orange transition-colors duration-200 drop-shadow-sm">ARTIGOS & OPINIÃO</a>
-        <a href="#atuacao" class="text-white hover:text-olina-orange transition-colors duration-200 drop-shadow-sm">SOLUÇÕES</a>
-        <a href="#contato" class="text-white hover:text-olina-orange transition-colors duration-200 drop-shadow-sm">CONTATO</a>
+      <!-- MENU DISCRETO & ELEGANTE (QUIET LUXURY - LETRAS MAIÚSCULAS & BRANCO SÓLIDO - SEM QUEBRA DE LINHA) -->
+      <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-[11px] xl:text-[12px] font-bold tracking-[0.16em] xl:tracking-[0.18em] uppercase text-white whitespace-nowrap">
+        <a href="#hero" class="whitespace-nowrap text-white hover:text-olina-orange transition-colors duration-200 drop-shadow-sm">INÍCIO</a>
+        <a href="#quem-somos" class="whitespace-nowrap text-white hover:text-olina-orange transition-colors duration-200 drop-shadow-sm">QUEM SOMOS</a>
+        <a href="#na-imprensa" class="whitespace-nowrap text-white hover:text-olina-orange transition-colors duration-200 drop-shadow-sm">NA IMPRENSA</a>
+        <a href="#artigos" class="whitespace-nowrap text-white hover:text-olina-orange transition-colors duration-200 drop-shadow-sm">ARTIGOS & OPINIÃO</a>
+        <a href="#contato" class="whitespace-nowrap text-white hover:text-olina-orange transition-colors duration-200 drop-shadow-sm">CONTATO</a>
       </nav>
 
       <!-- CTA REFINADO (DISCRETO & SOFISTICADO) -->
@@ -409,7 +553,6 @@
       <a href="#quem-somos" class="block hover:text-olina-orange py-1 text-white" onclick="toggleMobileMenu()">QUEM SOMOS</a>
       <a href="#na-imprensa" class="block hover:text-olina-orange py-1 text-white" onclick="toggleMobileMenu()">NA IMPRENSA</a>
       <a href="#artigos" class="block hover:text-olina-orange py-1 text-white" onclick="toggleMobileMenu()">ARTIGOS & OPINIÃO</a>
-      <a href="#atuacao" class="block hover:text-olina-orange py-1 text-white" onclick="toggleMobileMenu()">SOLUÇÕES</a>
       <a href="#contato" class="block hover:text-olina-orange py-1 text-white" onclick="toggleMobileMenu()">CONTATO</a>
       <div class="pt-4 border-t border-white/10">
         <a href="https://wa.me/556137717679" class="block text-center py-2.5 bg-olina-orange text-white rounded-full font-bold text-xs uppercase tracking-widest shadow-lg">
@@ -422,6 +565,7 @@
   <!-- 2. HERO SECTION (PINNED BASE PARA TRANSIÇÃO DE 4 COLUNAS) -->
   <section id="hero" class="sticky top-0 w-full h-[100dvh] min-h-[660px] overflow-hidden bg-olina-coffeeDeep z-10 flex flex-col justify-between select-none">
     
+
     <!-- O VÍDEO 100% PROTAGONISTA (OLIVEIRA.MP4) -->
     <video 
       id="mainHeroVideo"
@@ -444,15 +588,15 @@
 
     <!-- CONTEÚDO SOBREPOSTO: HEADLINE & TEXTO DE APOIO (ELEVADO / ÓTICA BALANCED LUXURY) -->
     <div class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-auto py-6 sm:py-10 pointer-events-auto">
-      <div class="max-w-2xl text-white">
-        <!-- HEADLINE OFICIAL: "ritmo" e "negócios" em laranja; "dos negócios" na 2ª linha no mobile -->
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.18] sm:leading-tight mb-3 sm:mb-4 drop-shadow-md">
-          <span class="block sm:inline">Advocacia no <span class="text-olina-orange font-extrabold">ritmo</span></span>
-          <span class="block sm:inline">dos <span class="text-olina-orange font-extrabold">negócios.</span></span>
+      <div class="max-w-4xl text-white">
+        <!-- HEADLINE OFICIAL: "ritmo" e "negócios" em laranja; com escala imponente e nobre -->
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[76px] font-extrabold tracking-tight text-white leading-[1.08] sm:leading-[1.06] mb-4 sm:mb-6 drop-shadow-lg">
+          <span class="block sm:inline">Advocacia no <span class="text-olina-orange font-black">ritmo</span></span>
+          <span class="block sm:inline">dos <span class="text-olina-orange font-black">negócios.</span></span>
         </h1>
 
-        <!-- Texto de apoio limpo -->
-        <p class="text-xs sm:text-sm lg:text-base text-zinc-300 font-light leading-relaxed max-w-lg drop-shadow">
+        <!-- Texto de apoio nobre, legível e em harmonia de escala com a headline -->
+        <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-zinc-200 font-normal leading-relaxed max-w-2xl drop-shadow-md">
           Soluções jurídicas consultivas, estratégicas e seguras para decisões complexas no ambiente corporativo nacional.
         </p>
       </div>
@@ -565,101 +709,104 @@
   <main id="mainContent" class="relative z-20">
 
   <!-- 3. SEÇÃO "QUEM SOMOS" (DEFAULT 4-COLUMN TRANSITION) -->
-  <section id="quem-somos" class="vault-section relative z-20 py-24 lg:py-32 border-b border-zinc-300/80" data-line-theme="light">
-    <!-- 4-COLUMN STAGGERED STAIRCASE BACKGROUND -->
+  <section id="quem-somos" class="vault-section relative z-20 py-24 lg:py-32 border-b border-zinc-300/80 bg-olina-coolGray" data-line-theme="light">
+    <!-- 4-COLUMN STAGGERED STAIRCASE BACKGROUND (OVERLAPPING TO ELIMINATE SEAMS) -->
     <div class="vault-col-group absolute inset-x-0 top-0 -bottom-[32vh] -z-10 grid grid-cols-4 pointer-events-none" aria-hidden="true">
-      <div class="vault-col bg-olina-coolGray h-full w-full will-change-transform border-t border-r border-transparent"></div>
-      <div class="vault-col bg-olina-coolGray h-full w-full will-change-transform border-t border-r border-transparent"></div>
-      <div class="vault-col bg-olina-coolGray h-full w-full will-change-transform border-t border-r border-transparent"></div>
-      <div class="vault-col bg-olina-coolGray h-full w-full will-change-transform border-t border-transparent"></div>
+      <div class="vault-col bg-olina-coolGray h-full w-[calc(100%+4px)] will-change-transform"></div>
+      <div class="vault-col bg-olina-coolGray h-full w-[calc(100%+4px)] will-change-transform"></div>
+      <div class="vault-col bg-olina-coolGray h-full w-[calc(100%+4px)] will-change-transform"></div>
+      <div class="vault-col bg-olina-coolGray h-full w-full will-change-transform"></div>
     </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- Seção Header com Pílula Oficial de 12px e Hairline -->
-      <div class="mb-14 reveal-item transition-all duration-700 opacity-0 transform translate-y-8">
-        <div class="flex items-center gap-3 mb-3">
+      <!-- Seção Header com Pílula Oficial de 12px e Hairline (Espaçamento calibrado com respiro nobre) -->
+      <div class="mb-7 sm:mb-8 reveal-item transition-all duration-700 opacity-0 transform translate-y-8">
+        <div class="flex items-center gap-3 mb-2.5">
           <div id="eyebrow-on-pill" class="on-pill-indicator group" onclick="toggleOnPill(true)" title="Status de Prontidão: ON">
             <span class="on-fill"></span><span class="on-text">ON</span>
           </div>
           <span class="text-xs font-bold uppercase tracking-[0.25em] text-olina-orange">Posicionamento & Cultura</span>
         </div>
-        <div class="w-full h-px bg-olina-coffee/15 mb-6"></div>
+        <div class="w-full h-px bg-olina-coffee/15 mb-4 sm:mb-5"></div>
         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-olina-coffee tracking-tight">
           Quem Somos
         </h2>
       </div>
 
-      <div id="qs-grid" class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
+      <div id="qs-grid" class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
 
-        <!-- Coluna esquerda: manifesto (texto oficial do Guia) -->
-        <div id="qs-text" class="relative z-10 lg:col-span-4 space-y-5 text-zinc-700 leading-relaxed font-light text-base reveal-item transition-all duration-700 delay-100 opacity-0 transform translate-y-8">
-          <blockquote class="font-bold text-xl sm:text-2xl text-olina-coffee leading-snug border-l-2 border-olina-orange pl-4">
-            "Acreditamos que a evolução da advocacia é vital para servir o empresário de maneira eficiente, passando da era da instrução para a antecipação."
-          </blockquote>
-          <p>
-            No <strong>Oliveira Navarro Advocacia</strong>, atuamos no constante mapeamento de cenários estratégicos para identificação de oportunidades ocultas e mitigação rigorosa de passivos fiscais e regulatórios.
-          </p>
-          <p>
-            Promovemos uma <strong>cultura ética e inclusiva</strong>. Celebramos a <strong>liderança feminina</strong> em um mercado historicamente tradicional. Geramos líderes e atuamos como agentes de inovação, conectados diretamente com as decisões dos Tribunais Superiores e órgãos de controle sediados em Brasília.
-          </p>
-        </div>
-
-        <!-- Coluna central: A Justiça (traços construídos conforme a rolagem) -->
-        <div id="qs-justica" class="max-lg:absolute max-lg:inset-x-0 max-lg:top-0 max-lg:z-0 max-lg:pointer-events-none overflow-hidden lg:col-span-4 lg:relative lg:h-[720px] lg:-mx-10 select-none" aria-hidden="true">
-          <canvas id="qs-justica-canvas" class="absolute inset-0 w-full h-full block outline-none lg:cursor-grab" style="touch-action: pan-y;"></canvas>
-        </div>
-
-        <!-- Coluna direita: Eixos Estratégicos -->
-        <div class="relative z-10 lg:col-span-4 qs-axes-panel p-5 lg:p-6 rounded-3xl reveal-item transition-all duration-700 delay-200 opacity-0 transform translate-y-8">
-          <div class="flex items-center gap-2.5 border-b border-olina-coffee/15 pb-3 mb-3">
-            <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-olina-orange opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-olina-orange"></span>
-            </span>
-            <span class="text-xs font-bold tracking-[0.25em] uppercase text-olina-coffee">Eixos Estratégicos</span>
+        <!-- Coluna esquerda: Manifesto e Eixos Estratégicos integrados (7 colunas no desktop, z-10 sobre a marca d'água no mobile) -->
+        <div class="relative z-10 lg:col-span-7 flex flex-col justify-between space-y-8">
+          
+          <!-- Manifesto -->
+          <div id="qs-text" class="space-y-5 text-zinc-700 leading-relaxed font-light reveal-item transition-all duration-700 delay-100 opacity-0 transform translate-y-8">
+            <p class="text-base sm:text-[16.5px] leading-relaxed">
+              No <strong class="font-semibold text-olina-coffee underline decoration-olina-orange/45 decoration-1 underline-offset-4">Oliveira Navarro Advocacia</strong>, atuamos na intersecção entre o <strong class="font-semibold text-olina-coffee underline decoration-olina-orange/45 decoration-1 underline-offset-4">rigor técnico</strong> e a <strong class="font-semibold text-olina-coffee underline decoration-olina-orange/45 decoration-1 underline-offset-4">velocidade do mundo corporativo</strong>. Estamos sediados em Brasília, com presença direta e contínua nos <strong class="font-semibold text-olina-coffee underline decoration-olina-orange/45 decoration-1 underline-offset-4">Tribunais Superiores</strong> e no <strong class="font-semibold text-olina-coffee underline decoration-olina-orange/45 decoration-1 underline-offset-4">CARF</strong>, onde os precedentes que impactam o seu caixa são definidos.
+            </p>
+            <p class="text-base sm:text-[16.5px] leading-relaxed">
+              Não operamos com respostas padronizadas nem delegamos o destino da sua empresa a camadas de intermediários. Nossa atuação é <strong class="font-semibold text-olina-coffee underline decoration-olina-orange/45 decoration-1 underline-offset-4">artesanal, discreta</strong> e focada em uma única entrega: <strong class="font-semibold text-olina-coffee underline decoration-olina-orange/50 decoration-1 underline-offset-4">dar previsibilidade tributária e segurança jurídica para o seu negócio avançar.</strong>
+            </p>
           </div>
 
-          <div class="space-y-3">
-            <button type="button" class="qs-pillar is-active w-full text-left p-4 rounded-2xl" data-pillar="0">
-              <span class="flex items-center justify-between">
-                <span class="flex items-center gap-3">
-                  <span class="qs-pillar-num text-xs font-black tracking-wider text-olina-orange">01</span>
-                  <span class="qs-pillar-line h-px w-4 bg-olina-orange"></span>
-                  <span class="text-xs uppercase tracking-widest font-bold text-olina-coffee">Próxima</span>
+          <!-- Eixos Estratégicos (Tipografia Enobrecida, Legível e 100% Integrada) -->
+          <div id="qs-axes" class="qs-axes-panel pt-6 border-t border-olina-coffee/15 reveal-item transition-all duration-700 delay-200 opacity-0 transform translate-y-8">
+            <div class="flex items-center gap-2 pb-3 mb-2 border-b border-olina-coffee/10">
+              <span class="w-2 h-2 rounded-full bg-olina-orange"></span>
+              <span class="text-xs sm:text-[13px] font-bold tracking-[0.25em] uppercase text-olina-coffee">Eixos Estratégicos</span>
+            </div>
+
+            <div class="space-y-2">
+              <button type="button" class="qs-pillar is-active w-full text-left p-3.5 sm:p-4 transition-all" data-pillar="0">
+                <span class="flex items-center justify-between">
+                  <span class="flex items-center gap-3">
+                    <span class="qs-pillar-num text-sm sm:text-base font-black tracking-wider text-olina-orange">01</span>
+                    <span class="qs-pillar-line h-px w-4 bg-olina-orange"></span>
+                    <span class="text-sm sm:text-[15px] uppercase tracking-wider font-bold text-olina-coffee">Mesa Direta</span>
+                  </span>
+                  <span class="qs-pillar-tag text-xs tracking-wider uppercase font-bold text-olina-orange">ON</span>
                 </span>
-                <span class="qs-pillar-tag text-[10px] tracking-wider uppercase font-semibold text-olina-orange">ON</span>
-              </span>
-              <span class="block mt-2.5 text-xs text-zinc-600 leading-relaxed">Comunicação direta entre sócias e decisores corporativos.</span>
-            </button>
-            <button type="button" class="qs-pillar w-full text-left p-4 rounded-2xl" data-pillar="1">
-              <span class="flex items-center justify-between">
-                <span class="flex items-center gap-3">
-                  <span class="qs-pillar-num text-xs font-black tracking-wider text-zinc-400">02</span>
-                  <span class="qs-pillar-line h-px w-4 bg-zinc-300"></span>
-                  <span class="text-xs uppercase tracking-widest font-bold text-olina-coffee">Proativa</span>
+                <span class="qs-pillar-desc block mt-2 text-sm sm:text-[14.5px] text-zinc-600 leading-relaxed font-normal">Interlocução direta entre nossos advogados e os decisores da sua empresa. Sem ruídos ou repasse de demandas.</span>
+              </button>
+              
+              <button type="button" class="qs-pillar w-full text-left p-3.5 sm:p-4 transition-all" data-pillar="1">
+                <span class="flex items-center justify-between">
+                  <span class="flex items-center gap-3">
+                    <span class="qs-pillar-num text-sm sm:text-base font-black tracking-wider text-zinc-400">02</span>
+                    <span class="qs-pillar-line h-px w-4 bg-zinc-300"></span>
+                    <span class="text-sm sm:text-[15px] uppercase tracking-wider font-bold text-olina-coffee">Antecipação de Cenários</span>
+                  </span>
+                  <span class="qs-pillar-tag text-xs tracking-wider uppercase font-semibold text-zinc-400">Explorar</span>
                 </span>
-                <span class="qs-pillar-tag text-[10px] tracking-wider uppercase font-semibold text-olina-orange">Explorar</span>
-              </span>
-              <span class="block mt-2.5 text-xs text-zinc-600 leading-relaxed">Antecipação de teses e riscos antes da consolidação do dano.</span>
-            </button>
-            <button type="button" class="qs-pillar w-full text-left p-4 rounded-2xl" data-pillar="2">
-              <span class="flex items-center justify-between">
-                <span class="flex items-center gap-3">
-                  <span class="qs-pillar-num text-xs font-black tracking-wider text-zinc-400">03</span>
-                  <span class="qs-pillar-line h-px w-4 bg-zinc-300"></span>
-                  <span class="text-xs uppercase tracking-widest font-bold text-olina-coffee">Estratégica</span>
+                <span class="qs-pillar-desc block mt-2 text-sm sm:text-[14.5px] text-zinc-600 leading-relaxed font-normal">Mapeamento de riscos fiscais e regulatórios antes que se convertam em autuação ou passivo.</span>
+              </button>
+
+              <button type="button" class="qs-pillar w-full text-left p-3.5 sm:p-4 transition-all" data-pillar="2">
+                <span class="flex items-center justify-between">
+                  <span class="flex items-center gap-3">
+                    <span class="qs-pillar-num text-sm sm:text-base font-black tracking-wider text-zinc-400">03</span>
+                    <span class="qs-pillar-line h-px w-4 bg-zinc-300"></span>
+                    <span class="text-sm sm:text-[15px] uppercase tracking-wider font-bold text-olina-coffee">Brasília em Tempo Real</span>
+                  </span>
+                  <span class="qs-pillar-tag text-xs tracking-wider uppercase font-semibold text-zinc-400">Explorar</span>
                 </span>
-                <span class="qs-pillar-tag text-[10px] tracking-wider uppercase font-semibold text-olina-orange">Explorar</span>
-              </span>
-              <span class="block mt-2.5 text-xs text-zinc-600 leading-relaxed">Alinhamento estrito aos objetivos de balanço e fluxo de caixa.</span>
-            </button>
+                <span class="qs-pillar-desc block mt-2 text-sm sm:text-[14.5px] text-zinc-600 leading-relaxed font-normal">Conexão imediata com as tendências e viradas de jurisprudência no STJ, STF e CARF.</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Coluna direita no desktop (lateral livre e equilibrada) / Fundo sutil de marca d'água sobreposto no mobile -->
+        <div class="max-lg:absolute max-lg:inset-0 max-lg:pointer-events-none max-lg:z-0 overflow-visible lg:col-span-5 lg:relative lg:w-full lg:flex lg:items-center lg:justify-center select-none reveal-item transition-all duration-700 delay-150 opacity-0 transform translate-y-8">
+          <div id="qs-justica" class="w-full h-full lg:h-[530px] pointer-events-auto max-lg:pointer-events-none select-none max-lg:opacity-30" aria-label="Escultura 3D da Justiça de Alfredo Ceschiatti em Brasília">
+            <canvas id="qs-justica-canvas" class="absolute inset-0 w-full h-full block outline-none lg:cursor-grab active:cursor-grabbing" style="touch-action: pan-y;"></canvas>
           </div>
         </div>
 
       </div>
 
-      <!-- 3.1 STATEMENT DE LIDERANÇA & PROPÓSITO (SÓCIA FUNDADORA) -->
-      <div id="qs-lideranca" class="mt-16 lg:mt-24 bg-white/70 backdrop-blur-xl border border-olina-coffee/15 rounded-3xl p-6 sm:p-10 lg:p-14 shadow-lg relative overflow-hidden reveal-item transition-all duration-700 delay-100 opacity-0 transform translate-y-8">
+      <!-- 3.1 STATEMENT DE LIDERANÇA & PROPÓSITO (SÓCIA FUNDADORA - Respiro Equilibrado Sem Buracos) -->
+      <div id="qs-lideranca" class="mt-10 sm:mt-12 bg-white/70 backdrop-blur-xl border border-olina-coffee/15 rounded-3xl p-6 sm:p-10 lg:p-14 shadow-lg relative overflow-hidden reveal-item transition-all duration-700 delay-100 opacity-0 transform translate-y-8">
         <!-- Acabamento sutil de cantos e atmosfera quiet luxury -->
         <div class="absolute -top-32 -right-32 w-80 h-80 rounded-full bg-olina-orange/5 blur-3xl pointer-events-none" aria-hidden="true"></div>
         <div class="absolute -bottom-32 -left-32 w-80 h-80 rounded-full bg-olina-coffee/5 blur-3xl pointer-events-none" aria-hidden="true"></div>
@@ -680,16 +827,11 @@
         <!-- Grid 2 Colunas: Espaço do Retrato (esquerda) + Manifesto & Assinatura (direita) -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
           
-          <!-- Coluna Esquerda: Espaço editorial reservado para o retrato (sem foto) -->
+          <!-- Coluna Esquerda: Retrato Editorial de Tattiana de Navarro -->
           <div class="lg:col-span-5 relative">
-            <div class="relative rounded-2xl overflow-hidden border border-olina-coffee/20 bg-gradient-to-br from-[#F5F2EB] to-[#ECE7DD] aspect-[3/4] max-w-sm mx-auto lg:max-w-none flex flex-col items-center justify-center p-6 text-center select-none shadow-sm">
-              <div class="w-12 h-12 rounded-full border border-olina-coffee/15 bg-white/60 flex items-center justify-center mb-3 text-olina-orange">
-                <svg class="w-5 h-5 opacity-70" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                </svg>
-              </div>
-              <span class="text-[11px] font-mono tracking-widest uppercase text-olina-coffee/50 font-medium">Retrato Editorial</span>
-              <span class="text-[10px] font-sans text-olina-coffee/40 mt-1">Espaço reservado • Sócia Fundadora</span>
+            <div class="relative rounded-2xl overflow-hidden border border-olina-coffee/15 aspect-[3/4] max-w-sm mx-auto lg:max-w-none shadow-md bg-stone-100 group">
+              <img src="assets/tattiana-navarro.webp" alt="Dra. Tattiana de Navarro — Sócia-Fundadora" class="w-full h-full object-cover object-top filter contrast-[1.03] group-hover:scale-[1.02] transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-olina-coffeeDeep/20 via-transparent to-transparent pointer-events-none"></div>
             </div>
             <!-- Moldura geométrica deslocada atrás -->
             <div class="hidden sm:block absolute -bottom-3 -right-3 w-full h-full rounded-2xl border border-olina-coffee/15 -z-10 pointer-events-none" aria-hidden="true"></div>
@@ -705,30 +847,30 @@
             </div>
 
             <div class="space-y-4 border-l-2 border-olina-orange/70 pl-4">
-              <p class="text-base sm:text-lg lg:text-xl font-serif italic text-olina-coffee/95 leading-relaxed font-normal">
+              <p class="text-base sm:text-lg lg:text-xl font-serif italic text-zinc-500 sm:text-[#5E5652] leading-relaxed font-normal">
                 Quando decidi estruturar a Oliveira Navarro, o objetivo era claro: exercer o direito no mesmo ritmo em que os grandes negócios acontecem. Como liderança feminina à frente do escritório, trago um olhar atento não apenas à letra da lei, mas à estratégia global e aos riscos que cercam o seu mercado.
               </p>
-              <p class="text-base sm:text-lg lg:text-xl font-serif italic text-olina-coffee/95 leading-relaxed font-normal">
+              <p class="text-base sm:text-lg lg:text-xl font-serif italic text-zinc-500 sm:text-[#5E5652] leading-relaxed font-normal">
                 Não esperamos os problemas chegarem para agir. Estamos presentes no dia a dia, construindo com você soluções sólidas para que sua empresa avance com clareza, previsibilidade e solidez.
               </p>
             </div>
 
-            <!-- Assinatura Caligráfica Nobre (Alex Brush • Caneta-Tinteiro) -->
+            <!-- Assinatura Caligráfica Nobre (Alex Brush • Caneta-Tinteiro em Cinza Claro Elegante) -->
             <div id="signature-block" class="pt-4 border-t border-olina-coffee/15 space-y-1">
               <div class="relative py-1">
                 <div class="sig-noble-wrap" id="sig-noble-wrap">
                   <span class="sig-noble-text">Tattiana de Navarro</span>
                 </div>
                 <svg class="sig-noble-flourish" viewBox="0 0 340 18" fill="none">
-                  <path id="sig-flourish-line" class="sig-flourish-path" d="M 6 8 C 65 12, 160 14, 240 9 C 285 6, 318 4, 335 7 C 339 8, 340 9.5, 334 11 C 320 14, 290 16, 260 16" stroke="#DD4F1D" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" />
+                  <path id="sig-flourish-line" class="sig-flourish-path" d="M 6 8 C 65 12, 160 14, 240 9 C 285 6, 318 4, 335 7 C 339 8, 340 9.5, 334 11 C 320 14, 290 16, 260 16" stroke="#DD4F1D" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </div>
 
-              <div class="flex items-center gap-2 pt-0.5 text-xs sm:text-sm font-sans text-zinc-700">
+              <div class="flex items-center gap-2 pt-0.5 text-xs sm:text-sm font-sans text-zinc-600">
                 <span class="w-1.5 h-1.5 rounded-full bg-olina-orange"></span>
                 <span class="font-bold text-olina-coffee">Tattiana de Navarro</span>
                 <span class="text-zinc-400">•</span>
-                <span class="text-zinc-500 font-light">Sócia Fundadora</span>
+                <span class="text-zinc-500 font-light">Sócia-Fundadora</span>
               </div>
             </div>
 
@@ -742,20 +884,15 @@
   </section>
 
   <!-- 4. SEÇÃO "NA IMPRENSA" (VITRINE DE AUTORIDADE & REPERCUSSÃO PÚBLICA) -->
-  <section id="na-imprensa" class="vault-section py-20 lg:py-28 relative z-20 border-b border-zinc-300/80" data-line-theme="light">
-    <!-- 4-COLUMN STAGGERED STAIRCASE BACKGROUND -->
-    <div class="vault-col-group absolute inset-x-0 top-0 -bottom-[32vh] -z-10 grid grid-cols-4 pointer-events-none" aria-hidden="true">
-      <div class="vault-col bg-olina-coolGrayLight h-full w-full will-change-transform border-t border-r border-transparent"></div>
-      <div class="vault-col bg-olina-coolGrayLight h-full w-full will-change-transform border-t border-r border-transparent"></div>
-      <div class="vault-col bg-olina-coolGrayLight h-full w-full will-change-transform border-t border-r border-transparent"></div>
-      <div class="vault-col bg-olina-coolGrayLight h-full w-full will-change-transform border-t border-transparent"></div>
-    </div>
+  <section id="na-imprensa" class="bg-olina-coolGrayLight py-20 lg:py-28 relative z-20 border-b border-zinc-300/80" data-line-theme="light">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Seção Header com Pílula Oficial de 12px e Hairline (Páginas 2 a 39 do Guia) -->
       <div class="mb-14 reveal-item transition-all duration-700 opacity-0 transform translate-y-8">
         <div class="flex items-center gap-3 mb-3">
-          <span class="section-pill-tag"></span>
+          <div id="imprensa-on-pill" class="on-pill-indicator group cursor-pointer" onclick="toggleImprensaOnPill(true)" title="Status de Prontidão: ON">
+            <span class="on-fill"></span><span class="on-text">ON</span>
+          </div>
           <span class="text-xs font-bold uppercase tracking-[0.25em] text-olina-orange">Presença & Autoridade Pública</span>
         </div>
         <div class="w-full h-px bg-olina-coffee/15 mb-6"></div>
@@ -905,20 +1042,15 @@
   </section>
 
   <!-- 5. SEÇÃO "ARTIGOS & OPINIÃO" (RODÍZIO DAS ADVOGADAS ASSOCIADAS & GAVETA DE LEITURA) -->
-  <section id="artigos" class="vault-section py-20 lg:py-28 relative z-20 border-b border-zinc-300/80" data-line-theme="light">
-    <!-- 4-COLUMN STAGGERED STAIRCASE BACKGROUND -->
-    <div class="vault-col-group absolute inset-x-0 top-0 -bottom-[32vh] -z-10 grid grid-cols-4 pointer-events-none" aria-hidden="true">
-      <div class="vault-col bg-olina-coolGray h-full w-full will-change-transform border-t border-r border-transparent"></div>
-      <div class="vault-col bg-olina-coolGray h-full w-full will-change-transform border-t border-r border-transparent"></div>
-      <div class="vault-col bg-olina-coolGray h-full w-full will-change-transform border-t border-r border-transparent"></div>
-      <div class="vault-col bg-olina-coolGray h-full w-full will-change-transform border-t border-transparent"></div>
-    </div>
+  <section id="artigos" class="bg-olina-coolGray py-20 lg:py-28 relative z-20 border-b border-zinc-300/80" data-line-theme="light">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Seção Header com Pílula Oficial de 12px e Hairline -->
       <div class="mb-14 reveal-item transition-all duration-700 opacity-0 transform translate-y-8">
         <div class="flex items-center gap-3 mb-3">
-          <span class="section-pill-tag"></span>
+          <div id="artigos-on-pill" class="on-pill-indicator group cursor-pointer" onclick="toggleArtigosOnPill(true)" title="Status de Prontidão: ON">
+            <span class="on-fill"></span><span class="on-text">ON</span>
+          </div>
           <span class="text-xs font-bold uppercase tracking-[0.25em] text-olina-orange">Centro de Inteligência Jurídica</span>
         </div>
         <div class="w-full h-px bg-olina-coffee/15 mb-6"></div>
@@ -1068,154 +1200,180 @@
 
 
 
-  <!-- 7. SEÇÃO "SOLUÇÕES EM INTELIGÊNCIA JURÍDICA" -->
-  <section id="atuacao" class="vault-section py-20 lg:py-28 relative z-20 border-b border-zinc-300/80" data-line-theme="light">
-    <!-- 4-COLUMN STAGGERED STAIRCASE BACKGROUND -->
-    <div class="vault-col-group absolute inset-x-0 top-0 -bottom-[32vh] -z-10 grid grid-cols-4 pointer-events-none" aria-hidden="true">
-      <div class="vault-col bg-olina-coolGrayLight h-full w-full will-change-transform border-t border-r border-transparent"></div>
-      <div class="vault-col bg-olina-coolGrayLight h-full w-full will-change-transform border-t border-r border-transparent"></div>
-      <div class="vault-col bg-olina-coolGrayLight h-full w-full will-change-transform border-t border-r border-transparent"></div>
-      <div class="vault-col bg-olina-coolGrayLight h-full w-full will-change-transform border-t border-transparent"></div>
+
+
+  <!-- 8. MÓDULO DE CONTATO & ESFERA DE SOLUÇÕES (NO RITMO DOS NEGÓCIOS - CONNECTED PRIVATE BANKING) -->
+  <section id="contato" class="relative z-20 overflow-hidden border-t border-b border-luxury-stone/80 scroll-mt-20 py-10 sm:py-14 selection:bg-luxury-clay selection:text-white" style="background: radial-gradient(ellipse 90% 65% at 50% 28%, #FFFFFF 0%, #F5F2EB 60%, #EAE4D8 100%); color: #1A1816;" data-line-theme="light">
+    <!-- Textura sutil -->
+    <div class="film-grain"></div>
+
+    <!-- Canvas WebGL 3D: Malha de Conexões Financeiras & Fluxo Institucional (Connected Private Banking) -->
+    <div id="canvas-container" class="absolute inset-0 z-0 pointer-events-none">
+        <canvas id="webgl-market" class="w-full h-full block"></canvas>
+        <!-- Escudo óptico suave para que os nós e conexões emoldurem o texto sem jamais poluir a leitura -->
+        <div class="hero-radial-shield absolute inset-0"></div>
     </div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Seção Header com Pílula Oficial de 12px e Hairline -->
-      <div class="mb-14 reveal-item transition-all duration-700 opacity-0 transform translate-y-8">
-        <div class="flex items-center gap-3 mb-3">
-          <span class="section-pill-tag"></span>
-          <span class="text-xs font-bold uppercase tracking-[0.25em] text-olina-orange">Áreas de Especialização</span>
-        </div>
-        <div class="w-full h-px bg-olina-coffee/15 mb-6"></div>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-olina-coffee tracking-tight">
-          Soluções Jurídicas Consultivas & Estratégicas
-        </h2>
-      </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        
-        <!-- Solução 1: Direito Tributário -->
-        <div class="p-8 rounded-3xl bg-white border border-zinc-300/80 shadow-md hover:border-olina-orange transition-all duration-300 flex flex-col justify-between group">
-          <div>
-            <div class="w-12 h-12 rounded-2xl bg-olina-orange/10 text-olina-orange flex items-center justify-center font-black text-lg mb-6 group-hover:bg-olina-orange group-hover:text-white transition-all">
-              01
+    <!-- CONTEÚDO PRINCIPAL (Grid vertical estrito sem sobreposição) -->
+    <div class="relative z-10 w-full flex flex-col justify-between py-2 sm:py-4 gap-8">
+
+        <!-- TOPO CENTRAL: Marca, Headline, Subtítulo e Botão "Entre em Contato" -->
+        <div class="max-w-3xl mx-auto px-6 text-center flex flex-col items-center my-auto pt-2 pb-2">
+            
+            <!-- Microinteração do Hífen Animado (Status de Prontidão: ON) -->
+            <div class="flex items-center justify-center mb-5">
+                <div id="contato-on-pill" class="on-pill-indicator group cursor-pointer" onclick="toggleContatoOnPill(true)" title="Status de Prontidão: ON">
+                    <span class="on-fill"></span><span class="on-text">ON</span>
+                </div>
             </div>
-            <h3 class="text-xl font-bold text-olina-coffee mb-3">Direito Tributário</h3>
-            <p class="text-sm text-zinc-600 font-light leading-relaxed mb-6">
-              Gestão e recuperação de créditos federais, planejamento fiscal frente à Reforma Tributária (IBS/CBS) e defesas técnicas de alta complexidade perante o CARF e CSRF.
-            </p>
-          </div>
-          <ul class="space-y-2 text-xs font-semibold text-zinc-700 border-t border-zinc-100 pt-4">
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-olina-orange"></span>Recuperação de Créditos Federais</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-olina-orange"></span>Contencioso Administrativo (CARF)</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-olina-orange"></span>Consultoria Reforma Tributária</li>
-          </ul>
-        </div>
 
-        <!-- Solução 2: Direito Administrativo & Licitações -->
-        <div class="p-8 rounded-3xl bg-white border border-zinc-300/80 shadow-md hover:border-olina-orange transition-all duration-300 flex flex-col justify-between group">
-          <div>
-            <div class="w-12 h-12 rounded-2xl bg-olina-coffee/10 text-olina-coffee flex items-center justify-center font-black text-lg mb-6 group-hover:bg-olina-coffee group-hover:text-white transition-all">
-              02
+            <!-- Headline Editorial -->
+            <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-serif font-normal tracking-tight text-luxury-charcoal leading-[1.04]">
+                Advocacia.
+                <span class="block italic font-normal text-luxury-clay mt-0.5">No ritmo dos negócios.</span>
+            </h2>
+
+            <!-- Subtítulo Institucional -->
+            <p class="mt-5 text-sm sm:text-[15px] md:text-base text-luxury-muted max-w-xl font-normal leading-relaxed">
+                Direito Administrativo, Compras Governamentais e Gestão Tributária articulados estrategicamente em tempo real com a agilidade que a alta governança corporativa exige.
+            </p>
+
+            <!-- Botão "Entre em Contato" Redesenho Quiet Luxury / Private Banking -->
+            <div class="mt-8">
+                <button onclick="openContactModal()" class="group relative inline-flex items-center gap-4 px-8 py-3.5 rounded-full bg-luxury-charcoal text-luxury-paper hover:bg-luxury-clay transition-all duration-300 shadow-lg shadow-luxury-charcoal/10 cursor-pointer">
+                    <!-- Indicador pulsante discreto de disponibilidade em tempo real -->
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-luxury-clay group-hover:bg-white opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-luxury-clay group-hover:bg-white transition-colors"></span>
+                    </span>
+                    <span class="text-[11px] uppercase tracking-[0.22em] font-semibold">Entre em Contato</span>
+                    <svg class="w-3.5 h-3.5 text-luxury-paper/70 group-hover:text-white group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </button>
             </div>
-            <h3 class="text-xl font-bold text-olina-coffee mb-3">Direito Administrativo</h3>
-            <p class="text-sm text-zinc-600 font-light leading-relaxed mb-6">
-              Assessoria integral a fornecedores do poder público, modelagem de contratos administrativos pela Lei 14.133/2021 e representação estratégica perante os Tribunais de Contas.
-            </p>
-          </div>
-          <ul class="space-y-2 text-xs font-semibold text-zinc-700 border-t border-zinc-100 pt-4">
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-olina-coffee"></span>Processos Licitatórios Estratégicos</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-olina-coffee"></span>Defesas Sancionatórias (SICAF)</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-olina-coffee"></span>Tribunais de Contas (TCU / TCEs)</li>
-          </ul>
         </div>
 
-        <!-- Solução 3: Gestão de Precatórios & Liquidez -->
-        <div class="p-8 rounded-3xl bg-white border border-zinc-300/80 shadow-md hover:border-olina-orange transition-all duration-300 flex flex-col justify-between group">
-          <div>
-            <div class="w-12 h-12 rounded-2xl bg-olina-blueGray/20 text-olina-coffee flex items-center justify-center font-black text-lg mb-6 group-hover:bg-olina-blueGray group-hover:text-white transition-all">
-              03
+        <!-- PARTE INFERIOR: As 3 Fileiras de Atuação em Movimento Contínuo -->
+        <div class="w-full space-y-3.5 pb-2">
+            
+            <!-- Fileira 1: Contratações Públicas & Gestão Administrativa (Circula para a direita ➔) -->
+            <div class="ribbon-row ribbon-fade py-0.5" onmouseenter="setActiveWave(0)" onmouseleave="setActiveWave(-1)">
+                <div class="track-right-1 items-center">
+                    <div class="flex items-center gap-4 px-2" id="row-track-1"></div>
+                </div>
             </div>
-            <h3 class="text-xl font-bold text-olina-coffee mb-3">Precatórios & Liquidez</h3>
-            <p class="text-sm text-zinc-600 font-light leading-relaxed mb-6">
-              Auditoria fiduciária (*due diligence*) em ativos judiciais federais para cessão, compensação de débitos tributários e alavancagem estratégica de balanço empresarial.
-            </p>
-          </div>
-          <ul class="space-y-2 text-xs font-semibold text-zinc-700 border-t border-zinc-100 pt-4">
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-olina-orange"></span>Due Diligence em Direitos Creditórios</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-olina-orange"></span>Compensação Tributária Constitucional</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-olina-orange"></span>Estruturação de Pareceres Jurídicos</li>
-          </ul>
-        </div>
 
-      </div>
+            <!-- Fileira 2: Controle Externo, Sanções & Relações B2B (Circula para a esquerda ⬅) -->
+            <div class="ribbon-row ribbon-fade py-0.5" onmouseenter="setActiveWave(1)" onmouseleave="setActiveWave(-1)">
+                <div class="track-left-2 items-center">
+                    <div class="flex items-center gap-4 px-2" id="row-track-2"></div>
+                </div>
+            </div>
+
+            <!-- Fileira 3: Direito Tributário & Cortes Superiores em Brasília (Circula para a direita ➔) -->
+            <div class="ribbon-row ribbon-fade py-0.5" onmouseenter="setActiveWave(2)" onmouseleave="setActiveWave(-1)">
+                <div class="track-right-3 items-center">
+                    <div class="flex items-center gap-4 px-2" id="row-track-3"></div>
+                </div>
+            </div>
+
+        </div>
 
     </div>
   </section>
 
-  <!-- 8. MÓDULO DE CONVERSÃO PARA TRÁFEGO PAGO (DESTINO ADS PIXEL / WHATSAPP DIRETO) -->
-  <section id="contato" class="vault-section py-20 lg:py-28 text-white relative z-20" data-line-theme="dark">
-    <!-- 4-COLUMN STAGGERED STAIRCASE BACKGROUND (DARK COFFEE) -->
-    <div class="vault-col-group absolute inset-x-0 top-0 -bottom-[32vh] -z-10 grid grid-cols-4 pointer-events-none" aria-hidden="true">
-      <div class="vault-col bg-olina-coffeeDeep h-full w-full will-change-transform border-t border-r border-transparent"></div>
-      <div class="vault-col bg-olina-coffeeDeep h-full w-full will-change-transform border-t border-r border-transparent"></div>
-      <div class="vault-col bg-olina-coffeeDeep h-full w-full will-change-transform border-t border-r border-transparent"></div>
-      <div class="vault-col bg-olina-coffeeDeep h-full w-full will-change-transform border-t border-transparent"></div>
-    </div>
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="p-8 sm:p-12 lg:p-16 rounded-3xl bg-olina-coffeeSurface border border-olina-coffeeBorder shadow-2xl relative overflow-hidden reveal-item transition-all duration-700 opacity-0 transform translate-y-8">
-        
-        <div class="relative z-10 text-center max-w-2xl mx-auto mb-10">
-          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-olina-orange/20 border border-olina-orange/30 text-olina-orange text-xs font-bold uppercase tracking-widest mb-4">
-            Atendimento Estratégico para Empresas
-          </span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Segurança jurídica para a expansão do seu negócio.
-          </h2>
-          <p class="mt-4 text-sm sm:text-base text-zinc-300 font-light">
-            Selecione a sua prioridade imediata para ser direcionado diretamente à advogada especialista correspondente:
-          </p>
-        </div>
+  <!-- Modal Discreto de Contato Executivo -->
+  <div id="contact-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 bg-luxury-charcoal/50 backdrop-blur-sm transition-all" onclick="if(event.target === this) closeContactModal()">
+      <div class="bg-luxury-paper max-w-lg w-full rounded-2xl p-6 sm:p-8 border border-luxury-stone shadow-2xl relative">
+          <!-- Botão Fechar Elegante -->
+          <button onclick="closeContactModal()" aria-label="Fechar modal" class="absolute top-5 right-5 w-8 h-8 rounded-full border border-luxury-stone/80 bg-white/80 hover:bg-white text-luxury-muted hover:text-luxury-charcoal hover:border-luxury-clay/50 flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer group">
+              <svg class="w-4 h-4 transition-transform group-hover:rotate-90 duration-200" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+          </button>
 
-        <!-- Seletor Rápido de Demanda para Tráfego Pago -->
-        <div class="relative z-10 max-w-xl mx-auto space-y-4">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-bold uppercase">
-            <label class="flex items-center gap-3 p-3.5 rounded-xl bg-olina-coffeeDeep border border-white/10 cursor-pointer hover:border-olina-orange transition-colors">
-              <input type="radio" name="interesse" value="Reforma Tributária e Impactos B2B" checked class="text-olina-orange focus:ring-olina-orange">
-              <span class="text-zinc-200">Reforma Tributária (IBS/CBS)</span>
-            </label>
-            <label class="flex items-center gap-3 p-3.5 rounded-xl bg-olina-coffeeDeep border border-white/10 cursor-pointer hover:border-olina-orange transition-colors">
-              <input type="radio" name="interesse" value="Contencioso no CARF e Créditos Fiscais" class="text-olina-orange focus:ring-olina-orange">
-              <span class="text-zinc-200">CARF & Créditos Fiscais</span>
-            </label>
-            <label class="flex items-center gap-3 p-3.5 rounded-xl bg-olina-coffeeDeep border border-white/10 cursor-pointer hover:border-olina-orange transition-colors">
-              <input type="radio" name="interesse" value="Licitações e Defesas Lei 14.133" class="text-olina-orange focus:ring-olina-orange">
-              <span class="text-zinc-200">Licitações (Lei 14.133)</span>
-            </label>
-            <label class="flex items-center gap-3 p-3.5 rounded-xl bg-olina-coffeeDeep border border-white/10 cursor-pointer hover:border-olina-orange transition-colors">
-              <input type="radio" name="interesse" value="Auditoria de Precatórios Federais" class="text-olina-orange focus:ring-olina-orange">
-              <span class="text-zinc-200">Precatórios Federais</span>
-            </label>
+          <div class="space-y-5">
+              <!-- Selo do Modal -->
+              <div class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-luxury-clay"></span>
+                  <span class="text-[10px] font-mono uppercase tracking-[0.22em] text-luxury-clay font-medium">Atendimento Societário &amp; Institucional</span>
+              </div>
+
+              <!-- Título & Descrição -->
+              <div>
+                  <h3 class="text-2xl sm:text-3xl font-serif text-luxury-charcoal leading-tight">Inicie uma interlocução direta.</h3>
+                  <p class="mt-2 text-xs sm:text-[13px] text-luxury-muted leading-relaxed font-light">
+                      Conexão imediata com as sócias para demandas estratégicas em Licitações, Contratos Administrativos, CARF e Tribunais Superiores em Brasília.
+                  </p>
+              </div>
+
+              <!-- Cartões de Contato -->
+              <div class="pt-1 space-y-3">
+                  <!-- Canal 1: WhatsApp Oficial com Número e Status -->
+                  <a href="https://wa.me/556137717679?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20conversa%20estrat%C3%A9gica%20com%20a%20Oliveira%20Navarro%20Advocacia." target="_blank" rel="noopener noreferrer" class="group block p-4 rounded-xl bg-luxury-charcoal text-luxury-paper hover:bg-luxury-clay transition-all duration-300 shadow-md">
+                      <div class="flex items-center justify-between gap-3">
+                          <div class="flex items-center gap-3.5">
+                              <div class="w-10 h-10 rounded-full bg-white/10 group-hover:bg-white/20 flex items-center justify-center shrink-0 transition-colors">
+                                  <!-- Ícone WhatsApp Oficial -->
+                                  <svg class="w-5 h-5 text-[#25D366] group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                                  </svg>
+                              </div>
+                              <div class="text-left">
+                                  <div class="flex items-center gap-2">
+                                      <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-luxury-paper/70 group-hover:text-white/80">WhatsApp Direto</span>
+                                      <span class="inline-flex items-center gap-1 text-[9px] font-mono text-[#25D366] group-hover:text-white font-medium">
+                                          <span class="w-1.5 h-1.5 rounded-full bg-[#25D366] group-hover:bg-white animate-pulse"></span>
+                                          Online
+                                      </span>
+                                  </div>
+                                  <div class="text-sm font-semibold tracking-wide text-white mt-0.5">
+                                      (61) 3771-7679
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="w-8 h-8 rounded-full bg-white/10 group-hover:bg-white group-hover:text-luxury-charcoal flex items-center justify-center transition-all shrink-0">
+                              <span class="text-sm group-hover:translate-x-0.5 transition-transform">↗</span>
+                          </div>
+                      </div>
+                  </a>
+
+                  <!-- Canal 2: E-mail Institucional Claro -->
+                  <a href="mailto:contato@oliveiranavarro.com?subject=Consulta%20Estrat%C3%A9gica%20%E2%80%94%20Oliveira%20Navarro%20Advocacia" class="group block p-4 rounded-xl border border-luxury-stone bg-white hover:border-luxury-clay hover:bg-white/95 transition-all duration-300 shadow-sm">
+                      <div class="flex items-center justify-between gap-3">
+                          <div class="flex items-center gap-3.5">
+                              <div class="w-10 h-10 rounded-full bg-luxury-sand group-hover:bg-luxury-clay/10 flex items-center justify-center shrink-0 transition-colors">
+                                  <!-- Ícone de Carta / E-mail -->
+                                  <svg class="w-5 h-5 text-luxury-clay" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                      <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+                                  </svg>
+                              </div>
+                              <div class="text-left">
+                                  <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-luxury-muted block">E-mail Institucional</span>
+                                  <span class="text-sm font-semibold text-luxury-charcoal group-hover:text-luxury-clay transition-colors mt-0.5 block">
+                                      contato@oliveiranavarro.com
+                                  </span>
+                              </div>
+                          </div>
+                          <div class="w-8 h-8 rounded-full border border-luxury-stone/80 group-hover:border-luxury-clay group-hover:bg-luxury-clay group-hover:text-white flex items-center justify-center text-luxury-muted transition-all shrink-0">
+                              <span class="text-sm group-hover:translate-x-0.5 transition-transform">↗</span>
+                          </div>
+                      </div>
+                  </a>
+              </div>
+
+              <!-- Rodapé do Modal com Informações Institucionais de Brasília -->
+              <div class="pt-4 border-t border-luxury-stone/60 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] font-mono text-luxury-muted">
+                  <span class="flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-luxury-clay/60"></span>
+                      Brasília, DF • SAUS Qd. 05, Bloco N, Sl. 709
+                  </span>
+                  <span>OAB/DF • Sociedade de Advogadas</span>
+              </div>
           </div>
-
-          <div class="pt-4 text-center">
-            <button 
-              onclick="enviarDiagnosticoWhatsApp()"
-              class="w-full sm:w-auto px-8 py-4 rounded-full bg-olina-orange hover:bg-olina-orangeHover text-white font-bold text-sm uppercase tracking-widest shadow-xl shadow-olina-orange/30 transition-all flex items-center justify-center gap-3 mx-auto"
-            >
-              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-              <span>Conversar com a Especialista via WhatsApp</span>
-            </button>
-            <p class="text-[11px] text-zinc-400 mt-3 font-light">
-              Atendimento confidencial e direto com o corpo jurídico do escritório.
-            </p>
-          </div>
-        </div>
-
       </div>
-
-    </div>
-  </section>
+  </div>
 
   <!-- 9. RODAPÉ INSTITUCIONAL (GUIA DE IDENTIDADE VISUAL 2024) -->
   <footer class="relative z-20 bg-olina-coffeeDeep text-white border-t border-olina-coffeeBorder py-14 text-xs font-light">
@@ -1244,7 +1402,7 @@
             <li><a href="#quem-somos" class="hover:text-olina-orange transition-colors">Quem Somos</a></li>
             <li><a href="#na-imprensa" class="hover:text-olina-orange transition-colors">Na Imprensa (TV & Portais)</a></li>
             <li><a href="#artigos" class="hover:text-olina-orange transition-colors">Artigos de Opinião</a></li>
-            <li><a href="#atuacao" class="hover:text-olina-orange transition-colors">Soluções Jurídicas</a></li>
+
           </ul>
         </div>
 
@@ -1566,6 +1724,7 @@
       if (e.key === 'Escape') {
         closeRecordNewsModal();
         closeArticleModal();
+        if (typeof closeContactModal === 'function') closeContactModal();
       }
     });
 
@@ -1579,6 +1738,7 @@
           smoothWheel: true,
           smoothTouch: false,
         });
+        window.lenis = lenis;
 
         function raf(time) {
           lenis.raf(time);
@@ -1590,7 +1750,7 @@
       }
     }
 
-    // Motor Default de Transição em 4 Colunas (Ativo em TODAS as Seções)
+    // Motor de Transição em 4 Colunas (Exclusivo entre Hero e Quem Somos)
     const heroSectionEl = document.getElementById('hero');
     const quemSomosEl = document.getElementById('quem-somos');
     const globalHairlines = document.getElementById('global-vault-hairlines');
@@ -1639,7 +1799,6 @@
         cols.forEach((col, idx) => {
           const offsetVh = stepMultipliersVh[idx % 4] * envelope;
           col.style.transform = `translate3d(0, ${offsetVh.toFixed(2)}vh, 0)`;
-          col.style.borderColor = borderColor;
         });
       });
 
@@ -1858,11 +2017,11 @@
         const particles = new THREE.Points(pGeo, pMat);
         aura.add(particles);
 
-        // Eixos: rotação da escultura por pilar
+        // Eixos: rotação da escultura por pilar (camY centralizado para nunca cortar topo ou base)
         const states = [
-          { rotY: 0.25, rotX: 0.02, camY: 1.75 },
-          { rotY: -0.40, rotX: 0.06, camY: 1.60 },
-          { rotY: 0.85, rotX: 0.01, camY: 1.95 }
+          { rotY: 0.25, rotX: 0.02, camY: 1.68 },
+          { rotY: -0.40, rotX: 0.04, camY: 1.65 },
+          { rotY: 0.85, rotX: 0.01, camY: 1.70 }
         ];
         let camDist = 7.5;
         let tRotX = states[0].rotX, tCamY = states[0].camY;
@@ -1902,62 +2061,30 @@
           }
         }, { passive: true });
 
-        const textEl = document.getElementById('qs-text');
-        function fitHost() {
-          if (isMobile() && textEl) {
-            host.style.top = textEl.offsetTop + 'px';
-            host.style.bottom = 'auto';
-            host.style.height = textEl.offsetHeight + 'px';
-          } else {
-            host.style.top = '';
-            host.style.bottom = '';
-            host.style.height = '';
-          }
-        }
         function resize() {
-          fitHost();
           const w = Math.max(canvas.clientWidth, 1), h = Math.max(canvas.clientHeight, 1);
           renderer.setSize(w, h, false);
           camera.aspect = w / h;
-          if (isMobile()) {
-            const dist = Math.max(7.15, 2.2 / (0.5359 * (w / h)));
-            camDist = dist;
-            camera.position.set(0, 1.65, dist);
-            camera.lookAt(0, 1.65, 0);
-            statue.position.y = 0.02;
-          } else {
-            const dist = Math.max(7.5, 2.5 / (0.5359 * (w / h)));
-            camDist = dist;
-            camera.position.set(0, 1.75, dist);
-            camera.lookAt(0, 1.5, 0);
-            statue.position.y = 0.16;
-          }
+          const mob = isMobile();
+          // FOV de 30° -> dist de ~8.8 a 9.2 garante enquadramento perfeito com respiro no topo e na base
+          const dist = Math.max(8.8, 2.7 / (0.5359 * (w / h)));
+          camDist = dist;
+          camera.position.set(0, 1.68, dist);
+          camera.lookAt(0, 1.68, 0);
+          statue.position.y = 0.0;
           camera.updateProjectionMatrix();
         }
         window.addEventListener('resize', resize, { passive: true });
         window.addEventListener('load', resize);
-        if ('ResizeObserver' in window && textEl) new ResizeObserver(resize).observe(textEl);
+        if ('ResizeObserver' in window) new ResizeObserver(resize).observe(host);
         resize();
 
-        // Progresso de rolagem -> quanto da escultura já foi desenhada
+        // A escultura se mantém sempre 100% íntegra (cabeça, venda e espada completas)
         function targetProgress() {
-          if (reduce) return 1;
-          const vh = window.innerHeight || 800;
-          if (isMobile()) {
-            const g = textEl.getBoundingClientRect();
-            const startTop = vh * 0.92;
-            const endTop = vh * 0.22;
-            const pm = (startTop - g.top) / Math.max(startTop - endTop, 1);
-            return Math.min(1, Math.max(0, pm));
-          }
-          const r = host.getBoundingClientRect();
-          const startTop = vh * 0.95;
-          const endTop = vh * 0.5 - r.height / 2;
-          const p = (startTop - r.top) / Math.max(startTop - endTop, 1);
-          return Math.min(1, Math.max(0, p));
+          return 1.0;
         }
-        let formed = targetProgress();
-        let prog = formed;
+        let formed = 1.0;
+        let prog = 1.0;
         const ease = (t) => t * t * (3 - 2 * t);
 
         let visible = true, running = false, last = performance.now();
@@ -2000,8 +2127,8 @@
           offY += (tOffY - offY) * 0.06;
           statue.rotation.y = spin + offY + dragYaw + tiltY;
           statue.rotation.x += ((tRotX + tiltX) - statue.rotation.x) * 0.07;
-          const lookY = mob ? 1.65 : 1.5;
-          const targetY = mob ? 1.65 : tCamY;
+          const lookY = 1.68;
+          const targetY = mob ? 1.68 : tCamY;
           camera.position.y += (targetY - camera.position.y) * 0.04;
           camera.lookAt(0, lookY, 0);
 
@@ -2066,44 +2193,64 @@
     })();
   </script>
 
-  <!-- MICROINTERAÇÃO DO HÍFEN GORDINHO ➔ PÍLULA ON (QUEM SOMOS) -->
+  <!-- MICROINTERAÇÃO DO HÍFEN GORDINHO ➔ PÍLULA ON (QUEM SOMOS, IMPRENSA, ARTIGOS & CONTATO) -->
   <script>
     (function() {
-      function setupOnPill() {
-        const onPill = document.getElementById('eyebrow-on-pill');
-        if (!onPill) return;
+      function createPillController(config) {
+        const onPill = document.getElementById(config.pillId);
+        const sec = document.getElementById(config.sectionId);
+        if (!onPill || !sec) return;
 
         const fill = onPill.querySelector('.on-fill');
-        let clickLock = false;
-        window.activatePill = function() { onPill.classList.add('active'); };
-        window.deactivatePill = function() { onPill.classList.remove('active'); };
-        window.toggleOnPill = function(fromClick) {
-          if (!fromClick) return;
-          clickLock = true;
-          onPill.classList.remove('active');
-          fill.style.clipPath = 'inset(0 0 0 100%)';
-          setTimeout(function() { clickLock = false; update(); }, 1800);
-        };
+        if (!fill) return;
 
-        // Preenchimento dirigido pelo scroll: cinza -> laranja (direita p/ esquerda); ON ao completar.
-        // Transição gradual e mais lenta: inicia quando o hífen entra no campo de visão
-        // e só completa 100% (todo laranja + texto ON) quando a seção estiver 85% preenchida na tela.
-        const sec = document.getElementById('quem-somos');
+        let clickLock = false;
+
+        if (config.toggleFnName) {
+          window[config.toggleFnName] = function(fromClick) {
+            if (!fromClick) return;
+            clickLock = true;
+            onPill.classList.remove('active');
+            fill.style.clipPath = 'inset(0 0 0 100%)';
+            setTimeout(function() { clickLock = false; update(); }, 1800);
+          };
+        }
+
+        // Aliases para compatibilidade legada se for o pill de quem-somos
+        if (config.pillId === 'eyebrow-on-pill') {
+          window.activatePill = function() { onPill.classList.add('active'); };
+          window.deactivatePill = function() { onPill.classList.remove('active'); };
+        }
 
         function update() {
           if (clickLock) return;
           const vh = window.innerHeight || 800;
-          const secRect = sec ? sec.getBoundingClientRect() : null;
+          const secRect = sec.getBoundingClientRect();
           const pillRect = onPill.getBoundingClientRect();
 
-          // Progresso de preenchimento da seção na viewport (0 ao tocar base, 1 ao assentar no topo)
-          const sectionFill = secRect ? (vh - secRect.top) / vh : 0;
+          // Suporte a calculador personalizado de visibilidade
+          if (config.customCalculator) {
+            const { p, active } = config.customCalculator({ vh, sec, secRect, pillRect });
+            if (active) {
+              fill.style.clipPath = 'inset(0 0 0 0%)';
+              onPill.classList.add('active');
+            } else {
+              fill.style.clipPath = 'inset(0 0 0 ' + ((1 - p) * 100).toFixed(1) + '%)';
+              onPill.classList.remove('active');
+            }
+            return;
+          }
 
-          // Início suave: quando o hífen surge na borda inferior da tela
-          // Término: exatamente quando a seção atinge 85% de preenchimento
-          const pillOffset = secRect ? (pillRect.top - secRect.top) : 160;
-          const startFill = Math.max(0.08, Math.min(0.22, (pillOffset - 30) / vh));
-          const endFill = 0.85;
+          const sectionFill = (vh - secRect.top) / vh;
+          let startFill = config.startFill;
+          let endFill = config.endFill;
+
+          if (typeof startFill === 'function') {
+            startFill = startFill({ vh, secRect, pillRect });
+          }
+          if (typeof endFill === 'function') {
+            endFill = endFill({ vh, secRect, pillRect });
+          }
 
           let p = (sectionFill - startFill) / (endFill - startFill);
           p = Math.max(0, Math.min(1, p));
@@ -2116,17 +2263,551 @@
             onPill.classList.remove('active');
           }
         }
+
         window.addEventListener('scroll', update, { passive: true });
         window.addEventListener('resize', update);
+        if (window.lenis) {
+          window.lenis.on('scroll', update);
+        }
         update();
       }
 
+      function initAllPills() {
+        // 1. Quem Somos (Posicionamento & Cultura)
+        createPillController({
+          pillId: 'eyebrow-on-pill',
+          sectionId: 'quem-somos',
+          startFill: ({ vh, secRect, pillRect }) => {
+            const pillOffset = secRect ? (pillRect.top - secRect.top) : 160;
+            return Math.max(0.08, Math.min(0.22, (pillOffset - 30) / vh));
+          },
+          endFill: 0.85,
+          toggleFnName: 'toggleOnPill'
+        });
+
+        // 2. Na Imprensa (Presença & Autoridade Pública)
+        createPillController({
+          pillId: 'imprensa-on-pill',
+          sectionId: 'na-imprensa',
+          startFill: 0.12,
+          endFill: 0.70,
+          toggleFnName: 'toggleImprensaOnPill'
+        });
+
+        // 3. Artigos & Opinião (Centro de Inteligência Jurídica)
+        createPillController({
+          pillId: 'artigos-on-pill',
+          sectionId: 'artigos',
+          startFill: 0.12,
+          endFill: 0.70,
+          toggleFnName: 'toggleArtigosOnPill'
+        });
+
+        // 4. Contato (Advocacia. No ritmo dos negócios.)
+        // Regra estrita solicitada: o 'ON' só aparece quando a seção de contato estiver com cerca de 90% de visibilidade real
+        createPillController({
+          pillId: 'contato-on-pill',
+          sectionId: 'contato',
+          toggleFnName: 'toggleContatoOnPill',
+          customCalculator: ({ vh, sec, secRect }) => {
+            const secHeight = sec.offsetHeight || 800;
+            const targetHeight = Math.min(vh, secHeight);
+            const visibleHeight = Math.max(0, Math.min(vh, secRect.bottom) - Math.max(0, secRect.top));
+            const visibilityRatio = visibleHeight / targetHeight;
+
+            // Preenchimento progressivo suave entre 30% e 90% de visibilidade
+            const startRatio = 0.30;
+            const endRatio = 0.90;
+            let p = (visibilityRatio - startRatio) / (endRatio - startRatio);
+            p = Math.max(0, Math.min(1, p));
+
+            // Ativação rigorosa aos 90% de visibilidade da seção
+            const active = visibilityRatio >= 0.89;
+            return { p, active };
+          }
+        });
+      }
+
       if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', setupOnPill);
+        document.addEventListener('DOMContentLoaded', initAllPills);
       } else {
-        setupOnPill();
+        initAllPills();
       }
     })();
   </script>
+
+  <!-- ============================================================================ -->
+  <!-- MÓDULO CONTATO: 3 FILEIRAS DE ATUAÇÃO & WEBGL 3D (REDE FINANCEIRA CONECTADA) -->
+  <!-- ============================================================================ -->
+  <script>
+    (function() {
+      // DADOS EXATOS DAS 3 FILEIRAS
+      const rowsData = [
+        {
+          containerId: 'row-track-1',
+          waveIdx: 0,
+          items: [
+            {
+              tag: 'Direito Administrativo',
+              title: 'Licitações & Contratos Públicos',
+              desc: 'Assessoria estratégica em editais e disputas públicas'
+            },
+            {
+              tag: 'Compras Governamentais',
+              title: 'Gestão de Compras Governamentais',
+              desc: 'Compliance, modelagem e fornecimento ao Estado'
+            },
+            {
+              tag: 'Contratos Administrativos',
+              title: 'Assessoria Contínua em Contratos',
+              desc: 'Reequilíbrio econômico-financeiro, aditivos e repactuações'
+            },
+            {
+              tag: 'Impugnações & Recursos',
+              title: 'Soluções em Processos de Compras',
+              desc: 'Impugnações a editais, recursos e representações'
+            }
+          ]
+        },
+        {
+          containerId: 'row-track-2',
+          waveIdx: 1,
+          items: [
+            {
+              tag: 'Sanções & Defesa',
+              title: 'Defesa em Processo Sancionatório',
+              desc: 'Defesas contra multas, suspensões, inidoneidade / PAR'
+            },
+            {
+              tag: 'Controle Externo',
+              title: 'Representação no TCU & TCEs',
+              desc: 'Atuação direta no Tribunal de Contas da União e Cortes de Contas Estaduais'
+            },
+            {
+              tag: 'Relações B2B',
+              title: 'Desenvolvimento B2B & Consórcios',
+              desc: 'Estruturação jurídica de consórcios empresariais e parcerias'
+            },
+            {
+              tag: 'Créditos Federais',
+              title: 'Gestão & Recuperação de Créditos Federais',
+              desc: 'Restituição, compensação e monetização de haveres'
+            }
+          ]
+        },
+        {
+          containerId: 'row-track-3',
+          waveIdx: 2,
+          items: [
+            {
+              tag: 'Contencioso Tributário',
+              title: 'Contencioso Tributário & CARF',
+              desc: 'Defesas no Conselho Administrativo de Recursos Fiscais e fiscalizações'
+            },
+            {
+              tag: 'Precatórios Federais',
+              title: 'Due Diligence em Precatórios Federais',
+              desc: 'Auditoria de higidez jurídica, titularidade e liquidez de precatórios'
+            },
+            {
+              tag: 'Cortes Superiores',
+              title: 'Mandados de Segurança em Cortes Superiores',
+              desc: 'Medidas urgentes no STJ e STF em Brasília'
+            }
+          ]
+        }
+      ];
+
+      function populateRows() {
+        rowsData.forEach((row) => {
+          const el = document.getElementById(row.containerId);
+          if (!el) return;
+
+          // Repete os blocos 4x para loop infinito perfeito em telas ultrawide
+          const loopItems = [...row.items, ...row.items, ...row.items, ...row.items];
+          el.innerHTML = loopItems.map((item) => `
+            <div class="practice-item rounded-lg px-6 py-3.5 min-w-[320px] sm:min-w-[365px] cursor-pointer"
+                 onmouseenter="setActiveWave(${row.waveIdx})"
+                 onclick="openContactModal()">
+              <div class="flex items-center justify-between gap-2 mb-1">
+                <span class="text-[10px] uppercase tracking-[0.18em] font-semibold text-luxury-clay">
+                  ${item.tag}
+                </span>
+                <span class="w-1.5 h-1.5 rounded-full bg-luxury-clay/45"></span>
+              </div>
+              <h3 class="text-[15px] sm:text-base font-medium text-luxury-charcoal tracking-tight">
+                ${item.title}
+              </h3>
+              <p class="text-[11.5px] text-luxury-muted mt-0.5 leading-snug">
+                ${item.desc}
+              </p>
+            </div>
+          `).join('');
+        });
+      }
+
+      window.openContactModal = function() {
+        const m = document.getElementById('contact-modal');
+        if (m) {
+          m.classList.remove('hidden');
+          m.classList.add('flex');
+          document.body.style.overflow = 'hidden';
+        }
+      };
+
+      window.closeContactModal = function() {
+        const m = document.getElementById('contact-modal');
+        if (m) {
+          m.classList.add('hidden');
+          m.classList.remove('flex');
+          document.body.style.overflow = '';
+        }
+      };
+
+      // WEBGL 3D: REDE FINANCEIRA CONECTADA
+      let scene, camera, renderer;
+      let networkNodes = [];
+      let edgeGeometry, edgeMaterial, edgeSegments;
+      let accentEdgeGeometry, accentEdgeMaterial, accentEdgeSegments;
+      let nodesPoints, accentNodesPoints;
+      let dataPackets = [];
+      let packetGeometry, packetPoints;
+      let mouseX = 0, mouseY = 0;
+      let activeWaveBand = -1;
+      let startTime = performance.now();
+      let animId = null;
+      let isSectionVisible = true;
+
+      const NODE_COUNT = 78;
+      const MAX_CONNECT_DIST = 4.35;
+      const PACKET_COUNT = 22;
+
+      window.setActiveWave = function(bandIndex) {
+        activeWaveBand = bandIndex;
+      };
+
+      function createNodeTexture(colorHex, isRing) {
+        const c = document.createElement('canvas');
+        c.width = 64;
+        c.height = 64;
+        const ctx = c.getContext('2d');
+        ctx.clearRect(0, 0, 64, 64);
+
+        ctx.beginPath();
+        ctx.arc(32, 32, isRing ? 18 : 14, 0, Math.PI * 2);
+        ctx.fillStyle = colorHex;
+        ctx.fill();
+
+        if (isRing) {
+          ctx.beginPath();
+          ctx.arc(32, 32, 26, 0, Math.PI * 2);
+          ctx.strokeStyle = colorHex;
+          ctx.lineWidth = 3;
+          ctx.globalAlpha = 0.45;
+          ctx.stroke();
+        }
+        return new THREE.CanvasTexture(c);
+      }
+
+      function initWebGL() {
+        const canvas = document.getElementById('webgl-market');
+        if (!canvas) return;
+        if (typeof THREE === 'undefined') return;
+
+        const container = document.getElementById('canvas-container');
+        const w = container ? container.clientWidth : (window.innerWidth || 1200);
+        const h = container ? container.clientHeight : 700;
+
+        renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.setSize(w, h, false);
+
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera(40, w / h, 0.1, 100);
+        camera.position.set(0, 0.6, 15.5);
+        camera.lookAt(0, 0, 0);
+
+        // 1. Eixos de Referência Institucional ao fundo
+        const meridianGroup = new THREE.Group();
+        const arcRadii = [5.8, 8.6, 11.4];
+        arcRadii.forEach((r, idx) => {
+          const pts = [];
+          for (let i = 0; i <= 96; i++) {
+            const a = (i / 96) * Math.PI * 2;
+            pts.push(new THREE.Vector3(Math.cos(a) * r * 1.35, Math.sin(a) * r * 0.68 + 0.5, -3.5));
+          }
+          const arcMat = new THREE.LineBasicMaterial({
+            color: idx === 1 ? 0xC86D51 : 0x1A1816,
+            transparent: true,
+            opacity: idx === 1 ? 0.08 : 0.045
+          });
+          meridianGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), arcMat));
+        });
+        scene.add(meridianGroup);
+
+        // 2. Geração dos Nós da Rede Conectada
+        const charcoalPositions = [];
+        const clayPositions = [];
+
+        networkNodes = [];
+        for (let i = 0; i < NODE_COUNT; i++) {
+          const band = i % 3;
+          const dir = band === 1 ? -1 : 1;
+          const isHub = (i % 5 === 0);
+
+          const x = (Math.random() - 0.5) * 24;
+          const bandCenterY = band === 0 ? 2.4 : (band === 1 ? 0.3 : -1.9);
+          const y = bandCenterY + (Math.random() - 0.5) * 2.2;
+          const z = (Math.random() - 0.5) * 4.2;
+
+          networkNodes.push({
+            x,
+            y,
+            z,
+            baseY: y,
+            baseZ: z,
+            vx: (0.22 + Math.random() * 0.18) * dir,
+            phase: Math.random() * Math.PI * 2,
+            band,
+            isHub
+          });
+
+          if (isHub) {
+            clayPositions.push(x, y, z);
+          } else {
+            charcoalPositions.push(x, y, z);
+          }
+        }
+
+        // Pontos Grafite
+        const charcoalGeo = new THREE.BufferGeometry();
+        charcoalGeo.setAttribute('position', new THREE.Float32BufferAttribute(charcoalPositions, 3));
+        const charcoalMat = new THREE.PointsMaterial({
+          map: createNodeTexture('#1A1816', false),
+          size: 0.22,
+          transparent: true,
+          opacity: 0.45,
+          depthWrite: false
+        });
+        nodesPoints = new THREE.Points(charcoalGeo, charcoalMat);
+        scene.add(nodesPoints);
+
+        // Hubs Terracota
+        const clayGeo = new THREE.BufferGeometry();
+        clayGeo.setAttribute('position', new THREE.Float32BufferAttribute(clayPositions, 3));
+        const clayMat = new THREE.PointsMaterial({
+          map: createNodeTexture('#C86D51', true),
+          size: 0.38,
+          transparent: true,
+          opacity: 0.88,
+          depthWrite: false
+        });
+        accentNodesPoints = new THREE.Points(clayGeo, clayMat);
+        scene.add(accentNodesPoints);
+
+        // 3. Geometria Dinâmica das Conexões
+        const maxEdges = NODE_COUNT * NODE_COUNT;
+        edgeGeometry = new THREE.BufferGeometry();
+        edgeGeometry.setAttribute('position', new THREE.BufferAttribute(new Float32Array(maxEdges * 6), 3));
+        edgeMaterial = new THREE.LineBasicMaterial({
+          color: 0x1A1816,
+          transparent: true,
+          opacity: 0.11
+        });
+        edgeSegments = new THREE.LineSegments(edgeGeometry, edgeMaterial);
+        scene.add(edgeSegments);
+
+        // Conexões de Destaque em Terracota
+        accentEdgeGeometry = new THREE.BufferGeometry();
+        accentEdgeGeometry.setAttribute('position', new THREE.BufferAttribute(new Float32Array(maxEdges * 6), 3));
+        accentEdgeMaterial = new THREE.LineBasicMaterial({
+          color: 0xC86D51,
+          transparent: true,
+          opacity: 0.26
+        });
+        accentEdgeSegments = new THREE.LineSegments(accentEdgeGeometry, accentEdgeMaterial);
+        scene.add(accentEdgeSegments);
+
+        // 4. Pulsos de Transmissão de Dados
+        packetGeometry = new THREE.BufferGeometry();
+        packetGeometry.setAttribute('position', new THREE.BufferAttribute(new Float32Array(PACKET_COUNT * 3), 3));
+        const packetMat = new THREE.PointsMaterial({
+          map: createNodeTexture('#C86D51', false),
+          size: 0.26,
+          transparent: true,
+          opacity: 0.95,
+          depthWrite: false
+        });
+        packetPoints = new THREE.Points(packetGeometry, packetMat);
+        scene.add(packetPoints);
+
+        dataPackets = [];
+        for (let p = 0; p < PACKET_COUNT; p++) {
+          dataPackets.push({
+            fromIdx: p % NODE_COUNT,
+            toIdx: (p * 3 + 1) % NODE_COUNT,
+            t: Math.random(),
+            speed: 0.008 + Math.random() * 0.008
+          });
+        }
+
+        function onResize() {
+          if (!renderer || !camera) return;
+          const c = document.getElementById('canvas-container');
+          const newW = c ? c.clientWidth : (window.innerWidth || 1200);
+          const newH = c ? c.clientHeight : 700;
+          renderer.setSize(newW, newH, false);
+          camera.aspect = newW / newH;
+          camera.updateProjectionMatrix();
+        }
+
+        window.addEventListener('resize', onResize, { passive: true });
+        window.addEventListener('mousemove', (e) => {
+          mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+          mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+        }, { passive: true });
+
+        const sec = document.getElementById('contato');
+        if ('IntersectionObserver' in window && sec) {
+          const obs = new IntersectionObserver((entries) => {
+            isSectionVisible = entries[0].isIntersecting;
+            if (isSectionVisible && !animId) {
+              animId = requestAnimationFrame(animate);
+            }
+          }, { threshold: 0.05 });
+          obs.observe(sec);
+        }
+
+        onResize();
+        animId = requestAnimationFrame(animate);
+      }
+
+      function animate(now) {
+        if (!isSectionVisible) {
+          animId = null;
+          return;
+        }
+        const t = (now - startTime) * 0.001;
+
+        camera.position.x += (mouseX * 0.65 - camera.position.x) * 0.04;
+        camera.position.y += ((0.6 - mouseY * 0.35) - camera.position.y) * 0.04;
+        camera.lookAt(0, 0.1, 0);
+
+        let cIdx = 0;
+        let aIdx = 0;
+        const cArr = nodesPoints.geometry.attributes.position.array;
+        const aArr = accentNodesPoints.geometry.attributes.position.array;
+
+        for (let i = 0; i < NODE_COUNT; i++) {
+          const n = networkNodes[i];
+          const speedBoost = (activeWaveBand === n.band) ? 1.65 : 1.0;
+
+          n.x += n.vx * 0.016 * speedBoost;
+          if (n.x > 12.5) n.x = -12.5;
+          if (n.x < -12.5) n.x = 12.5;
+
+          n.y = n.baseY + Math.sin(t * 0.8 + n.phase) * 0.28;
+          n.z = n.baseZ + Math.cos(t * 0.6 + n.phase) * 0.22;
+
+          if (n.isHub) {
+            aArr[aIdx++] = n.x;
+            aArr[aIdx++] = n.y;
+            aArr[aIdx++] = n.z;
+          } else {
+            cArr[cIdx++] = n.x;
+            cArr[cIdx++] = n.y;
+            cArr[cIdx++] = n.z;
+          }
+        }
+        nodesPoints.geometry.attributes.position.needsUpdate = true;
+        accentNodesPoints.geometry.attributes.position.needsUpdate = true;
+
+        const edgeArr = edgeGeometry.attributes.position.array;
+        const accentEdgeArr = accentEdgeGeometry.attributes.position.array;
+        let ePtr = 0;
+        let aePtr = 0;
+        const validPairs = [];
+
+        for (let i = 0; i < NODE_COUNT; i++) {
+          const n1 = networkNodes[i];
+          for (let j = i + 1; j < NODE_COUNT; j++) {
+            const n2 = networkNodes[j];
+            const dx = n1.x - n2.x;
+            const dy = n1.y - n2.y;
+            const dz = n1.z - n2.z;
+            const distSq = dx * dx + dy * dy + dz * dz;
+
+            if (distSq < MAX_CONNECT_DIST * MAX_CONNECT_DIST) {
+              const isHighlightedBand = (activeWaveBand !== -1 && (n1.band === activeWaveBand || n2.band === activeWaveBand));
+              const isClayLink = (n1.isHub && n2.isHub) || isHighlightedBand;
+
+              if (isClayLink) {
+                accentEdgeArr[aePtr++] = n1.x;
+                accentEdgeArr[aePtr++] = n1.y;
+                accentEdgeArr[aePtr++] = n1.z;
+                accentEdgeArr[aePtr++] = n2.x;
+                accentEdgeArr[aePtr++] = n2.y;
+                accentEdgeArr[aePtr++] = n2.z;
+              } else {
+                edgeArr[ePtr++] = n1.x;
+                edgeArr[ePtr++] = n1.y;
+                edgeArr[ePtr++] = n1.z;
+                edgeArr[ePtr++] = n2.x;
+                edgeArr[ePtr++] = n2.y;
+                edgeArr[ePtr++] = n2.z;
+              }
+
+              if (distSq < 11.5) {
+                validPairs.push([i, j]);
+              }
+            }
+          }
+        }
+
+        edgeGeometry.setDrawRange(0, ePtr / 3);
+        edgeGeometry.attributes.position.needsUpdate = true;
+
+        accentEdgeGeometry.setDrawRange(0, aePtr / 3);
+        accentEdgeGeometry.attributes.position.needsUpdate = true;
+
+        const pArr = packetGeometry.attributes.position.array;
+        for (let p = 0; p < PACKET_COUNT; p++) {
+          const pkt = dataPackets[p];
+          pkt.t += pkt.speed;
+
+          if (pkt.t >= 1) {
+            pkt.t = 0;
+            if (validPairs.length > 0) {
+              const pair = validPairs[Math.floor(Math.random() * validPairs.length)];
+              pkt.fromIdx = pair[0];
+              pkt.toIdx = pair[1];
+            }
+          }
+
+          const nA = networkNodes[pkt.fromIdx];
+          const nB = networkNodes[pkt.toIdx];
+          pArr[p * 3] = nA.x + (nB.x - nA.x) * pkt.t;
+          pArr[p * 3 + 1] = nA.y + (nB.y - nA.y) * pkt.t;
+          pArr[p * 3 + 2] = nA.z + (nB.z - nA.z) * pkt.t;
+        }
+        packetGeometry.attributes.position.needsUpdate = true;
+
+        renderer.render(scene, camera);
+        animId = requestAnimationFrame(animate);
+      }
+
+      function initContatoModule() {
+        populateRows();
+        initWebGL();
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initContatoModule);
+      } else {
+        initContatoModule();
+      }
+    })();
+  </script>
+
 </body>
 </html>
