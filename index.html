@@ -448,102 +448,8 @@
 
     <!-- DOCKED STICKY TICKER BAR (ACOPLADO AO HEADER AO ROLAR A PÁGINA) -->
     <div id="header-ticker" class="w-full bg-black/60 border-t border-transparent overflow-hidden text-[11px] sm:text-xs tracking-wider transition-all duration-300 max-h-0 opacity-0 py-0 pointer-events-none">
-      <div class="animate-marquee flex items-center text-zinc-200 font-light whitespace-nowrap">
-        
-        <!-- Record News -->
-        <div onclick="openRecordNewsModal()" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-          <span class="font-bold text-white tracking-widest text-[11px] uppercase">RECORD NEWS</span>
-          <span class="text-olina-orange font-bold">—</span>
-          <span>Dra. Tattiana Navarro analisa a transição do IVA Dual e os impactos nos contratos B2B</span>
-          <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Assistir</span>
-        </div>
-
-        <span class="text-white/20 select-none">•</span>
-
-        <!-- Reforma Tributária -->
-        <div onclick="openArticleModal('artigo-1')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-          <span class="font-bold text-white tracking-widest text-[11px] uppercase">REFORMA TRIBUTÁRIA</span>
-          <span class="text-olina-orange font-bold">—</span>
-          <span>A não-cumulatividade plena no IBS/CBS e impactos no Lucro Real e Presumido</span>
-          <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ler</span>
-        </div>
-
-        <span class="text-white/20 select-none">•</span>
-
-        <!-- CARF / CSRF -->
-        <div onclick="openArticleModal('artigo-3')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-          <span class="font-bold text-white tracking-widest text-[11px] uppercase">CARF / CSRF</span>
-          <span class="text-olina-orange font-bold">—</span>
-          <span>Novos critérios para subvenções de investimento após a vigência da Lei 14.789</span>
-          <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ver Tese</span>
-        </div>
-
-        <span class="text-white/20 select-none">•</span>
-
-        <!-- Licitações 14.133 -->
-        <div onclick="openArticleModal('artigo-2')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-          <span class="font-bold text-white tracking-widest text-[11px] uppercase">LICITAÇÕES 14.133</span>
-          <span class="text-olina-orange font-bold">—</span>
-          <span>Processos sancionatórios e defesas prévias perante órgãos de controle</span>
-          <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ler</span>
-        </div>
-
-        <span class="text-white/20 select-none">•</span>
-
-        <!-- Precatórios Federais -->
-        <div onclick="openArticleModal('artigo-4')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-          <span class="font-bold text-white tracking-widest text-[11px] uppercase">PRECATÓRIOS FEDERAIS</span>
-          <span class="text-olina-orange font-bold">—</span>
-          <span>Due diligence fiduciária e gestão de liquidez em compensações fiscais</span>
-          <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Consultar</span>
-        </div>
-
-        <span class="text-white/20 select-none">•</span>
-
-        <!-- DUPLICATE SET FOR SEAMLESS 100% INFINITE LOOP -->
-        <div onclick="openRecordNewsModal()" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-          <span class="font-bold text-white tracking-widest text-[11px] uppercase">RECORD NEWS</span>
-          <span class="text-olina-orange font-bold">—</span>
-          <span>Dra. Tattiana Navarro analisa a transição do IVA Dual e os impactos nos contratos B2B</span>
-          <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Assistir</span>
-        </div>
-
-        <span class="text-white/20 select-none">•</span>
-
-        <div onclick="openArticleModal('artigo-1')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-          <span class="font-bold text-white tracking-widest text-[11px] uppercase">REFORMA TRIBUTÁRIA</span>
-          <span class="text-olina-orange font-bold">—</span>
-          <span>A não-cumulatividade plena no IBS/CBS e impactos no Lucro Real e Presumido</span>
-          <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ler</span>
-        </div>
-
-        <span class="text-white/20 select-none">•</span>
-
-        <div onclick="openArticleModal('artigo-3')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-          <span class="font-bold text-white tracking-widest text-[11px] uppercase">CARF / CSRF</span>
-          <span class="text-olina-orange font-bold">—</span>
-          <span>Novos critérios para subvenções de investimento após a vigência da Lei 14.789</span>
-          <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ver Tese</span>
-        </div>
-
-        <span class="text-white/20 select-none">•</span>
-
-        <div onclick="openArticleModal('artigo-2')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-          <span class="font-bold text-white tracking-widest text-[11px] uppercase">LICITAÇÕES 14.133</span>
-          <span class="text-olina-orange font-bold">—</span>
-          <span>Processos sancionatórios e defesas prévias perante órgãos de controle</span>
-          <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ler</span>
-        </div>
-
-        <span class="text-white/20 select-none">•</span>
-
-        <div onclick="openArticleModal('artigo-4')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-          <span class="font-bold text-white tracking-widest text-[11px] uppercase">PRECATÓRIOS FEDERAIS</span>
-          <span class="text-olina-orange font-bold">—</span>
-          <span>Due diligence fiduciária e gestão de liquidez em compensações fiscais</span>
-          <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Consultar</span>
-        </div>
-
+      <div id="header-ticker-track" class="animate-marquee flex items-center text-zinc-200 font-light whitespace-nowrap">
+        <!-- Itens do Ticker gerados dinamicamente via data/imprensa.json e data/artigos.json -->
       </div>
     </div>
 
@@ -621,84 +527,8 @@
 
       <!-- Linha 2: Ticker 100% Full-Width Contínuo -->
       <div class="w-full overflow-hidden py-2.5 sm:py-3 text-xs tracking-wider">
-        <div class="animate-marquee flex items-center text-zinc-200 font-light whitespace-nowrap">
-          
-          <!-- Item 1: Record News -->
-          <div onclick="openRecordNewsModal()" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-            <span class="font-bold text-white tracking-widest text-[11px] uppercase">RECORD NEWS</span>
-            <span class="text-olina-orange font-bold">—</span>
-            <span>Dra. Tattiana Navarro analisa a transição do IVA Dual e os impactos nos contratos B2B</span>
-            <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Assistir</span>
-          </div>
-
-          <span class="text-white/20 select-none">•</span>
-
-          <!-- Item 2: Reforma Tributária Artigo -->
-          <div onclick="openArticleModal('artigo-1')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-            <span class="font-bold text-white tracking-widest text-[11px] uppercase">REFORMA TRIBUTÁRIA</span>
-            <span class="text-olina-orange font-bold">—</span>
-            <span>A não-cumulatividade plena no IBS/CBS e impactos no Lucro Real e Presumido</span>
-            <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ler</span>
-          </div>
-
-          <span class="text-white/20 select-none">•</span>
-
-          <!-- Item 3: CARF / CSRF -->
-          <div onclick="openArticleModal('artigo-3')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-            <span class="font-bold text-white tracking-widest text-[11px] uppercase">CARF / CSRF</span>
-            <span class="text-olina-orange font-bold">—</span>
-            <span>Novos critérios para subvenções de investimento após a vigência da Lei 14.789</span>
-            <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ver Tese</span>
-          </div>
-
-          <span class="text-white/20 select-none">•</span>
-
-          <!-- Item 4: Licitações 14.133 -->
-          <div onclick="openArticleModal('artigo-2')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-            <span class="font-bold text-white tracking-widest text-[11px] uppercase">LICITAÇÕES 14.133</span>
-            <span class="text-olina-orange font-bold">—</span>
-            <span>Processos sancionatórios e defesas prévias perante órgãos de controle</span>
-            <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ler</span>
-          </div>
-
-          <span class="text-white/20 select-none">•</span>
-
-          <!-- Item 5: Precatórios Federais -->
-          <div onclick="openArticleModal('artigo-4')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-            <span class="font-bold text-white tracking-widest text-[11px] uppercase">PRECATÓRIOS FEDERAIS</span>
-            <span class="text-olina-orange font-bold">—</span>
-            <span>Due diligence fiduciária e gestão de liquidez em compensações fiscais</span>
-            <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Consultar</span>
-          </div>
-
-          <span class="text-white/20 select-none">•</span>
-
-          <!-- DUPLICAÇÃO EXATA PARA SCROLL CONTÍNUO E SUAVE SEM TRANCO -->
-          <div onclick="openRecordNewsModal()" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-            <span class="font-bold text-white tracking-widest text-[11px] uppercase">RECORD NEWS</span>
-            <span class="text-olina-orange font-bold">—</span>
-            <span>Dra. Tattiana Navarro analisa a transição do IVA Dual e os impactos nos contratos B2B</span>
-            <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Assistir</span>
-          </div>
-
-          <span class="text-white/20 select-none">•</span>
-
-          <div onclick="openArticleModal('artigo-1')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-            <span class="font-bold text-white tracking-widest text-[11px] uppercase">REFORMA TRIBUTÁRIA</span>
-            <span class="text-olina-orange font-bold">—</span>
-            <span>A não-cumulatividade plena no IBS/CBS e impactos no Lucro Real e Presumido</span>
-            <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ler</span>
-          </div>
-
-          <span class="text-white/20 select-none">•</span>
-
-          <div onclick="openArticleModal('artigo-3')" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
-            <span class="font-bold text-white tracking-widest text-[11px] uppercase">CARF / CSRF</span>
-            <span class="text-olina-orange font-bold">—</span>
-            <span>Novos critérios para subvenções de investimento após a vigência da Lei 14.789</span>
-            <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">➔ Ver Tese</span>
-          </div>
-
+        <div id="hero-ticker-track" class="animate-marquee flex items-center text-zinc-200 font-light whitespace-nowrap">
+          <!-- Itens do Ticker gerados dinamicamente via data/imprensa.json e data/artigos.json -->
         </div>
       </div>
 
@@ -916,126 +746,14 @@
         </div>
       </div>
 
-      <!-- DESTAQUE PRINCIPAL: RECORD NEWS (CARD CINEMATOGRÁFICO) -->
-      <div class="media-item tv mb-12 rounded-3xl bg-olina-coffeeDeep text-white border border-olina-coffeeBorder p-6 sm:p-8 lg:p-10 shadow-2xl relative overflow-hidden group">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          
-          <!-- Imagem / Pré-visualização com Play Icon -->
-          <div class="lg:col-span-5 relative rounded-2xl overflow-hidden aspect-video sm:aspect-[16/10] bg-black cursor-pointer group" onclick="openRecordNewsModal()">
-            <img src="assets/tati-navarro-portrait.jpg" alt="Dra. Tattiana Navarro na Record News" class="w-full h-full object-cover object-top opacity-90 transition-transform duration-700 group-hover:scale-105">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-            
-            <!-- Botão Play Central Estilizado -->
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="w-16 h-16 rounded-full bg-olina-orange text-white flex items-center justify-center shadow-xl shadow-olina-orange/40 transition-transform duration-300 group-hover:scale-110">
-                <svg class="w-7 h-7 translate-x-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
-              </div>
-            </div>
-
-            <!-- Badge Superior -->
-            <div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-red-600 text-white text-[10px] font-black uppercase tracking-widest flex items-center gap-1.5 shadow-md">
-              <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
-              <span>Record News</span>
-            </div>
-            
-            <div class="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-black/70 backdrop-blur-sm text-[11px] font-semibold text-zinc-300">
-              12 min • TV Nacional
-            </div>
-          </div>
-
-          <!-- Conteúdo da Matéria -->
-          <div class="lg:col-span-7 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center gap-3 text-xs font-bold text-olina-orange tracking-widest uppercase mb-3">
-                <span>Entrevista Exclusiva</span>
-                <span class="text-white/30">•</span>
-                <span>Economia & Reforma Tributária</span>
-              </div>
-              <h3 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight mb-4">
-                "A transição para o IBS e CBS não é mero detalhe contábil; exige renegociação imediata de contratos corporativos."
-              </h3>
-              <p class="text-sm sm:text-base text-zinc-300 font-light leading-relaxed mb-6">
-                Em participação na Record News, a sócia-fundadora Tattiana Navarro esclareceu os impactos da regulamentação da Reforma Tributária (PLP 68/2024), detalhando como o fim da cumulatividade e a instituição do split payment exigirão nova governança de compras e precificação no setor produtivo.
-              </p>
-            </div>
-
-            <div class="flex flex-wrap items-center gap-4 pt-4 border-t border-white/10">
-              <button onclick="openRecordNewsModal()" class="px-6 py-3 rounded-full bg-olina-orange hover:bg-olina-orangeHover text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md flex items-center gap-2">
-                <span>Assistir Transmissão Completa</span>
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
-              </button>
-              <a href="https://wa.me/556137717679?text=Ol%C3%A1%2C%20assisti%20%C3%A0%20entrevista%20da%20Dra.%20Tati%20na%20Record%20News%20e%20gostaria%20de%20agendar%20uma%20conversa." target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/20 text-white text-xs font-bold uppercase tracking-wider transition-all">
-                Agendar Reunião com a Equipe
-              </a>
-            </div>
-          </div>
-
-        </div>
+      <!-- DESTAQUE PRINCIPAL: MAJOR NEWS (CARD CINEMATOGRÁFICO WIDESCREEN) -->
+      <div id="imprensa-major-container" class="mb-12">
+        <!-- Renderizado dinamicamente via data/imprensa.json -->
       </div>
 
-      <!-- GRID DE OUTRAS APARIÇÕES & MATÉRIAS -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <!-- Matéria 2: Portal JOTA -->
-        <div class="media-item jornais p-6 rounded-2xl bg-white border border-zinc-300/80 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
-          <div>
-            <div class="flex items-center justify-between text-xs font-bold uppercase mb-4">
-              <span class="text-red-700 tracking-wider">Portal JOTA</span>
-              <span class="text-zinc-400">Tributário & CARF</span>
-            </div>
-            <h4 class="text-lg font-bold text-olina-coffee group-hover:text-olina-orange transition-colors mb-3 leading-snug">
-              Julgamentos no CARF e a interpretação das subvenções de ICMS para custeio
-            </h4>
-            <p class="text-xs sm:text-sm text-zinc-600 leading-relaxed font-light mb-6">
-              Artigo de análise publicado sobre as recentes decisões da CSRF e as estratégias processuais de contribuintes frente às autuações fiscais federais.
-            </p>
-          </div>
-          <div class="pt-4 border-t border-zinc-100 flex items-center justify-between text-xs font-bold">
-            <span class="text-zinc-500">Dra. Tattiana Navarro</span>
-            <span class="text-olina-orange group-hover:translate-x-1 transition-transform">Ler análise ➔</span>
-          </div>
-        </div>
-
-        <!-- Matéria 3: Valor Econômico -->
-        <div class="media-item jornais p-6 rounded-2xl bg-white border border-zinc-300/80 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
-          <div>
-            <div class="flex items-center justify-between text-xs font-bold uppercase mb-4">
-              <span class="text-blue-800 tracking-wider">Valor Econômico</span>
-              <span class="text-zinc-400">Mercado & Finanças</span>
-            </div>
-            <h4 class="text-lg font-bold text-olina-coffee group-hover:text-olina-orange transition-colors mb-3 leading-snug">
-              A liquidez dos Precatórios Federais e as oportunidades de quitação tributária
-            </h4>
-            <p class="text-xs sm:text-sm text-zinc-600 leading-relaxed font-light mb-6">
-              Posicionamento sobre os impactos do pagamento de haveres pelo Governo Federal e os cuidados com auditoria de cessão de direitos creditórios.
-            </p>
-          </div>
-          <div class="pt-4 border-t border-zinc-100 flex items-center justify-between text-xs font-bold">
-            <span class="text-zinc-500">Núcleo Precatórios</span>
-            <span class="text-olina-orange group-hover:translate-x-1 transition-transform">Ver nota ➔</span>
-          </div>
-        </div>
-
-        <!-- Matéria 4: Painel Institucional -->
-        <div class="media-item paineis p-6 rounded-2xl bg-white border border-zinc-300/80 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
-          <div>
-            <div class="flex items-center justify-between text-xs font-bold uppercase mb-4">
-              <span class="text-emerald-700 tracking-wider">Conferência Jurídica</span>
-              <span class="text-zinc-400">Brasília / DF</span>
-            </div>
-            <h4 class="text-lg font-bold text-olina-coffee group-hover:text-olina-orange transition-colors mb-3 leading-snug">
-              Lei 14.133: Governança contratual e segurança na contratação pública
-            </h4>
-            <p class="text-xs sm:text-sm text-zinc-600 leading-relaxed font-light mb-6">
-              Palestra da equipe administrativa sobre a mitigação de riscos sancionatórios e aplicação de matriz de risco em licitações estratégicas.
-            </p>
-          </div>
-          <div class="pt-4 border-t border-zinc-100 flex items-center justify-between text-xs font-bold">
-            <span class="text-zinc-500">Dra. Mariana Albuquerque</span>
-            <span class="text-olina-orange group-hover:translate-x-1 transition-transform">Ver cobertura ➔</span>
-          </div>
-        </div>
-
+      <!-- GRID DE OUTRAS APARIÇÕES & MATÉRIAS RECENTES -->
+      <div id="imprensa-recentes-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Renderizado dinamicamente via data/imprensa.json -->
       </div>
 
     </div>
@@ -1075,124 +793,8 @@
       </div>
 
       <!-- GRID DE ARTIGOS ROTATIVOS (DESTACANDO ASSOCIADAS & SÓCIA) -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        
-        <!-- Artigo 1: Dra. Tattiana Navarro (Tributário) -->
-        <article class="article-card tributario rounded-2xl bg-white border border-zinc-300/80 p-6 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300 group">
-          <div>
-            <div class="flex items-center justify-between text-[11px] font-bold uppercase mb-3">
-              <span class="text-olina-orange">Direito Tributário</span>
-              <span class="text-zinc-400">5 min</span>
-            </div>
-            <h3 class="text-lg font-bold text-olina-coffee group-hover:text-olina-orange transition-colors mb-3 leading-snug">
-              A não-cumulatividade plena no IBS/CBS e seus reflexos no Lucro Real e Presumido.
-            </h3>
-            <p class="text-xs sm:text-sm text-zinc-600 leading-relaxed font-light mb-6">
-              Como a unificação dos tributos sobre o consumo desafia o planejamento tributário vigente e quais créditos merecem atenção.
-            </p>
-          </div>
-
-          <div class="pt-4 border-t border-zinc-100 flex items-center justify-between">
-            <div class="flex items-center gap-2.5">
-              <img src="assets/tati-navarro-portrait.jpg" class="w-8 h-8 rounded-full object-cover border border-olina-orange/40" alt="Dra. Tattiana Navarro">
-              <div class="flex flex-col">
-                <span class="text-xs font-bold text-olina-coffee">Dra. Tattiana Navarro</span>
-                <span class="text-[10px] text-zinc-500 font-medium">Sócia-Fundadora</span>
-              </div>
-            </div>
-            <button onclick="openArticleModal('artigo-1')" class="p-2 rounded-full bg-olina-orange/10 text-olina-orange group-hover:bg-olina-orange group-hover:text-white transition-all">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-        </article>
-
-        <!-- Artigo 2: Dra. Mariana Albuquerque (Administrativo) -->
-        <article class="article-card administrativo rounded-2xl bg-white border border-zinc-300/80 p-6 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300 group">
-          <div>
-            <div class="flex items-center justify-between text-[11px] font-bold uppercase mb-3">
-              <span class="text-emerald-700">Licitações & Contratos</span>
-              <span class="text-zinc-400">4 min</span>
-            </div>
-            <h3 class="text-lg font-bold text-olina-coffee group-hover:text-olina-orange transition-colors mb-3 leading-snug">
-              Processos administrativos sancionatórios em licitações: Como estruturar defesas prévias sob a Lei 14.133.
-            </h3>
-            <p class="text-xs sm:text-sm text-zinc-600 leading-relaxed font-light mb-6">
-              A dosimetria da sanção e o papel das medidas de integridade para evitar a declaração de inidoneidade perante o SICAF.
-            </p>
-          </div>
-
-          <div class="pt-4 border-t border-zinc-100 flex items-center justify-between">
-            <div class="flex items-center gap-2.5">
-              <div class="w-8 h-8 rounded-full bg-olina-coffee text-white flex items-center justify-center font-bold text-xs">MA</div>
-              <div class="flex flex-col">
-                <span class="text-xs font-bold text-olina-coffee">Dra. Mariana Albuquerque</span>
-                <span class="text-[10px] text-zinc-500 font-medium">Advogada Associada</span>
-              </div>
-            </div>
-            <button onclick="openArticleModal('artigo-2')" class="p-2 rounded-full bg-olina-orange/10 text-olina-orange group-hover:bg-olina-orange group-hover:text-white transition-all">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-        </article>
-
-        <!-- Artigo 3: Dra. Beatriz Mendes (CARF / Contencioso) -->
-        <article class="article-card tributario rounded-2xl bg-white border border-zinc-300/80 p-6 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300 group">
-          <div>
-            <div class="flex items-center justify-between text-[11px] font-bold uppercase mb-3">
-              <span class="text-olina-orange">CARF & Tribunais</span>
-              <span class="text-zinc-400">6 min</span>
-            </div>
-            <h3 class="text-lg font-bold text-olina-coffee group-hover:text-olina-orange transition-colors mb-3 leading-snug">
-              Exclusão de PIS/COFINS da própria base e subvenções para investimento após a Lei 14.789.
-            </h3>
-            <p class="text-xs sm:text-sm text-zinc-600 leading-relaxed font-light mb-6">
-              O posicionamento do Ministério da Fazenda e as teses de defesa tributária para empresas com incentivos de ICMS.
-            </p>
-          </div>
-
-          <div class="pt-4 border-t border-zinc-100 flex items-center justify-between">
-            <div class="flex items-center gap-2.5">
-              <div class="w-8 h-8 rounded-full bg-olina-orange text-white flex items-center justify-center font-bold text-xs">BM</div>
-              <div class="flex flex-col">
-                <span class="text-xs font-bold text-olina-coffee">Dra. Beatriz Mendes</span>
-                <span class="text-[10px] text-zinc-500 font-medium">Advogada Associada</span>
-              </div>
-            </div>
-            <button onclick="openArticleModal('artigo-3')" class="p-2 rounded-full bg-olina-orange/10 text-olina-orange group-hover:bg-olina-orange group-hover:text-white transition-all">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-        </article>
-
-        <!-- Artigo 4: Núcleo Precatórios -->
-        <article class="article-card precatorios rounded-2xl bg-white border border-zinc-300/80 p-6 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300 group">
-          <div>
-            <div class="flex items-center justify-between text-[11px] font-bold uppercase mb-3">
-              <span class="text-purple-700">Precatórios Federais</span>
-              <span class="text-zinc-400">4 min</span>
-            </div>
-            <h3 class="text-lg font-bold text-olina-coffee group-hover:text-olina-orange transition-colors mb-3 leading-snug">
-              Due diligence em aquisição de precatórios federais: Blindagem contra fraudes e vícios de origem.
-            </h3>
-            <p class="text-xs sm:text-sm text-zinc-600 leading-relaxed font-light mb-6">
-              A verificação da cadeia sucessória e a higidez do título judicial para garantir homologação em compensações fiscais.
-            </p>
-          </div>
-
-          <div class="pt-4 border-t border-zinc-100 flex items-center justify-between">
-            <div class="flex items-center gap-2.5">
-              <img src="assets/tati-navarro-office.jpg" class="w-8 h-8 rounded-full object-cover border border-olina-orange/40" alt="Equipe Oliveira Navarro">
-              <div class="flex flex-col">
-                <span class="text-xs font-bold text-olina-coffee">Tati & Equipe</span>
-                <span class="text-[10px] text-zinc-500 font-medium">Núcleo Precatórios</span>
-              </div>
-            </div>
-            <button onclick="openArticleModal('artigo-4')" class="p-2 rounded-full bg-olina-orange/10 text-olina-orange group-hover:bg-olina-orange group-hover:text-white transition-all">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-        </article>
-
+      <div id="artigos-grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Renderizado dinamicamente via data/artigos.json -->
       </div>
 
     </div>
@@ -1519,105 +1121,455 @@
     </div>
   </div>
 
-  <!-- 12. LOGIC JAVASCRIPT: MODALS & DISPATCHERS -->
+  <!-- 12. LOGIC JAVASCRIPT: DYNAMIC EDITORIAL SYSTEM & DISPATCHERS -->
   <script>
-    // Database of Articles
-    const articlesDB = {
-      'artigo-1': {
-        category: 'DIREITO TRIBUTÁRIO & REFORMA',
-        title: 'A não-cumulatividade plena no IBS/CBS e seus reflexos no Lucro Real e Presumido.',
-        author: 'Dra. Tattiana Navarro',
-        authorRole: 'Sócia-Fundadora • Especialista em Direito Tributário',
-        avatarHtml: '<img src="assets/tati-navarro-portrait.jpg" class="w-10 h-10 rounded-full object-cover border border-olina-orange">',
-        readTime: '5 min de leitura',
-        body: `
-          <p>A promulgação da Emenda Constitucional nº 132/2023 inaugurou a mais profunda transformação no sistema tributário nacional das últimas cinco décadas. Com a substituição do PIS, COFINS, ICMS e ISS pelo Imposto sobre Bens e Serviços (IBS) e pela Contribuição sobre Bens e Serviços (CBS), a lógica de apuração fiscal das pessoas jurídicas entra em novo paradigma.</p>
-          <p>O coração do novo sistema é a <strong>não-cumulatividade plena</strong>. Em tese, qualquer aquisição de bens ou serviços vinculados à atividade econômica da empresa gerará direito a crédito imediato. Contudo, a contrapartida reside no mecanismo do <em>split payment</em> — a retenção na fonte do tributo no ato do pagamento financeiro.</p>
-          <blockquote class="border-l-4 border-olina-orange pl-4 italic my-6 text-zinc-800 bg-zinc-100 p-3 rounded-r-lg font-medium">"As empresas que postergarem a renegociação de suas cláusulas contratuais de compras e fornecimento sofrerão impacto severo em capital de giro logo no primeiro ano de transição."</blockquote>
-          <p>Para o contribuinte, a prioridade não é aguardar 2026, mas iniciar imediatamente o diagnóstico do perfil de suas contratações B2B, quantificando o efeito nas margens e reestruturando a governança de conformidade fiscal.</p>
-        `
+    // 1. BASE DE DADOS EDITORIAL EMBUTIDA (Fallback imediato de alta disponibilidade)
+    const DEFAULT_IMPRENSA_DATA = [
+      {
+        id: "record-news-tributaria",
+        isMajorNews: true,
+        destaqueTicker: true,
+        tickerBadge: "RECORD NEWS",
+        tickerTexto: "Dra. Tattiana Navarro analisa a transição do IVA Dual e os impactos nos contratos B2B",
+        tickerAcao: "➔ Assistir",
+        categoria: "tv",
+        veiculo: "Record News",
+        tagTema: "Economia & Reforma Tributária",
+        titulo: "\"A transição para o IBS e CBS não é mero detalhe contábil; exige renegociação imediata de contratos corporativos.\"",
+        resumo: "Em participação na Record News, a sócia-fundadora Tattiana Navarro esclareceu os impactos da regulamentação da Reforma Tributária (PLP 68/2024), detalhando como o fim da cumulatividade e a instituição do split payment exigirão nova governança de compras e precificação no setor produtivo.",
+        autor: "Dra. Tattiana Navarro",
+        cargo: "Sócia-Fundadora",
+        data: "Março 2026",
+        duracao: "12 min • TV Nacional",
+        imagem: "assets/tati-navarro-portrait.jpg",
+        tipoAcao: "videoModal",
+        youtubeId: "UuYMiA4_WeE"
       },
-      'artigo-2': {
-        category: 'DIREITO ADMINISTRATIVO & LICITAÇÕES',
-        title: 'Processos administrativos sancionatórios em licitações: Como estruturar defesas prévias eficazes sob a Lei 14.133.',
-        author: 'Dra. Mariana Albuquerque',
-        authorRole: 'Advogada Associada • Especialista em Licitações Públicas',
-        avatarHtml: '<div class="w-10 h-10 rounded-full bg-olina-coffee text-white flex items-center justify-center font-bold">MA</div>',
-        readTime: '4 min de leitura',
-        body: `
-          <p>A Lei nº 14.133/2021 estabeleceu um marco regulatório mais rigoroso para as contratações públicas, trazendo alterações substanciais no regime de sanções aplicáveis às empresas fornecedoras do Estado.</p>
-          <p>Com a extinção da antiga suspensão temporária e a consolidação do impedimento de licitar e da declaração de inidoneidade, a fase de <strong>defesa prévia tornou-se o momento processual determinante</strong> para evitar danos reputacionais e paralisia operacional da contratada.</p>
-          <blockquote class="border-l-4 border-olina-orange pl-4 italic my-6 text-zinc-800 bg-zinc-100 p-3 rounded-r-lg font-medium">"A dosimetria da sanção não pode ser arbitrária; ela deve obrigatoriamente sopesar a gravidade da conduta, os prejuízos reais apurados e os programas de compliance comprovadamente instituídos."</blockquote>
-          <p>Demonstrar prontamente a ausência de dolo e a existência de mecanismos preventivos é a chave para converter sanções gravosas em penalidades leves ou advertências perante os órgãos de controle.</p>
-        `
+      {
+        id: "jota-carf-icms",
+        isMajorNews: false,
+        destaqueTicker: true,
+        tickerBadge: "PORTAL JOTA",
+        tickerTexto: "Julgamentos no CARF e a interpretação das subvenções de ICMS para custeio",
+        tickerAcao: "➔ Ler Análise",
+        categoria: "jornais",
+        veiculo: "Portal JOTA",
+        veiculoCor: "text-red-700",
+        tagTema: "Tributário & CARF",
+        titulo: "Julgamentos no CARF e a interpretação das subvenções de ICMS para custeio",
+        resumo: "Artigo de análise publicado sobre as recentes decisões da CSRF e as estratégias processuais de contribuintes frente às autuações fiscais federais.",
+        autor: "Dra. Tattiana Navarro",
+        data: "Fevereiro 2026",
+        tipoAcao: "externalLink",
+        link: "https://www.jota.info"
       },
-      'artigo-3': {
-        category: 'CONTENCIOSO TRIBUTÁRIO NO CARF',
-        title: 'Exclusão de PIS/COFINS da própria base e subvenções para investimento após a Lei 14.789.',
-        author: 'Dra. Beatriz Mendes',
-        authorRole: 'Advogada Associada • Contencioso Administrativo e Judicial',
-        avatarHtml: '<div class="w-10 h-10 rounded-full bg-olina-orange text-white flex items-center justify-center font-bold">BM</div>',
-        readTime: '6 min de leitura',
-        body: `
-          <p>As recentes alterações no regime de subvenções governamentais de ICMS geraram expressiva insegurança jurídica no meio empresarial, culminando em novas autuações fiscais por parte da Receita Federal.</p>
-          <p>A Lei nº 14.789 revogou o tratamento anterior e introduziu o sistema de crédito fiscal compensável, impactando diretamente companhias com operações incentivadas em estados do Centro-Oeste, Nordeste e Sul.</p>
-          <p>Nossa equipe no SAUS tem acompanhado de perto os julgados da Câmara Superior de Recursos Fiscais (CSRF), estruturando defesas administrativas fundamentadas no ato jurídico perfeito e na anterioridade tributária para proteger o caixa dos nossos clientes.</p>
-        `
+      {
+        id: "valor-precatorios-federais",
+        isMajorNews: false,
+        destaqueTicker: true,
+        tickerBadge: "VALOR ECONÔMICO",
+        tickerTexto: "A liquidez dos Precatórios Federais e as oportunidades de quitação tributária",
+        tickerAcao: "➔ Ver Nota",
+        categoria: "jornais",
+        veiculo: "Valor Econômico",
+        veiculoCor: "text-blue-800",
+        tagTema: "Mercado & Finanças",
+        titulo: "A liquidez dos Precatórios Federais e as oportunidades de quitação tributária",
+        resumo: "Posicionamento sobre os impactos do pagamento de haveres pelo Governo Federal e os cuidados com auditoria de cessão de direitos creditórios.",
+        autor: "Núcleo Precatórios",
+        data: "Janeiro 2026",
+        tipoAcao: "externalLink",
+        link: "https://valor.globo.com"
       },
-      'artigo-4': {
-        category: 'GESTÃO ESTRATÉGICA DE PRECATÓRIOS',
-        title: 'Due diligence em aquisição de precatórios federais: Blindagem contra fraudes e vícios de origem.',
-        author: 'Dra. Tattiana Navarro & Equipe',
-        authorRole: 'Núcleo Especializado em Precatórios Federais',
-        avatarHtml: '<img src="assets/tati-navarro-office.jpg" class="w-10 h-10 rounded-full object-cover border border-olina-orange">',
-        readTime: '4 min de leitura',
-        body: `
-          <p>A utilização de precatórios federais para liquidação de passivos tributários e otimização de balanço consolidou-se como estratégia financeira indispensável após as Emendas Constitucionais 113 e 114.</p>
-          <p>Entretanto, o mercado secundário de títulos judiciais impõe auditoria rigorosa de titularidade: higidez da cadeia sucessória, ausência de penhoras ocultas e certificação definitiva do trânsito em julgado perante os Tribunais Regionais Federais (TRFs).</p>
-          <p>No Oliveira Navarro, emitimos laudos de conformidade fiduciária que outorgam à empresa adquirente a tranquilidade necessária para efetivar a compensação sem risco de glosa fiscal futura.</p>
-        `
+      {
+        id: "painel-licitacoes-14133",
+        isMajorNews: false,
+        destaqueTicker: true,
+        tickerBadge: "CONFERÊNCIA JURÍDICA",
+        tickerTexto: "Lei 14.133: Governança contratual e segurança na contratação pública",
+        tickerAcao: "➔ Ver Cobertura",
+        categoria: "paineis",
+        veiculo: "Conferência Jurídica",
+        veiculoCor: "text-emerald-700",
+        tagTema: "Brasília / DF",
+        titulo: "Lei 14.133: Governança contratual e segurança na contratação pública",
+        resumo: "Palestra da equipe administrativa sobre a mitigação de riscos sancionatórios e aplicação de matriz de risco em licitações estratégicas.",
+        autor: "Dra. Mariana Albuquerque",
+        data: "Novembro 2025",
+        tipoAcao: "externalLink",
+        link: "#"
       }
-    };
+    ];
 
-    // 1. MEDIA FILTER
+    const DEFAULT_ARTIGOS_DATA = [
+      {
+        id: "artigo-1",
+        destaqueTicker: true,
+        tickerBadge: "REFORMA TRIBUTÁRIA",
+        tickerTexto: "A não-cumulatividade plena no IBS/CBS e impactos no Lucro Real e Presumido",
+        tickerAcao: "➔ Ler Tese",
+        categoria: "tributario",
+        categoriaBadge: "Direito Tributário",
+        tempoLeitura: "5 min",
+        titulo: "A não-cumulatividade plena no IBS/CBS e seus reflexos no Lucro Real e Presumido.",
+        resumo: "Como a unificação dos tributos sobre o consumo desafia o planejamento tributário vigente e quais créditos merecem atenção.",
+        autor: "Dra. Tattiana Navarro",
+        cargo: "Sócia-Fundadora",
+        authorRole: "Sócia-Fundadora • Especialista em Direito Tributário",
+        avatar: "assets/tati-navarro-portrait.jpg",
+        isAvatarImg: true,
+        data: "Março 2026",
+        conteudoHtml: "<p>A promulgação da Emenda Constitucional nº 132/2023 inaugurou a mais profunda transformação no sistema tributário nacional das últimas cinco décadas. Com a substituição do PIS, COFINS, ICMS e ISS pelo Imposto sobre Bens e Serviços (IBS) e pela Contribuição sobre Bens e Serviços (CBS), a lógica de apuração fiscal das pessoas jurídicas entra em novo paradigma.</p><p>O coração do novo sistema é a <strong>não-cumulatividade plena</strong>. Em tese, qualquer aquisição de bens ou serviços vinculados à atividade econômica da empresa gerará direito a crédito imediato. Contudo, a contrapartida reside no mecanismo do <em>split payment</em> — a retenção na fonte do tributo no ato do pagamento financeiro.</p><blockquote class=\"border-l-4 border-olina-orange pl-4 italic my-6 text-zinc-800 bg-zinc-100 p-3 rounded-r-lg font-medium\">\"As empresas que postergarem a renegociação de suas cláusulas contratuais de compras e fornecimento sofrerão impacto severo em capital de giro logo no primeiro ano de transição.\"</blockquote><p>Para o contribuinte, a prioridade não é aguardar 2026, mas iniciar imediatamente o diagnóstico do perfil de suas contratações B2B, quantificando o efeito nas margens e reestruturando a governança de conformidade fiscal.</p>"
+      },
+      {
+        id: "artigo-2",
+        destaqueTicker: true,
+        tickerBadge: "LICITAÇÕES 14.133",
+        tickerTexto: "Processos sancionatórios e defesas prévias perante órgãos de controle",
+        tickerAcao: "➔ Ler",
+        categoria: "administrativo",
+        categoriaBadge: "Licitações & Contratos",
+        tempoLeitura: "4 min",
+        titulo: "Processos administrativos sancionatórios em licitações: Como estruturar defesas prévias sob a Lei 14.133.",
+        resumo: "A dosimetria da sanção e o papel das medidas de integridade para evitar a declaração de inidoneidade perante o SICAF.",
+        autor: "Dra. Mariana Albuquerque",
+        cargo: "Advogada Associada",
+        authorRole: "Advogada Associada • Especialista em Licitações Públicas",
+        avatar: "MA",
+        isAvatarImg: false,
+        avatarBg: "bg-olina-coffee",
+        data: "Fevereiro 2026",
+        conteudoHtml: "<p>A Lei nº 14.133/2021 estabeleceu um marco regulatório mais rigoroso para as contratações públicas, trazendo alterações substanciais no regime de sanções aplicáveis às empresas fornecedoras do Estado.</p><p>Com a extinção da antiga suspensão temporária e a consolidação do impedimento de licitar e da declaração de inidoneidade, a fase de <strong>defesa prévia tornou-se o momento processual determinante</strong> para evitar danos reputacionais e paralisia operacional da contratada.</p><blockquote class=\"border-l-4 border-olina-orange pl-4 italic my-6 text-zinc-800 bg-zinc-100 p-3 rounded-r-lg font-medium\">\"A dosimetria da sanção não pode ser arbitrária; ela deve obrigatoriamente sopesar a gravidade da conduta, os prejuízos reais apurados e os programas de compliance comprovadamente instituídos.\"</blockquote><p>Demonstrar prontamente a ausência de dolo e a existência de mecanismos preventivos é a chave para converter sanções gravosas em penalidades leves ou advertências perante os órgãos de controle.</p>"
+      },
+      {
+        id: "artigo-3",
+        destaqueTicker: true,
+        tickerBadge: "CARF / CSRF",
+        tickerTexto: "Novos critérios para subvenções de investimento após a vigência da Lei 14.789",
+        tickerAcao: "➔ Ver Tese",
+        categoria: "tributario",
+        categoriaBadge: "CARF & Tribunais",
+        tempoLeitura: "6 min",
+        titulo: "Exclusão de PIS/COFINS da própria base e subvenções para investimento após a Lei 14.789.",
+        resumo: "O posicionamento do Ministério da Fazenda e as teses de defesa tributária para empresas com incentivos de ICMS.",
+        autor: "Dra. Beatriz Mendes",
+        cargo: "Advogada Associada",
+        authorRole: "Advogada Associada • Contencioso Administrativo e Judicial",
+        avatar: "BM",
+        isAvatarImg: false,
+        avatarBg: "bg-olina-orange",
+        data: "Janeiro 2026",
+        conteudoHtml: "<p>As recentes alterações no regime de subvenções governamentais de ICMS geraram expressiva insegurança jurídica no meio empresarial, culminando em novas autuações fiscais por parte da Receita Federal.</p><p>A Lei nº 14.789 revogou o tratamento anterior e introduziu o sistema de crédito fiscal compensável, impactando diretamente companhias com operações incentivadas em estados do Centro-Oeste, Nordeste e Sul.</p><p>Nossa equipe no SAUS tem acompanhado de perto os julgados da Câmara Superior de Recursos Fiscais (CSRF), estruturando defesas administrativas fundamentadas no ato jurídico perfeito e na anterioridade tributária para proteger o caixa dos nossos clientes.</p>"
+      },
+      {
+        id: "artigo-4",
+        destaqueTicker: true,
+        tickerBadge: "PRECATÓRIOS FEDERAIS",
+        tickerTexto: "Due diligence fiduciária e gestão de liquidez em compensações fiscais",
+        tickerAcao: "➔ Consultar",
+        categoria: "precatorios",
+        categoriaBadge: "Precatórios Federais",
+        tempoLeitura: "4 min",
+        titulo: "Due diligence em aquisição de precatórios federais: Blindagem contra fraudes e vícios de origem.",
+        resumo: "A verificação da cadeia sucessória e a higidez do título judicial para garantir homologação em compensações fiscais.",
+        autor: "Tati & Equipe",
+        cargo: "Núcleo Precatórios",
+        authorRole: "Núcleo Especializado em Precatórios Federais",
+        avatar: "assets/tati-navarro-office.jpg",
+        isAvatarImg: true,
+        data: "Dezembro 2025",
+        conteudoHtml: "<p>A utilização de precatórios federais para liquidação de passivos tributários e otimização de balanço consolidou-se como estratégia financeira indispensável após as Emendas Constitucionais 113 e 114.</p><p>Entretanto, o mercado secundário de títulos judiciais impõe auditoria rigorosa de titularidade: higidez da cadeia sucessória, ausência de penhoras ocultas e certificação definitiva do trânsito em julgado perante os Tribunais Regionais Federais (TRFs).</p><p>No Oliveira Navarro, emitimos laudos de conformidade fiduciária que outorgam à empresa adquirente a tranquilidade necessária para efetivar a compensação sem risco de glosa fiscal futura.</p>"
+      }
+    ];
+
+    // Dicionário reativo consumido pelo modal drawer de artigos
+    const articlesDB = {};
+
+    // 2. RENDERIZADORES REATIVOS (SINGLE SOURCE OF TRUTH)
+    function renderTickers(imprensaData, artigosData) {
+      const tickerItems = [];
+
+      // Itens de Imprensa para o Ticker
+      imprensaData.filter(item => item.destaqueTicker).forEach(item => {
+        let clickHandler = '';
+        if (item.tipoAcao === 'videoModal') {
+          clickHandler = 'openRecordNewsModal()';
+        } else if (item.link && item.link !== '#') {
+          clickHandler = `window.open('${item.link}', '_blank')`;
+        } else {
+          clickHandler = 'openRecordNewsModal()';
+        }
+        tickerItems.push({
+          badge: item.tickerBadge || item.veiculo,
+          text: item.tickerTexto || item.titulo,
+          action: item.tickerAcao || '➔ Ver',
+          onClick: clickHandler
+        });
+      });
+
+      // Itens de Artigos para o Ticker
+      artigosData.filter(art => art.destaqueTicker).forEach(art => {
+        tickerItems.push({
+          badge: art.tickerBadge || art.categoriaBadge,
+          text: art.tickerTexto || art.titulo,
+          action: art.tickerAcao || '➔ Ler Tese',
+          onClick: `openArticleModal('${art.id}')`
+        });
+      });
+
+      // Gerar HTML de uma passagem completa
+      const singlePassHtml = tickerItems.map(item => `
+        <div onclick="${item.onClick}" class="cursor-pointer inline-flex items-center gap-2.5 px-6 hover:text-white transition-colors group/item">
+          <span class="font-bold text-white tracking-widest text-[11px] uppercase">${item.badge}</span>
+          <span class="text-olina-orange font-bold">—</span>
+          <span>${item.text}</span>
+          <span class="text-olina-orange font-semibold ml-1 group-hover/item:translate-x-1 transition-transform">${item.action}</span>
+        </div>
+        <span class="text-white/20 select-none">•</span>
+      `).join('');
+
+      // Duplicação exata para loop contínuo perfeitamente fluido (CSS marquee)
+      const fullHtml = singlePassHtml + singlePassHtml;
+
+      const headerTrack = document.getElementById('header-ticker-track');
+      const heroTrack = document.getElementById('hero-ticker-track');
+      if (headerTrack) headerTrack.innerHTML = fullHtml;
+      if (heroTrack) heroTrack.innerHTML = fullHtml;
+    }
+
+    function renderImprensa(items) {
+      const majorNews = items.find(i => i.isMajorNews) || items[0];
+      const recentItems = items.filter(i => i.id !== majorNews.id);
+
+      // Renderizar Major News (Card Cinematográfico Widescreen)
+      const majorContainer = document.getElementById('imprensa-major-container');
+      if (majorContainer && majorNews) {
+        majorContainer.innerHTML = `
+          <div class="media-item ${majorNews.categoria} rounded-3xl bg-olina-coffeeDeep text-white border border-olina-coffeeBorder p-6 sm:p-8 lg:p-10 shadow-2xl relative overflow-hidden group">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              
+              <div class="lg:col-span-5 relative rounded-2xl overflow-hidden aspect-video sm:aspect-[16/10] bg-black cursor-pointer group" onclick="${majorNews.tipoAcao === 'videoModal' ? 'openRecordNewsModal()' : ''}">
+                <img src="${majorNews.imagem || 'assets/tati-navarro-portrait.jpg'}" alt="${majorNews.autor} na ${majorNews.veiculo}" class="w-full h-full object-cover object-top opacity-90 transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="w-16 h-16 rounded-full bg-olina-orange text-white flex items-center justify-center shadow-xl shadow-olina-orange/40 transition-transform duration-300 group-hover:scale-110">
+                    <svg class="w-7 h-7 translate-x-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
+                  </div>
+                </div>
+
+                <div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-red-600 text-white text-[10px] font-black uppercase tracking-widest flex items-center gap-1.5 shadow-md">
+                  <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
+                  <span>${majorNews.veiculo}</span>
+                </div>
+                
+                <div class="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-black/70 backdrop-blur-sm text-[11px] font-semibold text-zinc-300">
+                  ${majorNews.duracao || 'TV Nacional'}
+                </div>
+              </div>
+
+              <div class="lg:col-span-7 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center gap-3 text-xs font-bold text-olina-orange tracking-widest uppercase mb-3">
+                    <span>Entrevista Exclusiva</span>
+                    <span class="text-white/30">•</span>
+                    <span>${majorNews.tagTema || 'Economia & Regulação'}</span>
+                  </div>
+                  <h3 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight mb-4">
+                    ${majorNews.titulo}
+                  </h3>
+                  <p class="text-sm sm:text-base text-zinc-300 font-light leading-relaxed mb-6">
+                    ${majorNews.resumo}
+                  </p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-4 pt-4 border-t border-white/10">
+                  <button onclick="openRecordNewsModal()" class="px-6 py-3 rounded-full bg-olina-orange hover:bg-olina-orangeHover text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md flex items-center gap-2">
+                    <span>Assistir Transmissão Completa</span>
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
+                  </button>
+                  <a href="https://wa.me/556137717679?text=Ol%C3%A1%2C%20assisti%20%C3%A0%20entrevista%20da%20Dra.%20Tati%20na%20Record%20News%20e%20gostaria%20de%20agendar%20uma%20conversa." target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/20 text-white text-xs font-bold uppercase tracking-wider transition-all">
+                    Agendar Reunião com a Equipe
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        `;
+      }
+
+      // Renderizar Grid de Matérias Recentes
+      const recentContainer = document.getElementById('imprensa-recentes-container');
+      if (recentContainer) {
+        recentContainer.innerHTML = recentItems.map(item => {
+          const clickAction = (item.link && item.link !== '#')
+            ? `onclick="window.open('${item.link}', '_blank')"`
+            : `onclick="openRecordNewsModal()"`;
+
+          return `
+            <div class="media-item ${item.categoria} p-6 rounded-2xl bg-white border border-zinc-300/80 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group cursor-pointer" ${clickAction}>
+              <div>
+                <div class="flex items-center justify-between text-xs font-bold uppercase mb-4">
+                  <span class="${item.veiculoCor || 'text-olina-orange'} tracking-wider">${item.veiculo}</span>
+                  <span class="text-zinc-400">${item.tagTema}</span>
+                </div>
+                <h4 class="text-lg font-bold text-olina-coffee group-hover:text-olina-orange transition-colors mb-3 leading-snug">
+                  ${item.titulo}
+                </h4>
+                <p class="text-xs sm:text-sm text-zinc-600 leading-relaxed font-light mb-6">
+                  ${item.resumo}
+                </p>
+              </div>
+              <div class="pt-4 border-t border-zinc-100 flex items-center justify-between text-xs font-bold">
+                <span class="text-zinc-500">${item.autor}</span>
+                <span class="text-olina-orange group-hover:translate-x-1 transition-transform">${item.tickerAcao || 'Ler análise ➔'}</span>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+    }
+
+    function renderArtigos(items) {
+      const container = document.getElementById('artigos-grid-container');
+      if (!container) return;
+
+      container.innerHTML = items.map(art => {
+        const avatarSnippet = art.isAvatarImg
+          ? `<img src="${art.avatar}" class="w-8 h-8 rounded-full object-cover border border-olina-orange/40" alt="${art.autor}">`
+          : `<div class="w-8 h-8 rounded-full ${art.avatarBg || 'bg-olina-coffee'} text-white flex items-center justify-center font-bold text-xs">${art.avatar}</div>`;
+
+        return `
+          <article class="article-card ${art.categoria} rounded-2xl bg-white border border-zinc-300/80 p-6 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300 group">
+            <div>
+              <div class="flex items-center justify-between text-[11px] font-bold uppercase mb-3">
+                <span class="text-olina-orange">${art.categoriaBadge}</span>
+                <span class="text-zinc-400">${art.tempoLeitura}</span>
+              </div>
+              <h3 class="text-lg font-bold text-olina-coffee group-hover:text-olina-orange transition-colors mb-3 leading-snug">
+                ${art.titulo}
+              </h3>
+              <p class="text-xs sm:text-sm text-zinc-600 leading-relaxed font-light mb-6">
+                ${art.resumo}
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-zinc-100 flex items-center justify-between">
+              <div class="flex items-center gap-2.5">
+                ${avatarSnippet}
+                <div class="flex flex-col">
+                  <span class="text-xs font-bold text-olina-coffee">${art.autor}</span>
+                  <span class="text-[10px] text-zinc-500 font-medium">${art.cargo}</span>
+                </div>
+              </div>
+              <button onclick="openArticleModal('${art.id}')" aria-label="Ler artigo de ${art.autor}" class="p-2 rounded-full bg-olina-orange/10 text-olina-orange group-hover:bg-olina-orange group-hover:text-white transition-all">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    // 3. INICIALIZADOR DE DADOS E DEEP LINKING
+    async function initEditorialData() {
+      let imprensaData = DEFAULT_IMPRENSA_DATA;
+      let artigosData = DEFAULT_ARTIGOS_DATA;
+
+      try {
+        const [resImprensa, resArtigos] = await Promise.all([
+          fetch('data/imprensa.json'),
+          fetch('data/artigos.json')
+        ]);
+        if (resImprensa.ok) imprensaData = await resImprensa.json();
+        if (resArtigos.ok) artigosData = await resArtigos.json();
+      } catch (e) {
+        console.info('Operando com base editorial local embutida (zero latência):', e.message);
+      }
+
+      // Sincronizar dicionário articlesDB para o reader drawer
+      artigosData.forEach(art => {
+        articlesDB[art.id] = {
+          category: (art.categoriaBadge || art.categoria).toUpperCase(),
+          title: art.titulo,
+          author: art.autor,
+          authorRole: art.authorRole || art.cargo,
+          avatarHtml: art.isAvatarImg
+            ? `<img src="${art.avatar}" class="w-10 h-10 rounded-full object-cover border border-olina-orange">`
+            : `<div class="w-10 h-10 rounded-full ${art.avatarBg || 'bg-olina-coffee'} text-white flex items-center justify-center font-bold text-xs">${art.avatar}</div>`,
+          readTime: `${art.tempoLeitura} de leitura`,
+          body: art.conteudoHtml
+        };
+      });
+
+      // Renderizar Tickers, Imprensa e Artigos sincronizados
+      renderTickers(imprensaData, artigosData);
+      renderImprensa(imprensaData);
+      renderArtigos(artigosData);
+
+      // Deep Linking: abrir artigo se URL tiver hash correspondente
+      checkUrlHash();
+    }
+
+    function checkUrlHash() {
+      const hash = window.location.hash;
+      if (hash.startsWith('#artigo/')) {
+        const articleId = hash.replace('#artigo/', '');
+        if (articlesDB[articleId]) {
+          setTimeout(() => openArticleModal(articleId), 400);
+        }
+      } else if (hash.startsWith('#artigo-')) {
+        const articleId = hash.replace('#', '');
+        if (articlesDB[articleId]) {
+          setTimeout(() => openArticleModal(articleId), 400);
+        }
+      }
+    }
+    window.addEventListener('hashchange', checkUrlHash);
+
+    // 4. FILTROS DE MÍDIA & ARTIGOS
     function filterMedia(category) {
       document.querySelectorAll('.media-tab-btn').forEach(btn => {
         btn.classList.remove('active', 'bg-olina-coffee', 'text-white');
         btn.classList.add('bg-white', 'text-olina-coffee', 'border', 'border-zinc-300');
       });
-      event.target.classList.add('active', 'bg-olina-coffee', 'text-white');
-      event.target.classList.remove('bg-white', 'border', 'border-zinc-300');
+      if (window.event && window.event.target) {
+        window.event.target.classList.add('active', 'bg-olina-coffee', 'text-white');
+        window.event.target.classList.remove('bg-white', 'border', 'border-zinc-300');
+      }
 
       const items = document.querySelectorAll('.media-item');
       items.forEach(item => {
         if (category === 'todos' || item.classList.contains(category)) {
-          item.style.display = 'block';
+          item.style.display = '';
         } else {
           item.style.display = 'none';
         }
       });
     }
 
-    // 2. ARTICLE FILTER
     function filterArticles(category) {
       document.querySelectorAll('.article-tab-btn').forEach(btn => {
         btn.classList.remove('active', 'bg-olina-coffee', 'text-white');
         btn.classList.add('bg-white', 'text-olina-coffee', 'border', 'border-zinc-300');
       });
-      event.target.classList.add('active', 'bg-olina-coffee', 'text-white');
-      event.target.classList.remove('bg-white', 'border', 'border-zinc-300');
+      if (window.event && window.event.target) {
+        window.event.target.classList.add('active', 'bg-olina-coffee', 'text-white');
+        window.event.target.classList.remove('bg-white', 'border', 'border-zinc-300');
+      }
 
       const cards = document.querySelectorAll('.article-card');
       cards.forEach(card => {
         if (category === 'todas' || card.classList.contains(category)) {
-          card.style.display = 'flex';
+          card.style.display = '';
         } else {
           card.style.display = 'none';
         }
       });
     }
 
-    // 3. RECORD NEWS MODAL
+    // 5. MODAL DE VÍDEO (RECORD NEWS)
     function openRecordNewsModal() {
       const modal = document.getElementById('recordNewsModal');
       const iframe = document.getElementById('recordNewsIframe');
@@ -1634,7 +1586,7 @@
       document.body.style.overflow = 'auto';
     }
 
-    // 4. ARTICLE READER MODAL (DRAWER)
+    // 6. GAVETA DE LEITURA EDITORIAL DE ARTIGOS (READER DRAWER)
     function openArticleModal(articleId) {
       const data = articlesDB[articleId];
       if (!data) return;
@@ -1654,13 +1606,24 @@
       modal.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
       document.getElementById('readProgress').style.width = '35%';
+
+      if (window.history && window.history.replaceState) {
+        history.replaceState(null, null, '#artigo/' + articleId);
+      }
     }
 
     function closeArticleModal() {
       const modal = document.getElementById('articleModal');
       modal.classList.add('hidden');
       document.body.style.overflow = 'auto';
+
+      if (window.location.hash.startsWith('#artigo') && window.history && window.history.replaceState) {
+        history.replaceState(null, null, window.location.pathname + window.location.search);
+      }
     }
+
+    // Inicializar dados assim que o script carregar
+    initEditorialData();
 
     // 5. HEADER SCROLL & MOBILE MENU (TRANSPARENTE NO HERO / ACOPLADO FROSTED GLASS AO ROLAR)
     const header = document.getElementById('mainHeader');
