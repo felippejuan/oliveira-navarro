@@ -553,7 +553,7 @@
 
           <div class="text-[11px] text-zinc-400">
 
-            OAB/DF • Sociedade de Advogadas
+            OAB/DF • Sociedade de Advogados
 
           </div>
 
@@ -708,6 +708,7 @@
     const DEFAULT_IMPRENSA_DATA = [
       {
             "id": "record-news-r7-tributaria",
+            "dataISO": "2026-10-29",
             "isMajorNews": true,
             "destaqueTicker": true,
             "tickerBadge": "REFORMA TRIBUTÁRIA",
@@ -729,6 +730,7 @@
       },
       {
             "id": "folha-aliquota-cbs-mercado",
+            "dataISO": "2026-10-28",
             "isMajorNews": false,
             "destaqueTicker": false,
             "tickerBadge": "ALÍQUOTA CBS",
@@ -746,6 +748,7 @@
       },
       {
             "id": "jota-tcu-aliquota-cbs",
+            "dataISO": "2026-10-28",
             "isMajorNews": false,
             "destaqueTicker": false,
             "tickerBadge": "TCU / CONTROLE EXTERNO",
@@ -763,6 +766,7 @@
       },
       {
             "id": "correio-filtro-relevancia-stj",
+            "dataISO": "2026-08-27",
             "isMajorNews": false,
             "destaqueTicker": false,
             "tickerBadge": "FILTRO STJ",
@@ -780,6 +784,7 @@
       },
       {
             "id": "infomoney-receita-nota-fiscal",
+            "dataISO": "2026-08-03",
             "isMajorNews": false,
             "destaqueTicker": false,
             "tickerBadge": "CONFORMIDADE FISCAL",
@@ -797,6 +802,7 @@
       },
       {
             "id": "jota-comite-gestor-ibs-cbs",
+            "dataISO": "2026-04-28",
             "isMajorNews": false,
             "destaqueTicker": false,
             "tickerBadge": "REGULAMENTO IBS/CBS",
@@ -814,6 +820,7 @@
       },
       {
             "id": "hsce-processos-stf-reforma",
+            "dataISO": "2026-08-18",
             "isMajorNews": false,
             "destaqueTicker": false,
             "tickerBadge": "STF / CONSTITUCIONAL",
@@ -831,6 +838,7 @@
       },
       {
             "id": "correio-manha-stf-teto-precatorios",
+            "dataISO": "2026-08-12",
             "isMajorNews": false,
             "destaqueTicker": false,
             "tickerBadge": "STF & DIREITO PÚBLICO",
@@ -848,6 +856,7 @@
       },
       {
             "id": "finsiders-reforma-fintechs",
+            "dataISO": "2026-08-12",
             "isMajorNews": false,
             "destaqueTicker": false,
             "tickerBadge": "FINTECHS & MERCADO",
@@ -865,6 +874,7 @@
       },
       {
             "id": "gazetaweb-transacao-tributaria",
+            "dataISO": "2026-07-02",
             "isMajorNews": false,
             "destaqueTicker": false,
             "tickerBadge": "TRANSAÇÃO TRIBUTÁRIA",
@@ -882,6 +892,7 @@
       },
       {
             "id": "jota-simples-nacional-transicao",
+            "dataISO": "2026-04-21",
             "isMajorNews": false,
             "destaqueTicker": false,
             "tickerBadge": "SIMPLES NACIONAL",
@@ -899,6 +910,7 @@
       },
       {
             "id": "jota-relacoes-governamentais-desjudicializacao",
+            "dataISO": "2026-03-05",
             "isMajorNews": false,
             "destaqueTicker": false,
             "tickerBadge": "INTELIGÊNCIA GOVERNAMENTAL",
@@ -916,6 +928,7 @@
       },
       {
             "id": "juristas-regime-tributario-saf",
+            "dataISO": "2026-08-21",
             "isMajorNews": false,
             "destaqueTicker": false,
             "tickerBadge": "TRIBUTAÇÃO SAF",
@@ -933,6 +946,7 @@
       },
       {
             "id": "gazeta-povo-impactos-saf",
+            "dataISO": "2026-07-23",
             "isMajorNews": false,
             "destaqueTicker": false,
             "tickerBadge": "SAF & FUTEBOL",
@@ -950,6 +964,7 @@
       },
       {
             "id": "correio-fim-repentino-bets",
+            "dataISO": "2026-10-15",
             "isMajorNews": false,
             "destaqueTicker": false,
             "tickerBadge": "MERCADO DE BETS",
@@ -967,6 +982,7 @@
       },
       {
             "id": "r7-tcu-proposta-senado",
+            "dataISO": "2026-10-28",
             "isMajorNews": false,
             "destaqueTicker": false,
             "tickerBadge": "SENADO & TRIBUTOS",
@@ -984,6 +1000,7 @@
       },
       {
             "id": "sbt-news-prazos-notas-cbs-ibs",
+            "dataISO": "2026-07-31",
             "isMajorNews": false,
             "destaqueTicker": false,
             "tickerBadge": "CBS & IBS PRAZOS",
@@ -1001,6 +1018,7 @@
       },
       {
             "id": "nd-mais-incentivos-fiscais",
+            "dataISO": "2026-06-09",
             "isMajorNews": false,
             "destaqueTicker": false,
             "tickerBadge": "COMPETITIVIDADE FISCAL",
@@ -1018,6 +1036,7 @@
       },
       {
             "id": "r7-taxa-blusinhas-comex",
+            "dataISO": "2026-05-14",
             "isMajorNews": false,
             "destaqueTicker": false,
             "tickerBadge": "COMÉRCIO EXTERIOR",
@@ -1035,6 +1054,7 @@
       },
       {
             "id": "sbt-radar-imposto-seletivo",
+            "dataISO": "2026-04-08",
             "isMajorNews": false,
             "destaqueTicker": false,
             "tickerBadge": "EXTRAFISCALIDADE",
@@ -1109,6 +1129,8 @@
       }
 
 
+
+      items = [...items].sort((a, b) => (b.dataISO || '').localeCompare(a.dataISO || ''));
 
       if (noResults) noResults.classList.add('hidden');
 
@@ -1267,14 +1289,6 @@
                 <span class="text-olina-orange font-bold uppercase tracking-wider text-[11px]">
 
                   ${item.tagTema}
-
-                </span>
-
-                <span class="text-zinc-300 hidden sm:inline">•</span>
-
-                <span class="text-zinc-400 font-medium text-xs hidden sm:inline">
-
-                  ${item.data}
 
                 </span>
 

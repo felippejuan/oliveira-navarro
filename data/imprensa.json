@@ -18,7 +18,8 @@
     "tipoAcao": "videoModal",
     "youtubeId": "Ru6Qr2zB300",
     "link": "https://noticias.r7.com/economia/reforma-tributaria-deve-pesar-no-bolso-no-inicio-mas-sera-positiva-ate-2033-diz-procuradora-28102026/",
-    "youtubeUrl": "https://www.youtube.com/watch?v=Ru6Qr2zB300"
+    "youtubeUrl": "https://www.youtube.com/watch?v=Ru6Qr2zB300",
+    "dataISO": "2026-10-29"
   },
   {
     "id": "folha-aliquota-cbs-mercado",
@@ -35,7 +36,8 @@
     "autor": "Dra. Tattiana de Navarro",
     "data": "Outubro 2026",
     "tipoAcao": "externalLink",
-    "link": "https://www1.folha.uol.com.br/blogs/que-imposto-e-esse/2026/10/aliquota-de-113-da-cbs-supera-projecoes-e-acende-alerta-no-mercado.shtml"
+    "link": "https://www1.folha.uol.com.br/blogs/que-imposto-e-esse/2026/10/aliquota-de-113-da-cbs-supera-projecoes-e-acende-alerta-no-mercado.shtml",
+    "dataISO": "2026-10-28"
   },
   {
     "id": "jota-tcu-aliquota-cbs",
@@ -52,7 +54,8 @@
     "autor": "Dra. Tattiana de Navarro",
     "data": "Outubro 2026",
     "tipoAcao": "externalLink",
-    "link": "https://www.jota.info/tributos/tcu-aprova-aliquota-de-referencia-de-113-para-cbs-e-redutor-de-442"
+    "link": "https://www.jota.info/tributos/tcu-aprova-aliquota-de-referencia-de-113-para-cbs-e-redutor-de-442",
+    "dataISO": "2026-10-28"
   },
   {
     "id": "correio-filtro-relevancia-stj",
@@ -69,7 +72,8 @@
     "autor": "Dra. Tattiana de Navarro & Dra. Betina Alcoforado",
     "data": "Agosto 2026",
     "tipoAcao": "externalLink",
-    "link": "https://www.correiobraziliense.com.br/direito-e-justica/2026/08/7486204-o-filtro-de-relevancia-do-stj-muda-o-calculo-de-risco-das-empresas.html"
+    "link": "https://www.correiobraziliense.com.br/direito-e-justica/2026/08/7486204-o-filtro-de-relevancia-do-stj-muda-o-calculo-de-risco-das-empresas.html",
+    "dataISO": "2026-08-27"
   },
   {
     "id": "infomoney-receita-nota-fiscal",
@@ -86,7 +90,8 @@
     "autor": "Dra. Tattiana de Navarro",
     "data": "Agosto 2026",
     "tipoAcao": "externalLink",
-    "link": "https://www.infomoney.com.br/minhas-financas/receita-adia-exigencia-da-nova-nota-fiscal-mas-empresas-seguem-sob-pressao/"
+    "link": "https://www.infomoney.com.br/minhas-financas/receita-adia-exigencia-da-nova-nota-fiscal-mas-empresas-seguem-sob-pressao/",
+    "dataISO": "2026-08-03"
   },
   {
     "id": "jota-comite-gestor-ibs-cbs",
@@ -103,7 +108,8 @@
     "autor": "Dra. Tattiana de Navarro",
     "data": "Abril 2026",
     "tipoAcao": "externalLink",
-    "link": "https://www.jota.info/coberturas-especiais/pulso-da-reforma/comite-gestor-aprova-regulamento-do-ibs-e-cbs-norma-deve-ser-publicada-na-quinta"
+    "link": "https://www.jota.info/coberturas-especiais/pulso-da-reforma/comite-gestor-aprova-regulamento-do-ibs-e-cbs-norma-deve-ser-publicada-na-quinta",
+    "dataISO": "2026-04-28"
   },
   {
     "id": "hsce-processos-stf-reforma",
@@ -120,7 +126,8 @@
     "autor": "Dra. Tattiana de Navarro",
     "data": "Agosto 2026",
     "tipoAcao": "externalLink",
-    "link": "https://www.hsce.com.br/recentes-mudancas-tributarias-sao-questionadas-em-15-processos-no-stf-aponta-levantamento/"
+    "link": "https://www.hsce.com.br/recentes-mudancas-tributarias-sao-questionadas-em-15-processos-no-stf-aponta-levantamento/",
+    "dataISO": "2026-08-18"
   },
   {
     "id": "correio-manha-stf-teto-precatorios",
@@ -137,7 +144,8 @@
     "autor": "Dra. Tattiana de Navarro",
     "data": "Agosto 2026",
     "tipoAcao": "externalLink",
-    "link": "https://www.correiodamanha.com.br/politica/2026/08/310557-stf-manda-suspender-pagamentos-acima-do-teto-e-cobra-devolucao.html"
+    "link": "https://www.correiodamanha.com.br/politica/2026/08/310557-stf-manda-suspender-pagamentos-acima-do-teto-e-cobra-devolucao.html",
+    "dataISO": "2026-08-12"
   },
   {
     "id": "finsiders-reforma-fintechs",
@@ -154,7 +162,8 @@
     "autor": "Dra. Tattiana de Navarro",
     "data": "Agosto 2026",
     "tipoAcao": "externalLink",
-    "link": "https://finsidersbrasil.com.br/noticias-sobre-fintechs/reforma-tributaria-impulsiona-internacionalizacao-de-fintechs/"
+    "link": "https://finsidersbrasil.com.br/noticias-sobre-fintechs/reforma-tributaria-impulsiona-internacionalizacao-de-fintechs/",
+    "dataISO": "2026-08-12"
   },
   {
     "id": "gazetaweb-transacao-tributaria",
@@ -171,7 +180,8 @@
     "autor": "Dra. Tattiana de Navarro",
     "data": "Julho 2026",
     "tipoAcao": "externalLink",
-    "link": "https://www.gazetaweb.com/noticias/artigos/transacao-tributaria-e-a-modernizacao-do-fisco-919833"
+    "link": "https://www.gazetaweb.com/noticias/artigos/transacao-tributaria-e-a-modernizacao-do-fisco-919833",
+    "dataISO": "2026-07-02"
   },
   {
     "id": "jota-simples-nacional-transicao",
@@ -188,7 +198,8 @@
     "autor": "Dra. Tattiana de Navarro",
     "data": "Abril 2026",
     "tipoAcao": "externalLink",
-    "link": "https://www.jota.info/tributos/receita-antecipa-adesao-ao-simples-nacional-em-2027-para-viabilizar-transicao-ao-ibs-e-a-cbs"
+    "link": "https://www.jota.info/tributos/receita-antecipa-adesao-ao-simples-nacional-em-2027-para-viabilizar-transicao-ao-ibs-e-a-cbs",
+    "dataISO": "2026-04-21"
   },
   {
     "id": "jota-relacoes-governamentais-desjudicializacao",
@@ -205,7 +216,8 @@
     "autor": "Dra. Tattiana de Navarro",
     "data": "Março 2026",
     "tipoAcao": "externalLink",
-    "link": "https://www.jota.info/opiniao-e-analise/colunas/elas-no-jota/relacoes-governamentais-como-ferramenta-de-reducao-da-judicializacao"
+    "link": "https://www.jota.info/opiniao-e-analise/colunas/elas-no-jota/relacoes-governamentais-como-ferramenta-de-reducao-da-judicializacao",
+    "dataISO": "2026-03-05"
   },
   {
     "id": "juristas-regime-tributario-saf",
@@ -222,7 +234,8 @@
     "autor": "Dra. Tattiana de Navarro",
     "data": "Agosto 2026",
     "tipoAcao": "externalLink",
-    "link": "https://juristas.com.br/artigos/o-regime-tributario-da-saf-e-os-limites-da-simplificacao-fiscal-no-futebol/"
+    "link": "https://juristas.com.br/artigos/o-regime-tributario-da-saf-e-os-limites-da-simplificacao-fiscal-no-futebol/",
+    "dataISO": "2026-08-21"
   },
   {
     "id": "gazeta-povo-impactos-saf",
@@ -239,7 +252,8 @@
     "autor": "Dra. Tattiana de Navarro",
     "data": "Julho 2026",
     "tipoAcao": "externalLink",
-    "link": "https://www.gazetadopovo.com.br/opiniao/artigos/saf-impactos-reforma-tributaria-sociedades-anonimas-futebol/"
+    "link": "https://www.gazetadopovo.com.br/opiniao/artigos/saf-impactos-reforma-tributaria-sociedades-anonimas-futebol/",
+    "dataISO": "2026-07-23"
   },
   {
     "id": "correio-fim-repentino-bets",
@@ -256,7 +270,8 @@
     "autor": "Dra. Tattiana de Navarro",
     "data": "Outubro 2026",
     "tipoAcao": "externalLink",
-    "link": "https://www.correiobraziliense.com.br/direito-e-justica/2026/10/7521026-o-fim-repentino-das-bets-e-a-conta-que-ninguem-quer-pagar.html"
+    "link": "https://www.correiobraziliense.com.br/direito-e-justica/2026/10/7521026-o-fim-repentino-das-bets-e-a-conta-que-ninguem-quer-pagar.html",
+    "dataISO": "2026-10-15"
   },
   {
     "id": "r7-tcu-proposta-senado",
@@ -273,7 +288,8 @@
     "autor": "Dra. Tattiana de Navarro",
     "data": "Outubro 2026",
     "tipoAcao": "externalLink",
-    "link": "https://noticias.r7.com/prisma/conta-em-dia/tcu-propoe-aliquota-de-113-para-novo-imposto-proposta-segue-ao-senado-28102026/"
+    "link": "https://noticias.r7.com/prisma/conta-em-dia/tcu-propoe-aliquota-de-113-para-novo-imposto-proposta-segue-ao-senado-28102026/",
+    "dataISO": "2026-10-28"
   },
   {
     "id": "sbt-news-prazos-notas-cbs-ibs",
@@ -290,7 +306,8 @@
     "autor": "Dra. Tattiana de Navarro",
     "data": "Julho 2026",
     "tipoAcao": "externalLink",
-    "link": "https://sbtnews.sbt.com.br/noticia/economia/receita-define-prazos-para-emissao-de-notas-com-cbs-e-ibs"
+    "link": "https://sbtnews.sbt.com.br/noticia/economia/receita-define-prazos-para-emissao-de-notas-com-cbs-e-ibs",
+    "dataISO": "2026-07-31"
   },
   {
     "id": "nd-mais-incentivos-fiscais",
@@ -307,7 +324,8 @@
     "autor": "Dra. Tattiana de Navarro",
     "data": "Junho 2026",
     "tipoAcao": "externalLink",
-    "link": "https://ndmais.com.br/politica/haddad-culpa-bolsonaro-tarcisio-saida-empresas/"
+    "link": "https://ndmais.com.br/politica/haddad-culpa-bolsonaro-tarcisio-saida-empresas/",
+    "dataISO": "2026-06-09"
   },
   {
     "id": "r7-taxa-blusinhas-comex",
@@ -324,7 +342,8 @@
     "autor": "Dra. Tattiana de Navarro",
     "data": "Maio 2026",
     "tipoAcao": "externalLink",
-    "link": "https://noticias.r7.com/economia/governo-arrecadou-r-82-bilhoes-com-taxa-das-blusinhas-antes-de-decidir-acabar-com-cobranca-14052026/"
+    "link": "https://noticias.r7.com/economia/governo-arrecadou-r-82-bilhoes-com-taxa-das-blusinhas-antes-de-decidir-acabar-com-cobranca-14052026/",
+    "dataISO": "2026-05-14"
   },
   {
     "id": "sbt-radar-imposto-seletivo",
@@ -341,6 +360,7 @@
     "autor": "Dra. Tattiana de Navarro",
     "data": "Abril 2026",
     "tipoAcao": "externalLink",
-    "link": "https://www.youtube.com/watch?v=aX-LUf_IYB4"
+    "link": "https://www.youtube.com/watch?v=aX-LUf_IYB4",
+    "dataISO": "2026-04-08"
   }
 ]
