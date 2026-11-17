@@ -7472,9 +7472,9 @@
 
 
 
-        // No desktop (>= 1024px), inicia com a Faixa 01 aberta para preencher o espaço; no mobile, todas fechadas
+        // Inicia com todas as 3 faixas recolhidas (desktop e mobile) para que o visitante escolha qual expandir
 
-        setContatoBandState(window.innerWidth >= 1024 ? 0 : -1);
+        setContatoBandState(-1);
 
       }
 
