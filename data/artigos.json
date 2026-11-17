@@ -1,5 +1,161 @@
 [
   {
+    "id": "correio-fim-repentino-bets",
+    "ativo": true,
+    "dataISO": "2026-10-15",
+    "veiculo": "Correio Braziliense",
+    "tagTema": "Mercado de Bets",
+    "titulo": "O fim repentino das bets e a conta que ninguém quer pagar",
+    "resumo": "Artigo assinado por Tattiana de Navarro analisa os efeitos da Medida Provisória 1.394/2026, que extinguiu abruptamente um setor que recolheu mais de R$ 9 bilhões em tributos federais em 2025, gerando grave insegurança jurídica e disputas bilionárias sobre outorgas de R$ 30 milhões e contratos de patrocínio.",
+    "autor": "Dra. Tattiana de Navarro",
+    "data": "Outubro 2026",
+    "tipoAcao": "externalLink",
+    "link": "https://www.correiobraziliense.com.br/direito-e-justica/2026/10/7521026-o-fim-repentino-das-bets-e-a-conta-que-ninguem-quer-pagar.html"
+  },
+  {
+    "id": "correio-filtro-relevancia-stj",
+    "ativo": true,
+    "dataISO": "2026-08-27",
+    "veiculo": "Correio Braziliense",
+    "tagTema": "Filtro STJ",
+    "titulo": "O filtro de relevância do STJ muda o cálculo de risco das empresas",
+    "resumo": "Artigo de Tattiana de Navarro e Betina Alcoforado analisa como a exigência constitucional de demonstração da relevância da questão federal na admissão de Recursos Especiais torna-se um divisor de águas na avaliação de risco e na estratégia processual das empresas.",
+    "autor": "Dra. Tattiana de Navarro & Dra. Betina Alcoforado",
+    "data": "Agosto 2026",
+    "tipoAcao": "externalLink",
+    "link": "https://www.correiobraziliense.com.br/direito-e-justica/2026/08/7486204-o-filtro-de-relevancia-do-stj-muda-o-calculo-de-risco-das-empresas.html"
+  },
+  {
+    "id": "juristas-regime-tributario-saf",
+    "ativo": true,
+    "dataISO": "2026-08-21",
+    "veiculo": "Portal Juristas",
+    "tagTema": "Tributação SAF",
+    "titulo": "O regime tributário da SAF e os limites da simplificação fiscal no futebol",
+    "resumo": "Artigo de Tattiana de Navarro examina a Tributação Específica do Futebol (TEF), a transição para o novo sistema tributário e alerta que a segurança jurídica das SAFs exige propósito negocial real, governança e segregação contábil e operacional efetiva em relação à associação civil.",
+    "autor": "Dra. Tattiana de Navarro",
+    "data": "Agosto 2026",
+    "tipoAcao": "externalLink",
+    "link": "https://juristas.com.br/artigos/o-regime-tributario-da-saf-e-os-limites-da-simplificacao-fiscal-no-futebol/"
+  },
+  {
+    "id": "gazeta-povo-impactos-saf",
+    "ativo": true,
+    "dataISO": "2026-07-23",
+    "veiculo": "Gazeta do Povo",
+    "tagTema": "SAF & Desporto",
+    "titulo": "Os impactos da reforma tributária nas Sociedades Anônimas do Futebol",
+    "resumo": "Em artigo na Gazeta do Povo, Tattiana de Navarro analisa a recalibragem tributária das SAFs diante da Reforma Tributária e adverte que a separação meramente formal entre clube e empresa mantém elevado o risco de requalificação fiscal e autuação pelo Fisco.",
+    "autor": "Dra. Tattiana de Navarro",
+    "data": "Julho 2026",
+    "tipoAcao": "externalLink",
+    "link": "https://www.gazetadopovo.com.br/opiniao/artigos/saf-impactos-reforma-tributaria-sociedades-anonimas-futebol/"
+  },
+  {
+    "id": "jota-relacoes-governamentais-desjudicializacao",
+    "ativo": true,
+    "dataISO": "2026-03-05",
+    "veiculo": "JOTA · Elas no JOTA",
+    "tagTema": "Inteligência Gov.",
+    "titulo": "Relações governamentais como ferramenta de redução da judicialização",
+    "resumo": "Em artigo publicado na coluna Elas no JOTA, Tattiana de Navarro demonstra como a atuação técnica e preventiva no processo legislativo e regulatório protege investimentos, reduz litígios tributários e amplia a previsibilidade do ambiente de negócios.",
+    "autor": "Dra. Tattiana de Navarro",
+    "data": "Março 2026",
+    "tipoAcao": "externalLink",
+    "link": "https://www.jota.info/opiniao-e-analise/colunas/elas-no-jota/relacoes-governamentais-como-ferramenta-de-reducao-da-judicializacao"
+  },
+  {
+    "id": "valor-transacao-tributaria",
+    "ativo": true,
+    "dataISO": "2026-01-16",
+    "veiculo": "Valor Econômico",
+    "tagTema": "Transação Tributária",
+    "titulo": "Transação tributária e a modernização do Fisco",
+    "resumo": "Artigo assinado por Tattiana de Navarro no Valor Econômico analisa como a transação tributária substituiu a antiga lógica estritamente punitiva de cobrança por um modelo que considera a capacidade real de pagamento, reduz litígios e fortalece a conformidade fiscal sustentável.",
+    "autor": "Dra. Tattiana de Navarro",
+    "data": "Janeiro 2026",
+    "tipoAcao": "externalLink",
+    "link": "https://valor.globo.com/legislacao/coluna/transacao-tributaria-e-a-modernizacao-do-fisco.ghtml"
+  },
+  {
+    "id": "jota-distribuidoras-combustiveis-stj",
+    "ativo": true,
+    "dataISO": "2025-12-17",
+    "veiculo": "Portal JOTA",
+    "tagTema": "PIS/COFINS & STJ",
+    "titulo": "Decisão do STJ sobre combustíveis: distribuidoras devem pagar a conta",
+    "resumo": "Em artigo no JOTA, Tattiana de Navarro examina os impactos financeiros e a insegurança jurídica decorrentes da decisão do STJ que vedou o creditamento de PIS e Cofins pelas distribuidoras de combustíveis, evidenciando o alinhamento rígido da Corte à concentração tributária na origem.",
+    "autor": "Dra. Tattiana de Navarro",
+    "data": "Dezembro 2025",
+    "tipoAcao": "externalLink",
+    "link": "https://www.jota.info/opiniao-e-analise/artigos/distribuidoras-devem-pagar-a-conta-de-decisao-do-stj-sobre-combustiveis"
+  },
+  {
+    "id": "monitor-mercantil-dividendos-novo-ir",
+    "ativo": true,
+    "dataISO": "2025-12-11",
+    "veiculo": "Monitor Mercantil",
+    "tagTema": "Tributação Societária",
+    "titulo": "Dividendos e o novo imposto de renda: por que 2025 será um ano decisivo para empresas e sócios?",
+    "resumo": "Artigo de Tattiana de Navarro no Monitor Mercantil analisa o retorno da tributação sobre lucros e dividendos a partir de 2026 e demonstra por que a reorganização societária e a deliberação tempestiva de resultados tornaram-se decisivas para proteger o caixa de empresas e sócios.",
+    "autor": "Dra. Tattiana de Navarro",
+    "data": "Dezembro 2025",
+    "tipoAcao": "externalLink",
+    "link": "https://monitormercantil.com.br/dividendos-e-o-novo-imposto-de-renda-por-que-2025-sera-um-ano-decisivo-para-empresas-e-socios/"
+  },
+  {
+    "id": "lexlegal-tema-1273-seguranca-juridica",
+    "ativo": true,
+    "dataISO": "2025-09-26",
+    "veiculo": "Lex Legal",
+    "tagTema": "Tribunais Superiores",
+    "titulo": "Tema 1273: a vitória do contribuinte e da segurança jurídica",
+    "resumo": "Em artigo no Lex Legal, Tattiana de Navarro analisa a decisão unânime do STJ no Tema 1273 — que fixou a contagem do prazo de 120 dias para mandado de segurança em obrigações tributárias de trato sucessivo a partir de cada fato gerador ou ato de cobrança — como marco de proteção ao acesso à Justiça.",
+    "autor": "Dra. Tattiana de Navarro",
+    "data": "Setembro 2025",
+    "tipoAcao": "externalLink",
+    "link": "https://lexlegal.com.br/tema-1273-a-vitoria-do-contribuinte-e-da-seguranca-juridica/"
+  },
+  {
+    "id": "folha-tax-free-reforma-tributaria",
+    "ativo": true,
+    "dataISO": "2025-09-11",
+    "veiculo": "Folha de S.Paulo",
+    "tagTema": "Reforma Tributária",
+    "titulo": "Implicações fiscais e econômicas do Tax Free no Brasil: uma análise à luz da reforma tributária",
+    "resumo": "Em artigo na Folha de S.Paulo (blog Que Imposto É Esse), Tattiana de Navarro examina o modelo brasileiro de Tax Free previsto na Reforma Tributária para turistas estrangeiros e defende um desenho operacional voltado à valorização da produção nacional e do varejo local.",
+    "autor": "Dra. Tattiana de Navarro",
+    "data": "Setembro 2025",
+    "tipoAcao": "externalLink",
+    "link": "https://www1.folha.uol.com.br/blogs/que-imposto-e-esse/2025/09/implicacoes-fiscais-e-economicas-do-tax-free-no-brasil-uma-analise-a-luz-da-reforma-tributaria.shtml"
+  },
+  {
+    "id": "jota-pejotizacao-otica-tributaria",
+    "ativo": true,
+    "dataISO": "2025-09-09",
+    "veiculo": "Portal JOTA",
+    "tagTema": "Planejamento Tributário",
+    "titulo": "A pejotização sob a ótica tributária",
+    "resumo": "Publicado no JOTA, o artigo de Tattiana de Navarro analisa como a Reforma Tributária e o debate no STF impactam a contratação via pessoa jurídica, examinando os reflexos na arrecadação previdenciária e os requisitos de governança para mitigar passivos fiscais.",
+    "autor": "Dra. Tattiana de Navarro",
+    "data": "Setembro 2025",
+    "tipoAcao": "externalLink",
+    "link": "https://www.jota.info/opiniao-e-analise/artigos/a-pejotizacao-sob-a-otica-tributaria"
+  },
+  {
+    "id": "conjur-modulacao-tema-1079-stj",
+    "ativo": true,
+    "dataISO": "2025-06-19",
+    "veiculo": "ConJur",
+    "tagTema": "Sistema S & STJ",
+    "titulo": "Futuro da modulação dos efeitos do Tema 1.079 do STJ (Sistema S)",
+    "resumo": "Artigo de Tattiana de Navarro no ConJur examina os efeitos da modulação fixada pelo STJ no Tema 1.079 (teto de 20 salários mínimos para contribuições ao Sistema S) e orienta o provisionamento preventivo de valores para mitigação de juros e multas.",
+    "autor": "Dra. Tattiana de Navarro",
+    "data": "Junho 2025",
+    "tipoAcao": "externalLink",
+    "link": "https://conjur.com.br/2025-jun-19/futuro-da-modulacao-dos-efeitos-do-tema-1-079-do-stj-sistema-s/"
+  },
+  {
     "id": "artigo-1",
     "destaqueTicker": true,
     "tickerBadge": "REFORMA TRIBUTÁRIA",
@@ -16,7 +172,8 @@
     "avatar": "assets/tattiana-navarro-portrait.jpg",
     "isAvatarImg": true,
     "data": "Março 2026",
-    "conteudoHtml": "<p>A promulgação da Emenda Constitucional nº 132/2023 inaugurou a mais profunda transformação no sistema tributário nacional das últimas cinco décadas. Com a substituição do PIS, COFINS, ICMS e ISS pelo Imposto sobre Bens e Serviços (IBS) e pela Contribuição sobre Bens e Serviços (CBS), a lógica de apuração fiscal das pessoas jurídicas entra em novo paradigma.</p><p>O coração do novo sistema é a <strong>não-cumulatividade plena</strong>. Em tese, qualquer aquisição de bens ou serviços vinculados à atividade econômica da empresa gerará direito a crédito imediato. Contudo, a contrapartida reside no mecanismo do <em>split payment</em> — a retenção na fonte do tributo no ato do pagamento financeiro.</p><blockquote class=\"border-l-4 border-olina-orange pl-4 italic my-6 text-zinc-800 bg-zinc-100 p-3 rounded-r-lg font-medium\">\"As empresas que postergarem a renegociação de suas cláusulas contratuais de compras e fornecimento sofrerão impacto severo em capital de giro logo no primeiro ano de transição.\"</blockquote><p>Para o contribuinte, a prioridade não é aguardar 2026, mas iniciar imediatamente o diagnóstico do perfil de suas contratações B2B, quantificando o efeito nas margens e reestruturando a governança de conformidade fiscal.</p>"
+    "conteudoHtml": "<p>A promulgação da Emenda Constitucional nº 132/2023 inaugurou a mais profunda transformação no sistema tributário nacional das últimas cinco décadas. Com a substituição do PIS, COFINS, ICMS e ISS pelo Imposto sobre Bens e Serviços (IBS) e pela Contribuição sobre Bens e Serviços (CBS), a lógica de apuração fiscal das pessoas jurídicas entra em novo paradigma.</p><p>O coração do novo sistema é a <strong>não-cumulatividade plena</strong>. Em tese, qualquer aquisição de bens ou serviços vinculados à atividade econômica da empresa gerará direito a crédito imediato. Contudo, a contrapartida reside no mecanismo do <em>split payment</em> — a retenção na fonte do tributo no ato do pagamento financeiro.</p><blockquote class=\"border-l-4 border-olina-orange pl-4 italic my-6 text-zinc-800 bg-zinc-100 p-3 rounded-r-lg font-medium\">\"As empresas que postergarem a renegociação de suas cláusulas contratuais de compras e fornecimento sofrerão impacto severo em capital de giro logo no primeiro ano de transição.\"</blockquote><p>Para o contribuinte, a prioridade não é aguardar 2026, mas iniciar imediatamente o diagnóstico do perfil de suas contratações B2B, quantificando o efeito nas margens e reestruturando a governança de conformidade fiscal.</p>",
+    "ativo": false
   },
   {
     "id": "artigo-2",
@@ -36,7 +193,8 @@
     "isAvatarImg": false,
     "avatarBg": "bg-olina-coffee",
     "data": "Fevereiro 2026",
-    "conteudoHtml": "<p>A Lei nº 14.133/2021 estabeleceu um marco regulatório mais rigoroso para as contratações públicas, trazendo alterações substanciais no regime de sanções aplicáveis às empresas fornecedoras do Estado.</p><p>Com a extinção da antiga suspensão temporária e a consolidação do impedimento de licitar e da declaração de inidoneidade, a fase de <strong>defesa prévia tornou-se o momento processual determinante</strong> para evitar danos reputacionais e paralisia operacional da contratada.</p><blockquote class=\"border-l-4 border-olina-orange pl-4 italic my-6 text-zinc-800 bg-zinc-100 p-3 rounded-r-lg font-medium\">\"A dosimetria da sanção não pode ser arbitrária; ela deve obrigatoriamente sopesar a gravidade da conduta, os prejuízos reais apurados e os programas de compliance comprovadamente instituídos.\"</blockquote><p>Demonstrar prontamente a ausência de dolo e a existência de mecanismos preventivos é a chave para converter sanções gravosas em penalidades leves ou advertências perante os órgãos de controle.</p>"
+    "conteudoHtml": "<p>A Lei nº 14.133/2021 estabeleceu um marco regulatório mais rigoroso para as contratações públicas, trazendo alterações substanciais no regime de sanções aplicáveis às empresas fornecedoras do Estado.</p><p>Com a extinção da antiga suspensão temporária e a consolidação do impedimento de licitar e da declaração de inidoneidade, a fase de <strong>defesa prévia tornou-se o momento processual determinante</strong> para evitar danos reputacionais e paralisia operacional da contratada.</p><blockquote class=\"border-l-4 border-olina-orange pl-4 italic my-6 text-zinc-800 bg-zinc-100 p-3 rounded-r-lg font-medium\">\"A dosimetria da sanção não pode ser arbitrária; ela deve obrigatoriamente sopesar a gravidade da conduta, os prejuízos reais apurados e os programas de compliance comprovadamente instituídos.\"</blockquote><p>Demonstrar prontamente a ausência de dolo e a existência de mecanismos preventivos é a chave para converter sanções gravosas em penalidades leves ou advertências perante os órgãos de controle.</p>",
+    "ativo": false
   },
   {
     "id": "artigo-3",
@@ -56,7 +214,8 @@
     "isAvatarImg": false,
     "avatarBg": "bg-olina-orange",
     "data": "Janeiro 2026",
-    "conteudoHtml": "<p>As recentes alterações no regime de subvenções governamentais de ICMS geraram expressiva insegurança jurídica no meio empresarial, culminando em novas autuações fiscais por parte da Receita Federal.</p><p>A Lei nº 14.789 revogou o tratamento anterior e introduziu o sistema de crédito fiscal compensável, impactando diretamente companhias com operações incentivadas em estados do Centro-Oeste, Nordeste e Sul.</p><p>Nossa equipe no SAUS tem acompanhado de perto os julgados da Câmara Superior de Recursos Fiscais (CSRF), estruturando defesas administrativas fundamentadas no ato jurídico perfeito e na anterioridade tributária para proteger o caixa dos nossos clientes.</p>"
+    "conteudoHtml": "<p>As recentes alterações no regime de subvenções governamentais de ICMS geraram expressiva insegurança jurídica no meio empresarial, culminando em novas autuações fiscais por parte da Receita Federal.</p><p>A Lei nº 14.789 revogou o tratamento anterior e introduziu o sistema de crédito fiscal compensável, impactando diretamente companhias com operações incentivadas em estados do Centro-Oeste, Nordeste e Sul.</p><p>Nossa equipe no SAUS tem acompanhado de perto os julgados da Câmara Superior de Recursos Fiscais (CSRF), estruturando defesas administrativas fundamentadas no ato jurídico perfeito e na anterioridade tributária para proteger o caixa dos nossos clientes.</p>",
+    "ativo": false
   },
   {
     "id": "artigo-4",
@@ -75,6 +234,7 @@
     "avatar": "assets/tattiana-navarro-office.jpg",
     "isAvatarImg": true,
     "data": "Dezembro 2025",
-    "conteudoHtml": "<p>A utilização de precatórios federais para liquidação de passivos tributários e otimização de balanço consolidou-se como estratégia financeira indispensável após as Emendas Constitucionais 113 e 114.</p><p>Entretanto, o mercado secundário de títulos judiciais impõe auditoria rigorosa de titularidade: higidez da cadeia sucessória, ausência de penhoras ocultas e certificação definitiva do trânsito em julgado perante os Tribunais Regionais Federais (TRFs).</p><p>No Oliveira Navarro, emitimos laudos de conformidade fiduciária que outorgam à empresa adquirente a tranquilidade necessária para efetivar a compensação sem risco de glosa fiscal futura.</p>"
+    "conteudoHtml": "<p>A utilização de precatórios federais para liquidação de passivos tributários e otimização de balanço consolidou-se como estratégia financeira indispensável após as Emendas Constitucionais 113 e 114.</p><p>Entretanto, o mercado secundário de títulos judiciais impõe auditoria rigorosa de titularidade: higidez da cadeia sucessória, ausência de penhoras ocultas e certificação definitiva do trânsito em julgado perante os Tribunais Regionais Federais (TRFs).</p><p>No Oliveira Navarro, emitimos laudos de conformidade fiduciária que outorgam à empresa adquirente a tranquilidade necessária para efetivar a compensação sem risco de glosa fiscal futura.</p>",
+    "ativo": false
   }
 ]
