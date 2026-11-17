@@ -400,7 +400,13 @@
 
       position: relative;
 
-      transition: background-color 0.3s ease, border-color 0.3s ease;
+      background: rgba(255, 255, 255, 0.96);
+
+      border: 1px solid rgba(26, 24, 22, 0.09);
+
+      box-shadow: 0 10px 28px -12px rgba(26, 24, 22, 0.11);
+
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.3s ease, background-color 0.3s ease;
 
     }
 
@@ -408,7 +414,13 @@
 
     .contato-pillar.is-active {
 
-      background: rgba(255, 255, 255, 0.62);
+      background: #FFFFFF;
+
+      border-color: rgba(200, 109, 81, 0.35);
+
+      transform: translateY(-2px);
+
+      box-shadow: 0 18px 36px -14px rgba(200, 109, 81, 0.18);
 
     }
 
@@ -416,7 +428,11 @@
 
       .contato-pillar.is-mobile-selected {
 
-        background: rgba(255, 255, 255, 0.85);
+        background: #FFFFFF;
+
+        border-color: rgba(200, 109, 81, 0.45);
+
+        box-shadow: 0 12px 26px -12px rgba(200, 109, 81, 0.22);
 
       }
 
@@ -458,19 +474,19 @@
 
     .practice-item {
 
-      background: rgba(255, 255, 255, 0.84);
+      background: rgba(255, 255, 255, 0.94);
 
       backdrop-filter: blur(12px);
 
       -webkit-backdrop-filter: blur(12px);
 
-      border: 1px solid rgba(26, 24, 22, 0.08);
+      border: 1px solid rgba(26, 24, 22, 0.11);
 
-      border-left: 2px solid rgba(200, 109, 81, 0.45);
+      border-left: 3px solid rgba(200, 109, 81, 0.65);
 
       transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 
-      box-shadow: 0 4px 20px -6px rgba(26, 24, 22, 0.04);
+      box-shadow: 0 8px 26px -8px rgba(26, 24, 22, 0.08);
 
     }
 
@@ -2648,7 +2664,7 @@
 
   <!-- 8. MÓDULO DE CONTATO & ESFERA DE SOLUÇÕES (NO RITMO DOS NEGÓCIOS - CONNECTED PRIVATE BANKING) -->
 
-  <section id="contato" class="relative z-20 overflow-hidden border-t border-b border-luxury-stone/80 scroll-mt-28 pt-7 sm:pt-9 pb-6 sm:pb-8 selection:bg-luxury-clay selection:text-white" style="background: radial-gradient(ellipse 90% 65% at 50% 28%, #FFFFFF 0%, #F5F2EB 60%, #EAE4D8 100%); color: #1A1816;" data-line-theme="light">
+  <section id="contato" class="relative z-20 overflow-hidden border-t border-b border-luxury-stone/80 scroll-mt-28 pt-6 sm:pt-7 pb-5 sm:pb-7 selection:bg-luxury-clay selection:text-white" style="background: radial-gradient(ellipse 90% 65% at 50% 28%, #FFFFFF 0%, #F5F2EB 60%, #EAE4D8 100%); color: #1A1816;" data-line-theme="light">
 
     <!-- Textura sutil -->
 
@@ -2672,23 +2688,73 @@
 
     <!-- CONTEÚDO PRINCIPAL (Grid vertical estrito sem sobreposição) -->
 
-    <div class="relative z-10 w-full flex flex-col justify-between py-2 sm:py-3 gap-6 sm:gap-7">
+    <div class="relative z-10 w-full flex flex-col justify-between py-1 sm:py-1.5 gap-3.5 sm:gap-4">
 
 
 
-        <!-- TOPO CENTRAL: Marca, Headline, Índice Visual de 3 Núcleos e Botão "Entre em Contato" -->
+        <!-- TOPO CENTRAL: Cabeçalho Editorial (Título à esquerda + Botão Entre em Contato à direita) e Cards dos 3 Núcleos -->
 
-        <div class="max-w-5xl w-full mx-auto px-4 sm:px-6 text-center flex flex-col items-center my-auto pt-1 pb-1">
+        <div class="max-w-6xl w-full mx-auto px-4 sm:px-6 flex flex-col items-center my-auto pt-1 pb-1">
 
             
 
-            <!-- Microinteração do Hífen Animado (Status de Prontidão: ON) -->
+            <!-- Linha de Cabeçalho: Título + Botão "Entre em Contato" no espaço livre do topo -->
 
-            <div class="flex items-center justify-center mb-3 sm:mb-4">
+            <div class="w-full flex flex-col md:flex-row md:items-end justify-between gap-4 pb-4 sm:pb-5 border-b border-luxury-charcoal/10">
 
-                <div id="contato-on-pill" class="on-pill-indicator group cursor-pointer" onclick="toggleContatoOnPill(true)" title="Status de Prontidão: ON">
+                <div class="text-center md:text-left">
 
-                    <span class="on-fill"></span><span class="on-text">ON</span>
+                    <!-- Microinteração do Hífen Animado (Status de Prontidão: ON) -->
+
+                    <div class="flex items-center justify-center md:justify-start gap-2.5 mb-2">
+
+                        <div id="contato-on-pill" class="on-pill-indicator group cursor-pointer" onclick="toggleContatoOnPill(true)" title="Status de Prontidão: ON">
+
+                            <span class="on-fill"></span><span class="on-text">ON</span>
+
+                        </div>
+
+                        <span class="text-[10px] font-mono uppercase tracking-[0.22em] text-luxury-clay font-medium">Atendimento Executivo</span>
+
+                    </div>
+
+
+
+                    <!-- Headline Editorial -->
+
+                    <h2 class="text-2xl sm:text-[28px] md:text-[34px] lg:text-[38px] font-serif font-normal tracking-tight text-luxury-charcoal leading-[1.08]">
+
+                        Advocacia <span class="font-serif font-normal text-luxury-clay">no ritmo dos negócios.</span>
+
+                    </h2>
+
+                </div>
+
+
+
+                <!-- Botão "Entre em Contato" em destaque limpo no topo -->
+
+                <div class="flex justify-center md:justify-end shrink-0">
+
+                    <button onclick="openContactModal()" class="group relative inline-flex items-center gap-3.5 px-7 sm:px-8 py-3 sm:py-3.5 rounded-full bg-luxury-charcoal text-luxury-paper hover:bg-luxury-clay transition-all duration-300 shadow-lg shadow-luxury-charcoal/15 hover:shadow-luxury-clay/25 hover:-translate-y-0.5 cursor-pointer">
+
+                        <span class="relative flex h-2 w-2">
+
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-luxury-clay group-hover:bg-white opacity-75"></span>
+
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-luxury-clay group-hover:bg-white transition-colors"></span>
+
+                        </span>
+
+                        <span class="text-[11px] uppercase tracking-[0.22em] font-semibold">Entre em Contato</span>
+
+                        <svg class="w-3.5 h-3.5 text-luxury-paper/75 group-hover:text-white group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+
+                        </svg>
+
+                    </button>
 
                 </div>
 
@@ -2696,27 +2762,15 @@
 
 
 
-            <!-- Headline Editorial -->
+            <!-- Cards Individuais dos 3 Núcleos Conectados às Fileiras & Malha 3D -->
 
-            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[58px] font-serif font-normal tracking-tight text-luxury-charcoal leading-[1.04]">
+            <div class="mt-4 sm:mt-6 w-full">
 
-                Advocacia.
-
-                <span class="block italic font-normal text-luxury-clay mt-0.5">No ritmo dos negócios.</span>
-
-            </h2>
-
-
-
-            <!-- Índice Horizontal de 3 Pilares Conectado às Fileiras & Malha 3D -->
-
-            <div class="mt-4 sm:mt-7 w-full border-y border-luxury-charcoal/12">
-
-                <div class="grid grid-cols-3 divide-x divide-luxury-charcoal/10">
+                <div class="grid grid-cols-3 gap-2 sm:gap-4 md:gap-5">
 
                     
 
-                    <!-- Pilar 01: Direito Tributário -> Fileira 1 -->
+                    <!-- Card 01: Direito Tributário -> Fileira 1 -->
 
                     <button type="button"
 
@@ -2732,23 +2786,23 @@
 
                             onclick="handleContactPillarClick(0)"
 
-                            class="contato-pillar is-mobile-selected group text-left px-2.5 py-2.5 sm:px-6 sm:py-5 flex flex-col justify-between cursor-pointer min-w-0">
+                            class="contato-pillar is-mobile-selected group text-left rounded-xl sm:rounded-2xl px-2.5 py-2.5 sm:px-6 sm:py-5 flex flex-col justify-between cursor-pointer min-w-0">
 
                         <div class="w-full">
 
-                            <span class="block text-[9.5px] sm:text-[10px] font-mono uppercase tracking-[0.18em] sm:tracking-[0.22em] text-luxury-clay font-medium mb-1 sm:mb-2">01<span class="hidden md:inline"> · Núcleo</span></span>
+                            <span class="block text-[9.5px] sm:text-[10.5px] font-mono uppercase tracking-[0.2em] text-luxury-clay font-medium mb-1 sm:mb-2">01</span>
 
-                            <div class="h-[1.5px] w-5 sm:w-7 bg-luxury-clay/35 pillar-bar mb-1.5 sm:mb-2.5"></div>
+                            <div class="h-[2px] w-5 sm:w-8 bg-luxury-clay/50 pillar-bar mb-1.5 sm:mb-2.5"></div>
 
-                            <h3 class="text-[13px] sm:text-xl md:text-[22px] font-serif font-medium text-luxury-charcoal group-hover:text-luxury-clay transition-colors leading-[1.15]">
+                            <h3 class="text-[13.5px] sm:text-[22px] md:text-[24px] font-serif font-medium text-luxury-charcoal group-hover:text-luxury-clay transition-colors leading-[1.15]">
 
                                 Direito Tributário
 
                             </h3>
 
-                            <p class="hidden md:block mt-1.5 text-xs text-luxury-muted font-normal leading-relaxed">
+                            <p class="hidden md:block mt-2 text-[13px] text-luxury-muted font-normal leading-relaxed">
 
-                                CARF, Tribunais Superiores, Precatórios &amp; Créditos Federais
+                                Defesa no CARF e Tribunais Superiores, créditos e auditoria de precatórios.
 
                             </p>
 
@@ -2758,7 +2812,7 @@
 
 
 
-                    <!-- Pilar 02: Direito Administrativo -> Fileira 2 -->
+                    <!-- Card 02: Direito Administrativo -> Fileira 2 -->
 
                     <button type="button"
 
@@ -2774,23 +2828,23 @@
 
                             onclick="handleContactPillarClick(1)"
 
-                            class="contato-pillar group text-left px-2.5 py-2.5 sm:px-6 sm:py-5 flex flex-col justify-between cursor-pointer min-w-0">
+                            class="contato-pillar group text-left rounded-xl sm:rounded-2xl px-2.5 py-2.5 sm:px-6 sm:py-5 flex flex-col justify-between cursor-pointer min-w-0">
 
                         <div class="w-full">
 
-                            <span class="block text-[9.5px] sm:text-[10px] font-mono uppercase tracking-[0.18em] sm:tracking-[0.22em] text-luxury-clay font-medium mb-1 sm:mb-2">02<span class="hidden md:inline"> · Núcleo</span></span>
+                            <span class="block text-[9.5px] sm:text-[10.5px] font-mono uppercase tracking-[0.2em] text-luxury-clay font-medium mb-1 sm:mb-2">02</span>
 
-                            <div class="h-[1.5px] w-5 sm:w-7 bg-luxury-clay/35 pillar-bar mb-1.5 sm:mb-2.5"></div>
+                            <div class="h-[2px] w-5 sm:w-8 bg-luxury-clay/50 pillar-bar mb-1.5 sm:mb-2.5"></div>
 
-                            <h3 class="text-[13px] sm:text-xl md:text-[22px] font-serif font-medium text-luxury-charcoal group-hover:text-luxury-clay transition-colors leading-[1.15]">
+                            <h3 class="text-[13.5px] sm:text-[22px] md:text-[24px] font-serif font-medium text-luxury-charcoal group-hover:text-luxury-clay transition-colors leading-[1.15]">
 
                                 Direito Administrativo
 
                             </h3>
 
-                            <p class="hidden md:block mt-1.5 text-xs text-luxury-muted font-normal leading-relaxed">
+                            <p class="hidden md:block mt-2 text-[13px] text-luxury-muted font-normal leading-relaxed">
 
-                                Licitações (Lei 14.133), Contratos Públicos, TCU &amp; Sanções
+                                Licitações, contratos públicos, defesas sancionatórias e atuação no TCU.
 
                             </p>
 
@@ -2800,7 +2854,7 @@
 
 
 
-                    <!-- Pilar 03: Relações Governamentais -> Fileira 3 -->
+                    <!-- Card 03: Relações Governamentais -> Fileira 3 -->
 
                     <button type="button"
 
@@ -2816,23 +2870,23 @@
 
                             onclick="handleContactPillarClick(2)"
 
-                            class="contato-pillar group text-left px-2.5 py-2.5 sm:px-6 sm:py-5 flex flex-col justify-between cursor-pointer min-w-0">
+                            class="contato-pillar group text-left rounded-xl sm:rounded-2xl px-2.5 py-2.5 sm:px-6 sm:py-5 flex flex-col justify-between cursor-pointer min-w-0">
 
                         <div class="w-full">
 
-                            <span class="block text-[9.5px] sm:text-[10px] font-mono uppercase tracking-[0.18em] sm:tracking-[0.22em] text-luxury-clay font-medium mb-1 sm:mb-2">03<span class="hidden md:inline"> · Núcleo</span></span>
+                            <span class="block text-[9.5px] sm:text-[10.5px] font-mono uppercase tracking-[0.2em] text-luxury-clay font-medium mb-1 sm:mb-2">03</span>
 
-                            <div class="h-[1.5px] w-5 sm:w-7 bg-luxury-clay/35 pillar-bar mb-1.5 sm:mb-2.5"></div>
+                            <div class="h-[2px] w-5 sm:w-8 bg-luxury-clay/50 pillar-bar mb-1.5 sm:mb-2.5"></div>
 
-                            <h3 class="text-[13px] sm:text-xl md:text-[22px] font-serif font-medium text-luxury-charcoal group-hover:text-luxury-clay transition-colors leading-[1.15]">
+                            <h3 class="text-[13.5px] sm:text-[22px] md:text-[24px] font-serif font-medium text-luxury-charcoal group-hover:text-luxury-clay transition-colors leading-[1.15]">
 
                                 Relações Governamentais
 
                             </h3>
 
-                            <p class="hidden md:block mt-1.5 text-xs text-luxury-muted font-normal leading-relaxed">
+                            <p class="hidden md:block mt-2 text-[13px] text-luxury-muted font-normal leading-relaxed">
 
-                                Articulação Institucional, Pautas Legislativas &amp; Regulação
+                                Interlocução técnica em Brasília, acompanhamento legislativo e regulação.
 
                             </p>
 
@@ -2848,45 +2902,15 @@
 
                 <!-- Linha Discreta de Escopo no Mobile (< md) -->
 
-                <div class="md:hidden border-t border-luxury-charcoal/10 px-2 py-2 text-center">
+                <div class="md:hidden mt-2 px-2 py-1.5 text-center">
 
-                    <p id="mobile-pillar-scope" class="text-[11px] text-luxury-muted leading-snug">
+                    <p id="mobile-pillar-scope" class="text-[11.5px] text-luxury-muted font-normal leading-snug">
 
-                        CARF, Tribunais Superiores, Precatórios &amp; Créditos
+                        Defesa no CARF e Tribunais Superiores, créditos e auditoria de precatórios.
 
                     </p>
 
                 </div>
-
-            </div>
-
-
-
-            <!-- Botão "Entre em Contato" Redesenho Quiet Luxury / Private Banking -->
-
-            <div class="mt-4 sm:mt-6">
-
-                <button onclick="openContactModal()" class="group relative inline-flex items-center gap-4 px-8 py-3.5 rounded-full bg-luxury-charcoal text-luxury-paper hover:bg-luxury-clay transition-all duration-300 shadow-lg shadow-luxury-charcoal/10 cursor-pointer">
-
-                    <!-- Indicador pulsante discreto de disponibilidade em tempo real -->
-
-                    <span class="relative flex h-2 w-2">
-
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-luxury-clay group-hover:bg-white opacity-75"></span>
-
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-luxury-clay group-hover:bg-white transition-colors"></span>
-
-                    </span>
-
-                    <span class="text-[11px] uppercase tracking-[0.22em] font-semibold">Entre em Contato</span>
-
-                    <svg class="w-3.5 h-3.5 text-luxury-paper/70 group-hover:text-white group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-
-                    </svg>
-
-                </button>
 
             </div>
 
@@ -7242,7 +7266,7 @@
 
             {
 
-              tag: 'Direito Administrativo · 14.133',
+              tag: 'Direito Administrativo · Licitações',
 
               title: 'Licitações & Compras Governamentais',
 
@@ -7360,7 +7384,7 @@
 
             return `
 
-            <div class="practice-item rounded-lg px-5 sm:px-6 py-2.5 sm:py-3 min-w-[290px] sm:min-w-[345px] cursor-pointer"
+            <div class="practice-item rounded-xl px-5 sm:px-6 py-2.5 sm:py-3 min-w-[300px] sm:min-w-[365px] cursor-pointer"
 
                  onmouseenter="highlightContactBand(${row.waveIdx})"
 
@@ -7368,23 +7392,23 @@
 
               <div class="flex items-center justify-between gap-2 mb-1">
 
-                <span class="text-[10px] uppercase tracking-[0.18em] font-semibold text-luxury-clay">
+                <span class="text-[10px] sm:text-[10.5px] uppercase tracking-[0.18em] font-semibold text-luxury-clay">
 
                   ${item.tag}
 
                 </span>
 
-                <span class="w-1.5 h-1.5 rounded-full bg-luxury-clay/45"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-luxury-clay/55"></span>
 
               </div>
 
-              <h3 class="text-[15px] sm:text-base font-medium text-luxury-charcoal tracking-tight">
+              <h3 class="text-[15px] sm:text-[16.5px] font-semibold text-luxury-charcoal tracking-tight">
 
                 ${item.title}
 
               </h3>
 
-              <p class="text-[11.5px] text-luxury-muted mt-0.5 leading-snug">
+              <p class="text-[11.5px] sm:text-[12.5px] text-luxury-muted mt-0.5 leading-snug">
 
                 ${item.desc}
 
@@ -7408,7 +7432,7 @@
 
           name: 'Direito Tributário',
 
-          scope: 'CARF, Tribunais Superiores, Precatórios & Créditos'
+          scope: 'Defesa no CARF e Tribunais Superiores, créditos e auditoria de precatórios.'
 
         },
 
@@ -7416,7 +7440,7 @@
 
           name: 'Direito Administrativo',
 
-          scope: 'Licitações (Lei 14.133), Contratos, TCU & Sanções'
+          scope: 'Licitações, contratos públicos, defesas sancionatórias e atuação no TCU.'
 
         },
 
@@ -7424,7 +7448,7 @@
 
           name: 'Relações Governamentais',
 
-          scope: 'Articulação Institucional, Pautas & Regulação'
+          scope: 'Interlocução técnica em Brasília, acompanhamento legislativo e regulação.'
 
         }
 
