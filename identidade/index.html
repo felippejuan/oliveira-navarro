@@ -1,0 +1,2435 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oliveira Navarro — Assinatura de E-mail &amp; Cartão de Visita</title>
+
+  <!-- Favicons Oficiais Oliveira Navarro (ON em branco com fundo laranja) -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <!-- Fontes Oficiais -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Bibliotecas Locais (QR Code Vetorial, Exportação 600 DPI & PDF Gráfica) -->
+  <script src="assets/qrcode-gen.min.js"></script>
+  <script src="assets/html2canvas.min.js"></script>
+  <script src="assets/jspdf.umd.min.js"></script>
+
+  <style>
+    :root {
+      --olina-orange: #DD4F1D;        /* Pantone 1665 C */
+      --olina-orange-hover: #C44316;
+      --olina-charcoal: #141211;
+      --olina-ivory: #F5EFEA;
+      --olina-qr: #F1EAE1;
+
+      --ui-bg: #110F0E;
+      --ui-surface: #181513;
+      --ui-border: #2B2623;
+      --ui-text: #F4EFEA;
+      --ui-text-muted: #9D9389;
+      --ui-radius: 12px;
+
+      /* Proporção Real 90mm x 50mm (9:5 / 1.8:1) */
+      --card-width: 450px;
+      --card-height: 250px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    ::-webkit-scrollbar { width: 7px; height: 7px; }
+    ::-webkit-scrollbar-track { background: #110F0E; }
+    ::-webkit-scrollbar-thumb { background: #2B2623; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--olina-orange); }
+
+    body {
+      font-family: 'Cairo', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--ui-bg);
+      color: var(--ui-text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ==========================================================================
+       HEADER
+       ========================================================================== */
+    header {
+      background: rgba(24, 21, 19, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--ui-border);
+      padding: 12px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 1520px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .header-logo-svg { height: 24px; width: auto; display: block; }
+    .header-divider { width: 1px; height: 22px; background: var(--ui-border); }
+
+    .header-text h1 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-text p {
+      font-size: 11px;
+      color: var(--ui-text-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .badge-capsule {
+      padding: 2px 9px;
+      background: rgba(221, 79, 29, 0.14);
+      color: var(--olina-orange);
+      border: 1px solid rgba(221, 79, 29, 0.3);
+      border-radius: 999px;
+      font-size: 10.5px;
+      font-weight: 700;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn-ui {
+      background: #231F1D;
+      border: 1px solid var(--ui-border);
+      color: var(--ui-text);
+      padding: 6px 12px;
+      border-radius: 7px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Cairo', sans-serif;
+      transition: border-color 0.15s ease, color 0.15s ease;
+    }
+
+    .btn-ui:hover { border-color: var(--olina-orange); color: #FFFFFF; }
+    .btn-ui.active {
+      background: rgba(221, 79, 29, 0.15);
+      border-color: var(--olina-orange);
+      color: var(--olina-orange);
+    }
+
+    /* ==========================================================================
+       APP SHELL (SIDEBAR DE NAVEGAÇÃO ESQUERDA + ÁREA DE TRABALHO)
+       ========================================================================== */
+    .app-shell {
+      display: flex;
+      flex: 1;
+      width: 100%;
+      min-height: calc(100vh - 64px);
+    }
+
+    .app-sidebar {
+      width: 194px;
+      flex-shrink: 0;
+      background: #141211;
+      border-right: 1px solid var(--ui-border);
+      padding: 20px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      position: sticky;
+      top: 64px;
+      height: calc(100vh - 64px);
+    }
+
+    .nav-section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--ui-text-muted);
+      padding: 4px 10px 8px;
+    }
+
+    .nav-item {
+      width: 100%;
+      background: transparent;
+      border: 1px solid transparent;
+      border-left: 3px solid transparent;
+      border-radius: 8px;
+      padding: 10px 11px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      cursor: pointer;
+      text-align: left;
+      font-family: 'Cairo', sans-serif;
+      color: var(--ui-text-muted);
+      transition: all 0.15s ease;
+    }
+
+    .nav-item svg {
+      width: 16px;
+      height: 16px;
+      margin-top: 2px;
+      flex-shrink: 0;
+      color: var(--ui-text-muted);
+    }
+
+    .nav-item:hover {
+      background: rgba(255, 255, 255, 0.03);
+      color: #FFFFFF;
+    }
+
+    .nav-item.active {
+      background: rgba(221, 79, 29, 0.12);
+      border-color: rgba(221, 79, 29, 0.25);
+      border-left-color: var(--olina-orange);
+      color: #FFFFFF;
+    }
+
+    .nav-item.active svg {
+      color: var(--olina-orange);
+    }
+
+    .nav-item-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.25;
+    }
+
+    .nav-item-text strong {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .nav-item-text small {
+      font-size: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--ui-text-muted);
+      margin-top: 2px;
+    }
+
+    .app-sidebar-foot {
+      margin-top: auto;
+      padding: 12px 10px 4px;
+      border-top: 1px solid var(--ui-border);
+      font-size: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--ui-text-muted);
+      line-height: 1.45;
+    }
+
+    .app-main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .app-view {
+      display: none;
+    }
+
+    .app-view.active {
+      display: block;
+    }
+
+    @media (max-width: 1040px) {
+      .app-shell {
+        flex-direction: column;
+      }
+      .app-sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 10px 16px;
+        border-right: none;
+        border-bottom: 1px solid var(--ui-border);
+      }
+      .nav-section-label,
+      .app-sidebar-foot {
+        display: none;
+      }
+      .nav-item {
+        width: auto;
+        flex: 1;
+        min-width: 180px;
+      }
+    }
+
+    /* ==========================================================================
+       STUDIO LAYOUT (CARTÃO: CARTÕES LADO A LADO | DIREITA: FORMULÁRIO)
+       ========================================================================== */
+    .studio-layout {
+      max-width: 1520px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 18px;
+      display: grid;
+      grid-template-columns: 1fr 292px;
+      gap: 16px;
+      align-items: start;
+      flex: 1;
+    }
+
+    @media (min-width: 1180px) and (max-width: 1560px) {
+      .cards-stage-grid {
+        zoom: 0.86;
+      }
+    }
+
+    @media (max-width: 1180px) {
+      .studio-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Stage Principal (Esquerda) */
+    .stage-panel {
+      background: var(--ui-surface);
+      border: 1px solid var(--ui-border);
+      border-radius: var(--ui-radius);
+      padding: 20px 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      min-width: 0;
+    }
+
+    .stage-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--ui-border);
+      padding-bottom: 14px;
+    }
+
+    .stage-title-wrap h2 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .stage-title-wrap p {
+      font-size: 11.5px;
+      color: var(--ui-text-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .stage-tools {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* Grid Lado a Lado (Frente | Verso) */
+    .cards-stage-grid {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      padding: 14px 0 6px;
+    }
+
+    .card-slot {
+      width: var(--card-width);
+      max-width: 100%;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .face-label-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--ui-text-muted);
+    }
+
+    /* Barra de Exportação abaixo dos cartões */
+    .stage-export-bar {
+      border-top: 1px solid var(--ui-border);
+      padding-top: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .export-note {
+      font-size: 11.5px;
+      color: var(--ui-text-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .export-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn-export-primary {
+      background: var(--olina-orange);
+      color: #FFFFFF;
+      border: none;
+      font-family: 'Cairo', sans-serif;
+      font-size: 12.5px;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 7px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .btn-export-primary:hover { background: var(--olina-orange-hover); }
+
+    .select-export {
+      background: var(--ui-bg);
+      color: var(--ui-text);
+      border: 1px solid var(--ui-border);
+      font-family: 'Cairo', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 7px 11px;
+      border-radius: 7px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .select-export:focus,
+    .select-export:hover {
+      border-color: var(--olina-orange);
+    }
+
+    /* ==========================================================================
+       CARTÃO OFICIAL (90 x 50 mm, ESTÁTICO, SEM ANIMAÇÕES)
+       ========================================================================== */
+    .business-card {
+      width: 100%;
+      max-width: var(--card-width);
+      aspect-ratio: 9 / 5;
+      position: relative;
+      overflow: hidden;
+      background-color: var(--olina-charcoal);
+      color: var(--olina-ivory);
+      border-radius: 0px;
+      box-shadow: 0 22px 48px -12px rgba(0, 0, 0, 0.72), 0 0 0 1px rgba(255, 255, 255, 0.08);
+      user-select: none;
+    }
+
+    .business-card.rounded-corners { border-radius: 10px; }
+
+    /* Textura sutil de papel fosco */
+    .business-card.paper-texture::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: 20;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* Linhas de Sangria / Segurança (3mm Bleed) */
+    .business-card.show-bleed-lines::before {
+      content: "";
+      position: absolute;
+      inset: 13px;
+      border: 1px dashed rgba(221, 79, 29, 0.55);
+      border-radius: inherit;
+      pointer-events: none;
+      z-index: 30;
+    }
+
+    .bleed-tag {
+      position: absolute;
+      top: 3px;
+      left: 15px;
+      font-size: 7.5px;
+      font-family: 'JetBrains Mono', monospace;
+      color: rgba(221, 79, 29, 0.9);
+      display: none;
+      z-index: 31;
+    }
+
+    .business-card.show-bleed-lines .bleed-tag { display: block; }
+
+    /* FRENTE: Faixa Lateral Terracota + Logo Oficial + Slogan (sem Brasília DF) */
+    .card-front-layout {
+      position: relative;
+      height: 100%;
+      display: flex;
+      z-index: 10;
+    }
+
+    .front-stripe {
+      width: 13px;
+      height: 100%;
+      background-color: var(--olina-orange);
+      flex-shrink: 0;
+    }
+
+    .front-body {
+      flex: 1;
+      padding: 28px 34px 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .front-bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .front-areas {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #A69C92;
+      line-height: 1.4;
+      white-space: nowrap;
+    }
+
+    .front-areas:empty {
+      display: none;
+    }
+
+    .front-areas .area-dot {
+      color: var(--olina-orange);
+      font-weight: 800;
+      margin: 0 4px;
+    }
+
+    .area-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 4px;
+    }
+
+    .area-chip {
+      background: var(--ui-bg);
+      border: 1px solid var(--ui-border);
+      color: var(--ui-text-muted);
+      font-family: 'Cairo', sans-serif;
+      font-size: 10.5px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .area-chip:hover {
+      border-color: var(--olina-orange);
+      color: #FFFFFF;
+    }
+
+    .area-chip.active {
+      border-color: var(--olina-orange);
+      background: rgba(221, 79, 29, 0.14);
+      color: var(--olina-orange);
+    }
+
+    .front-logo-svg {
+      width: 224px;
+      height: auto;
+      display: block;
+    }
+
+    .front-sub {
+      font-family: 'Cairo', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-style: normal;
+      font-size: 13.5px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      line-height: 1.25;
+      color: #DED6CE;
+    }
+
+    /* VERSO: Nome + Cargo + Contatos (Email, Instagram, Site, Localização) + QR 128px */
+    .card-back-layout {
+      position: relative;
+      height: 100%;
+      padding: 26px 32px 26px 30px;
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      gap: 18px;
+      z-index: 10;
+    }
+
+    .back-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-width: 0;
+    }
+
+    .v-name {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+    }
+
+    .v-role {
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--olina-orange);
+      margin-top: 5px;
+    }
+
+    .v-contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .v-contact-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.25;
+      color: #EFE8E0;
+    }
+
+    .v-contact-row.is-city {
+      font-size: 11.5px;
+      color: #B8ABA0;
+    }
+
+    .v-contact-row.is-hidden {
+      display: none;
+    }
+
+    .v-icon {
+      width: 13px;
+      height: 13px;
+      color: var(--olina-orange);
+      flex-shrink: 0;
+    }
+
+    .back-right {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      flex-shrink: 0;
+    }
+
+    .qr-box {
+      width: 128px;
+      height: 128px;
+    }
+
+    .qr-box svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* ==========================================================================
+       PAINEL LATERAL DIREITO (PREENCHIMENTO DAS INFORMAÇÕES)
+       ========================================================================== */
+    .editor-sidebar {
+      background: var(--ui-surface);
+      border: 1px solid var(--ui-border);
+      border-radius: var(--ui-radius);
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .sidebar-heading {
+      font-size: 12.5px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      border-bottom: 1px solid var(--ui-border);
+      padding-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .sidebar-heading span.sub {
+      font-size: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--olina-orange);
+    }
+
+    .presets-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px;
+    }
+
+    .preset-btn {
+      background: var(--ui-bg);
+      border: 1px solid var(--ui-border);
+      color: var(--ui-text);
+      padding: 7px 10px;
+      border-radius: 7px;
+      font-size: 11.5px;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+      font-family: 'Cairo', sans-serif;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.15s ease;
+    }
+
+    .preset-btn small {
+      font-size: 9.5px;
+      font-weight: 500;
+      color: var(--ui-text-muted);
+    }
+
+    .preset-btn:hover { border-color: var(--olina-orange); }
+    .preset-btn.active {
+      border-color: var(--olina-orange);
+      background: rgba(221, 79, 29, 0.14);
+    }
+
+    .form-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .form-field label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--ui-text-muted);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .form-field label small {
+      font-weight: 500;
+      opacity: 0.65;
+    }
+
+    .form-field input, .form-field select {
+      width: 100%;
+      background: var(--ui-bg);
+      border: 1px solid var(--ui-border);
+      color: #FFFFFF;
+      font-family: 'Cairo', sans-serif;
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 7px 11px;
+      border-radius: 7px;
+      outline: none;
+    }
+
+    .form-field input:focus, .form-field select:focus {
+      border-color: var(--olina-orange);
+    }
+
+    /* ==========================================================================
+       ASSINATURA DE E-MAIL (LAYOUT + PREVIEW + GUIA DE INSTALAÇÃO)
+       ========================================================================== */
+    .sig-layout {
+      max-width: 1460px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 20px 22px 36px;
+      display: grid;
+      grid-template-columns: 390px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    @media (max-width: 1120px) {
+      .sig-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .sig-section-group {
+      padding-bottom: 14px;
+      border-bottom: 1px dashed var(--ui-border);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .sig-section-group:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .sig-section-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--olina-orange);
+    }
+
+    .sig-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .sig-toggle-pills {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--ui-bg);
+      border: 1px solid var(--ui-border);
+      padding: 3px;
+      border-radius: 7px;
+      gap: 4px;
+    }
+
+    .sig-toggle-pill {
+      border: none;
+      background: transparent;
+      padding: 6px 8px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--ui-text-muted);
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .sig-toggle-pill.active {
+      background: rgba(221, 79, 29, 0.16);
+      color: #FFFFFF;
+    }
+
+    .sig-range-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sig-range-group input[type="range"] {
+      flex: 1;
+      accent-color: var(--olina-orange);
+      cursor: pointer;
+      padding: 0;
+      border: none;
+      background: transparent;
+    }
+
+    .sig-range-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      color: #FFFFFF;
+      background: var(--ui-bg);
+      border: 1px solid var(--ui-border);
+      padding: 3px 8px;
+      border-radius: 6px;
+      min-width: 52px;
+      text-align: center;
+    }
+
+    .sig-preview-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .sig-bg-toggles {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .sig-bg-btn {
+      background: var(--ui-bg);
+      color: var(--ui-text-muted);
+      border: 1px solid var(--ui-border);
+      padding: 5px 11px;
+      border-radius: 6px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.15s ease;
+    }
+
+    .sig-bg-btn:hover {
+      color: #FFFFFF;
+      border-color: var(--olina-orange);
+    }
+
+    .sig-bg-btn.active {
+      background: rgba(221, 79, 29, 0.15);
+      border-color: var(--olina-orange);
+      color: var(--olina-orange);
+    }
+
+    .sig-email-window {
+      background: #ffffff;
+      border-radius: 10px;
+      border: 1px solid var(--ui-border);
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .sig-email-chrome {
+      background: #f1f5f9;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 9px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .sig-chrome-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .sig-chrome-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .sig-chrome-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: #475569;
+    }
+
+    .sig-email-meta {
+      padding: 10px 16px;
+      border-bottom: 1px solid #e2e8f0;
+      font-size: 12px;
+      color: #64748b;
+      background: #fafbfc;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .sig-email-meta-line {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .sig-email-meta-label {
+      font-weight: 600;
+      color: #475569;
+      width: 52px;
+    }
+
+    .sig-email-body {
+      padding: 20px 24px;
+      min-height: 220px;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .sig-email-body.sig-theme-white { background: #ffffff; color: #1e293b; }
+    .sig-email-body.sig-theme-slate { background: #0f172a; color: #f1f5f9; }
+
+    .sig-mock-message {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      line-height: 1.55;
+      margin-bottom: 18px;
+      opacity: 0.72;
+    }
+
+    .sig-stage-box {
+      padding: 14px 0 4px;
+      border-top: 1px dashed rgba(0, 0, 0, 0.12);
+    }
+
+    .sig-theme-slate .sig-stage-box {
+      border-top-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .sig-theme-slate #sig-capture-target span[data-sig-type="name"] { color: #ffffff !important; }
+    .sig-theme-slate #sig-capture-target span[data-sig-type="role"] { color: #cbd5e1 !important; }
+    .sig-theme-slate #sig-capture-target span[data-sig-type="text"],
+    .sig-theme-slate #sig-capture-target a[data-sig-type="email"] { color: #94a3b8 !important; }
+    .sig-theme-slate #sig-capture-target span[data-sig-type="divider"] { color: #475569 !important; }
+    .sig-theme-slate #sig-capture-target table table { border-top-color: #334155 !important; }
+
+    .sig-cta-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .sig-btn-copy-main {
+      width: 100%;
+      background: var(--olina-orange);
+      color: #ffffff;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 14.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      transition: all 0.18s ease;
+    }
+
+    .sig-btn-copy-main:hover {
+      background: var(--olina-orange-hover);
+    }
+
+    .sig-secondary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .sig-btn-secondary {
+      background: var(--ui-bg);
+      border: 1px solid var(--ui-border);
+      color: var(--ui-text);
+      padding: 8px 10px;
+      border-radius: 7px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .sig-btn-secondary:hover {
+      border-color: var(--olina-orange);
+      color: #ffffff;
+    }
+
+    .sig-guide-tabs {
+      display: flex;
+      gap: 4px;
+      border-bottom: 1px solid var(--ui-border);
+      padding-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .sig-guide-tab {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--ui-text-muted);
+      padding: 5px 11px;
+      border-radius: 6px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .sig-guide-tab:hover { color: #ffffff; }
+    .sig-guide-tab.active {
+      background: rgba(221, 79, 29, 0.14);
+      border-color: var(--olina-orange);
+      color: var(--olina-orange);
+    }
+
+    .sig-guide-content {
+      display: none;
+      padding-top: 12px;
+    }
+
+    .sig-guide-content.active {
+      display: block;
+    }
+
+    .sig-steps-list {
+      list-style: none;
+      counter-reset: sig-step;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .sig-steps-list li {
+      counter-increment: sig-step;
+      position: relative;
+      padding-left: 30px;
+      font-size: 12.5px;
+      color: var(--ui-text);
+      line-height: 1.45;
+    }
+
+    .sig-steps-list li::before {
+      content: counter(sig-step);
+      position: absolute;
+      left: 0;
+      top: 1px;
+      width: 21px;
+      height: 21px;
+      background: rgba(221, 79, 29, 0.15);
+      color: var(--olina-orange);
+      border: 1px solid rgba(221, 79, 29, 0.35);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .sig-kbd {
+      background: var(--ui-bg);
+      border: 1px solid var(--ui-border);
+      border-radius: 4px;
+      padding: 1px 5px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      color: #ffffff;
+    }
+
+    /* Modal HTML Bruto */
+    .sig-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(4px);
+      z-index: 1100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .sig-modal-backdrop.open { display: flex; }
+
+    .sig-modal-window {
+      background: var(--ui-surface);
+      border: 1px solid var(--ui-border);
+      border-radius: var(--ui-radius);
+      width: 100%;
+      max-width: 720px;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8);
+    }
+
+    .sig-modal-header {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--ui-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .sig-modal-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .sig-modal-close {
+      background: transparent;
+      border: none;
+      font-size: 22px;
+      color: var(--ui-text-muted);
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .sig-modal-close:hover { color: #ffffff; }
+
+    .sig-modal-body {
+      padding: 18px;
+      overflow-y: auto;
+    }
+
+    .sig-code-box {
+      background: #0c0a09;
+      border: 1px solid var(--ui-border);
+      color: #e2e8f0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      padding: 14px;
+      border-radius: 8px;
+      white-space: pre-wrap;
+      word-break: break-all;
+      max-height: 360px;
+      overflow-y: auto;
+    }
+
+    .sig-modal-footer {
+      padding: 12px 18px;
+      border-top: 1px solid var(--ui-border);
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    /* Toast */
+    .toast-pill {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #1A1715;
+      color: #FFFFFF;
+      border-left: 3px solid var(--olina-orange);
+      padding: 11px 16px;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65);
+      font-size: 12.5px;
+      font-weight: 600;
+      z-index: 1000;
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all 0.25s ease;
+      pointer-events: none;
+    }
+
+    .toast-pill.active { transform: translateY(0); opacity: 1; }
+
+    /* Impressão 1:1 (Página 1: Frente 90x50mm • Página 2: Verso 90x50mm) */
+    @page {
+      size: 90mm 50mm;
+      margin: 0;
+    }
+
+    @media print {
+      html, body {
+        width: 90mm !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #141211 !important;
+      }
+      header, .app-sidebar, .editor-sidebar, .stage-top-bar, .stage-export-bar, .face-label-bar, .toast-pill, .bleed-tag, #view-assinatura {
+        display: none !important;
+      }
+      .app-shell, .app-main, #view-cartao {
+        display: block !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .cards-stage-grid {
+        zoom: 1 !important;
+      }
+      .studio-layout {
+        display: block !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .stage-panel {
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      .cards-stage-grid {
+        display: block !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      .card-slot {
+        width: 90mm !important;
+        height: 50mm !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        gap: 0 !important;
+        overflow: hidden !important;
+        page-break-after: always !important;
+        break-after: page !important;
+      }
+      .card-slot:last-child {
+        page-break-after: auto !important;
+        break-after: auto !important;
+      }
+      .business-card {
+        width: 450px !important;
+        height: 250px !important;
+        max-width: none !important;
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+        transform: scale(0.7559055) !important;
+        transform-origin: top left !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .business-card.show-bleed-lines::before {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div class="brand-section">
+        <svg class="header-logo-svg" viewBox="33 9 1168 190">
+          <path fill="#DD4F1D" d="M735.63,9.15h-169.79c-16.01,0-29.97,8.91-37.21,22.03-7.23-13.12-21.2-22.03-37.21-22.03H75.8c-23.41,0-42.46,19.05-42.46,42.46v103.68c0,23.41,19.05,42.46,42.46,42.46h415.62c16.21,0,30.31-9.13,37.47-22.51,7.3,12.87,21.12,21.57,36.94,21.57h169.79c23.41,0,42.46-19.05,42.46-42.46V51.6c0-23.41-19.05-42.46-42.46-42.46ZM491.42,187.96H75.8c-18.02,0-32.68-14.66-32.68-32.68V51.6c0-18.02,14.66-32.68,32.68-32.68h415.62c16.27,0,29.8,11.96,32.28,27.55-.2,1.68-.32,3.4-.32,5.13v102.74c0,1.91.14,3.79.39,5.64-2.29,15.8-15.91,27.98-32.34,27.98Z"/>
+          <g fill="#FFFFFF">
+            <path d="M875.32,40.64c-5.25,0-9.64,1.03-13.16,3.09-3.53,2.06-6.17,4.94-7.91,8.63-1.75,3.7-2.62,8.06-2.62,13.08,0,7.62,2.03,13.67,6.09,18.16,4.06,4.49,9.93,6.73,17.61,6.73,5.19,0,9.54-1.04,13.04-3.13,3.5-2.09,6.15-5.01,7.96-8.76,1.81-3.75,2.71-8.08,2.71-12.99,0-7.56-2.02-13.59-6.05-18.07-4.04-4.49-9.92-6.73-17.65-6.73ZM888.87,73.95c-1.13,2.51-2.82,4.49-5.08,5.92-2.26,1.44-5.11,2.16-8.55,2.16s-6.29-.73-8.55-2.2c-2.26-1.47-3.94-3.46-5.04-5.97-1.1-2.51-1.65-5.32-1.65-8.42,0-5.02,1.3-9.06,3.89-12.1,2.6-3.05,6.38-4.57,11.34-4.57,3.44,0,6.29.72,8.55,2.16,2.26,1.44,3.95,3.41,5.08,5.92,1.13,2.51,1.69,5.38,1.69,8.59s-.56,6-1.69,8.51Z"/>
+            <polygon points="939.4 81.77 915.87 81.77 915.87 41.48 907.24 41.48 907.24 81.77 907.24 88.72 907.24 89.14 939.4 89.14 939.4 81.77"/>
+            <polygon points="968.01 81.77 961.75 81.77 961.75 48.93 968.01 48.93 968.01 41.48 946.76 41.48 946.76 48.93 953.2 48.93 953.2 81.77 946.76 81.77 946.76 89.14 968.01 89.14 968.01 81.77"/>
+            <polygon points="1005 89.14 1020.74 41.48 1011.26 41.48 997.72 85.5 984.26 41.48 974.86 41.48 990.61 89.14 1005 89.14"/>
+            <polygon points="1062.22 82.2 1035.89 82.2 1035.89 68.57 1055.45 68.57 1055.45 61.46 1035.89 61.46 1035.89 48.93 1061.37 48.93 1061.37 41.48 1027.34 41.48 1027.34 89.14 1062.22 89.14 1062.22 82.2"/>
+            <polygon points="1091.59 81.77 1085.32 81.77 1085.32 48.93 1091.59 48.93 1091.59 41.48 1070.34 41.48 1070.34 48.93 1076.77 48.93 1076.77 81.77 1070.34 81.77 1070.34 89.14 1091.59 89.14 1091.59 81.77"/>
+            <path d="M1111.73,69.42c3.39-.17,6.15-.21,8.3-.13,2.14.08,3.85.34,5.12.76,1.27.42,2.2,1.04,2.79,1.86.59.82.97,1.91,1.14,3.26.17,1.35.25,3.02.25,4.99,0,2.71.48,4.81,1.44,6.31.96,1.5,2.14,2.5,3.56,3,1.41.51,2.85.61,4.32.3,1.47-.31,2.74-.92,3.81-1.82v-4.99c-1.41.51-2.48.63-3.22.38-.73-.25-1.27-.79-1.61-1.61-.34-.82-.58-1.79-.72-2.92-.14-1.13-.3-2.29-.47-3.47-.17-1.19-.49-2.3-.97-3.34-.48-1.04-1.2-1.89-2.16-2.54-.96-.65-2.29-.97-3.98-.97,2.37,0,4.36-.55,5.97-1.65s2.82-2.62,3.64-4.57c.82-1.95,1.23-4.22,1.23-6.81,0-3.5-.78-6.25-2.33-8.25-1.55-2-3.78-3.46-6.69-4.36-2.91-.9-6.42-1.35-10.54-1.35h-17.52v47.66h8.63v-19.72ZM1111.73,48.51h6.86c2.99,0,5.52.13,7.58.38,2.06.25,3.62.92,4.7,1.99,1.07,1.07,1.61,2.82,1.61,5.25,0,2.15-.44,3.72-1.31,4.74-.88,1.02-2.2,1.65-3.98,1.9s-4.08.38-6.9.38h-8.55v-14.64Z"/>
+            <path d="M1160.99,75.68h18.51l4.09,13.46h9.23l-15.66-47.66h-14.14l-15.24,47.66h9.14l4.06-13.46ZM1170.22,45.12l7.25,23.87h-14.46l7.21-23.87Z"/>
+            <polygon points="887.6 160.17 887.43 160.17 869.99 116.33 854.76 116.33 854.76 163.98 863.64 163.98 863.64 120.14 863.81 120.14 880.15 163.98 896.57 163.98 896.57 116.33 887.6 116.33 887.6 160.17"/>
+            <path d="M921.62,116.33l-15.24,47.66h9.14l4.06-13.46h18.51l4.09,13.46h9.23l-15.66-47.66h-14.14ZM921.61,143.84l7.21-23.87,7.25,23.87h-14.46Z"/>
+            <polygon points="975.29 160.34 961.83 116.33 952.44 116.33 968.18 163.98 982.57 163.98 998.31 116.33 988.83 116.33 975.29 160.34"/>
+            <path d="M1015.33,116.33l-15.24,47.66h9.14l4.06-13.46h18.51l4.09,13.46h9.23l-15.66-47.66h-14.14ZM1015.31,143.84l7.21-23.87,7.25,23.87h-14.46Z"/>
+            <path d="M1090.66,158.19c-.73-.25-1.27-.79-1.61-1.61-.34-.82-.58-1.79-.72-2.92-.14-1.13-.3-2.29-.47-3.47-.17-1.19-.49-2.3-.97-3.34-.48-1.04-1.2-1.89-2.16-2.54-.96-.65-2.29-.97-3.98-.97,2.37,0,4.36-.55,5.97-1.65s2.82-2.62,3.64-4.57c.82-1.95,1.23-4.22,1.23-6.81,0-3.5-.78-6.25-2.33-8.25-1.55-2-3.78-3.46-6.69-4.36-2.91-.9-6.42-1.35-10.54-1.35h-17.52v47.66h8.63v-19.72c3.39-.17,6.15-.21,8.3-.13,2.14.08,3.85.34,5.12.76,1.27.42,2.2,1.04,2.79,1.86.59.82.97,1.91,1.14,3.26.17,1.35.25,3.02.25,4.99,0,2.71.48,4.81,1.44,6.31.96,1.5,2.14,2.5,3.55,3,1.41.51,2.85.61,4.32.3,1.47-.31,2.74-.92,3.81-1.82v-4.99c-1.41.51-2.48.63-3.22.38ZM1078.6,137.62c-1.78.25-4.08.38-6.9.38h-8.55v-14.64h6.86c2.99,0,5.52.13,7.58.38,2.06.25,3.62.92,4.7,1.99,1.07,1.07,1.61,2.82,1.61,5.25,0,2.15-.44,3.72-1.31,4.74-.88,1.02-2.2,1.65-3.98,1.9Z"/>
+            <path d="M1141.02,158.19c-.73-.25-1.27-.79-1.61-1.61-.34-.82-.58-1.79-.72-2.92-.14-1.13-.3-2.29-.47-3.47-.17-1.19-.49-2.3-.97-3.34-.48-1.04-1.2-1.89-2.16-2.54-.96-.65-2.29-.97-3.98-.97,2.37,0,4.36-.55,5.97-1.65s2.82-2.62,3.64-4.57c.82-1.95,1.23-4.22,1.23-6.81,0-3.5-.78-6.25-2.33-8.25-1.55-2-3.78-3.46-6.69-4.36-2.91-.9-6.42-1.35-10.54-1.35h-17.52v47.66h8.63v-19.72c3.39-.17,6.15-.21,8.3-.13,2.14.08,3.85.34,5.12.76,1.27.42,2.2,1.04,2.79,1.86.59.82.97,1.91,1.14,3.26.17,1.35.25,3.02.25,4.99,0,2.71.48,4.81,1.44,6.31.96,1.5,2.14,2.5,3.55,3,1.41.51,2.85.61,4.32.3,1.47-.31,2.74-.92,3.81-1.82v-4.99c-1.41.51-2.48.63-3.22.38ZM1128.96,137.62c-1.78.25-4.08.38-6.9.38h-8.55v-14.64h6.86c2.99,0,5.52.13,7.58.38,2.06.25,3.62.92,4.7,1.99,1.07,1.07,1.61,2.82,1.61,5.25,0,2.15-.44,3.72-1.31,4.74-.88,1.02-2.2,1.65-3.98,1.9Z"/>
+            <path d="M1193.38,122.21c-4.04-4.49-9.92-6.73-17.65-6.73-5.25,0-9.64,1.03-13.16,3.09-3.53,2.06-6.17,4.94-7.91,8.63-1.75,3.7-2.62,8.06-2.62,13.08,0,7.62,2.03,13.67,6.09,18.16s9.93,6.73,17.61,6.73c5.19,0,9.54-1.04,13.04-3.13,3.5-2.09,6.15-5.01,7.96-8.76,1.81-3.75,2.71-8.08,2.71-12.99,0-7.56-2.02-13.59-6.05-18.07ZM1189.27,148.79c-1.13,2.51-2.82,4.49-5.08,5.92-2.26,1.44-5.11,2.16-8.55,2.16s-6.29-.73-8.55-2.2c-2.26-1.47-3.94-3.46-5.04-5.97-1.1-2.51-1.65-5.32-1.65-8.42,0-5.02,1.3-9.06,3.89-12.1,2.59-3.05,6.38-4.57,11.34-4.57,3.44,0,6.29.72,8.55,2.16,2.26,1.44,3.95,3.41,5.08,5.92,1.13,2.51,1.69,5.38,1.69,8.59s-.56,6-1.69,8.51Z"/>
+          </g>
+        </svg>
+
+        <div class="header-divider"></div>
+
+        <div class="header-text">
+          <h1 id="header-view-title">Assinatura de E-mail <span class="badge-capsule" id="header-view-badge">Padrão Institucional</span></h1>
+          <p id="header-view-sub">OLIVEIRA NAVARRO ADVOCACIA &bull; GMAIL &bull; OUTLOOK</p>
+        </div>
+      </div>
+
+      <div class="header-actions" id="header-actions-cartao" style="display: none;">
+        <button class="btn-export-primary" onclick="downloadPrintPDF()">Baixar PDF Gráfica</button>
+      </div>
+      <div class="header-actions" id="header-actions-assinatura">
+        <button class="btn-ui" onclick="resetSigDefaults()">Restaurar Padrão</button>
+        <button class="btn-export-primary" onclick="copyFormattedSignature()">Copiar Assinatura</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="app-shell">
+    <!-- SIDEBAR DE NAVEGAÇÃO -->
+    <aside class="app-sidebar" aria-label="Navegação de Materiais">
+      <div class="nav-section-label">Materiais</div>
+
+      <button type="button" class="nav-item active" id="nav-btn-assinatura" onclick="switchAppView('assinatura')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        <span class="nav-item-text">
+          <strong>Assinatura de E-mail</strong>
+          <small>Gmail &bull; Outlook</small>
+        </span>
+      </button>
+
+      <button type="button" class="nav-item" id="nav-btn-cartao" onclick="switchAppView('cartao')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+        <span class="nav-item-text">
+          <strong>Cartão de Visita</strong>
+          <small>90 &times; 50 mm &bull; PDF</small>
+        </span>
+      </button>
+
+      <div class="app-sidebar-foot">
+        Oliveira Navarro Advocacia<br>
+        Central de Identidade
+      </div>
+    </aside>
+
+    <div class="app-main">
+      <!-- VIEW 1: CARTÃO DE VISITA -->
+      <div class="app-view" id="view-cartao">
+        <main class="studio-layout">
+    
+    <!-- ESQUERDA: VISUALIZAÇÃO LADO A LADO -->
+    <section class="stage-panel">
+      <div class="stage-top-bar">
+        <div class="stage-title-wrap">
+          <h2>Visualização Lado a Lado</h2>
+          <p>FRENTE (ESCRITÓRIO) &bull; VERSO (PROFISSIONAL)</p>
+        </div>
+
+        <div class="stage-tools">
+          <button class="btn-ui" id="toggle-bleed-btn" onclick="toggleBleedLines()">Sangria (3mm)</button>
+          <button class="btn-ui" id="toggle-texture-btn" onclick="togglePaperTexture()">Textura Papel</button>
+          <button class="btn-ui" id="toggle-corners-btn" onclick="toggleCorners()">Cantos Retos</button>
+        </div>
+      </div>
+
+      <div class="cards-stage-grid">
+        <!-- FRENTE -->
+        <div class="card-slot">
+          <div class="face-label-bar">
+            <span>FRENTE &bull; O ESCRITÓRIO</span>
+            <span>90 &times; 50 mm</span>
+          </div>
+
+          <div class="business-card" id="card-front">
+            <span class="bleed-tag">MARGEM SEGURA 3mm</span>
+
+            <div class="card-front-layout">
+              <div class="front-stripe"></div>
+
+              <div class="front-body">
+                <div>
+                  <!-- Logo Oficial Oliveira Navarro -->
+                  <svg class="front-logo-svg" width="224" height="36.44" viewBox="33 9 1168 190">
+                  <path fill="#DD4F1D" d="M735.63,9.15h-169.79c-16.01,0-29.97,8.91-37.21,22.03-7.23-13.12-21.2-22.03-37.21-22.03H75.8c-23.41,0-42.46,19.05-42.46,42.46v103.68c0,23.41,19.05,42.46,42.46,42.46h415.62c16.21,0,30.31-9.13,37.47-22.51,7.3,12.87,21.12,21.57,36.94,21.57h169.79c23.41,0,42.46-19.05,42.46-42.46V51.6c0-23.41-19.05-42.46-42.46-42.46ZM491.42,187.96H75.8c-18.02,0-32.68-14.66-32.68-32.68V51.6c0-18.02,14.66-32.68,32.68-32.68h415.62c16.27,0,29.8,11.96,32.28,27.55-.2,1.68-.32,3.4-.32,5.13v102.74c0,1.91.14,3.79.39,5.64-2.29,15.8-15.91,27.98-32.34,27.98Z"/>
+                  <g fill="#F5EFEA">
+                    <path d="M875.32,40.64c-5.25,0-9.64,1.03-13.16,3.09-3.53,2.06-6.17,4.94-7.91,8.63-1.75,3.7-2.62,8.06-2.62,13.08,0,7.62,2.03,13.67,6.09,18.16,4.06,4.49,9.93,6.73,17.61,6.73,5.19,0,9.54-1.04,13.04-3.13,3.5-2.09,6.15-5.01,7.96-8.76,1.81-3.75,2.71-8.08,2.71-12.99,0-7.56-2.02-13.59-6.05-18.07-4.04-4.49-9.92-6.73-17.65-6.73ZM888.87,73.95c-1.13,2.51-2.82,4.49-5.08,5.92-2.26,1.44-5.11,2.16-8.55,2.16s-6.29-.73-8.55-2.2c-2.26-1.47-3.94-3.46-5.04-5.97-1.1-2.51-1.65-5.32-1.65-8.42,0-5.02,1.3-9.06,3.89-12.1,2.6-3.05,6.38-4.57,11.34-4.57,3.44,0,6.29.72,8.55,2.16,2.26,1.44,3.95,3.41,5.08,5.92,1.13,2.51,1.69,5.38,1.69,8.59s-.56,6-1.69,8.51Z"/>
+                    <polygon points="939.4 81.77 915.87 81.77 915.87 41.48 907.24 41.48 907.24 81.77 907.24 88.72 907.24 89.14 939.4 89.14 939.4 81.77"/>
+                    <polygon points="968.01 81.77 961.75 81.77 961.75 48.93 968.01 48.93 968.01 41.48 946.76 41.48 946.76 48.93 953.2 48.93 953.2 81.77 946.76 81.77 946.76 89.14 968.01 89.14 968.01 81.77"/>
+                    <polygon points="1005 89.14 1020.74 41.48 1011.26 41.48 997.72 85.5 984.26 41.48 974.86 41.48 990.61 89.14 1005 89.14"/>
+                    <polygon points="1062.22 82.2 1035.89 82.2 1035.89 68.57 1055.45 68.57 1055.45 61.46 1035.89 61.46 1035.89 48.93 1061.37 48.93 1061.37 41.48 1027.34 41.48 1027.34 89.14 1062.22 89.14 1062.22 82.2"/>
+                    <polygon points="1091.59 81.77 1085.32 81.77 1085.32 48.93 1091.59 48.93 1091.59 41.48 1070.34 41.48 1070.34 48.93 1076.77 48.93 1076.77 81.77 1070.34 81.77 1070.34 89.14 1091.59 89.14 1091.59 81.77"/>
+                    <path d="M1111.73,69.42c3.39-.17,6.15-.21,8.3-.13,2.14.08,3.85.34,5.12.76,1.27.42,2.2,1.04,2.79,1.86.59.82.97,1.91,1.14,3.26.17,1.35.25,3.02.25,4.99,0,2.71.48,4.81,1.44,6.31.96,1.5,2.14,2.5,3.56,3,1.41.51,2.85.61,4.32.3,1.47-.31,2.74-.92,3.81-1.82v-4.99c-1.41.51-2.48.63-3.22.38-.73-.25-1.27-.79-1.61-1.61-.34-.82-.58-1.79-.72-2.92-.14-1.13-.3-2.29-.47-3.47-.17-1.19-.49-2.3-.97-3.34-.48-1.04-1.2-1.89-2.16-2.54-.96-.65-2.29-.97-3.98-.97,2.37,0,4.36-.55,5.97-1.65s2.82-2.62,3.64-4.57c.82-1.95,1.23-4.22,1.23-6.81,0-3.5-.78-6.25-2.33-8.25-1.55-2-3.78-3.46-6.69-4.36-2.91-.9-6.42-1.35-10.54-1.35h-17.52v47.66h8.63v-19.72ZM1111.73,48.51h6.86c2.99,0,5.52.13,7.58.38,2.06.25,3.62.92,4.7,1.99,1.07,1.07,1.61,2.82,1.61,5.25,0,2.15-.44,3.72-1.31,4.74-.88,1.02-2.2,1.65-3.98,1.9s-4.08.38-6.9.38h-8.55v-14.64Z"/>
+                    <path d="M1160.99,75.68h18.51l4.09,13.46h9.23l-15.66-47.66h-14.14l-15.24,47.66h9.14l4.06-13.46ZM1170.22,45.12l7.25,23.87h-14.46l7.21-23.87Z"/>
+                    <polygon points="887.6 160.17 887.43 160.17 869.99 116.33 854.76 116.33 854.76 163.98 863.64 163.98 863.64 120.14 863.81 120.14 880.15 163.98 896.57 163.98 896.57 116.33 887.6 116.33 887.6 160.17"/>
+                    <path d="M921.62,116.33l-15.24,47.66h9.14l4.06-13.46h18.51l4.09,13.46h9.23l-15.66-47.66h-14.14ZM921.61,143.84l7.21-23.87,7.25,23.87h-14.46Z"/>
+                    <polygon points="975.29 160.34 961.83 116.33 952.44 116.33 968.18 163.98 982.57 163.98 998.31 116.33 988.83 116.33 975.29 160.34"/>
+                    <path d="M1015.33,116.33l-15.24,47.66h9.14l4.06-13.46h18.51l4.09,13.46h9.23l-15.66-47.66h-14.14ZM1015.31,143.84l7.21-23.87,7.25,23.87h-14.46Z"/>
+                    <path d="M1090.66,158.19c-.73-.25-1.27-.79-1.61-1.61-.34-.82-.58-1.79-.72-2.92-.14-1.13-.3-2.29-.47-3.47-.17-1.19-.49-2.3-.97-3.34-.48-1.04-1.2-1.89-2.16-2.54-.96-.65-2.29-.97-3.98-.97,2.37,0,4.36-.55,5.97-1.65s2.82-2.62,3.64-4.57c.82-1.95,1.23-4.22,1.23-6.81,0-3.5-.78-6.25-2.33-8.25-1.55-2-3.78-3.46-6.69-4.36-2.91-.9-6.42-1.35-10.54-1.35h-17.52v47.66h8.63v-19.72c3.39-.17,6.15-.21,8.3-.13,2.14.08,3.85.34,5.12.76,1.27.42,2.2,1.04,2.79,1.86.59.82.97,1.91,1.14,3.26.17,1.35.25,3.02.25,4.99,0,2.71.48,4.81,1.44,6.31.96,1.5,2.14,2.5,3.55,3,1.41.51,2.85.61,4.32.3,1.47-.31,2.74-.92,3.81-1.82v-4.99c-1.41.51-2.48.63-3.22.38ZM1078.6,137.62c-1.78.25-4.08.38-6.9.38h-8.55v-14.64h6.86c2.99,0,5.52.13,7.58.38,2.06.25,3.62.92,4.7,1.99,1.07,1.07,1.61,2.82,1.61,5.25,0,2.15-.44,3.72-1.31,4.74-.88,1.02-2.2,1.65-3.98,1.9Z"/>
+                    <path d="M1141.02,158.19c-.73-.25-1.27-.79-1.61-1.61-.34-.82-.58-1.79-.72-2.92-.14-1.13-.3-2.29-.47-3.47-.17-1.19-.49-2.3-.97-3.34-.48-1.04-1.2-1.89-2.16-2.54-.96-.65-2.29-.97-3.98-.97,2.37,0,4.36-.55,5.97-1.65s2.82-2.62,3.64-4.57c.82-1.95,1.23-4.22,1.23-6.81,0-3.5-.78-6.25-2.33-8.25-1.55-2-3.78-3.46-6.69-4.36-2.91-.9-6.42-1.35-10.54-1.35h-17.52v47.66h8.63v-19.72c3.39-.17,6.15-.21,8.3-.13,2.14.08,3.85.34,5.12.76,1.27.42,2.2,1.04,2.79,1.86.59.82.97,1.91,1.14,3.26.17,1.35.25,3.02.25,4.99,0,2.71.48,4.81,1.44,6.31.96,1.5,2.14,2.5,3.55,3,1.41.51,2.85.61,4.32.3,1.47-.31,2.74-.92,3.81-1.82v-4.99c-1.41.51-2.48.63-3.22.38ZM1128.96,137.62c-1.78.25-4.08.38-6.9.38h-8.55v-14.64h6.86c2.99,0,5.52.13,7.58.38,2.06.25,3.62.92,4.7,1.99,1.07,1.07,1.61,2.82,1.61,5.25,0,2.15-.44,3.72-1.31,4.74-.88,1.02-2.2,1.65-3.98,1.9Z"/>
+                    <path d="M1193.38,122.21c-4.04-4.49-9.92-6.73-17.65-6.73-5.25,0-9.64,1.03-13.16,3.09-3.53,2.06-6.17,4.94-7.91,8.63-1.75,3.7-2.62,8.06-2.62,13.08,0,7.62,2.03,13.67,6.09,18.16s9.93,6.73,17.61,6.73c5.19,0,9.54-1.04,13.04-3.13,3.5-2.09,6.15-5.01,7.96-8.76,1.81-3.75,2.71-8.08,2.71-12.99,0-7.56-2.02-13.59-6.05-18.07ZM1189.27,148.79c-1.13,2.51-2.82,4.49-5.08,5.92-2.26,1.44-5.11,2.16-8.55,2.16s-6.29-.73-8.55-2.2c-2.26-1.47-3.94-3.46-5.04-5.97-1.1-2.51-1.65-5.32-1.65-8.42,0-5.02,1.3-9.06,3.89-12.1,2.59-3.05,6.38-4.57,11.34-4.57,3.44,0,6.29.72,8.55,2.16,2.26,1.44,3.95,3.41,5.08,5.92,1.13,2.51,1.69,5.38,1.69,8.59s-.56,6-1.69,8.51Z"/>
+                  </g>
+                  </svg>
+                </div>
+
+                <div class="front-bottom">
+                  <div class="front-sub">No ritmo dos negócios</div>
+                  <div class="front-areas" id="display-areas">
+                    Advocacia<span class="area-dot">&middot;</span>Consultoria<span class="area-dot">&middot;</span>Relações Governamentais
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- VERSO -->
+        <div class="card-slot">
+          <div class="face-label-bar">
+            <span>VERSO &bull; O PROFISSIONAL</span>
+            <span>90 &times; 50 mm</span>
+          </div>
+
+          <div class="business-card" id="card-back">
+            <span class="bleed-tag">MARGEM SEGURA 3mm</span>
+
+            <div class="card-back-layout">
+              <div class="back-left">
+                <div>
+                  <h3 class="v-name" id="display-name">Tattiana de Navarro</h3>
+                  <div class="v-role" id="display-role">ADVOGADA</div>
+                </div>
+
+                <div class="v-contacts">
+                  <div class="v-contact-row is-hidden" id="row-phone">
+                    <svg class="v-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#DD4F1D" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span id="display-phone"></span>
+                  </div>
+                  <div class="v-contact-row" id="row-email">
+                    <svg class="v-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#DD4F1D" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    <span id="display-email">tattiana.navarro@oliveiranavarro.com</span>
+                  </div>
+                  <div class="v-contact-row" id="row-instagram">
+                    <svg class="v-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#DD4F1D" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    <span id="display-instagram">tattiana.navarro</span>
+                  </div>
+                  <div class="v-contact-row" id="row-website">
+                    <svg class="v-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#DD4F1D" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                    <span id="display-website">oliveiranavarro.com</span>
+                  </div>
+                  <div class="v-contact-row is-city" id="row-city">
+                    <svg class="v-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#DD4F1D" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span id="display-city">Brasília &middot; DF</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="back-right">
+                <div class="qr-box" id="qr-target"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXPORTAÇÃO -->
+      <div class="stage-export-bar">
+        <span class="export-note">Corte 90&times;50mm &bull; PDF 2 Págs 1:1 (600 DPI)</span>
+        <div class="export-actions">
+          <select id="pdf-format-select" class="select-export" aria-label="Formato do PDF para gráfica">
+            <option value="bleed" selected>PDF c/ Sangria 3mm (96&times;56mm)</option>
+            <option value="crop">PDF c/ Marcas de Corte (102&times;62mm)</option>
+            <option value="trim">PDF Corte Exato (90&times;50mm)</option>
+          </select>
+          <button class="btn-export-primary" onclick="downloadPrintPDF()">Baixar PDF p/ Gráfica</button>
+          <button class="btn-ui" onclick="downloadPairSheet()">Prancha PNG</button>
+          <button class="btn-ui" onclick="downloadSingle('card-front', 'oliveira-navarro-frente')">Frente PNG</button>
+          <button class="btn-ui" onclick="downloadSingle('card-back', 'oliveira-navarro-verso')">Verso PNG</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIREITA: PAINEL PARA PREENCHER INFORMAÇÕES -->
+    <aside class="editor-sidebar">
+      <div class="sidebar-heading">
+        <span>Preencher Informações</span>
+        <span class="sub">TEMPO REAL</span>
+      </div>
+
+      <div class="form-stack">
+        <div class="form-field">
+          <label>Nome Completo</label>
+          <input type="text" id="input-name" value="Tattiana de Navarro" oninput="handleNameOrFieldChange(true)">
+        </div>
+
+        <div class="form-field">
+          <label>Cargo</label>
+          <input type="text" id="input-role" value="ADVOGADA" oninput="updateCard()">
+        </div>
+
+        <div class="form-field">
+          <label>E-mail Corporativo</label>
+          <input type="email" id="input-email" value="tattiana.navarro@oliveiranavarro.com" oninput="updateCard()">
+        </div>
+
+        <div class="form-field">
+          <label>Instagram <small id="insta-url-hint">instagram.com/tattiana.navarro/</small></label>
+          <input type="text" id="input-instagram" value="tattiana.navarro" oninput="handleManualInstagram()">
+        </div>
+
+        <div class="form-field">
+          <label>Site</label>
+          <input type="text" id="input-website" value="oliveiranavarro.com" oninput="updateCard()">
+        </div>
+
+        <div class="form-field">
+          <label>Cidade / Localização</label>
+          <input type="text" id="input-city" value="Brasília · DF" oninput="updateCard()">
+        </div>
+
+        <div class="form-field">
+          <label>Telefone <small>(opcional — vazio por padrão)</small></label>
+          <input type="text" id="input-phone" value="" placeholder="Deixe vazio para ocultar" oninput="updateCard()">
+        </div>
+
+        <div class="form-field">
+          <label>WhatsApp (QR Code) <small>apenas no QR</small></label>
+          <input type="text" id="input-whatsapp" value="+55 61 98171-5691" oninput="renderQRCode()">
+        </div>
+
+        <div class="form-field">
+          <label>Mensagem Inicial</label>
+          <input type="text" id="input-wa-message" value="Olá!" oninput="renderQRCode()">
+        </div>
+      </div>
+    </aside>
+
+        </main>
+      </div><!-- /#view-cartao -->
+
+      <!-- VIEW 2: ASSINATURA DE E-MAIL -->
+      <div class="app-view active" id="view-assinatura">
+        <div class="sig-layout">
+
+          <!-- COLUNA ESQUERDA: DADOS DA ASSINATURA -->
+          <aside class="editor-sidebar">
+            <div class="sidebar-heading">
+              <span>Dados da Assinatura</span>
+              <button type="button" class="btn-ui" style="padding: 3px 9px; font-size: 11px;" onclick="importCardToSignature()">Puxar do Cartão</button>
+            </div>
+
+            <div class="sig-section-group">
+              <div class="sig-section-title">Identificação</div>
+              <div class="form-field">
+                <label for="sig-input-name">Nome Completo</label>
+                <input type="text" id="sig-input-name" value="Tattiana de Navarro" placeholder="Ex: Tattiana de Navarro" oninput="updateSignature()">
+              </div>
+              <div class="form-field">
+                <label for="sig-input-role">Cargo / Função <small>(em itálico)</small></label>
+                <input type="text" id="sig-input-role" value="Advogada" placeholder="Ex: Advogada, Administrativo, Sócio(a)" oninput="updateSignature()">
+              </div>
+            </div>
+
+            <div class="sig-section-group">
+              <div class="sig-section-title">Informações de Contato</div>
+              <div class="sig-form-row">
+                <div class="form-field">
+                  <label for="sig-input-phone">Telefone Principal</label>
+                  <input type="text" id="sig-input-phone" value="(61) 3020-7960" placeholder="(61) 3020-7960" oninput="updateSignature()">
+                </div>
+                <div class="form-field">
+                  <label for="sig-input-mobile">Celular / WhatsApp <small>(opcional)</small></label>
+                  <input type="text" id="sig-input-mobile" value="" placeholder="(61) 99999-9999" oninput="updateSignature()">
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="sig-input-email">E-mail Corporativo <small>(opcional)</small></label>
+                <input type="email" id="sig-input-email" value="tattiana.navarro@oliveiranavarro.com" placeholder="Ex: tattiana.navarro@oliveiranavarro.com" oninput="updateSignature()">
+              </div>
+
+              <div class="sig-form-row">
+                <div class="form-field">
+                  <label for="sig-input-website">Website</label>
+                  <input type="text" id="sig-input-website" value="www.oliveiranavarro.com" oninput="updateSignature()">
+                </div>
+                <div class="form-field">
+                  <label for="sig-input-location">Localização</label>
+                  <input type="text" id="sig-input-location" value="Brasília – DF" oninput="updateSignature()">
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <!-- COLUNA DIREITA: PREVIEW DO E-MAIL + BOTÕES + GUIA -->
+          <div class="sig-preview-stack">
+            <section class="stage-panel">
+              <div class="stage-top-bar">
+                <div class="stage-title-wrap">
+                  <h2>Pré-visualização em Tempo Real</h2>
+                  <p>COMPATÍVEL COM GMAIL &bull; OUTLOOK &bull; APPLE MAIL</p>
+                </div>
+
+                <div class="sig-bg-toggles">
+                  <span style="font-size: 11px; color: var(--ui-text-muted); margin-right: 4px;">Fundo:</span>
+                  <button type="button" class="sig-bg-btn active" onclick="setSigPreviewBg('sig-theme-white', this)">Claro</button>
+                  <button type="button" class="sig-bg-btn" onclick="setSigPreviewBg('sig-theme-slate', this)">Escuro</button>
+                </div>
+              </div>
+
+              <div class="sig-email-window">
+                <div class="sig-email-chrome">
+                  <div class="sig-chrome-dots">
+                    <div class="sig-chrome-dot" style="background: #ff5f56;"></div>
+                    <div class="sig-chrome-dot" style="background: #ffbd2e;"></div>
+                    <div class="sig-chrome-dot" style="background: #27c93f;"></div>
+                  </div>
+                  <div class="sig-chrome-title">Nova Mensagem de E-mail</div>
+                  <div style="width: 40px;"></div>
+                </div>
+
+                <div class="sig-email-meta">
+                  <div class="sig-email-meta-line">
+                    <span class="sig-email-meta-label">Para:</span>
+                    <span>contato@cliente.com.br</span>
+                  </div>
+                  <div class="sig-email-meta-line">
+                    <span class="sig-email-meta-label">Assunto:</span>
+                    <span>Documentos Jurídicos e Acompanhamento Institucional</span>
+                  </div>
+                </div>
+
+                <div class="sig-email-body sig-theme-white" id="sig-email-body-container">
+                  <div class="sig-mock-message">
+                    Prezado(a),<br><br>
+                    Encaminho os documentos solicitados para conferência. Permanecemos à disposição para eventuais esclarecimentos.<br><br>
+                    Atenciosamente,
+                  </div>
+
+                  <div class="sig-stage-box" id="sig-capture-target"></div>
+                </div>
+              </div>
+
+              <div class="sig-cta-bar">
+                <button type="button" class="sig-btn-copy-main" id="sig-btn-copy-formatted" onclick="copyFormattedSignature()">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                  <span>Copiar Assinatura</span>
+                </button>
+
+                <div class="sig-secondary-grid">
+                  <button type="button" class="sig-btn-secondary" onclick="openSigCodeModal()">Código HTML</button>
+                  <button type="button" class="sig-btn-secondary" onclick="downloadSignatureHtml()">Baixar .HTML</button>
+                  <a class="sig-btn-secondary" id="sig-btn-download-png" download="logo-oliveira-navarro.png" href="assets/logo-highres.png">Logo PNG HD</a>
+                </div>
+              </div>
+            </section>
+
+            <!-- GUIA RÁPIDO DE INSTALAÇÃO -->
+            <section class="stage-panel" style="gap: 12px; padding: 18px 22px;">
+              <div class="sig-guide-tabs">
+                <button type="button" class="sig-guide-tab active" onclick="switchSigGuideTab('gmail', this)">Gmail</button>
+                <button type="button" class="sig-guide-tab" onclick="switchSigGuideTab('outlook-web', this)">Outlook Web</button>
+                <button type="button" class="sig-guide-tab" onclick="switchSigGuideTab('outlook-app', this)">Outlook App</button>
+                <button type="button" class="sig-guide-tab" onclick="switchSigGuideTab('apple', this)">Apple Mail</button>
+              </div>
+
+              <div id="sig-guide-gmail" class="sig-guide-content active">
+                <ol class="sig-steps-list">
+                  <li>Clique no botão laranja <strong>Copiar Assinatura</strong> acima.</li>
+                  <li>No Gmail, clique em <strong>Configurações (Engrenagem)</strong> &gt; <strong>Ver todas as configurações</strong>.</li>
+                  <li>Na aba <strong>Geral</strong>, role até <strong>Assinatura</strong> e clique em <em>+ Criar nova</em>.</li>
+                  <li>Na caixa de texto, cole com <span class="sig-kbd">Ctrl + V</span> (ou <span class="sig-kbd">Cmd + V</span>) e clique em <strong>Salvar alterações</strong>.</li>
+                </ol>
+              </div>
+
+              <div id="sig-guide-outlook-web" class="sig-guide-content">
+                <ol class="sig-steps-list">
+                  <li>Clique em <strong>Copiar Assinatura</strong>.</li>
+                  <li>No Outlook no navegador, acesse <strong>Configurações (Engrenagem)</strong> &gt; <strong>Contas</strong> &gt; <strong>Assinaturas</strong>.</li>
+                  <li>Clique em <strong>+ Nova assinatura</strong>, cole com <span class="sig-kbd">Ctrl + V</span> e salve.</li>
+                </ol>
+              </div>
+
+              <div id="sig-guide-outlook-app" class="sig-guide-content">
+                <ol class="sig-steps-list">
+                  <li>Clique em <strong>Copiar Assinatura</strong>.</li>
+                  <li>No aplicativo Outlook, abra <strong>Nova Mensagem</strong> &gt; <strong>Assinatura</strong> &gt; <strong>Assinaturas...</strong></li>
+                  <li>Clique em <strong>Novo</strong>, cole com <span class="sig-kbd">Ctrl + V</span>, defina como padrão e clique em <strong>OK</strong>.</li>
+                </ol>
+              </div>
+
+              <div id="sig-guide-apple" class="sig-guide-content">
+                <ol class="sig-steps-list">
+                  <li>Clique em <strong>Copiar Assinatura</strong>.</li>
+                  <li>No app Mail (Mac), vá em <strong>Mail &gt; Ajustes &gt; Assinaturas</strong>, clique em <strong>+</strong> e cole com <span class="sig-kbd">Cmd + V</span>.</li>
+                  <li>Desmarque <em>"Sempre usar minha fonte padrão"</em> para preservar o layout.</li>
+                </ol>
+              </div>
+            </section>
+          </div>
+
+        </div>
+      </div><!-- /#view-assinatura -->
+    </div><!-- /.app-main -->
+  </div><!-- /.app-shell -->
+
+  <!-- MODAL CÓDIGO HTML DA ASSINATURA -->
+  <div class="sig-modal-backdrop" id="sig-code-modal" onclick="closeSigModalOnBackdrop(event)">
+    <div class="sig-modal-window">
+      <div class="sig-modal-header">
+        <div class="sig-modal-title">Código HTML da Assinatura</div>
+        <button type="button" class="sig-modal-close" onclick="closeSigCodeModal()">&times;</button>
+      </div>
+      <div class="sig-modal-body">
+        <p style="font-size: 12.5px; color: var(--ui-text-muted); margin-bottom: 12px;">
+          Código HTML formatado com tabelas e estilos inline para renderização idêntica no Gmail, Outlook e Apple Mail.
+        </p>
+        <div class="sig-code-box" id="sig-modal-code-display"></div>
+      </div>
+      <div class="sig-modal-footer">
+        <button type="button" class="btn-ui" onclick="closeSigCodeModal()">Fechar</button>
+        <button type="button" class="btn-export-primary" onclick="copyRawHtmlFromModal()">Copiar Código</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-pill" id="studio-toast">Pronto!</div>
+
+  <script>
+    const state = {
+      showBleed: false,
+      paperTexture: false,
+      roundedCorners: false,
+      manualInstagram: false
+    };
+
+    const OFFICE_INSTAGRAM_HANDLE = 'oliveirasnavarro.on';
+    const OFFICE_INSTAGRAM_URL = 'https://www.instagram.com/oliveirasnavarro.on/';
+    const TATTIANA_INSTAGRAM_HANDLE = 'tattiana.navarro';
+    const TATTIANA_INSTAGRAM_URL = 'https://www.instagram.com/tattiana.navarro/';
+
+    function getInstagramUrl(handleOrUrl) {
+      const val = (handleOrUrl || '').trim();
+      if (!val) return OFFICE_INSTAGRAM_URL;
+      if (val.startsWith('http://') || val.startsWith('https://')) {
+        return val.endsWith('/') ? val : val + '/';
+      }
+      const clean = val.replace(/^@/, '').replace(/\/+$/, '');
+      if (clean === 'tattiana.navarro') return TATTIANA_INSTAGRAM_URL;
+      if (clean === 'oliveirasnavarro.on') return OFFICE_INSTAGRAM_URL;
+      return `https://www.instagram.com/${clean}/`;
+    }
+
+    function formatInstagramDisplay(handleOrUrl) {
+      const val = (handleOrUrl || '').trim();
+      if (!val) return '';
+      if (val.startsWith('http://') || val.startsWith('https://')) {
+        return val.replace(/^https?:\/\/(www\.)?instagram\.com\//i, '').replace(/\/+$/, '').replace(/^@/, '');
+      }
+      return val.replace(/^@/, '');
+    }
+
+    function handleNameOrFieldChange(isNameChange) {
+      if (isNameChange && !state.manualInstagram) {
+        const nameVal = document.getElementById('input-name').value.toLowerCase();
+        const isTattiana = nameVal.includes('tattiana');
+        document.getElementById('input-instagram').value = isTattiana
+          ? TATTIANA_INSTAGRAM_HANDLE
+          : OFFICE_INSTAGRAM_HANDLE;
+      }
+      updateCard();
+    }
+
+    function handleManualInstagram() {
+      state.manualInstagram = true;
+      updateCard();
+    }
+
+    function toggleFieldRow(rowId, displayId, value) {
+      const row = document.getElementById(rowId);
+      const disp = document.getElementById(displayId);
+      const clean = (value || '').trim();
+      disp.textContent = clean;
+      row.classList.toggle('is-hidden', !clean);
+    }
+
+    function updateCard() {
+      const name = document.getElementById('input-name').value;
+      const role = document.getElementById('input-role').value;
+      const email = document.getElementById('input-email').value;
+      const website = document.getElementById('input-website').value;
+      const instaRaw = document.getElementById('input-instagram').value;
+      const city = document.getElementById('input-city').value;
+      const phone = document.getElementById('input-phone').value;
+
+      document.getElementById('display-name').textContent = name;
+      document.getElementById('display-role').textContent = role;
+
+      toggleFieldRow('row-phone', 'display-phone', phone);
+      toggleFieldRow('row-email', 'display-email', email);
+      toggleFieldRow('row-website', 'display-website', website);
+      toggleFieldRow('row-instagram', 'display-instagram', formatInstagramDisplay(instaRaw));
+      toggleFieldRow('row-city', 'display-city', city);
+
+      const hint = document.getElementById('insta-url-hint');
+      if (hint) {
+        hint.textContent = getInstagramUrl(instaRaw).replace('https://www.', '');
+      }
+
+      renderQRCode();
+    }
+
+    function toggleBleedLines() {
+      state.showBleed = !state.showBleed;
+      document.getElementById('toggle-bleed-btn').classList.toggle('active', state.showBleed);
+      document.querySelectorAll('.business-card').forEach(c => c.classList.toggle('show-bleed-lines', state.showBleed));
+    }
+
+    function togglePaperTexture() {
+      state.paperTexture = !state.paperTexture;
+      document.getElementById('toggle-texture-btn').classList.toggle('active', state.paperTexture);
+      document.querySelectorAll('.business-card').forEach(c => c.classList.toggle('paper-texture', state.paperTexture));
+    }
+
+    function toggleCorners() {
+      state.roundedCorners = !state.roundedCorners;
+      const btn = document.getElementById('toggle-corners-btn');
+      btn.classList.toggle('active', state.roundedCorners);
+      btn.textContent = state.roundedCorners ? 'Cantos Arredondados' : 'Cantos Retos';
+      document.querySelectorAll('.business-card').forEach(c => c.classList.toggle('rounded-corners', state.roundedCorners));
+    }
+
+    function getQRPayload() {
+      const waDigits = (document.getElementById('input-whatsapp')?.value || '5561981715691').replace(/\D/g, '') || '5561981715691';
+      const waMsg = (document.getElementById('input-wa-message')?.value || '').trim();
+      return waMsg
+        ? `https://wa.me/${waDigits}?text=${encodeURIComponent(waMsg)}`
+        : `https://wa.me/${waDigits}`;
+    }
+
+    function renderQRCode() {
+      if (typeof qrcode === 'undefined') return;
+      const container = document.getElementById('qr-target');
+      if (!container) return;
+
+      const payload = getQRPayload();
+      qrcode.stringToBytes = qrcode.stringToBytesFuncs['UTF-8'];
+
+      const qr = qrcode(0, 'H');
+      qr.addData(payload, 'Byte');
+      qr.make();
+
+      const count = qr.getModuleCount();
+      const mid = count / 2;
+      const clearRadius = count * 0.14;
+
+      let pathD = '';
+      for (let r = 0; r < count; r++) {
+        for (let c = 0; c < count; c++) {
+          if (Math.hypot(c + 0.5 - mid, r + 0.5 - mid) < clearRadius) {
+            continue;
+          }
+          if (qr.isDark(r, c)) {
+            pathD += `M${c},${r}h1v1h-1z`;
+          }
+        }
+      }
+
+      const iconSize = count * 0.21;
+      const scale = iconSize / 24;
+      const offset = mid - iconSize / 2;
+      const centerBadge = `
+        <g transform="translate(${offset.toFixed(3)}, ${offset.toFixed(3)}) scale(${scale.toFixed(4)})" shape-rendering="geometricPrecision">
+          <path d="M 3.2 20.4 L 4.74 16.43 A 9 9 0 1 1 7.43 19.03 Z" fill="none" stroke="#DD4F1D" stroke-width="1.85" stroke-linejoin="round" stroke-linecap="round"/>
+          <path d="M 8.6 9.0 C 8.6 8.2 9.1 7.8 9.8 7.8 L 10.8 9.6 C 10.9 9.9 10.6 10.1 10.2 10.3 C 10.8 11.6 12.0 12.8 13.3 13.4 C 13.5 13.0 13.7 12.7 14.0 12.8 L 15.8 13.8 C 15.8 14.5 15.4 15.0 14.6 15.0 C 11.3 15.0 8.6 12.3 8.6 9.0 Z" fill="#DD4F1D"/>
+        </g>`;
+
+      container.innerHTML = `<svg width="128" height="128" viewBox="0 0 ${count} ${count}" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg"><path d="${pathD}" fill="#F1EAE1"/>${centerBadge}</svg>`;
+    }
+
+    function getNameSlug() {
+      return (document.getElementById('input-name').value || 'cartao')
+        .toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'cartao';
+    }
+
+    async function captureCleanCard(cardId, scale = 5) {
+      if (document.fonts && document.fonts.ready) {
+        await document.fonts.ready;
+      }
+      const el = document.getElementById(cardId);
+      return await html2canvas(el, {
+        scale,
+        useCORS: true,
+        backgroundColor: '#141211',
+        logging: false,
+        onclone: (doc) => {
+          const grid = doc.querySelector('.cards-stage-grid');
+          if (grid) grid.style.zoom = '1';
+          const cloned = doc.getElementById(cardId);
+          if (!cloned) return;
+          cloned.style.zoom = '1';
+          cloned.classList.remove('show-bleed-lines', 'rounded-corners');
+          cloned.style.borderRadius = '0px';
+          cloned.style.boxShadow = 'none';
+          const tag = cloned.querySelector('.bleed-tag');
+          if (tag) tag.remove();
+        }
+      });
+    }
+
+    function composeBleedCanvas(cardCanvas, scale, bleedMm, isFront) {
+      if (!bleedMm) return cardCanvas;
+      const bleedPx = Math.round(bleedMm * 5 * scale); // 1mm = 5px no layout 450x250
+      const out = document.createElement('canvas');
+      out.width = cardCanvas.width + bleedPx * 2;
+      out.height = cardCanvas.height + bleedPx * 2;
+
+      const ctx = out.getContext('2d');
+      const cardCtx = cardCanvas.getContext('2d');
+
+      // Amostra exata da cor de fundo (#141211) e da faixa (#DD4F1D) para emenda 100% invisível
+      const [bgR, bgG, bgB] = cardCtx.getImageData(cardCanvas.width - 4, 4, 1, 1).data;
+      ctx.fillStyle = `rgb(${bgR}, ${bgG}, ${bgB})`;
+      ctx.fillRect(0, 0, out.width, out.height);
+
+      ctx.drawImage(cardCanvas, bleedPx, bleedPx);
+
+      if (isFront) {
+        const stripePx = Math.round(13 * scale);
+        const [stR, stG, stB] = cardCtx.getImageData(Math.max(2, Math.floor(stripePx / 2)), 4, 1, 1).data;
+        ctx.fillStyle = `rgb(${stR}, ${stG}, ${stB})`;
+        ctx.fillRect(0, 0, bleedPx + stripePx, out.height);
+      }
+
+      return out;
+    }
+
+    async function downloadPrintPDF() {
+      if (!window.jspdf || !window.jspdf.jsPDF) {
+        showToast('Biblioteca PDF não carregada.');
+        return;
+      }
+
+      const mode = document.getElementById('pdf-format-select')?.value || 'bleed';
+      showToast('Gerando PDF 1:1 para gráfica (600 DPI)...');
+
+      const scale = 5;
+      const [frontRaw, backRaw] = await Promise.all([
+        captureCleanCard('card-front', scale),
+        captureCleanCard('card-back', scale)
+      ]);
+
+      const trimW = 90;
+      const trimH = 50;
+      const bleed = mode === 'trim' ? 0 : 3;
+      const gutter = mode === 'crop' ? 3 : 0;
+      const pageW = trimW + (bleed + gutter) * 2;
+      const pageH = trimH + (bleed + gutter) * 2;
+      const bleedW = trimW + bleed * 2;
+      const bleedH = trimH + bleed * 2;
+
+      const frontImg = composeBleedCanvas(frontRaw, scale, bleed, true).toDataURL('image/png');
+      const backImg = composeBleedCanvas(backRaw, scale, bleed, false).toDataURL('image/png');
+
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF({
+        orientation: 'landscape',
+        unit: 'mm',
+        format: [pageW, pageH],
+        compress: true
+      });
+
+      const drawCropMarks = () => {
+        if (mode !== 'crop') return;
+        const len = 2.4;
+        const gap = 0.4;
+        pdf.setDrawColor(25, 25, 25);
+        pdf.setLineWidth(0.18);
+        const x1 = gutter + bleed;
+        const x2 = x1 + trimW;
+        const y1 = gutter + bleed;
+        const y2 = y1 + trimH;
+
+        [x1, x2].forEach((x) => {
+          pdf.line(x, gap, x, gap + len);
+          pdf.line(x, pageH - gap - len, x, pageH - gap);
+        });
+        [y1, y2].forEach((y) => {
+          pdf.line(gap, y, gap + len, y);
+          pdf.line(pageW - gap - len, y, pageW - gap, y);
+        });
+      };
+
+      // Página 1: Frente (100% contínua com sangria integrada)
+      pdf.addImage(frontImg, 'PNG', gutter, gutter, bleedW, bleedH, undefined, 'FAST');
+      drawCropMarks();
+
+      // Página 2: Verso (100% contínua com sangria integrada)
+      pdf.addPage([pageW, pageH], 'landscape');
+      pdf.addImage(backImg, 'PNG', gutter, gutter, bleedW, bleedH, undefined, 'FAST');
+      drawCropMarks();
+
+      const suffix = mode === 'bleed' ? '96x56mm-sangria3mm' : mode === 'crop' ? '102x62mm-marcas' : '90x50mm';
+      pdf.save(`cartao-oliveira-navarro-${getNameSlug()}-${suffix}.pdf`);
+      showToast('PDF pronto para gráfica exportado!');
+    }
+
+    async function downloadSingle(id, filename) {
+      showToast('Gerando PNG em 600 DPI...');
+      const canvas = await captureCleanCard(id, 5);
+      const link = document.createElement('a');
+      link.download = `${filename}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+      showToast('Download concluído.');
+    }
+
+    async function downloadPairSheet() {
+      showToast('Montando prancha Frente + Verso...');
+      const [frontCanvas, backCanvas] = await Promise.all([
+        captureCleanCard('card-front', 3),
+        captureCleanCard('card-back', 3)
+      ]);
+
+      const sheet = document.createElement('canvas');
+      const pad = 100;
+      const gap = 60;
+      sheet.width = frontCanvas.width + backCanvas.width + pad * 2 + gap;
+      sheet.height = frontCanvas.height + pad * 2 + 110;
+
+      const ctx = sheet.getContext('2d');
+      ctx.fillStyle = '#110F0E';
+      ctx.fillRect(0, 0, sheet.width, sheet.height);
+
+      ctx.fillStyle = '#FFFFFF';
+      ctx.font = '700 30px Cairo, sans-serif';
+      ctx.fillText('OLIVEIRA NAVARRO ADVOCACIA — CARTÃO DE VISITA (90 × 50 mm)', pad, 62);
+
+      const y = pad + 35;
+      ctx.drawImage(frontCanvas, pad, y);
+      ctx.drawImage(backCanvas, pad + frontCanvas.width + gap, y);
+
+      ctx.fillStyle = '#9D9389';
+      ctx.font = '600 17px JetBrains Mono, monospace';
+      ctx.fillText('FRENTE · O ESCRITÓRIO', pad, y + frontCanvas.height + 34);
+      ctx.fillText('VERSO · O PROFISSIONAL', pad + frontCanvas.width + gap, y + backCanvas.height + 34);
+
+      const link = document.createElement('a');
+      link.download = `cartao-oliveira-navarro-${getNameSlug()}.png`;
+      link.href = sheet.toDataURL('image/png');
+      link.click();
+      showToast('Prancha exportada!');
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('studio-toast');
+      t.innerHTML = msg;
+      t.classList.add('active');
+      clearTimeout(showToast._timer);
+      showToast._timer = setTimeout(() => t.classList.remove('active'), 3200);
+    }
+
+    /* ==========================================================================
+       NAVEGAÇÃO SIDEBAR (CARTÃO DE VISITA <-> ASSINATURA DE E-MAIL)
+       ========================================================================== */
+    function switchAppView(view) {
+      const isSig = view === 'assinatura';
+      document.getElementById('view-cartao').classList.toggle('active', !isSig);
+      document.getElementById('view-assinatura').classList.toggle('active', isSig);
+      document.getElementById('nav-btn-cartao').classList.toggle('active', !isSig);
+      document.getElementById('nav-btn-assinatura').classList.toggle('active', isSig);
+
+      document.getElementById('header-actions-cartao').style.display = isSig ? 'none' : 'flex';
+      document.getElementById('header-actions-assinatura').style.display = isSig ? 'flex' : 'none';
+
+      const titleEl = document.getElementById('header-view-title');
+      const subEl = document.getElementById('header-view-sub');
+      if (isSig) {
+        titleEl.innerHTML = 'Assinatura de E-mail <span class="badge-capsule">Padrão Institucional</span>';
+        subEl.innerHTML = 'OLIVEIRA NAVARRO ADVOCACIA &bull; GMAIL &bull; OUTLOOK';
+      } else {
+        titleEl.innerHTML = 'Cartão de Visita <span class="badge-capsule">Frente &amp; Verso</span>';
+        subEl.innerHTML = 'OLIVEIRA NAVARRO ADVOCACIA &bull; 90 &times; 50 mm';
+      }
+
+      if (location.hash !== '#' + view) {
+        history.replaceState(null, '', '#' + view);
+      }
+    }
+
+    /* ==========================================================================
+       GERADOR DE ASSINATURA DE E-MAIL
+       ========================================================================== */
+    let EMBEDDED_LOGO_B64 = 'assets/logo-highres.png';
+
+    async function loadEmbeddedLogoBase64() {
+      try {
+        const res = await fetch('assets/logo-highres.png');
+        if (!res.ok) return;
+        const blob = await res.blob();
+        const dataUrl = await new Promise((resolve) => {
+          const reader = new FileReader();
+          reader.onloadend = () => resolve(reader.result);
+          reader.readAsDataURL(blob);
+        });
+        if (typeof dataUrl === 'string' && dataUrl.startsWith('data:image/')) {
+          EMBEDDED_LOGO_B64 = dataUrl;
+          const dlLink = document.getElementById('sig-btn-download-png');
+          if (dlLink) dlLink.href = dataUrl;
+          updateSignature();
+        }
+      } catch (e) {
+        console.warn('Logo base64 fallback:', e);
+      }
+    }
+
+    function setSigPreviewBg(themeClass, btn) {
+      const bodyContainer = document.getElementById('sig-email-body-container');
+      bodyContainer.className = 'sig-email-body ' + themeClass;
+      document.querySelectorAll('.sig-bg-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function switchSigGuideTab(tabId, btn) {
+      document.querySelectorAll('.sig-guide-tab').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.sig-guide-content').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      const target = document.getElementById('sig-guide-' + tabId);
+      if (target) target.classList.add('active');
+    }
+
+    function resetSigDefaults() {
+      document.getElementById('sig-input-name').value = 'Tattiana de Navarro';
+      document.getElementById('sig-input-role').value = 'Advogada';
+      document.getElementById('sig-input-phone').value = '(61) 3020-7960';
+      document.getElementById('sig-input-mobile').value = '';
+      document.getElementById('sig-input-email').value = 'tattiana.navarro@oliveiranavarro.com';
+      document.getElementById('sig-input-website').value = 'www.oliveiranavarro.com';
+      document.getElementById('sig-input-location').value = 'Brasília – DF';
+      updateSignature();
+      showToast('Campos da assinatura restaurados.');
+    }
+
+    function importCardToSignature() {
+      const name = document.getElementById('input-name').value.trim();
+      const role = document.getElementById('input-role').value.trim();
+      const email = document.getElementById('input-email').value.trim();
+      const website = document.getElementById('input-website').value.trim();
+      const city = document.getElementById('input-city').value.trim();
+      const phone = document.getElementById('input-phone').value.trim();
+
+      if (name) document.getElementById('sig-input-name').value = name;
+      if (role) {
+        const prettyRole = role === role.toUpperCase()
+          ? role.charAt(0).toUpperCase() + role.slice(1).toLowerCase()
+          : role;
+        document.getElementById('sig-input-role').value = prettyRole;
+      }
+      document.getElementById('sig-input-email').value = email;
+      if (website) {
+        document.getElementById('sig-input-website').value = website.startsWith('www.') ? website : 'www.' + website.replace(/^https?:\/\//i, '');
+      }
+      if (city) {
+        document.getElementById('sig-input-location').value = city.replace(/\s*·\s*/g, ' – ');
+      }
+      if (phone) {
+        document.getElementById('sig-input-mobile').value = phone;
+      }
+      updateSignature();
+      showToast('Dados do cartão importados para a assinatura!');
+    }
+
+    function generateSignatureHtml() {
+      const name = document.getElementById('sig-input-name').value.trim() || 'Nome Completo';
+      const role = document.getElementById('sig-input-role').value.trim();
+      const phone = document.getElementById('sig-input-phone').value.trim();
+      const mobile = document.getElementById('sig-input-mobile').value.trim();
+      const email = document.getElementById('sig-input-email').value.trim();
+      let website = document.getElementById('sig-input-website').value.trim() || 'www.oliveiranavarro.com';
+      const locationStr = document.getElementById('sig-input-location').value.trim();
+      const logoWidth = 260;
+      const logoSrc = EMBEDDED_LOGO_B64;
+
+      let webUrl = website;
+      if (!/^https?:\/\//i.test(webUrl)) {
+        webUrl = 'https://' + webUrl;
+      }
+
+      let line1Content = `<span data-sig-type="name" style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: 700; color: #262626; text-decoration: none; letter-spacing: -0.2px;">${name}</span>`;
+      if (role) {
+        line1Content += ` <span data-sig-type="divider" style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #94a3b8; padding: 0 6px; user-select: none;">&middot;</span> <span data-sig-type="role" style="font-family: Arial, Helvetica, sans-serif; font-size: 13.5px; font-style: italic; font-weight: 400; color: #6b7280;">${role}</span>`;
+      }
+
+      const contactItems = [];
+      if (phone) {
+        contactItems.push(`<span data-sig-type="text" style="font-family: Arial, Helvetica, sans-serif; color: #6b7280; text-decoration: none;">${phone}</span>`);
+      }
+      if (mobile) {
+        contactItems.push(`<span data-sig-type="text" style="font-family: Arial, Helvetica, sans-serif; color: #6b7280; text-decoration: none;">${mobile}</span>`);
+      }
+      if (email) {
+        contactItems.push(`<a data-sig-type="email" href="mailto:${email}" style="font-family: Arial, Helvetica, sans-serif; color: #6b7280; text-decoration: none;">${email}</a>`);
+      }
+      if (website) {
+        contactItems.push(`<a data-sig-type="website" href="${webUrl}" target="_blank" style="font-family: Arial, Helvetica, sans-serif; color: #dd4f1d; text-decoration: none; font-weight: 400;">${website}</a>`);
+      }
+      if (locationStr) {
+        contactItems.push(`<span data-sig-type="text" style="font-family: Arial, Helvetica, sans-serif; color: #6b7280;">${locationStr}</span>`);
+      }
+
+      const pipeSpan = ` <span data-sig-type="divider" style="font-family: Arial, Helvetica, sans-serif; color: #d1d5db; padding: 0 6px; user-select: none; font-weight: 300;">|</span> `;
+      const line2Content = contactItems.join(pipeSpan);
+
+      return `<table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 1.4; color: #6b7280; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: transparent;">
+  <tbody>
+    <tr>
+      <td style="padding: 0 0 12px 0; line-height: 1;">
+        <a href="${webUrl}" target="_blank" style="text-decoration: none; display: inline-block;">
+          <img src="${logoSrc}" alt="Oliveira Navarro" width="${logoWidth}" style="display: block; width: ${logoWidth}px; max-width: ${logoWidth}px; height: auto; border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic;" />
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding: 0 0 12px 0; line-height: 1;">
+        <table cellpadding="0" cellspacing="0" border="0" style="width: 100%; max-width: 480px; min-width: 340px; border-top: 1px solid #e2e8f0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+          <tr><td style="font-size: 1px; line-height: 1px; height: 1px; mso-line-height-rule: exactly;">&nbsp;</td></tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding: 0 0 6px 0; font-family: Arial, Helvetica, sans-serif; line-height: 1.3;">
+        ${line1Content}
+      </td>
+    </tr>
+    <tr>
+      <td style="padding: 0; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 1.4; color: #6b7280;">
+        ${line2Content}
+      </td>
+    </tr>
+  </tbody>
+</table>`;
+    }
+
+    function generatePlainTextSignature() {
+      const name = document.getElementById('sig-input-name').value.trim() || 'Nome Completo';
+      const role = document.getElementById('sig-input-role').value.trim();
+      const phone = document.getElementById('sig-input-phone').value.trim();
+      const mobile = document.getElementById('sig-input-mobile').value.trim();
+      const email = document.getElementById('sig-input-email').value.trim();
+      const website = document.getElementById('sig-input-website').value.trim() || 'www.oliveiranavarro.com';
+      const locationStr = document.getElementById('sig-input-location').value.trim();
+
+      let text = 'OLIVEIRA NAVARRO\n--------------------------------------------------\n';
+      text += name + (role ? ' · ' + role : '') + '\n';
+      const parts = [];
+      if (phone) parts.push(phone);
+      if (mobile) parts.push(mobile);
+      if (email) parts.push(email);
+      if (website) parts.push(website);
+      if (locationStr) parts.push(locationStr);
+      text += parts.join(' | ') + '\n';
+      return text;
+    }
+
+    function updateSignature() {
+      const target = document.getElementById('sig-capture-target');
+      if (target) target.innerHTML = generateSignatureHtml();
+    }
+
+    async function copyFormattedSignature() {
+      const btn = document.getElementById('sig-btn-copy-formatted');
+      const origHtml = btn ? btn.innerHTML : '';
+      if (btn) {
+        btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Assinatura Copiada!</span>`;
+        btn.style.background = '#16a34a';
+      }
+
+      const signatureHtml = generateSignatureHtml();
+      const plainText = generatePlainTextSignature();
+      const targetEl = document.getElementById('sig-capture-target');
+      let copied = false;
+
+      if (navigator.clipboard && window.ClipboardItem) {
+        try {
+          const blobHtml = new Blob([signatureHtml], { type: 'text/html' });
+          const blobText = new Blob([plainText], { type: 'text/plain' });
+          await navigator.clipboard.write([new ClipboardItem({ 'text/html': blobHtml, 'text/plain': blobText })]);
+          copied = true;
+        } catch (err) {
+          console.warn('ClipboardItem fallback:', err);
+        }
+      }
+
+      if (!copied && targetEl) {
+        try {
+          const selection = window.getSelection();
+          const range = document.createRange();
+          range.selectNodeContents(targetEl);
+          selection.removeAllRanges();
+          selection.addRange(range);
+          document.execCommand('copy');
+          selection.removeAllRanges();
+        } catch (err) {
+          console.error('Copy error:', err);
+        }
+      }
+
+      showToast('Assinatura copiada! Cole no Gmail ou Outlook (Ctrl + V).');
+      if (btn) {
+        setTimeout(() => {
+          btn.innerHTML = origHtml;
+          btn.style.background = '';
+        }, 2500);
+      }
+    }
+
+    function openSigCodeModal() {
+      document.getElementById('sig-modal-code-display').textContent = generateSignatureHtml();
+      document.getElementById('sig-code-modal').classList.add('open');
+    }
+
+    function closeSigCodeModal() {
+      document.getElementById('sig-code-modal').classList.remove('open');
+    }
+
+    function closeSigModalOnBackdrop(e) {
+      if (e.target.id === 'sig-code-modal') closeSigCodeModal();
+    }
+
+    function copyRawHtmlFromModal() {
+      const code = document.getElementById('sig-modal-code-display').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        showToast('Código HTML copiado!');
+        closeSigCodeModal();
+      });
+    }
+
+    function downloadSignatureHtml() {
+      const html = `<!DOCTYPE html>\n<html>\n<head>\n  <meta charset="utf-8">\n  <title>Assinatura - Oliveira Navarro</title>\n</head>\n<body style="margin: 0; padding: 20px; font-family: Arial, sans-serif;">\n${generateSignatureHtml()}\n</body>\n</html>`;
+      const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'assinatura-oliveira-navarro.html';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('Arquivo assinatura-oliveira-navarro.html baixado!');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      updateCard();
+      updateSignature();
+      loadEmbeddedLogoBase64();
+      if (location.hash === '#cartao') {
+        switchAppView('cartao');
+      }
+    });
+
+    window.addEventListener('hashchange', () => {
+      if (location.hash === '#assinatura') switchAppView('assinatura');
+      else if (location.hash === '#cartao') switchAppView('cartao');
+    });
+  </script>
+</body>
+</html>
