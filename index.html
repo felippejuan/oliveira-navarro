@@ -364,9 +364,9 @@
 
     .ribbon-fade {
 
-      mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 2.5%, black 97.5%, transparent 100%);
 
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 2.5%, black 97.5%, transparent 100%);
 
     }
 
@@ -390,9 +390,9 @@
 
       background: rgba(255, 255, 255, 0.96);
 
-      border-color: rgba(200, 109, 81, 0.32);
+      border-color: rgba(200, 109, 81, 0.28);
 
-      border-left-color: #C86D51;
+      border-left-color: rgba(200, 109, 81, 0.78);
 
     }
 
@@ -403,6 +403,8 @@
       background: rgba(255, 255, 255, 0.96);
 
       border: 1px solid rgba(26, 24, 22, 0.09);
+
+      border-left: 2px solid rgba(200, 109, 81, 0.38);
 
       box-shadow: 0 10px 28px -12px rgba(26, 24, 22, 0.11);
 
@@ -416,7 +418,9 @@
 
       background: #FFFFFF;
 
-      border-color: rgba(200, 109, 81, 0.35);
+      border-color: rgba(200, 109, 81, 0.32);
+
+      border-left-color: rgba(200, 109, 81, 0.78);
 
       transform: translateY(-2px);
 
@@ -430,7 +434,9 @@
 
         background: #FFFFFF;
 
-        border-color: rgba(200, 109, 81, 0.45);
+        border-color: rgba(200, 109, 81, 0.40);
+
+        border-left-color: rgba(200, 109, 81, 0.78);
 
         box-shadow: 0 12px 26px -12px rgba(200, 109, 81, 0.22);
 
@@ -474,15 +480,15 @@
 
     .practice-item {
 
-      background: rgba(255, 255, 255, 0.94);
+      background: rgba(255, 255, 255, 0.95);
 
       backdrop-filter: blur(12px);
 
       -webkit-backdrop-filter: blur(12px);
 
-      border: 1px solid rgba(26, 24, 22, 0.11);
+      border: 1px solid rgba(26, 24, 22, 0.10);
 
-      border-left: 3px solid rgba(200, 109, 81, 0.65);
+      border-left: 2px solid rgba(200, 109, 81, 0.38);
 
       transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 
@@ -496,9 +502,9 @@
 
       background: #FFFFFF;
 
-      border-color: rgba(200, 109, 81, 0.35);
+      border-color: rgba(200, 109, 81, 0.32);
 
-      border-left-color: #C86D51;
+      border-left-color: rgba(200, 109, 81, 0.78);
 
       transform: translateY(-2px);
 
@@ -2694,7 +2700,7 @@
 
         <!-- TOPO CENTRAL: Cabeçalho Editorial (Título à esquerda + Botão Entre em Contato à direita) e Cards dos 3 Núcleos -->
 
-        <div class="max-w-6xl w-full mx-auto px-4 sm:px-6 flex flex-col items-center my-auto pt-1 pb-1">
+        <div class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center my-auto pt-1 pb-1">
 
             
 
@@ -2918,15 +2924,15 @@
 
 
 
-        <!-- PARTE INFERIOR: As 3 Fileiras de Atuação Espelhadas aos 3 Núcleos -->
+        <!-- PARTE INFERIOR: As 3 Fileiras de Atuação Alinhadas ao Container Editorial -->
 
-        <div class="w-full space-y-2 sm:space-y-2.5 pb-1">
+        <div class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 space-y-2 sm:space-y-2.5 pb-1">
 
             
 
             <!-- Fileira 1: Direito Tributário (Circula para a direita ➔) -->
 
-            <div class="ribbon-row ribbon-fade py-0.5" data-band="0" onmouseenter="highlightContactBand(0)" onmouseleave="highlightContactBand(-1)">
+            <div class="ribbon-row ribbon-fade py-0.5 overflow-hidden" data-band="0" onmouseenter="highlightContactBand(0)" onmouseleave="highlightContactBand(-1)">
 
                 <div class="track-right-1 items-center">
 
@@ -2940,7 +2946,7 @@
 
             <!-- Fileira 2: Direito Administrativo (Circula para a esquerda ⬅) -->
 
-            <div class="ribbon-row ribbon-fade py-0.5" data-band="1" onmouseenter="highlightContactBand(1)" onmouseleave="highlightContactBand(-1)">
+            <div class="ribbon-row ribbon-fade py-0.5 overflow-hidden" data-band="1" onmouseenter="highlightContactBand(1)" onmouseleave="highlightContactBand(-1)">
 
                 <div class="track-left-2 items-center">
 
@@ -2954,7 +2960,7 @@
 
             <!-- Fileira 3: Relações Governamentais (Circula para a direita ➔) -->
 
-            <div class="ribbon-row ribbon-fade py-0.5" data-band="2" onmouseenter="highlightContactBand(2)" onmouseleave="highlightContactBand(-1)">
+            <div class="ribbon-row ribbon-fade py-0.5 overflow-hidden" data-band="2" onmouseenter="highlightContactBand(2)" onmouseleave="highlightContactBand(-1)">
 
                 <div class="track-right-3 items-center">
 
@@ -7384,31 +7390,19 @@
 
             return `
 
-            <div class="practice-item rounded-xl px-5 sm:px-6 py-2.5 sm:py-3 min-w-[300px] sm:min-w-[365px] cursor-pointer"
+            <div class="practice-item rounded-xl px-5 sm:px-6 py-3 sm:py-3.5 min-w-[290px] sm:min-w-[355px] cursor-pointer"
 
                  onmouseenter="highlightContactBand(${row.waveIdx})"
 
                  onclick="openContactModal('${safeTitle}')">
 
-              <div class="flex items-center justify-between gap-2 mb-1">
-
-                <span class="text-[10px] sm:text-[10.5px] uppercase tracking-[0.18em] font-semibold text-luxury-clay">
-
-                  ${item.tag}
-
-                </span>
-
-                <span class="w-1.5 h-1.5 rounded-full bg-luxury-clay/55"></span>
-
-              </div>
-
-              <h3 class="text-[15px] sm:text-[16.5px] font-semibold text-luxury-charcoal tracking-tight">
+              <h3 class="text-[15px] sm:text-[16.5px] font-semibold text-luxury-charcoal tracking-tight leading-snug">
 
                 ${item.title}
 
               </h3>
 
-              <p class="text-[11.5px] sm:text-[12.5px] text-luxury-muted mt-0.5 leading-snug">
+              <p class="text-[11.5px] sm:text-[12.5px] text-luxury-muted mt-1 leading-snug">
 
                 ${item.desc}
 
