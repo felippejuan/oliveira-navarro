@@ -372,6 +372,88 @@
 
 
 
+    /* Fileiras e pilares interativos da seção Contato */
+
+    .ribbon-row {
+
+      transition: opacity 0.35s ease, transform 0.35s ease;
+
+    }
+
+    .ribbon-row.is-dimmed {
+
+      opacity: 0.28;
+
+    }
+
+    .ribbon-row.is-highlighted .practice-item {
+
+      background: rgba(255, 255, 255, 0.96);
+
+      border-color: rgba(200, 109, 81, 0.32);
+
+      border-left-color: #C86D51;
+
+    }
+
+    .contato-pillar {
+
+      position: relative;
+
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+
+    }
+
+    .contato-pillar:hover,
+
+    .contato-pillar.is-active {
+
+      background: rgba(255, 255, 255, 0.62);
+
+    }
+
+    @media (max-width: 767px) {
+
+      .contato-pillar.is-mobile-selected {
+
+        background: rgba(255, 255, 255, 0.85);
+
+      }
+
+      .contato-pillar.is-mobile-selected .pillar-bar {
+
+        width: 100%;
+
+        background-color: #C86D51;
+
+      }
+
+      .contato-pillar.is-mobile-selected h3 {
+
+        color: #C86D51;
+
+      }
+
+    }
+
+    .contato-pillar .pillar-bar {
+
+      transition: width 0.45s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+
+    }
+
+    .contato-pillar:hover .pillar-bar,
+
+    .contato-pillar.is-active .pillar-bar {
+
+      width: 100%;
+
+      background-color: #C86D51;
+
+    }
+
+
+
     /* Cartões das fileiras estilo Private Banking / Terminal Institucional */
 
     .practice-item {
@@ -2566,7 +2648,7 @@
 
   <!-- 8. MÓDULO DE CONTATO & ESFERA DE SOLUÇÕES (NO RITMO DOS NEGÓCIOS - CONNECTED PRIVATE BANKING) -->
 
-  <section id="contato" class="relative z-20 overflow-hidden border-t border-b border-luxury-stone/80 scroll-mt-20 pt-4 sm:pt-6 pb-6 sm:pb-8 selection:bg-luxury-clay selection:text-white" style="background: radial-gradient(ellipse 90% 65% at 50% 28%, #FFFFFF 0%, #F5F2EB 60%, #EAE4D8 100%); color: #1A1816;" data-line-theme="light">
+  <section id="contato" class="relative z-20 overflow-hidden border-t border-b border-luxury-stone/80 scroll-mt-28 pt-7 sm:pt-9 pb-6 sm:pb-8 selection:bg-luxury-clay selection:text-white" style="background: radial-gradient(ellipse 90% 65% at 50% 28%, #FFFFFF 0%, #F5F2EB 60%, #EAE4D8 100%); color: #1A1816;" data-line-theme="light">
 
     <!-- Textura sutil -->
 
@@ -2590,13 +2672,13 @@
 
     <!-- CONTEÚDO PRINCIPAL (Grid vertical estrito sem sobreposição) -->
 
-    <div class="relative z-10 w-full flex flex-col justify-between py-1 sm:py-2 gap-4 sm:gap-6">
+    <div class="relative z-10 w-full flex flex-col justify-between py-2 sm:py-3 gap-6 sm:gap-7">
 
 
 
-        <!-- TOPO CENTRAL: Marca, Headline, Subtítulo e Botão "Entre em Contato" -->
+        <!-- TOPO CENTRAL: Marca, Headline, Índice Visual de 3 Núcleos e Botão "Entre em Contato" -->
 
-        <div class="max-w-3xl mx-auto px-6 text-center flex flex-col items-center my-auto pt-1 pb-1">
+        <div class="max-w-5xl w-full mx-auto px-4 sm:px-6 text-center flex flex-col items-center my-auto pt-1 pb-1">
 
             
 
@@ -2626,19 +2708,163 @@
 
 
 
-            <!-- Subtítulo Institucional -->
+            <!-- Índice Horizontal de 3 Pilares Conectado às Fileiras & Malha 3D -->
 
-            <p class="mt-2.5 sm:mt-3 text-xs sm:text-[14px] md:text-[15px] text-luxury-muted max-w-xl font-normal leading-relaxed">
+            <div class="mt-4 sm:mt-7 w-full border-y border-luxury-charcoal/12">
 
-                Direito Administrativo, Compras Governamentais e Gestão Tributária articulados estrategicamente em tempo real com a agilidade que a alta governança corporativa exige.
+                <div class="grid grid-cols-3 divide-x divide-luxury-charcoal/10">
 
-            </p>
+                    
+
+                    <!-- Pilar 01: Direito Tributário -> Fileira 1 -->
+
+                    <button type="button"
+
+                            data-pillar-idx="0"
+
+                            onmouseenter="highlightContactBand(0)"
+
+                            onmouseleave="highlightContactBand(-1)"
+
+                            onfocus="highlightContactBand(0)"
+
+                            onblur="highlightContactBand(-1)"
+
+                            onclick="handleContactPillarClick(0)"
+
+                            class="contato-pillar is-mobile-selected group text-left px-2.5 py-2.5 sm:px-6 sm:py-5 flex flex-col justify-between cursor-pointer min-w-0">
+
+                        <div class="w-full">
+
+                            <span class="block text-[9.5px] sm:text-[10px] font-mono uppercase tracking-[0.18em] sm:tracking-[0.22em] text-luxury-clay font-medium mb-1 sm:mb-2">01<span class="hidden md:inline"> · Núcleo</span></span>
+
+                            <div class="h-[1.5px] w-5 sm:w-7 bg-luxury-clay/35 pillar-bar mb-1.5 sm:mb-2.5"></div>
+
+                            <h3 class="text-[13px] sm:text-xl md:text-[22px] font-serif font-medium text-luxury-charcoal group-hover:text-luxury-clay transition-colors leading-[1.15]">
+
+                                Direito Tributário
+
+                            </h3>
+
+                            <p class="hidden md:block mt-1.5 text-xs text-luxury-muted font-normal leading-relaxed">
+
+                                CARF, Tribunais Superiores, Precatórios &amp; Créditos Federais
+
+                            </p>
+
+                        </div>
+
+                    </button>
+
+
+
+                    <!-- Pilar 02: Direito Administrativo -> Fileira 2 -->
+
+                    <button type="button"
+
+                            data-pillar-idx="1"
+
+                            onmouseenter="highlightContactBand(1)"
+
+                            onmouseleave="highlightContactBand(-1)"
+
+                            onfocus="highlightContactBand(1)"
+
+                            onblur="highlightContactBand(-1)"
+
+                            onclick="handleContactPillarClick(1)"
+
+                            class="contato-pillar group text-left px-2.5 py-2.5 sm:px-6 sm:py-5 flex flex-col justify-between cursor-pointer min-w-0">
+
+                        <div class="w-full">
+
+                            <span class="block text-[9.5px] sm:text-[10px] font-mono uppercase tracking-[0.18em] sm:tracking-[0.22em] text-luxury-clay font-medium mb-1 sm:mb-2">02<span class="hidden md:inline"> · Núcleo</span></span>
+
+                            <div class="h-[1.5px] w-5 sm:w-7 bg-luxury-clay/35 pillar-bar mb-1.5 sm:mb-2.5"></div>
+
+                            <h3 class="text-[13px] sm:text-xl md:text-[22px] font-serif font-medium text-luxury-charcoal group-hover:text-luxury-clay transition-colors leading-[1.15]">
+
+                                Direito Administrativo
+
+                            </h3>
+
+                            <p class="hidden md:block mt-1.5 text-xs text-luxury-muted font-normal leading-relaxed">
+
+                                Licitações (Lei 14.133), Contratos Públicos, TCU &amp; Sanções
+
+                            </p>
+
+                        </div>
+
+                    </button>
+
+
+
+                    <!-- Pilar 03: Relações Governamentais -> Fileira 3 -->
+
+                    <button type="button"
+
+                            data-pillar-idx="2"
+
+                            onmouseenter="highlightContactBand(2)"
+
+                            onmouseleave="highlightContactBand(-1)"
+
+                            onfocus="highlightContactBand(2)"
+
+                            onblur="highlightContactBand(-1)"
+
+                            onclick="handleContactPillarClick(2)"
+
+                            class="contato-pillar group text-left px-2.5 py-2.5 sm:px-6 sm:py-5 flex flex-col justify-between cursor-pointer min-w-0">
+
+                        <div class="w-full">
+
+                            <span class="block text-[9.5px] sm:text-[10px] font-mono uppercase tracking-[0.18em] sm:tracking-[0.22em] text-luxury-clay font-medium mb-1 sm:mb-2">03<span class="hidden md:inline"> · Núcleo</span></span>
+
+                            <div class="h-[1.5px] w-5 sm:w-7 bg-luxury-clay/35 pillar-bar mb-1.5 sm:mb-2.5"></div>
+
+                            <h3 class="text-[13px] sm:text-xl md:text-[22px] font-serif font-medium text-luxury-charcoal group-hover:text-luxury-clay transition-colors leading-[1.15]">
+
+                                Relações Governamentais
+
+                            </h3>
+
+                            <p class="hidden md:block mt-1.5 text-xs text-luxury-muted font-normal leading-relaxed">
+
+                                Articulação Institucional, Pautas Legislativas &amp; Regulação
+
+                            </p>
+
+                        </div>
+
+                    </button>
+
+
+
+                </div>
+
+
+
+                <!-- Linha Discreta de Escopo no Mobile (< md) -->
+
+                <div class="md:hidden border-t border-luxury-charcoal/10 px-2 py-2 text-center">
+
+                    <p id="mobile-pillar-scope" class="text-[11px] text-luxury-muted leading-snug">
+
+                        CARF, Tribunais Superiores, Precatórios &amp; Créditos
+
+                    </p>
+
+                </div>
+
+            </div>
 
 
 
             <!-- Botão "Entre em Contato" Redesenho Quiet Luxury / Private Banking -->
 
-            <div class="mt-4 sm:mt-5">
+            <div class="mt-4 sm:mt-6">
 
                 <button onclick="openContactModal()" class="group relative inline-flex items-center gap-4 px-8 py-3.5 rounded-full bg-luxury-charcoal text-luxury-paper hover:bg-luxury-clay transition-all duration-300 shadow-lg shadow-luxury-charcoal/10 cursor-pointer">
 
@@ -2668,15 +2894,15 @@
 
 
 
-        <!-- PARTE INFERIOR: As 3 Fileiras de Atuação em Movimento Contínuo -->
+        <!-- PARTE INFERIOR: As 3 Fileiras de Atuação Espelhadas aos 3 Núcleos -->
 
         <div class="w-full space-y-2 sm:space-y-2.5 pb-1">
 
             
 
-            <!-- Fileira 1: Contratações Públicas & Gestão Administrativa (Circula para a direita ➔) -->
+            <!-- Fileira 1: Direito Tributário (Circula para a direita ➔) -->
 
-            <div class="ribbon-row ribbon-fade py-0.5" onmouseenter="setActiveWave(0)" onmouseleave="setActiveWave(-1)">
+            <div class="ribbon-row ribbon-fade py-0.5" data-band="0" onmouseenter="highlightContactBand(0)" onmouseleave="highlightContactBand(-1)">
 
                 <div class="track-right-1 items-center">
 
@@ -2688,9 +2914,9 @@
 
 
 
-            <!-- Fileira 2: Controle Externo, Sanções & Relações B2B (Circula para a esquerda ⬅) -->
+            <!-- Fileira 2: Direito Administrativo (Circula para a esquerda ⬅) -->
 
-            <div class="ribbon-row ribbon-fade py-0.5" onmouseenter="setActiveWave(1)" onmouseleave="setActiveWave(-1)">
+            <div class="ribbon-row ribbon-fade py-0.5" data-band="1" onmouseenter="highlightContactBand(1)" onmouseleave="highlightContactBand(-1)">
 
                 <div class="track-left-2 items-center">
 
@@ -2702,9 +2928,9 @@
 
 
 
-            <!-- Fileira 3: Direito Tributário & Cortes Superiores em Brasília (Circula para a direita ➔) -->
+            <!-- Fileira 3: Relações Governamentais (Circula para a direita ➔) -->
 
-            <div class="ribbon-row ribbon-fade py-0.5" onmouseenter="setActiveWave(2)" onmouseleave="setActiveWave(-1)">
+            <div class="ribbon-row ribbon-fade py-0.5" data-band="2" onmouseenter="highlightContactBand(2)" onmouseleave="highlightContactBand(-1)">
 
                 <div class="track-right-3 items-center">
 
@@ -2766,9 +2992,9 @@
 
                   <h3 class="text-2xl sm:text-3xl font-serif text-luxury-charcoal leading-tight">Inicie uma interlocução direta.</h3>
 
-                  <p class="mt-2 text-xs sm:text-[13px] text-luxury-muted leading-relaxed font-light">
+                  <p id="contact-modal-desc" class="mt-2 text-xs sm:text-[13px] text-luxury-muted leading-relaxed font-light">
 
-                      Conexão imediata com nosso escritório para demandas estratégicas em Licitações, Contratos Administrativos, CARF e Tribunais Superiores.
+                      Conexão imediata com nosso escritório para demandas estratégicas em Direito Tributário, Direito Administrativo e Relações Governamentais.
 
                   </p>
 
@@ -2782,7 +3008,7 @@
 
                   <!-- Canal 1: WhatsApp Oficial com Número e Status -->
 
-                  <a href="https://wa.me/556137717679?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20conversa%20estrat%C3%A9gica%20com%20a%20Oliveira%20Navarro%20Advocacia." target="_blank" rel="noopener noreferrer" class="group block p-4 rounded-xl bg-luxury-charcoal text-luxury-paper hover:bg-luxury-clay transition-all duration-300 shadow-md">
+                  <a id="contact-modal-whatsapp" href="https://wa.me/556137717679?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20conversa%20estrat%C3%A9gica%20com%20a%20Oliveira%20Navarro%20Advocacia." target="_blank" rel="noopener noreferrer" class="group block p-4 rounded-xl bg-luxury-charcoal text-luxury-paper hover:bg-luxury-clay transition-all duration-300 shadow-md">
 
                       <div class="flex items-center justify-between gap-3">
 
@@ -2840,7 +3066,7 @@
 
                   <!-- Canal 2: E-mail Institucional Claro -->
 
-                  <a href="mailto:contato@oliveiranavarro.com?subject=Consulta%20Estrat%C3%A9gica%20%E2%80%94%20Oliveira%20Navarro%20Advocacia" class="group block p-4 rounded-xl border border-luxury-stone bg-white hover:border-luxury-clay hover:bg-white/95 transition-all duration-300 shadow-sm">
+                  <a id="contact-modal-email" href="mailto:contato@oliveiranavarro.com?subject=Consulta%20Estrat%C3%A9gica%20%E2%80%94%20Oliveira%20Navarro%20Advocacia" class="group block p-4 rounded-xl border border-luxury-stone bg-white hover:border-luxury-clay hover:bg-white/95 transition-all duration-300 shadow-sm">
 
                       <div class="flex items-center justify-between gap-3">
 
@@ -6940,7 +7166,7 @@
 
     (function() {
 
-      // DADOS EXATOS DAS 3 FILEIRAS
+      // DADOS EXATOS DAS 3 FILEIRAS (ESPELHADAS AOS 3 NÚCLEOS DO ÍNDICE)
 
       const rowsData = [
 
@@ -6954,41 +7180,51 @@
 
             {
 
-              tag: 'Direito Administrativo',
+              tag: 'Direito Tributário · CARF',
 
-              title: 'Licitações & Contratos Públicos',
+              title: 'Contencioso Tributário & CARF',
 
-              desc: 'Assessoria estratégica em editais e disputas públicas'
-
-            },
-
-            {
-
-              tag: 'Compras Governamentais',
-
-              title: 'Gestão de Compras Governamentais',
-
-              desc: 'Compliance, modelagem e fornecimento ao Estado'
+              desc: 'Defesas estratégicas no Conselho Administrativo e autuações fiscais'
 
             },
 
             {
 
-              tag: 'Contratos Administrativos',
+              tag: 'Direito Tributário · Cortes',
 
-              title: 'Assessoria Contínua em Contratos',
+              title: 'Mandados de Segurança no STJ & STF',
 
-              desc: 'Reequilíbrio econômico-financeiro, aditivos e repactuações'
+              desc: 'Teses constitucionais e medidas urgentes nos Tribunais Superiores'
 
             },
 
             {
 
-              tag: 'Impugnações & Recursos',
+              tag: 'Direito Tributário · Ativos',
 
-              title: 'Soluções em Processos de Compras',
+              title: 'Recuperação de Créditos Federais',
 
-              desc: 'Impugnações a editais, recursos e representações'
+              desc: 'Restituição, compensação tributária e monetização de haveres'
+
+            },
+
+            {
+
+              tag: 'Direito Tributário · Precatórios',
+
+              title: 'Due Diligence em Precatórios Federais',
+
+              desc: 'Auditoria de higidez jurídica, titularidade e liquidez de créditos'
+
+            },
+
+            {
+
+              tag: 'Direito Tributário · Reforma',
+
+              title: 'Transição IBS/CBS & Planejamento',
+
+              desc: 'Modelagem fiscal, societária e preservação de margens operacionais'
 
             }
 
@@ -7006,41 +7242,41 @@
 
             {
 
-              tag: 'Sanções & Defesa',
+              tag: 'Direito Administrativo · 14.133',
 
-              title: 'Defesa em Processo Sancionatório',
+              title: 'Licitações & Compras Governamentais',
 
-              desc: 'Defesas contra multas, suspensões, inidoneidade / PAR'
+              desc: 'Assessoria em editais, impugnações, recursos e disputas públicas'
 
             },
 
             {
 
-              tag: 'Controle Externo',
+              tag: 'Direito Administrativo · Gestão',
+
+              title: 'Contratos Públicos & Reequilíbrio',
+
+              desc: 'Aditivos, repactuações e assessoria jurídica na execução contratual'
+
+            },
+
+            {
+
+              tag: 'Direito Administrativo · Defesa',
+
+              title: 'Processo Sancionatório & PAR',
+
+              desc: 'Defesas contra multas, impedimentos e declaração de inidoneidade'
+
+            },
+
+            {
+
+              tag: 'Direito Administrativo · Controle',
 
               title: 'Representação no TCU & TCEs',
 
-              desc: 'Atuação direta no Tribunal de Contas da União e Cortes de Contas Estaduais'
-
-            },
-
-            {
-
-              tag: 'Relações B2B',
-
-              title: 'Desenvolvimento B2B & Consórcios',
-
-              desc: 'Estruturação jurídica de consórcios empresariais e parcerias'
-
-            },
-
-            {
-
-              tag: 'Créditos Federais',
-
-              title: 'Gestão & Recuperação de Créditos Federais',
-
-              desc: 'Restituição, compensação e monetização de haveres'
+              desc: 'Atuação direta junto às Cortes de Contas e órgãos de controle'
 
             }
 
@@ -7058,31 +7294,41 @@
 
             {
 
-              tag: 'Contencioso Tributário',
+              tag: 'Relações Governamentais · Legislativo',
 
-              title: 'Contencioso Tributário & CARF',
+              title: 'Monitoramento & Pautas no Congresso',
 
-              desc: 'Defesas no Conselho Administrativo de Recursos Fiscais e fiscalizações'
-
-            },
-
-            {
-
-              tag: 'Precatórios Federais',
-
-              title: 'Due Diligence em Precatórios Federais',
-
-              desc: 'Auditoria de higidez jurídica, titularidade e liquidez de precatórios'
+              desc: 'Acompanhamento técnico de projetos de lei, MPs e emendas'
 
             },
 
             {
 
-              tag: 'Cortes Superiores',
+              tag: 'Relações Governamentais · Executivo',
 
-              title: 'Mandados de Segurança em Cortes Superiores',
+              title: 'Interlocução Regulatória & Ministérios',
 
-              desc: 'Medidas urgentes no STJ e STF em Brasília'
+              desc: 'Notas técnicas, consultas públicas e segurança junto a agências'
+
+            },
+
+            {
+
+              tag: 'Relações Governamentais · Risco',
+
+              title: 'Prevenção de Litígios em Brasília',
+
+              desc: 'Inteligência institucional para antecipar impactos normativos'
+
+            },
+
+            {
+
+              tag: 'Relações Governamentais · B2B',
+
+              title: 'Parcerias Público-Privadas & Consórcios',
+
+              desc: 'Estruturação jurídica e institucional de projetos estruturantes'
 
             }
 
@@ -7108,13 +7354,17 @@
 
           const loopItems = [...row.items, ...row.items, ...row.items, ...row.items];
 
-          el.innerHTML = loopItems.map((item) => `
+          el.innerHTML = loopItems.map((item) => {
 
-            <div class="practice-item rounded-lg px-5 sm:px-6 py-2.5 sm:py-3 min-w-[300px] sm:min-w-[350px] cursor-pointer"
+            const safeTitle = item.title.replace(/'/g, "\\'");
 
-                 onmouseenter="setActiveWave(${row.waveIdx})"
+            return `
 
-                 onclick="openContactModal()">
+            <div class="practice-item rounded-lg px-5 sm:px-6 py-2.5 sm:py-3 min-w-[290px] sm:min-w-[345px] cursor-pointer"
+
+                 onmouseenter="highlightContactBand(${row.waveIdx})"
+
+                 onclick="openContactModal('${safeTitle}')">
 
               <div class="flex items-center justify-between gap-2 mb-1">
 
@@ -7142,7 +7392,9 @@
 
             </div>
 
-          `).join('');
+          `;
+
+          }).join('');
 
         });
 
@@ -7150,9 +7402,153 @@
 
 
 
-      window.openContactModal = function() {
+      const PILLAR_META = [
+
+        {
+
+          name: 'Direito Tributário',
+
+          scope: 'CARF, Tribunais Superiores, Precatórios & Créditos'
+
+        },
+
+        {
+
+          name: 'Direito Administrativo',
+
+          scope: 'Licitações (Lei 14.133), Contratos, TCU & Sanções'
+
+        },
+
+        {
+
+          name: 'Relações Governamentais',
+
+          scope: 'Articulação Institucional, Pautas & Regulação'
+
+        }
+
+      ];
+
+      window.handleContactPillarClick = function(idx) {
+
+        const meta = PILLAR_META[idx];
+
+        if (!meta) return;
+
+        if (window.innerWidth < 768) {
+
+          document.querySelectorAll('#contato .contato-pillar').forEach((p, i) => {
+
+            p.classList.toggle('is-mobile-selected', i === idx);
+
+          });
+
+          const scopeEl = document.getElementById('mobile-pillar-scope');
+
+          if (scopeEl) scopeEl.textContent = meta.scope;
+
+          window.highlightContactBand(idx);
+
+          return;
+
+        }
+
+        window.openContactModal(meta.name);
+
+      };
+
+
+
+      window.highlightContactBand = function(bandIndex) {
+
+        if (typeof window.setActiveWave === 'function') {
+
+          window.setActiveWave(bandIndex);
+
+        }
+
+        const pillars = document.querySelectorAll('#contato .contato-pillar');
+
+        const rows = document.querySelectorAll('#contato .ribbon-row[data-band]');
+
+        pillars.forEach((p, idx) => {
+
+          p.classList.toggle('is-active', idx === bandIndex);
+
+        });
+
+        rows.forEach((r) => {
+
+          const b = Number(r.getAttribute('data-band'));
+
+          if (bandIndex === -1) {
+
+            r.classList.remove('is-dimmed', 'is-highlighted');
+
+          } else {
+
+            r.classList.toggle('is-highlighted', b === bandIndex);
+
+            r.classList.toggle('is-dimmed', b !== bandIndex);
+
+          }
+
+        });
+
+      };
+
+
+
+      window.openContactModal = function(areaContext) {
 
         const m = document.getElementById('contact-modal');
+
+        const descEl = document.getElementById('contact-modal-desc');
+
+        const waEl = document.getElementById('contact-modal-whatsapp');
+
+        const mailEl = document.getElementById('contact-modal-email');
+
+
+
+        const defaultDesc = 'Conexão imediata com nosso escritório para demandas estratégicas em Direito Tributário, Direito Administrativo e Relações Governamentais.';
+
+        if (descEl) {
+
+          descEl.textContent = areaContext
+
+            ? `Atendimento direto para demandas estratégicas em ${areaContext}. Escolha o canal de sua preferência:`
+
+            : defaultDesc;
+
+        }
+
+        if (waEl) {
+
+          const msg = areaContext
+
+            ? `Olá, gostaria de conversar sobre ${areaContext} com a Oliveira Navarro Advocacia.`
+
+            : 'Olá, gostaria de agendar uma conversa estratégica com a Oliveira Navarro Advocacia.';
+
+          waEl.href = `https://wa.me/556137717679?text=${encodeURIComponent(msg)}`;
+
+        }
+
+        if (mailEl) {
+
+          const subj = areaContext
+
+            ? `Consulta Estratégica (${areaContext}) — Oliveira Navarro Advocacia`
+
+            : 'Consulta Estratégica — Oliveira Navarro Advocacia';
+
+          mailEl.href = `mailto:contato@oliveiranavarro.com?subject=${encodeURIComponent(subj)}`;
+
+        }
+
+
 
         if (m) {
 
