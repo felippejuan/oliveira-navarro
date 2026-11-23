@@ -296,75 +296,95 @@
 
 
 
-    /* Faixas expansíveis conectadas (#contato - Desktop & Mobile) */
+    /* Animação contínua das 3 fileiras (Direita -> Esquerda -> Direita) */
 
-    @keyframes contatoDrawerReveal {
+    @keyframes marqueeRight {
 
-      from {
+      0% { transform: translate3d(-50%, 0, 0); }
 
-        opacity: 0;
-
-        transform: translateY(-4px);
-
-      }
-
-      to {
-
-        opacity: 1;
-
-        transform: translateY(0);
-
-      }
+      100% { transform: translate3d(0%, 0, 0); }
 
     }
 
-    .contato-band {
+    @keyframes marqueeLeft {
 
-      transition: opacity 0.3s ease;
+      0% { transform: translate3d(0%, 0, 0); }
 
-    }
-
-    .contato-band.is-dimmed {
-
-      opacity: 0.72;
+      100% { transform: translate3d(-50%, 0, 0); }
 
     }
 
-    .contato-band.is-inactive-band {
+    .track-right-1 {
 
-      opacity: 0.54;
+      display: flex;
 
-    }
+      width: max-content;
 
-    .contato-band.is-inactive-band.is-highlighted {
-
-      opacity: 0.92;
+      animation: marqueeRight 58s linear infinite;
 
     }
 
-    .contato-band.is-highlighted .contato-pillar,
+    .track-left-2 {
 
-    .contato-band.is-open .contato-pillar,
+      display: flex;
 
-    .contato-pillar:hover {
+      width: max-content;
+
+      animation: marqueeLeft 52s linear infinite;
+
+    }
+
+    .track-right-3 {
+
+      display: flex;
+
+      width: max-content;
+
+      animation: marqueeRight 64s linear infinite;
+
+    }
+
+    .ribbon-row:hover .track-right-1,
+
+    .ribbon-row:hover .track-left-2,
+
+    .ribbon-row:hover .track-right-3 {
+
+      animation-play-state: paused;
+
+    }
+
+    /* Fade suave nas extremidades laterais */
+
+    .ribbon-fade {
+
+      mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
+
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
+
+    }
+
+    /* Fileiras e cards dos 3 pilares da seção Contato */
+
+    .ribbon-row {
+
+      transition: opacity 0.35s ease, transform 0.35s ease;
+
+    }
+
+    .ribbon-row.is-dimmed {
+
+      opacity: 0.36;
+
+    }
+
+    .ribbon-row.is-highlighted .practice-item {
 
       background: #FFFFFF;
 
-      border-color: rgba(200, 109, 81, 0.38);
+      border-color: rgba(200, 109, 81, 0.28);
 
-      border-left-color: rgba(200, 109, 81, 0.92);
-
-      box-shadow: 0 12px 28px -12px rgba(26, 24, 22, 0.12);
-
-    }
-
-    .contato-band.is-highlighted .practice-item {
-
-      background: #FFFFFF;
-
-      border-color: rgba(200, 109, 81, 0.26);
-
-      border-left-color: rgba(200, 109, 81, 0.78);
+      border-left-color: rgba(200, 109, 81, 0.82);
 
     }
 
@@ -372,7 +392,7 @@
 
       position: relative;
 
-      background: #FFFFFF;
+      background: rgba(255, 255, 255, 0.96);
 
       border: 1px solid rgba(26, 24, 22, 0.10);
 
@@ -380,21 +400,65 @@
 
       box-shadow: 0 6px 18px -10px rgba(26, 24, 22, 0.08);
 
-      transition: box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+      transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.32s ease, border-color 0.3s ease, background-color 0.3s ease;
+
+    }
+
+    .contato-pillar:hover,
+
+    .contato-pillar.is-active {
+
+      background: #FFFFFF;
+
+      border-color: rgba(200, 109, 81, 0.38);
+
+      border-left-color: rgba(200, 109, 81, 0.92);
+
+      transform: translateY(-2px);
+
+      box-shadow: 0 14px 30px -12px rgba(200, 109, 81, 0.16);
+
+    }
+
+    @media (max-width: 767px) {
+
+      .contato-pillar.is-mobile-selected {
+
+        background: #FFFFFF;
+
+        border-color: rgba(200, 109, 81, 0.40);
+
+        border-left-color: rgba(200, 109, 81, 0.88);
+
+        box-shadow: 0 12px 26px -12px rgba(200, 109, 81, 0.20);
+
+      }
+
+      .contato-pillar.is-mobile-selected .pillar-bar {
+
+        width: 100%;
+
+        background-color: #C86D51;
+
+      }
+
+      .contato-pillar.is-mobile-selected h3 {
+
+        color: #C86D51;
+
+      }
 
     }
 
     .contato-pillar .pillar-bar {
 
-      transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+      transition: width 0.42s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
 
     }
 
-    .contato-band.is-highlighted .contato-pillar .pillar-bar,
-
     .contato-pillar:hover .pillar-bar,
 
-    .contato-pillar[aria-expanded="true"] .pillar-bar {
+    .contato-pillar.is-active .pillar-bar {
 
       width: 100%;
 
@@ -402,47 +466,7 @@
 
     }
 
-    .contato-mobile-chevron {
-
-      transition: transform 0.28s ease, color 0.25s ease;
-
-    }
-
-    .contato-chevron-badge {
-
-      transition: background-color 0.28s ease, border-color 0.28s ease, color 0.28s ease;
-
-    }
-
-    .contato-pillar[aria-expanded="true"] .contato-mobile-chevron {
-
-      transform: rotate(180deg);
-
-      color: #C86D51;
-
-    }
-
-    .contato-pillar[aria-expanded="true"] .contato-chevron-badge {
-
-      background-color: #C86D51;
-
-      border-color: #C86D51;
-
-    }
-
-    .contato-pillar[aria-expanded="true"] .contato-chevron-badge .contato-mobile-chevron {
-
-      color: #FFFFFF;
-
-    }
-
-    .contato-drawer {
-
-      animation: contatoDrawerReveal 0.26s cubic-bezier(0.16, 1, 0.3, 1);
-
-    }
-
-    /* Cartões internos das subáreas (Private Banking) */
+    /* Cartões das fileiras (Private Banking) */
 
     .practice-item {
 
@@ -2666,73 +2690,23 @@
 
     <!-- CONTEÚDO PRINCIPAL (Grid vertical estrito sem sobreposição) -->
 
-    <div class="relative z-10 w-full flex flex-col justify-between py-1 sm:py-1.5 gap-3.5 sm:gap-4">
+    <div class="relative z-10 w-full flex flex-col justify-between py-2 sm:py-3 gap-5 sm:gap-6">
 
 
 
-        <!-- TOPO CENTRAL: Cabeçalho Editorial (Título à esquerda + Botão Entre em Contato à direita) e Cards dos 3 Núcleos -->
+        <!-- TOPO CENTRAL: Marca, Headline, Cards dos 3 Núcleos e Botão "Entre em Contato" -->
 
-        <div class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center my-auto pt-1 pb-1">
+        <div class="max-w-5xl w-full mx-auto px-4 sm:px-6 text-center flex flex-col items-center my-auto pt-1 pb-1">
 
             
 
-            <!-- Linha de Cabeçalho: Título + Botão "Entre em Contato" no espaço livre do topo -->
+            <!-- Microinteração do Hífen Animado (Status de Prontidão: ON) -->
 
-            <div class="w-full flex flex-col md:flex-row md:items-end justify-between gap-4 pb-4 sm:pb-5 border-b border-luxury-charcoal/10">
+            <div class="flex items-center justify-center mb-3 sm:mb-4">
 
-                <div class="text-center md:text-left">
+                <div id="contato-on-pill" class="on-pill-indicator group cursor-pointer" onclick="toggleContatoOnPill(true)" title="Status de Prontidão: ON">
 
-                    <!-- Microinteração do Hífen Animado (Status de Prontidão: ON) -->
-
-                    <div class="flex items-center justify-center md:justify-start gap-2.5 mb-2">
-
-                        <div id="contato-on-pill" class="on-pill-indicator group cursor-pointer" onclick="toggleContatoOnPill(true)" title="Status de Prontidão: ON">
-
-                            <span class="on-fill"></span><span class="on-text">ON</span>
-
-                        </div>
-
-                        <span class="text-[10px] font-mono uppercase tracking-[0.22em] text-luxury-clay font-medium">Atendimento Executivo</span>
-
-                    </div>
-
-
-
-                    <!-- Headline Editorial -->
-
-                    <h2 class="text-2xl sm:text-[28px] md:text-[34px] lg:text-[38px] font-serif font-normal tracking-tight text-luxury-charcoal leading-[1.08]">
-
-                        Advocacia <span class="font-serif font-normal text-luxury-clay">no ritmo dos negócios.</span>
-
-                    </h2>
-
-                </div>
-
-
-
-                <!-- Botão "Entre em Contato" em destaque limpo no topo -->
-
-                <div class="flex justify-center md:justify-end shrink-0">
-
-                    <button onclick="openContactModal()" class="group relative inline-flex items-center gap-3.5 px-7 sm:px-8 py-3 sm:py-3.5 rounded-full bg-luxury-charcoal text-luxury-paper hover:bg-luxury-clay transition-all duration-300 shadow-lg shadow-luxury-charcoal/15 hover:shadow-luxury-clay/25 hover:-translate-y-0.5 cursor-pointer">
-
-                        <span class="relative flex h-2 w-2">
-
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-luxury-clay group-hover:bg-white opacity-75"></span>
-
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-luxury-clay group-hover:bg-white transition-colors"></span>
-
-                        </span>
-
-                        <span class="text-[11px] uppercase tracking-[0.22em] font-semibold">Entre em Contato</span>
-
-                        <svg class="w-3.5 h-3.5 text-luxury-paper/75 group-hover:text-white group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-
-                        </svg>
-
-                    </button>
+                    <span class="on-fill"></span><span class="on-text">ON</span>
 
                 </div>
 
@@ -2740,249 +2714,251 @@
 
 
 
-            <!-- 3 Faixas Expansíveis Unificadas (Desktop & Mobile, alinhadas no container max-w-7xl) -->
+            <!-- Headline Editorial -->
 
-            <div class="mt-4 sm:mt-6 w-full space-y-3 sm:space-y-3.5">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-serif font-normal tracking-tight text-luxury-charcoal leading-[1.06]">
+
+                Advocacia.
+
+                <span class="block italic font-normal text-luxury-clay mt-0.5">No ritmo dos negócios.</span>
+
+            </h2>
 
 
 
-                <!-- Faixa 01: Direito Tributário -->
+            <!-- Cards Individuais dos 3 Pilares Conectados às Fileiras & Malha 3D -->
 
-                <div class="contato-band w-full"
+            <div class="mt-5 sm:mt-7 w-full">
 
-                     data-band="0"
+                <div class="grid grid-cols-3 gap-2 sm:gap-4 md:gap-5">
 
-                     onmouseenter="highlightContactBand(0)"
+                    
 
-                     onmouseleave="highlightContactBand(-1)">
+                    <!-- Card 01: Direito Tributário -> Fileira 1 -->
 
                     <button type="button"
 
-                            aria-expanded="false"
+                            data-pillar-idx="0"
 
-                            aria-controls="band-areas-0"
+                            onmouseenter="highlightContactBand(0)"
+
+                            onmouseleave="highlightContactBand(-1)"
 
                             onfocus="highlightContactBand(0)"
 
                             onblur="highlightContactBand(-1)"
 
-                            onclick="handleContatoBandClick(0)"
+                            onclick="handleContactPillarClick(0)"
 
-                            class="contato-pillar w-full z-10 group text-left rounded-xl px-4 py-3.5 sm:px-6 sm:py-4 lg:px-7 lg:py-4.5 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-2 lg:gap-6 cursor-pointer min-w-0">
+                            class="contato-pillar is-mobile-selected group text-left rounded-xl sm:rounded-2xl px-2.5 py-2.5 sm:px-5 sm:py-5 flex flex-col justify-between cursor-pointer min-w-0">
 
-                        <div class="flex items-center justify-between gap-3 w-full lg:w-[290px] xl:w-[320px] lg:shrink-0">
+                        <div class="w-full">
 
-                            <div class="flex lg:block items-baseline gap-2.5">
+                            <span class="block text-[9.5px] sm:text-[10.5px] font-mono uppercase tracking-[0.2em] text-luxury-clay font-medium mb-1 sm:mb-2">01</span>
 
-                                <span class="text-[10px] sm:text-[10.5px] font-mono tracking-[0.2em] text-luxury-clay font-medium lg:block lg:mb-1">01</span>
+                            <div class="h-[2px] w-5 sm:w-8 bg-luxury-clay/50 pillar-bar mb-1.5 sm:mb-2.5"></div>
 
-                                <h3 class="text-[17px] sm:text-[20px] lg:text-[22px] font-serif font-medium text-luxury-charcoal group-hover:text-luxury-clay transition-colors leading-tight">
+                            <h3 class="text-[12px] sm:text-[20px] md:text-[22px] font-serif font-medium text-luxury-charcoal group-hover:text-luxury-clay transition-colors leading-[1.15]">
 
-                                    Direito Tributário
+                                Direito Tributário
 
-                                </h3>
+                            </h3>
 
-                            </div>
+                            <p class="hidden md:block mt-2 text-[12.5px] text-[#4A433D] font-normal leading-relaxed">
 
-                            <svg class="lg:hidden w-4 h-4 text-luxury-muted shrink-0 contato-mobile-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                Defesa no CARF e Tribunais Superiores, créditos e auditoria de precatórios.
 
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-
-                            </svg>
-
-                        </div>
-
-                        <p class="lg:flex-1 lg:pl-6 lg:border-l lg:border-luxury-charcoal/10 text-[11.5px] sm:text-[12.5px] lg:text-[13.5px] text-[#4A433D] font-normal leading-snug min-w-0">
-
-                            Defesa no CARF e Tribunais Superiores, créditos e auditoria de precatórios.
-
-                        </p>
-
-                        <div class="hidden lg:flex items-center gap-3.5 shrink-0 pl-2">
-
-                            <span class="text-[10px] font-mono uppercase tracking-[0.18em] text-[#4A433D] group-hover:text-luxury-clay transition-colors">Explorar</span>
-
-                            <span class="contato-chevron-badge w-8 h-8 rounded-full border border-luxury-charcoal/15 flex items-center justify-center">
-
-                                <svg class="w-4 h-4 text-luxury-charcoal/70 contato-mobile-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-
-                                </svg>
-
-                            </span>
+                            </p>
 
                         </div>
 
                     </button>
 
-                    <!-- Gaveta Expansível (Grade 2 por linha no Desktop + Lista Limpa no Mobile) -->
-
-                    <div id="band-areas-0" class="contato-drawer hidden mt-2.5 sm:mt-3"></div>
-
-                </div>
 
 
-
-                <!-- Faixa 02: Direito Administrativo -->
-
-                <div class="contato-band w-full"
-
-                     data-band="1"
-
-                     onmouseenter="highlightContactBand(1)"
-
-                     onmouseleave="highlightContactBand(-1)">
+                    <!-- Card 02: Direito Administrativo -> Fileira 2 -->
 
                     <button type="button"
 
-                            aria-expanded="false"
+                            data-pillar-idx="1"
 
-                            aria-controls="band-areas-1"
+                            onmouseenter="highlightContactBand(1)"
+
+                            onmouseleave="highlightContactBand(-1)"
 
                             onfocus="highlightContactBand(1)"
 
                             onblur="highlightContactBand(-1)"
 
-                            onclick="handleContatoBandClick(1)"
+                            onclick="handleContactPillarClick(1)"
 
-                            class="contato-pillar w-full z-10 group text-left rounded-xl px-4 py-3.5 sm:px-6 sm:py-4 lg:px-7 lg:py-4.5 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-2 lg:gap-6 cursor-pointer min-w-0">
+                            class="contato-pillar group text-left rounded-xl sm:rounded-2xl px-2.5 py-2.5 sm:px-5 sm:py-5 flex flex-col justify-between cursor-pointer min-w-0">
 
-                        <div class="flex items-center justify-between gap-3 w-full lg:w-[290px] xl:w-[320px] lg:shrink-0">
+                        <div class="w-full">
 
-                            <div class="flex lg:block items-baseline gap-2.5">
+                            <span class="block text-[9.5px] sm:text-[10.5px] font-mono uppercase tracking-[0.2em] text-luxury-clay font-medium mb-1 sm:mb-2">02</span>
 
-                                <span class="text-[10px] sm:text-[10.5px] font-mono tracking-[0.2em] text-luxury-clay font-medium lg:block lg:mb-1">02</span>
+                            <div class="h-[2px] w-5 sm:w-8 bg-luxury-clay/50 pillar-bar mb-1.5 sm:mb-2.5"></div>
 
-                                <h3 class="text-[17px] sm:text-[20px] lg:text-[22px] font-serif font-medium text-luxury-charcoal group-hover:text-luxury-clay transition-colors leading-tight">
+                            <h3 class="text-[12px] sm:text-[20px] md:text-[22px] font-serif font-medium text-luxury-charcoal group-hover:text-luxury-clay transition-colors leading-[1.15]">
 
-                                    Direito Administrativo
+                                Direito Administrativo
 
-                                </h3>
+                            </h3>
 
-                            </div>
+                            <p class="hidden md:block mt-2 text-[12.5px] text-[#4A433D] font-normal leading-relaxed">
 
-                            <svg class="lg:hidden w-4 h-4 text-luxury-muted shrink-0 contato-mobile-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                Licitações, contratos públicos, defesas sancionatórias e atuação no TCU.
 
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-
-                            </svg>
-
-                        </div>
-
-                        <p class="lg:flex-1 lg:pl-6 lg:border-l lg:border-luxury-charcoal/10 text-[11.5px] sm:text-[12.5px] lg:text-[13.5px] text-[#4A433D] font-normal leading-snug min-w-0">
-
-                            Licitações, contratos públicos, defesas sancionatórias e atuação no TCU.
-
-                        </p>
-
-                        <div class="hidden lg:flex items-center gap-3.5 shrink-0 pl-2">
-
-                            <span class="text-[10px] font-mono uppercase tracking-[0.18em] text-[#4A433D] group-hover:text-luxury-clay transition-colors">Explorar</span>
-
-                            <span class="contato-chevron-badge w-8 h-8 rounded-full border border-luxury-charcoal/15 flex items-center justify-center">
-
-                                <svg class="w-4 h-4 text-luxury-charcoal/70 contato-mobile-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-
-                                </svg>
-
-                            </span>
+                            </p>
 
                         </div>
 
                     </button>
 
-                    <!-- Gaveta Expansível (Grade 2 por linha no Desktop + Lista Limpa no Mobile) -->
-
-                    <div id="band-areas-1" class="contato-drawer hidden mt-2.5 sm:mt-3"></div>
-
-                </div>
 
 
-
-                <!-- Faixa 03: Relações Governamentais -->
-
-                <div class="contato-band w-full"
-
-                     data-band="2"
-
-                     onmouseenter="highlightContactBand(2)"
-
-                     onmouseleave="highlightContactBand(-1)">
+                    <!-- Card 03: Relações Governamentais -> Fileira 3 -->
 
                     <button type="button"
 
-                            aria-expanded="false"
+                            data-pillar-idx="2"
 
-                            aria-controls="band-areas-2"
+                            onmouseenter="highlightContactBand(2)"
+
+                            onmouseleave="highlightContactBand(-1)"
 
                             onfocus="highlightContactBand(2)"
 
                             onblur="highlightContactBand(-1)"
 
-                            onclick="handleContatoBandClick(2)"
+                            onclick="handleContactPillarClick(2)"
 
-                            class="contato-pillar w-full z-10 group text-left rounded-xl px-4 py-3.5 sm:px-6 sm:py-4 lg:px-7 lg:py-4.5 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-2 lg:gap-6 cursor-pointer min-w-0">
+                            class="contato-pillar group text-left rounded-xl sm:rounded-2xl px-2.5 py-2.5 sm:px-5 sm:py-5 flex flex-col justify-between cursor-pointer min-w-0">
 
-                        <div class="flex items-center justify-between gap-3 w-full lg:w-[290px] xl:w-[320px] lg:shrink-0">
+                        <div class="w-full">
 
-                            <div class="flex lg:block items-baseline gap-2.5">
+                            <span class="block text-[9.5px] sm:text-[10.5px] font-mono uppercase tracking-[0.2em] text-luxury-clay font-medium mb-1 sm:mb-2">03</span>
 
-                                <span class="text-[10px] sm:text-[10.5px] font-mono tracking-[0.2em] text-luxury-clay font-medium lg:block lg:mb-1">03</span>
+                            <div class="h-[2px] w-5 sm:w-8 bg-luxury-clay/50 pillar-bar mb-1.5 sm:mb-2.5"></div>
 
-                                <h3 class="text-[17px] sm:text-[20px] lg:text-[22px] font-serif font-medium text-luxury-charcoal group-hover:text-luxury-clay transition-colors leading-tight">
+                            <h3 class="text-[12px] sm:text-[20px] md:text-[22px] font-serif font-medium text-luxury-charcoal group-hover:text-luxury-clay transition-colors leading-[1.15]">
 
-                                    Relações Governamentais
+                                Relações Governamentais
 
-                                </h3>
+                            </h3>
 
-                            </div>
+                            <p class="hidden md:block mt-2 text-[12.5px] text-[#4A433D] font-normal leading-relaxed">
 
-                            <svg class="lg:hidden w-4 h-4 text-luxury-muted shrink-0 contato-mobile-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                Interlocução técnica em Brasília, acompanhamento legislativo e regulação.
 
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-
-                            </svg>
-
-                        </div>
-
-                        <p class="lg:flex-1 lg:pl-6 lg:border-l lg:border-luxury-charcoal/10 text-[11.5px] sm:text-[12.5px] lg:text-[13.5px] text-[#4A433D] font-normal leading-snug min-w-0">
-
-                            Interlocução técnica em Brasília, acompanhamento legislativo e regulação.
-
-                        </p>
-
-                        <div class="hidden lg:flex items-center gap-3.5 shrink-0 pl-2">
-
-                            <span class="text-[10px] font-mono uppercase tracking-[0.18em] text-[#4A433D] group-hover:text-luxury-clay transition-colors">Explorar</span>
-
-                            <span class="contato-chevron-badge w-8 h-8 rounded-full border border-luxury-charcoal/15 flex items-center justify-center">
-
-                                <svg class="w-4 h-4 text-luxury-charcoal/70 contato-mobile-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-
-                                </svg>
-
-                            </span>
+                            </p>
 
                         </div>
 
                     </button>
 
-                    <!-- Gaveta Expansível (Grade 2 por linha no Desktop + Lista Limpa no Mobile) -->
 
-                    <div id="band-areas-2" class="contato-drawer hidden mt-2.5 sm:mt-3"></div>
 
                 </div>
 
 
 
+                <!-- Linha Discreta de Escopo no Mobile (< md) -->
+
+                <div class="md:hidden mt-2.5 px-2 py-1 text-center">
+
+                    <p id="mobile-pillar-scope" class="text-[11.5px] text-[#4A433D] font-normal leading-snug">
+
+                        Defesa no CARF e Tribunais Superiores, créditos e auditoria de precatórios.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Botão "Entre em Contato" Quiet Luxury / Private Banking -->
+
+            <div class="mt-5 sm:mt-6">
+
+                <button type="button" onclick="openContactModal()" class="group relative inline-flex items-center gap-3.5 pl-6 pr-2.5 py-2 sm:pl-7 sm:pr-3 sm:py-2.5 rounded-full bg-white/95 hover:bg-luxury-charcoal text-luxury-charcoal hover:text-luxury-paper border border-luxury-charcoal/15 hover:border-luxury-charcoal transition-all duration-300 shadow-[0_8px_24px_-12px_rgba(26,24,22,0.16)] hover:shadow-[0_14px_30px_-12px_rgba(26,24,22,0.28)] hover:-translate-y-0.5 cursor-pointer">
+
+                    <span class="w-1.5 h-1.5 rounded-full bg-luxury-clay transition-transform duration-300 group-hover:scale-125"></span>
+
+                    <span class="text-[10.5px] sm:text-[11px] uppercase tracking-[0.24em] font-semibold">Entre em Contato</span>
+
+                    <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-luxury-sand/80 group-hover:bg-luxury-clay text-luxury-charcoal group-hover:text-white flex items-center justify-center transition-colors duration-300">
+
+                        <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+
+                        </svg>
+
+                    </span>
+
+                </button>
+
             </div>
 
         </div>
+
+
+
+        <!-- PARTE INFERIOR: As 3 Fileiras de Atuação Contínuas Espelhadas aos 3 Núcleos -->
+
+        <div class="w-full space-y-2.5 sm:space-y-3 pb-1">
+
+            
+
+            <!-- Fileira 1: Direito Tributário (Circula para a direita ➔) -->
+
+            <div class="ribbon-row ribbon-fade py-0.5 overflow-hidden" data-band="0" onmouseenter="highlightContactBand(0)" onmouseleave="highlightContactBand(-1)">
+
+                <div class="track-right-1 items-center">
+
+                    <div class="flex items-center gap-4 px-2" id="row-track-1"></div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Fileira 2: Direito Administrativo (Circula para a esquerda ⬅) -->
+
+            <div class="ribbon-row ribbon-fade py-0.5 overflow-hidden" data-band="1" onmouseenter="highlightContactBand(1)" onmouseleave="highlightContactBand(-1)">
+
+                <div class="track-left-2 items-center">
+
+                    <div class="flex items-center gap-4 px-2" id="row-track-2"></div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Fileira 3: Relações Governamentais (Circula para a direita ➔) -->
+
+            <div class="ribbon-row ribbon-fade py-0.5 overflow-hidden" data-band="2" onmouseenter="highlightContactBand(2)" onmouseleave="highlightContactBand(-1)">
+
+                <div class="track-right-3 items-center">
+
+                    <div class="flex items-center gap-4 px-2" id="row-track-3"></div>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
 
     </div>
 
@@ -7388,107 +7364,113 @@
 
 
 
-      function setContatoBandState(openBandIndex) {
-
-        const bands = document.querySelectorAll('#contato .contato-band[data-band]');
-
-        const hasOpen = openBandIndex !== -1;
-
-        bands.forEach((band) => {
-
-          const b = Number(band.getAttribute('data-band'));
-
-          const btn = band.querySelector('.contato-pillar');
-
-          const panel = document.getElementById(`band-areas-${b}`);
-
-          if (!btn || !panel) return;
-
-          const shouldOpen = b === openBandIndex;
-
-          btn.setAttribute('aria-expanded', String(shouldOpen));
-
-          band.classList.toggle('is-open', shouldOpen);
-
-          band.classList.toggle('is-inactive-band', hasOpen && !shouldOpen);
-
-          panel.classList.toggle('hidden', !shouldOpen);
-
-        });
-
-      }
-
-
-
       function populateRows() {
 
         rowsData.forEach((row) => {
 
-          const drawerEl = document.getElementById(`band-areas-${row.waveIdx}`);
+          const el = document.getElementById(row.containerId);
 
-          if (!drawerEl) return;
+          if (!el) return;
 
-          const gridClasses = 'grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-3';
+          const loopItems = [...row.items, ...row.items, ...row.items, ...row.items];
 
-          drawerEl.innerHTML = `<div class="${gridClasses}">${row.items.map((item) => {
+          el.innerHTML = loopItems.map((item) => {
 
             const safeTitle = item.title.replace(/'/g, "\\'");
 
             return `
 
-              <button type="button"
+            <button type="button"
 
-                      onclick="openContactModal('${safeTitle}')"
+                    class="practice-item text-left rounded-xl px-5 sm:px-6 py-3 sm:py-3.5 min-w-[290px] sm:min-w-[355px] flex items-center justify-between gap-4 cursor-pointer"
 
-                      onmouseenter="highlightContactBand(${row.waveIdx})"
+                    onmouseenter="highlightContactBand(${row.waveIdx})"
 
-                      class="practice-item w-full text-left rounded-xl px-4 py-3 sm:px-5 sm:py-3.5 flex items-center justify-between gap-4 cursor-pointer">
+                    onclick="openContactModal('${safeTitle}')">
 
-                <div class="min-w-0">
+              <div class="min-w-0">
 
-                  <h4 class="text-[14px] sm:text-[15.5px] font-semibold text-luxury-charcoal tracking-tight leading-snug">
+                <h4 class="text-[14.5px] sm:text-[16px] font-semibold text-luxury-charcoal tracking-tight leading-snug">
 
-                    ${item.title}
+                  ${item.title}
 
-                  </h4>
+                </h4>
 
-                  <p class="text-[11.5px] sm:text-[12.5px] text-[#4A433D] mt-1 leading-snug">
+                <p class="text-[11.5px] sm:text-[12.5px] text-[#4A433D] mt-1 leading-snug">
 
-                    ${item.desc}
+                  ${item.desc}
 
-                  </p>
+                </p>
 
-                </div>
+              </div>
 
-                <span class="practice-arrow text-sm text-luxury-clay shrink-0" aria-hidden="true">→</span>
+              <span class="practice-arrow text-sm text-luxury-clay shrink-0" aria-hidden="true">→</span>
 
-              </button>
+            </button>
 
-            `;
+          `;
 
-          }).join('')}</div>`;
+          }).join('');
 
         });
-
-
-
-        // Inicia com todas as 3 faixas recolhidas (desktop e mobile) para que o visitante escolha qual expandir
-
-        setContatoBandState(-1);
 
       }
 
 
 
-      window.handleContatoBandClick = function(bandIndex) {
+      const PILLAR_META = [
 
-        const currentBand = document.querySelector(`#contato .contato-band[data-band="${bandIndex}"]`);
+        {
 
-        const btn = currentBand ? currentBand.querySelector('.contato-pillar') : null;
+          name: 'Direito Tributário',
 
-        const isOpen = btn ? btn.getAttribute('aria-expanded') === 'true' : false;
+          scope: 'Defesa no CARF e Tribunais Superiores, créditos e auditoria de precatórios.'
 
-        setContatoBandState(isOpen ? -1 : bandIndex);
+        },
+
+        {
+
+          name: 'Direito Administrativo',
+
+          scope: 'Licitações, contratos públicos, defesas sancionatórias e atuação no TCU.'
+
+        },
+
+        {
+
+          name: 'Relações Governamentais',
+
+          scope: 'Interlocução técnica em Brasília, acompanhamento legislativo e regulação.'
+
+        }
+
+      ];
+
+      window.handleContactPillarClick = function(idx) {
+
+        const meta = PILLAR_META[idx];
+
+        if (!meta) return;
+
+        if (window.innerWidth < 768) {
+
+          document.querySelectorAll('#contato .contato-pillar').forEach((p, i) => {
+
+            p.classList.toggle('is-mobile-selected', i === idx);
+
+          });
+
+          const scopeEl = document.getElementById('mobile-pillar-scope');
+
+          if (scopeEl) scopeEl.textContent = meta.scope;
+
+          window.highlightContactBand(idx);
+
+          return;
+
+        }
+
+        window.openContactModal(meta.name);
 
       };
 
@@ -7502,21 +7484,29 @@
 
         }
 
-        const bands = document.querySelectorAll('#contato .contato-band[data-band]');
+        const pillars = document.querySelectorAll('#contato .contato-pillar');
 
-        bands.forEach((band) => {
+        const rows = document.querySelectorAll('#contato .ribbon-row[data-band]');
 
-          const b = Number(band.getAttribute('data-band'));
+        pillars.forEach((p, idx) => {
+
+          p.classList.toggle('is-active', idx === bandIndex);
+
+        });
+
+        rows.forEach((r) => {
+
+          const b = Number(r.getAttribute('data-band'));
 
           if (bandIndex === -1) {
 
-            band.classList.remove('is-dimmed', 'is-highlighted');
+            r.classList.remove('is-dimmed', 'is-highlighted');
 
           } else {
 
-            band.classList.toggle('is-highlighted', b === bandIndex);
+            r.classList.toggle('is-highlighted', b === bandIndex);
 
-            band.classList.toggle('is-dimmed', b !== bandIndex);
+            r.classList.toggle('is-dimmed', b !== bandIndex);
 
           }
 
