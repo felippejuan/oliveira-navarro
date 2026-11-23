@@ -2690,23 +2690,73 @@
 
     <!-- CONTEÚDO PRINCIPAL (Grid vertical estrito sem sobreposição) -->
 
-    <div class="relative z-10 w-full flex flex-col justify-between py-2 sm:py-3 gap-5 sm:gap-6">
+    <div class="relative z-10 w-full flex flex-col justify-between py-1 sm:py-2 gap-5 sm:gap-6">
 
 
 
-        <!-- TOPO CENTRAL: Marca, Headline, Cards dos 3 Núcleos e Botão "Entre em Contato" -->
+        <!-- TOPO CENTRAL: Cabeçalho Editorial (Título à esquerda + Botão Entre em Contato à direita) e Cards dos 3 Núcleos -->
 
-        <div class="max-w-5xl w-full mx-auto px-4 sm:px-6 text-center flex flex-col items-center my-auto pt-1 pb-1">
+        <div class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center my-auto pt-1 pb-1">
 
             
 
-            <!-- Microinteração do Hífen Animado (Status de Prontidão: ON) -->
+            <!-- Linha de Cabeçalho: Título + Botão "Entre em Contato" no espaço livre do topo -->
 
-            <div class="flex items-center justify-center mb-3 sm:mb-4">
+            <div class="w-full flex flex-col md:flex-row md:items-end justify-between gap-4 pb-4 sm:pb-5 border-b border-luxury-charcoal/10">
 
-                <div id="contato-on-pill" class="on-pill-indicator group cursor-pointer" onclick="toggleContatoOnPill(true)" title="Status de Prontidão: ON">
+                <div class="text-center md:text-left">
 
-                    <span class="on-fill"></span><span class="on-text">ON</span>
+                    <!-- Microinteração do Hífen Animado (Status de Prontidão: ON) -->
+
+                    <div class="flex items-center justify-center md:justify-start gap-2.5 mb-2">
+
+                        <div id="contato-on-pill" class="on-pill-indicator group cursor-pointer" onclick="toggleContatoOnPill(true)" title="Status de Prontidão: ON">
+
+                            <span class="on-fill"></span><span class="on-text">ON</span>
+
+                        </div>
+
+                        <span class="text-[10px] font-mono uppercase tracking-[0.22em] text-luxury-clay font-medium">Atendimento Executivo</span>
+
+                    </div>
+
+
+
+                    <!-- Headline Editorial -->
+
+                    <h2 class="text-2xl sm:text-[28px] md:text-[34px] lg:text-[38px] font-serif font-normal tracking-tight text-luxury-charcoal leading-[1.08]">
+
+                        Advocacia <span class="font-serif font-normal text-luxury-clay">no ritmo dos negócios.</span>
+
+                    </h2>
+
+                </div>
+
+
+
+                <!-- Botão "Entre em Contato" em destaque limpo no topo -->
+
+                <div class="flex justify-center md:justify-end shrink-0">
+
+                    <button type="button" onclick="openContactModal()" class="group relative inline-flex items-center gap-3.5 px-7 sm:px-8 py-3 sm:py-3.5 rounded-full bg-luxury-charcoal text-luxury-paper hover:bg-luxury-clay transition-all duration-300 shadow-lg shadow-luxury-charcoal/15 hover:shadow-luxury-clay/25 hover:-translate-y-0.5 cursor-pointer">
+
+                        <span class="relative flex h-2 w-2">
+
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-luxury-clay group-hover:bg-white opacity-75"></span>
+
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-luxury-clay group-hover:bg-white transition-colors"></span>
+
+                        </span>
+
+                        <span class="text-[11px] uppercase tracking-[0.22em] font-semibold">Entre em Contato</span>
+
+                        <svg class="w-3.5 h-3.5 text-luxury-paper/75 group-hover:text-white group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+
+                        </svg>
+
+                    </button>
 
                 </div>
 
@@ -2714,23 +2764,11 @@
 
 
 
-            <!-- Headline Editorial -->
-
-            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-serif font-normal tracking-tight text-luxury-charcoal leading-[1.06]">
-
-                Advocacia.
-
-                <span class="block italic font-normal text-luxury-clay mt-0.5">No ritmo dos negócios.</span>
-
-            </h2>
-
-
-
             <!-- Cards Individuais dos 3 Pilares Conectados às Fileiras & Malha 3D -->
 
             <div class="mt-5 sm:mt-7 w-full">
 
-                <div class="grid grid-cols-3 gap-2 sm:gap-4 md:gap-5">
+                <div class="grid grid-cols-3 gap-2 sm:gap-5 md:gap-6">
 
                     
 
@@ -2750,21 +2788,21 @@
 
                             onclick="handleContactPillarClick(0)"
 
-                            class="contato-pillar is-mobile-selected group text-left rounded-xl sm:rounded-2xl px-2.5 py-2.5 sm:px-5 sm:py-5 flex flex-col justify-between cursor-pointer min-w-0">
+                            class="contato-pillar is-mobile-selected group text-left rounded-xl sm:rounded-2xl px-2.5 py-3.5 sm:px-6 sm:py-6 lg:px-7 lg:py-7 flex flex-col justify-between cursor-pointer min-w-0">
 
                         <div class="w-full">
 
-                            <span class="block text-[9.5px] sm:text-[10.5px] font-mono uppercase tracking-[0.2em] text-luxury-clay font-medium mb-1 sm:mb-2">01</span>
+                            <span class="block text-[9.5px] sm:text-[11px] font-mono uppercase tracking-[0.2em] text-luxury-clay font-medium mb-1.5 sm:mb-2.5">01</span>
 
-                            <div class="h-[2px] w-5 sm:w-8 bg-luxury-clay/50 pillar-bar mb-1.5 sm:mb-2.5"></div>
+                            <div class="h-[2px] w-5 sm:w-10 bg-luxury-clay/50 pillar-bar mb-2 sm:mb-3.5"></div>
 
-                            <h3 class="text-[12px] sm:text-[20px] md:text-[22px] font-serif font-medium text-luxury-charcoal group-hover:text-luxury-clay transition-colors leading-[1.15]">
+                            <h3 class="text-[12px] sm:text-[22px] md:text-[24px] lg:text-[26px] font-serif font-medium text-luxury-charcoal group-hover:text-luxury-clay transition-colors leading-[1.15]">
 
                                 Direito Tributário
 
                             </h3>
 
-                            <p class="hidden md:block mt-2 text-[12.5px] text-[#4A433D] font-normal leading-relaxed">
+                            <p class="hidden md:block mt-2.5 lg:mt-3 text-[13px] lg:text-[14px] text-[#4A433D] font-normal leading-relaxed">
 
                                 Defesa no CARF e Tribunais Superiores, créditos e auditoria de precatórios.
 
@@ -2792,21 +2830,21 @@
 
                             onclick="handleContactPillarClick(1)"
 
-                            class="contato-pillar group text-left rounded-xl sm:rounded-2xl px-2.5 py-2.5 sm:px-5 sm:py-5 flex flex-col justify-between cursor-pointer min-w-0">
+                            class="contato-pillar group text-left rounded-xl sm:rounded-2xl px-2.5 py-3.5 sm:px-6 sm:py-6 lg:px-7 lg:py-7 flex flex-col justify-between cursor-pointer min-w-0">
 
                         <div class="w-full">
 
-                            <span class="block text-[9.5px] sm:text-[10.5px] font-mono uppercase tracking-[0.2em] text-luxury-clay font-medium mb-1 sm:mb-2">02</span>
+                            <span class="block text-[9.5px] sm:text-[11px] font-mono uppercase tracking-[0.2em] text-luxury-clay font-medium mb-1.5 sm:mb-2.5">02</span>
 
-                            <div class="h-[2px] w-5 sm:w-8 bg-luxury-clay/50 pillar-bar mb-1.5 sm:mb-2.5"></div>
+                            <div class="h-[2px] w-5 sm:w-10 bg-luxury-clay/50 pillar-bar mb-2 sm:mb-3.5"></div>
 
-                            <h3 class="text-[12px] sm:text-[20px] md:text-[22px] font-serif font-medium text-luxury-charcoal group-hover:text-luxury-clay transition-colors leading-[1.15]">
+                            <h3 class="text-[12px] sm:text-[22px] md:text-[24px] lg:text-[26px] font-serif font-medium text-luxury-charcoal group-hover:text-luxury-clay transition-colors leading-[1.15]">
 
                                 Direito Administrativo
 
                             </h3>
 
-                            <p class="hidden md:block mt-2 text-[12.5px] text-[#4A433D] font-normal leading-relaxed">
+                            <p class="hidden md:block mt-2.5 lg:mt-3 text-[13px] lg:text-[14px] text-[#4A433D] font-normal leading-relaxed">
 
                                 Licitações, contratos públicos, defesas sancionatórias e atuação no TCU.
 
@@ -2834,21 +2872,21 @@
 
                             onclick="handleContactPillarClick(2)"
 
-                            class="contato-pillar group text-left rounded-xl sm:rounded-2xl px-2.5 py-2.5 sm:px-5 sm:py-5 flex flex-col justify-between cursor-pointer min-w-0">
+                            class="contato-pillar group text-left rounded-xl sm:rounded-2xl px-2.5 py-3.5 sm:px-6 sm:py-6 lg:px-7 lg:py-7 flex flex-col justify-between cursor-pointer min-w-0">
 
                         <div class="w-full">
 
-                            <span class="block text-[9.5px] sm:text-[10.5px] font-mono uppercase tracking-[0.2em] text-luxury-clay font-medium mb-1 sm:mb-2">03</span>
+                            <span class="block text-[9.5px] sm:text-[11px] font-mono uppercase tracking-[0.2em] text-luxury-clay font-medium mb-1.5 sm:mb-2.5">03</span>
 
-                            <div class="h-[2px] w-5 sm:w-8 bg-luxury-clay/50 pillar-bar mb-1.5 sm:mb-2.5"></div>
+                            <div class="h-[2px] w-5 sm:w-10 bg-luxury-clay/50 pillar-bar mb-2 sm:mb-3.5"></div>
 
-                            <h3 class="text-[12px] sm:text-[20px] md:text-[22px] font-serif font-medium text-luxury-charcoal group-hover:text-luxury-clay transition-colors leading-[1.15]">
+                            <h3 class="text-[12px] sm:text-[22px] md:text-[24px] lg:text-[26px] font-serif font-medium text-luxury-charcoal group-hover:text-luxury-clay transition-colors leading-[1.15]">
 
                                 Relações Governamentais
 
                             </h3>
 
-                            <p class="hidden md:block mt-2 text-[12.5px] text-[#4A433D] font-normal leading-relaxed">
+                            <p class="hidden md:block mt-2.5 lg:mt-3 text-[13px] lg:text-[14px] text-[#4A433D] font-normal leading-relaxed">
 
                                 Interlocução técnica em Brasília, acompanhamento legislativo e regulação.
 
@@ -2866,7 +2904,7 @@
 
                 <!-- Linha Discreta de Escopo no Mobile (< md) -->
 
-                <div class="md:hidden mt-2.5 px-2 py-1 text-center">
+                <div class="md:hidden mt-3 px-2 py-1 text-center">
 
                     <p id="mobile-pillar-scope" class="text-[11.5px] text-[#4A433D] font-normal leading-snug">
 
@@ -2875,32 +2913,6 @@
                     </p>
 
                 </div>
-
-            </div>
-
-
-
-            <!-- Botão "Entre em Contato" Quiet Luxury / Private Banking -->
-
-            <div class="mt-5 sm:mt-6">
-
-                <button type="button" onclick="openContactModal()" class="group relative inline-flex items-center gap-3.5 pl-6 pr-2.5 py-2 sm:pl-7 sm:pr-3 sm:py-2.5 rounded-full bg-white/95 hover:bg-luxury-charcoal text-luxury-charcoal hover:text-luxury-paper border border-luxury-charcoal/15 hover:border-luxury-charcoal transition-all duration-300 shadow-[0_8px_24px_-12px_rgba(26,24,22,0.16)] hover:shadow-[0_14px_30px_-12px_rgba(26,24,22,0.28)] hover:-translate-y-0.5 cursor-pointer">
-
-                    <span class="w-1.5 h-1.5 rounded-full bg-luxury-clay transition-transform duration-300 group-hover:scale-125"></span>
-
-                    <span class="text-[10.5px] sm:text-[11px] uppercase tracking-[0.24em] font-semibold">Entre em Contato</span>
-
-                    <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-luxury-sand/80 group-hover:bg-luxury-clay text-luxury-charcoal group-hover:text-white flex items-center justify-center transition-colors duration-300">
-
-                        <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-
-                        </svg>
-
-                    </span>
-
-                </button>
 
             </div>
 
