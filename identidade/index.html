@@ -926,6 +926,10 @@
       z-index: 10;
     }
 
+    .folder-back-layout.mode-office {
+      padding: 54px 48px 48px 48px;
+    }
+
     .folder-back-upper {
       flex: 1;
       min-height: 0;
@@ -935,10 +939,18 @@
       padding-bottom: 18px;
     }
 
+    .folder-back-layout.mode-office .folder-back-upper {
+      padding-bottom: 10px;
+    }
+
     .folder-back-watermark {
       width: 82px;
       height: auto;
       display: block;
+    }
+
+    .folder-back-layout.mode-office .folder-back-watermark {
+      width: 88px;
     }
 
     .folder-back-watermark .wm-capsule {
@@ -953,11 +965,20 @@
       flex-shrink: 0;
     }
 
+    .folder-back-layout.mode-office .folder-back-rule {
+      margin-bottom: 16px;
+    }
+
     .folder-back-rule .rule-orange {
       width: 44px;
       height: 2px;
       background-color: var(--olina-orange);
       flex-shrink: 0;
+    }
+
+    .folder-back-layout.mode-office .folder-back-rule .rule-orange {
+      width: 36px;
+      height: 1.5px;
     }
 
     .folder-back-rule .rule-gray {
@@ -971,6 +992,86 @@
       align-items: flex-end;
       justify-content: space-between;
       gap: 24px;
+      flex-shrink: 0;
+    }
+
+    .folder-back-layout.mode-office .folder-back-footer {
+      display: none;
+    }
+
+    .folder-back-office-footer {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .folder-back-layout.mode-office .folder-back-office-footer {
+      display: flex;
+    }
+
+    .office-footer-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: nowrap;
+    }
+
+    .office-brand-inline {
+      display: flex;
+      align-items: baseline;
+      min-width: 0;
+      white-space: nowrap;
+    }
+
+    .office-brand-inline strong {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--olina-coffee-deep);
+    }
+
+    .office-sub {
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--olina-orange);
+    }
+
+    .office-dot {
+      color: var(--olina-orange);
+      font-weight: 700;
+      margin: 0 7px;
+    }
+
+    .office-site {
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--olina-coffee);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .office-contacts-inline {
+      font-size: 9.5px;
+      font-weight: 500;
+      color: var(--olina-stone-muted);
+      min-width: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .office-city {
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--olina-coffee);
+      white-space: nowrap;
       flex-shrink: 0;
     }
 
@@ -2153,10 +2254,19 @@
             <div class="stage-top-bar">
               <div class="stage-title-wrap">
                 <h2>Visualização Lado a Lado</h2>
-                <p>CAPA (FRENTE) &bull; CONTRACAPA (VERSO) &bull; PASTA A4 (225 &times; 315 mm)</p>
+                <p>CAPA &bull; CONTRACAPA &bull; PASTA A4 (225 &times; 315 mm)</p>
               </div>
 
               <div class="stage-tools">
+                <div class="card-bg-switch" role="group" aria-label="Versão da pasta">
+                  <span style="font-size: 11px; color: var(--ui-text-muted); padding: 0 4px 0 6px; font-weight: 600;">Versão:</span>
+                  <button type="button" class="btn-ui active" id="pasta-mode-signature-btn" onclick="setFolderMode('signature')">
+                    Com Assinatura
+                  </button>
+                  <button type="button" class="btn-ui" id="pasta-mode-office-btn" onclick="setFolderMode('office')">
+                    Só Escritório
+                  </button>
+                </div>
                 <div class="card-bg-switch" role="group" aria-label="Cor do papel da pasta">
                   <span style="font-size: 11px; color: var(--ui-text-muted); padding: 0 4px 0 6px; font-weight: 600;">Papel:</span>
                   <button type="button" class="btn-ui active" id="pasta-theme-offwhite-btn" onclick="setFolderTheme('offwhite')">
@@ -2240,7 +2350,7 @@
                 <div class="folder-sheet" id="folder-back">
                   <span class="bleed-tag">MARGEM SEGURA 5mm</span>
 
-                  <div class="folder-back-layout">
+                  <div class="folder-back-layout mode-signature" id="folder-back-layout">
                     <div class="folder-back-upper">
                       <svg class="folder-back-watermark" xmlns="http://www.w3.org/2000/svg" width="82" height="21.3" viewBox="30 6 752 195" aria-hidden="true">
                         <path class="wm-capsule" d="M735.63,9.15h-169.79c-16.01,0-29.97,8.91-37.21,22.03-7.23-13.12-21.2-22.03-37.21-22.03H75.8c-23.41,0-42.46,19.05-42.46,42.46v103.68c0,23.41,19.05,42.46,42.46,42.46h415.62c16.21,0,30.31-9.13,37.47-22.51,7.3,12.87,21.12,21.57,36.94,21.57h169.79c23.41,0,42.46-19.05,42.46-42.46V51.6c0-23.41-19.05-42.46-42.46-42.46ZM491.42,187.96H75.8c-18.02,0-32.68-14.66-32.68-32.68V51.6c0-18.02,14.66-32.68,32.68-32.68h415.62c16.27,0,29.8,11.96,32.28,27.55-.2,1.68-.32,3.4-.32,5.13v102.74c0,1.91.14,3.79.39,5.64-2.29,15.8-15.91,27.98-32.34,27.98Z"/>
@@ -2255,8 +2365,8 @@
                     <div class="folder-back-footer">
                       <div class="folder-back-info">
                         <div class="folder-back-header">
-                          <h3 class="folder-back-title" id="pasta-display-title">Oliveira Navarro</h3>
-                          <div class="folder-back-subtitle" id="pasta-display-subtitle">ADVOCACIA PARA NEGÓCIOS</div>
+                          <h3 class="folder-back-title" id="pasta-display-title">Tattiana de Navarro</h3>
+                          <div class="folder-back-subtitle" id="pasta-display-subtitle">ADVOGADA</div>
                         </div>
 
                         <div class="folder-contacts">
@@ -2266,11 +2376,11 @@
                           </div>
                           <div class="folder-contact-row" id="pasta-row-email">
                             <svg class="v-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#DD4F1D" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                            <span id="pasta-display-email">contato@oliveiranavarro.com</span>
+                            <span id="pasta-display-email">tattiana.navarro@oliveiranavarro.com</span>
                           </div>
                           <div class="folder-contact-row" id="pasta-row-instagram">
                             <svg class="v-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#DD4F1D" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-                            <span id="pasta-display-instagram">oliveirasnavarro.on</span>
+                            <span id="pasta-display-instagram">tattiana.navarro</span>
                           </div>
                           <div class="folder-contact-row" id="pasta-row-website">
                             <svg class="v-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#DD4F1D" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
@@ -2284,6 +2394,19 @@
                       </div>
 
                       <div class="folder-qr-box" id="pasta-qr-target"></div>
+                    </div>
+
+                    <div class="folder-back-office-footer" id="folder-back-office-footer">
+                      <div class="office-footer-row">
+                        <div class="office-brand-inline">
+                          <strong id="pasta-office-title">Oliveira Navarro</strong><span class="office-dot" id="pasta-office-sub-dot">&middot;</span><span class="office-sub" id="pasta-office-subtitle">ADVOCACIA PARA NEGÓCIOS</span>
+                        </div>
+                        <div class="office-site" id="pasta-office-website">oliveiranavarro.com</div>
+                      </div>
+                      <div class="office-footer-row">
+                        <div class="office-contacts-inline" id="pasta-office-contacts-line">contato@oliveiranavarro.com<span class="office-dot">&middot;</span>@oliveirasnavarro.on</div>
+                        <div class="office-city" id="pasta-office-city">Brasília &middot; DF</div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -2315,13 +2438,13 @@
 
             <div class="form-stack">
               <div class="form-field">
-                <label>Título / Destaque</label>
-                <input type="text" id="pasta-input-title" value="Oliveira Navarro" oninput="updateFolder()">
+                <label>Título / Nome</label>
+                <input type="text" id="pasta-input-title" value="Tattiana de Navarro" oninput="updateFolder()">
               </div>
 
               <div class="form-field">
-                <label>Subtítulo / Atuação</label>
-                <input type="text" id="pasta-input-subtitle" value="ADVOCACIA PARA NEGÓCIOS" oninput="updateFolder()">
+                <label>Subtítulo / Cargo</label>
+                <input type="text" id="pasta-input-subtitle" value="ADVOGADA" oninput="updateFolder()">
               </div>
 
               <div class="form-field">
@@ -2331,12 +2454,12 @@
 
               <div class="form-field">
                 <label>E-mail</label>
-                <input type="email" id="pasta-input-email" value="contato@oliveiranavarro.com" oninput="updateFolder()">
+                <input type="email" id="pasta-input-email" value="tattiana.navarro@oliveiranavarro.com" oninput="updateFolder()">
               </div>
 
               <div class="form-field">
                 <label>Instagram</label>
-                <input type="text" id="pasta-input-instagram" value="oliveirasnavarro.on" oninput="updateFolder()">
+                <input type="text" id="pasta-input-instagram" value="tattiana.navarro" oninput="updateFolder()">
               </div>
 
               <div class="form-field">
@@ -2349,14 +2472,16 @@
                 <input type="text" id="pasta-input-city" value="Brasília · DF" oninput="updateFolder()">
               </div>
 
-              <div class="form-field">
-                <label>WhatsApp (QR Code) <small>apenas no QR</small></label>
-                <input type="text" id="pasta-input-whatsapp" value="+55 61 98171-5691" oninput="renderFolderQRCode()">
-              </div>
+              <div class="form-stack" id="pasta-qr-fields">
+                <div class="form-field">
+                  <label>WhatsApp (QR Code) <small>apenas no QR</small></label>
+                  <input type="text" id="pasta-input-whatsapp" value="+55 61 98171-5691" oninput="updateFolder()">
+                </div>
 
-              <div class="form-field">
-                <label>Mensagem Inicial</label>
-                <input type="text" id="pasta-input-wa-message" value="Olá!" oninput="renderFolderQRCode()">
+                <div class="form-field">
+                  <label>Mensagem Inicial</label>
+                  <input type="text" id="pasta-input-wa-message" value="Olá!" oninput="updateFolder()">
+                </div>
               </div>
             </div>
           </aside>
@@ -2396,7 +2521,30 @@
       manualInstagram: false,
       pastaTheme: 'offwhite',
       pastaShowBleed: false,
-      pastaPaperTexture: false
+      pastaPaperTexture: false,
+      pastaMode: 'signature',
+      pastaProfiles: {
+        signature: {
+          title: 'Tattiana de Navarro',
+          subtitle: 'ADVOGADA',
+          phone: '',
+          email: 'tattiana.navarro@oliveiranavarro.com',
+          instagram: 'tattiana.navarro',
+          website: 'oliveiranavarro.com',
+          city: 'Brasília · DF',
+          whatsapp: '+55 61 98171-5691',
+          waMessage: 'Olá!'
+        },
+        office: {
+          title: 'Oliveira Navarro',
+          subtitle: 'ADVOCACIA PARA NEGÓCIOS',
+          phone: '',
+          email: 'contato@oliveiranavarro.com',
+          instagram: 'oliveirasnavarro.on',
+          website: 'oliveiranavarro.com',
+          city: 'Brasília · DF'
+        }
+      }
     };
 
     const OFFICE_INSTAGRAM_HANDLE = 'oliveirasnavarro.on';
@@ -2835,6 +2983,56 @@
       document.querySelectorAll('.folder-sheet').forEach(s => s.classList.toggle('paper-texture', state.pastaPaperTexture));
     }
 
+    function setFolderMode(mode) {
+      if (typeof state.pastaMode === 'string' && state.pastaProfiles[state.pastaMode]) {
+        const cur = state.pastaProfiles[state.pastaMode];
+        cur.title = document.getElementById('pasta-input-title').value;
+        cur.subtitle = document.getElementById('pasta-input-subtitle').value;
+        cur.phone = document.getElementById('pasta-input-phone').value;
+        cur.email = document.getElementById('pasta-input-email').value;
+        cur.instagram = document.getElementById('pasta-input-instagram').value;
+        cur.website = document.getElementById('pasta-input-website').value;
+        cur.city = document.getElementById('pasta-input-city').value;
+        if (state.pastaMode === 'signature') {
+          cur.whatsapp = document.getElementById('pasta-input-whatsapp').value;
+          cur.waMessage = document.getElementById('pasta-input-wa-message').value;
+        }
+      }
+
+      const nextMode = mode === 'office' ? 'office' : 'signature';
+      state.pastaMode = nextMode;
+      const isOffice = nextMode === 'office';
+
+      document.getElementById('pasta-mode-signature-btn')?.classList.toggle('active', !isOffice);
+      document.getElementById('pasta-mode-office-btn')?.classList.toggle('active', isOffice);
+
+      const backLayout = document.getElementById('folder-back-layout');
+      if (backLayout) {
+        backLayout.classList.toggle('mode-office', isOffice);
+        backLayout.classList.toggle('mode-signature', !isOffice);
+      }
+
+      const qrFields = document.getElementById('pasta-qr-fields');
+      if (qrFields) qrFields.style.display = isOffice ? 'none' : 'flex';
+
+      const profile = state.pastaProfiles[nextMode];
+      if (profile) {
+        document.getElementById('pasta-input-title').value = profile.title || '';
+        document.getElementById('pasta-input-subtitle').value = profile.subtitle || '';
+        document.getElementById('pasta-input-phone').value = profile.phone || '';
+        document.getElementById('pasta-input-email').value = profile.email || '';
+        document.getElementById('pasta-input-instagram').value = profile.instagram || '';
+        document.getElementById('pasta-input-website').value = profile.website || '';
+        document.getElementById('pasta-input-city').value = profile.city || '';
+        if (!isOffice) {
+          document.getElementById('pasta-input-whatsapp').value = profile.whatsapp || '+55 61 98171-5691';
+          document.getElementById('pasta-input-wa-message').value = profile.waMessage || 'Olá!';
+        }
+      }
+
+      updateFolder();
+    }
+
     function updateFolder() {
       const title = document.getElementById('pasta-input-title').value;
       const subtitle = document.getElementById('pasta-input-subtitle').value;
@@ -2843,15 +3041,69 @@
       const instaRaw = document.getElementById('pasta-input-instagram').value;
       const website = document.getElementById('pasta-input-website').value;
       const city = document.getElementById('pasta-input-city').value;
+      const wa = document.getElementById('pasta-input-whatsapp').value;
+      const waMsg = document.getElementById('pasta-input-wa-message').value;
+
+      const cur = state.pastaProfiles[state.pastaMode];
+      if (cur) {
+        cur.title = title;
+        cur.subtitle = subtitle;
+        cur.phone = phone;
+        cur.email = email;
+        cur.instagram = instaRaw;
+        cur.website = website;
+        cur.city = city;
+        if (state.pastaMode === 'signature') {
+          cur.whatsapp = wa;
+          cur.waMessage = waMsg;
+        }
+      }
 
       document.getElementById('pasta-display-title').textContent = title;
       document.getElementById('pasta-display-subtitle').textContent = subtitle;
 
+      const instaDisplay = formatInstagramDisplay(instaRaw);
       toggleFieldRow('pasta-row-phone', 'pasta-display-phone', phone);
       toggleFieldRow('pasta-row-email', 'pasta-display-email', email);
-      toggleFieldRow('pasta-row-instagram', 'pasta-display-instagram', formatInstagramDisplay(instaRaw));
+      toggleFieldRow('pasta-row-instagram', 'pasta-display-instagram', instaDisplay);
       toggleFieldRow('pasta-row-website', 'pasta-display-website', website);
       toggleFieldRow('pasta-row-city', 'pasta-display-city', city);
+
+      const officeTitle = document.getElementById('pasta-office-title');
+      const officeSub = document.getElementById('pasta-office-subtitle');
+      const officeDot = document.getElementById('pasta-office-sub-dot');
+      const officeSite = document.getElementById('pasta-office-website');
+      const officeCity = document.getElementById('pasta-office-city');
+      const officeContactsLine = document.getElementById('pasta-office-contacts-line');
+
+      if (officeTitle) officeTitle.textContent = title.trim();
+      if (officeSub) officeSub.textContent = subtitle.trim();
+      if (officeDot) officeDot.style.display = (title.trim() && subtitle.trim()) ? 'inline' : 'none';
+      if (officeSite) {
+        officeSite.textContent = website.trim();
+        officeSite.style.display = website.trim() ? 'block' : 'none';
+      }
+      if (officeCity) {
+        officeCity.textContent = city.trim();
+        officeCity.style.display = city.trim() ? 'block' : 'none';
+      }
+      if (officeContactsLine) {
+        officeContactsLine.textContent = '';
+        const items = [
+          phone.trim(),
+          email.trim(),
+          instaDisplay ? '@' + instaDisplay : ''
+        ].filter(Boolean);
+        items.forEach((txt, idx) => {
+          if (idx > 0) {
+            const sep = document.createElement('span');
+            sep.className = 'office-dot';
+            sep.textContent = '·';
+            officeContactsLine.appendChild(sep);
+          }
+          officeContactsLine.appendChild(document.createTextNode(txt));
+        });
+      }
 
       const frontSite = document.getElementById('pasta-front-website');
       if (frontSite) {
@@ -2869,6 +3121,9 @@
     }
 
     function importCardToFolder() {
+      if (state.pastaMode !== 'signature') {
+        setFolderMode('signature');
+      }
       const name = document.getElementById('input-name').value.trim();
       const role = document.getElementById('input-role').value.trim();
       const phone = document.getElementById('input-phone').value.trim();
