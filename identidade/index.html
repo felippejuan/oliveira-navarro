@@ -28,7 +28,14 @@
       --olina-orange-hover: #C44316;
       --olina-charcoal: #141211;
       --olina-ivory: #F5EFEA;
-      --olina-qr: #F1EAE1;
+      --olina-card-bg: #FAF7F2;       /* Off-white Leve */
+      --olina-card-white: #FFFFFF;    /* Branco Puro */
+      --olina-card-active-bg: #FAF7F2;
+      --olina-pasta-active-bg: #FAF7F2;
+      --olina-coffee-deep: #1E1A18;   /* Tipografia Principal Escura */
+      --olina-coffee: #3F3835;        /* Pantone Turkish Coffee */
+      --olina-stone-muted: #6E655D;   /* Texto Secundário */
+      --olina-qr: #1E1A18;
 
       --ui-bg: #110F0E;
       --ui-surface: #181513;
@@ -454,11 +461,48 @@
       aspect-ratio: 9 / 5;
       position: relative;
       overflow: hidden;
-      background-color: var(--olina-charcoal);
-      color: var(--olina-ivory);
+      background-color: var(--olina-card-bg);
+      color: var(--olina-coffee-deep);
       border-radius: 0px;
-      box-shadow: 0 22px 48px -12px rgba(0, 0, 0, 0.72), 0 0 0 1px rgba(255, 255, 255, 0.08);
+      box-shadow: 0 22px 48px -12px rgba(0, 0, 0, 0.72), 0 0 0 1px rgba(220, 214, 204, 0.4);
       user-select: none;
+      transition: background-color 0.2s ease;
+    }
+
+    .business-card.theme-white {
+      background-color: var(--olina-card-white);
+    }
+
+    .card-bg-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px;
+      background: var(--ui-bg);
+      border: 1px solid var(--ui-border);
+      border-radius: 8px;
+    }
+
+    .card-bg-switch .btn-ui {
+      border: 1px solid transparent;
+      background: transparent;
+      padding: 4px 10px;
+      font-size: 11.5px;
+      border-radius: 6px;
+    }
+
+    .card-bg-switch .btn-ui.active {
+      background: rgba(221, 79, 29, 0.15);
+      border-color: var(--olina-orange);
+      color: #FFFFFF;
+    }
+
+    .swatch-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.28);
+      flex-shrink: 0;
     }
 
     .business-card.rounded-corners { border-radius: 10px; }
@@ -515,6 +559,8 @@
 
     .front-body {
       flex: 1;
+      height: 100%;
+      min-width: 0;
       padding: 28px 34px 26px;
       display: flex;
       flex-direction: column;
@@ -532,7 +578,7 @@
       font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: #A69C92;
+      color: var(--olina-stone-muted);
       line-height: 1.4;
       white-space: nowrap;
     }
@@ -580,18 +626,19 @@
 
     .front-logo-svg {
       width: 224px;
-      height: auto;
+      height: 36.44px;
       display: block;
+      flex-shrink: 0;
     }
 
     .front-sub {
       font-family: 'Cairo', -apple-system, BlinkMacSystemFont, sans-serif;
       font-style: normal;
       font-size: 13.5px;
-      font-weight: 400;
+      font-weight: 500;
       letter-spacing: 0.02em;
       line-height: 1.25;
-      color: #DED6CE;
+      color: var(--olina-coffee);
     }
 
     /* VERSO: Nome + Cargo + Contatos (Email, Instagram, Site, Localização) + QR 128px */
@@ -619,7 +666,7 @@
       font-weight: 700;
       line-height: 1.12;
       letter-spacing: -0.02em;
-      color: #FFFFFF;
+      color: var(--olina-coffee-deep);
     }
 
     .v-role {
@@ -644,12 +691,12 @@
       font-size: 12px;
       font-weight: 500;
       line-height: 1.25;
-      color: #EFE8E0;
+      color: var(--olina-coffee);
     }
 
     .v-contact-row.is-city {
       font-size: 11.5px;
-      color: #B8ABA0;
+      color: var(--olina-stone-muted);
     }
 
     .v-contact-row.is-hidden {
@@ -676,6 +723,317 @@
     }
 
     .qr-box svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* ==========================================================================
+       PASTA INSTITUCIONAL A4 (225 x 315 mm FECHADA • 450 x 315 mm ABERTA)
+       ========================================================================== */
+    .folder-stage-grid {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      padding: 12px 0 6px;
+      zoom: 0.74;
+    }
+
+    @media (min-width: 1180px) and (max-width: 1560px) {
+      .folder-stage-grid {
+        zoom: 0.64;
+      }
+    }
+
+    .folder-slot {
+      width: 450px;
+      max-width: 100%;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .folder-sheet {
+      width: 450px;
+      height: 630px;
+      max-width: 100%;
+      aspect-ratio: 5 / 7;
+      position: relative;
+      overflow: hidden;
+      background-color: var(--olina-card-bg);
+      color: var(--olina-coffee-deep);
+      border-radius: 0px;
+      box-shadow: 0 22px 48px -12px rgba(0, 0, 0, 0.72), 0 0 0 1px rgba(220, 214, 204, 0.4);
+      user-select: none;
+      transition: background-color 0.2s ease;
+    }
+
+    .folder-sheet.theme-white {
+      background-color: var(--olina-card-white);
+    }
+
+    .folder-sheet.paper-texture::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: 20;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    .folder-sheet.show-bleed-lines::before {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border: 1px dashed rgba(221, 79, 29, 0.55);
+      pointer-events: none;
+      z-index: 30;
+    }
+
+    .folder-sheet.show-bleed-lines .bleed-tag { display: block; }
+
+    .folder-front-layout {
+      position: relative;
+      height: 100%;
+      display: flex;
+      z-index: 10;
+    }
+
+    .folder-front-stripe {
+      width: 12px;
+      height: 100%;
+      background-color: var(--olina-orange);
+      flex-shrink: 0;
+    }
+
+    .folder-front-body {
+      flex: 1;
+      height: 100%;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      z-index: 10;
+    }
+
+    .folder-front-main {
+      flex: 1;
+      min-height: 0;
+      padding: 54px 44px 36px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .folder-front-top {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .folder-logo-svg {
+      width: 256px;
+      height: 41.65px;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .folder-front-editorial {
+      margin: auto 0;
+      padding: 0 0 12px 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .folder-front-headline {
+      font-family: 'Cairo', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 38px;
+      font-weight: 400;
+      letter-spacing: -0.025em;
+      line-height: 1.06;
+      color: var(--olina-coffee);
+    }
+
+    .folder-front-headline strong {
+      font-weight: 700;
+      color: var(--olina-coffee-deep);
+    }
+
+    .folder-front-headline .headline-dot {
+      color: var(--olina-orange);
+    }
+
+    .folder-front-areas {
+      margin-top: 18px;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      line-height: 1.4;
+      color: var(--olina-stone-muted);
+      white-space: nowrap;
+    }
+
+    .folder-front-areas .area-dot {
+      color: var(--olina-orange);
+      font-weight: 800;
+      margin: 0 6px;
+    }
+
+    .folder-front-footer {
+      margin: 0 44px 48px 40px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(63, 56, 53, 0.16);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .folder-front-site {
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--olina-stone-muted);
+      white-space: nowrap;
+    }
+
+    .folder-front-city {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--olina-coffee);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .folder-back-layout {
+      position: relative;
+      height: 100%;
+      padding: 54px 48px 50px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 10;
+    }
+
+    .folder-back-upper {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 18px;
+    }
+
+    .folder-back-watermark {
+      width: 82px;
+      height: auto;
+      display: block;
+    }
+
+    .folder-back-watermark .wm-capsule {
+      fill: rgba(221, 79, 29, 0.22);
+    }
+
+    .folder-back-rule {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      margin-bottom: 24px;
+      flex-shrink: 0;
+    }
+
+    .folder-back-rule .rule-orange {
+      width: 44px;
+      height: 2px;
+      background-color: var(--olina-orange);
+      flex-shrink: 0;
+    }
+
+    .folder-back-rule .rule-gray {
+      flex: 1;
+      height: 1px;
+      background-color: rgba(63, 56, 53, 0.16);
+    }
+
+    .folder-back-footer {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      flex-shrink: 0;
+    }
+
+    .folder-back-info {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .folder-back-header {
+      margin-bottom: 16px;
+    }
+
+    .folder-back-title {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.14;
+      letter-spacing: -0.02em;
+      color: var(--olina-coffee-deep);
+    }
+
+    .folder-back-subtitle {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--olina-orange);
+      margin-top: 5px;
+    }
+
+    .folder-contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 7.5px;
+    }
+
+    .folder-contact-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 12.5px;
+      font-weight: 500;
+      line-height: 1.25;
+      color: var(--olina-coffee);
+    }
+
+    .folder-contact-row.is-city {
+      font-size: 12px;
+      color: var(--olina-stone-muted);
+    }
+
+    .folder-contact-row.is-hidden {
+      display: none;
+    }
+
+    .folder-qr-box {
+      width: 106px;
+      height: 106px;
+      flex-shrink: 0;
+    }
+
+    .folder-qr-box svg {
       width: 100%;
       height: 100%;
       display: block;
@@ -1275,7 +1633,7 @@
         height: auto !important;
         margin: 0 !important;
         padding: 0 !important;
-        background: #141211 !important;
+        background: var(--olina-card-active-bg) !important;
       }
       header, .app-sidebar, .editor-sidebar, .stage-top-bar, .stage-export-bar, .face-label-bar, .toast-pill, .bleed-tag, #view-assinatura {
         display: none !important;
@@ -1376,6 +1734,9 @@
       <div class="header-actions" id="header-actions-cartao" style="display: none;">
         <button class="btn-export-primary" onclick="downloadPrintPDF()">Baixar PDF Gráfica</button>
       </div>
+      <div class="header-actions" id="header-actions-pasta" style="display: none;">
+        <button class="btn-export-primary" onclick="downloadFolderPDF()">Baixar PDF Pasta</button>
+      </div>
       <div class="header-actions" id="header-actions-assinatura">
         <button class="btn-ui" onclick="resetSigDefaults()">Restaurar Padrão</button>
         <button class="btn-export-primary" onclick="copyFormattedSignature()">Copiar Assinatura</button>
@@ -1404,6 +1765,14 @@
         </span>
       </button>
 
+      <button type="button" class="nav-item" id="nav-btn-pasta" onclick="switchAppView('pasta')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/></svg>
+        <span class="nav-item-text">
+          <strong>Pasta A4</strong>
+          <small>225 &times; 315 mm &bull; PDF</small>
+        </span>
+      </button>
+
       <div class="app-sidebar-foot">
         Oliveira Navarro Advocacia<br>
         Central de Identidade
@@ -1424,6 +1793,14 @@
         </div>
 
         <div class="stage-tools">
+          <div class="card-bg-switch" role="group" aria-label="Cor do cartão">
+            <button type="button" class="btn-ui active" id="card-theme-offwhite-btn" onclick="setCardTheme('offwhite')">
+              <span class="swatch-dot" style="background: #FAF7F2;"></span>Off-White
+            </button>
+            <button type="button" class="btn-ui" id="card-theme-white-btn" onclick="setCardTheme('white')">
+              <span class="swatch-dot" style="background: #FFFFFF;"></span>Branco
+            </button>
+          </div>
           <button class="btn-ui" id="toggle-bleed-btn" onclick="toggleBleedLines()">Sangria (3mm)</button>
           <button class="btn-ui" id="toggle-texture-btn" onclick="togglePaperTexture()">Textura Papel</button>
           <button class="btn-ui" id="toggle-corners-btn" onclick="toggleCorners()">Cantos Retos</button>
@@ -1447,9 +1824,9 @@
               <div class="front-body">
                 <div>
                   <!-- Logo Oficial Oliveira Navarro -->
-                  <svg class="front-logo-svg" width="224" height="36.44" viewBox="33 9 1168 190">
+                  <svg class="front-logo-svg" xmlns="http://www.w3.org/2000/svg" width="224" height="36.44" viewBox="33 9 1168 190">
                   <path fill="#DD4F1D" d="M735.63,9.15h-169.79c-16.01,0-29.97,8.91-37.21,22.03-7.23-13.12-21.2-22.03-37.21-22.03H75.8c-23.41,0-42.46,19.05-42.46,42.46v103.68c0,23.41,19.05,42.46,42.46,42.46h415.62c16.21,0,30.31-9.13,37.47-22.51,7.3,12.87,21.12,21.57,36.94,21.57h169.79c23.41,0,42.46-19.05,42.46-42.46V51.6c0-23.41-19.05-42.46-42.46-42.46ZM491.42,187.96H75.8c-18.02,0-32.68-14.66-32.68-32.68V51.6c0-18.02,14.66-32.68,32.68-32.68h415.62c16.27,0,29.8,11.96,32.28,27.55-.2,1.68-.32,3.4-.32,5.13v102.74c0,1.91.14,3.79.39,5.64-2.29,15.8-15.91,27.98-32.34,27.98Z"/>
-                  <g fill="#F5EFEA">
+                  <g fill="#1E1A18">
                     <path d="M875.32,40.64c-5.25,0-9.64,1.03-13.16,3.09-3.53,2.06-6.17,4.94-7.91,8.63-1.75,3.7-2.62,8.06-2.62,13.08,0,7.62,2.03,13.67,6.09,18.16,4.06,4.49,9.93,6.73,17.61,6.73,5.19,0,9.54-1.04,13.04-3.13,3.5-2.09,6.15-5.01,7.96-8.76,1.81-3.75,2.71-8.08,2.71-12.99,0-7.56-2.02-13.59-6.05-18.07-4.04-4.49-9.92-6.73-17.65-6.73ZM888.87,73.95c-1.13,2.51-2.82,4.49-5.08,5.92-2.26,1.44-5.11,2.16-8.55,2.16s-6.29-.73-8.55-2.2c-2.26-1.47-3.94-3.46-5.04-5.97-1.1-2.51-1.65-5.32-1.65-8.42,0-5.02,1.3-9.06,3.89-12.1,2.6-3.05,6.38-4.57,11.34-4.57,3.44,0,6.29.72,8.55,2.16,2.26,1.44,3.95,3.41,5.08,5.92,1.13,2.51,1.69,5.38,1.69,8.59s-.56,6-1.69,8.51Z"/>
                     <polygon points="939.4 81.77 915.87 81.77 915.87 41.48 907.24 41.48 907.24 81.77 907.24 88.72 907.24 89.14 939.4 89.14 939.4 81.77"/>
                     <polygon points="968.01 81.77 961.75 81.77 961.75 48.93 968.01 48.93 968.01 41.48 946.76 41.48 946.76 48.93 953.2 48.93 953.2 81.77 946.76 81.77 946.76 89.14 968.01 89.14 968.01 81.77"/>
@@ -1499,23 +1876,23 @@
 
                 <div class="v-contacts">
                   <div class="v-contact-row is-hidden" id="row-phone">
-                    <svg class="v-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#DD4F1D" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <svg class="v-icon" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#DD4F1D" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                     <span id="display-phone"></span>
                   </div>
                   <div class="v-contact-row" id="row-email">
-                    <svg class="v-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#DD4F1D" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    <svg class="v-icon" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#DD4F1D" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                     <span id="display-email">tattiana.navarro@oliveiranavarro.com</span>
                   </div>
                   <div class="v-contact-row" id="row-instagram">
-                    <svg class="v-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#DD4F1D" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    <svg class="v-icon" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#DD4F1D" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
                     <span id="display-instagram">tattiana.navarro</span>
                   </div>
                   <div class="v-contact-row" id="row-website">
-                    <svg class="v-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#DD4F1D" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                    <svg class="v-icon" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#DD4F1D" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
                     <span id="display-website">oliveiranavarro.com</span>
                   </div>
                   <div class="v-contact-row is-city" id="row-city">
-                    <svg class="v-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#DD4F1D" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <svg class="v-icon" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#DD4F1D" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
                     <span id="display-city">Brasília &middot; DF</span>
                   </div>
                 </div>
@@ -1534,9 +1911,9 @@
         <span class="export-note">Corte 90&times;50mm &bull; PDF 2 Págs 1:1 (600 DPI)</span>
         <div class="export-actions">
           <select id="pdf-format-select" class="select-export" aria-label="Formato do PDF para gráfica">
-            <option value="bleed" selected>PDF c/ Sangria 3mm (96&times;56mm)</option>
+            <option value="trim" selected>PDF Corte Exato (90&times;50mm)</option>
+            <option value="bleed">PDF c/ Sangria 3mm p/ Refilo (96&times;56mm)</option>
             <option value="crop">PDF c/ Marcas de Corte (102&times;62mm)</option>
-            <option value="trim">PDF Corte Exato (90&times;50mm)</option>
           </select>
           <button class="btn-export-primary" onclick="downloadPrintPDF()">Baixar PDF p/ Gráfica</button>
           <button class="btn-ui" onclick="downloadPairSheet()">Prancha PNG</button>
@@ -1767,6 +2144,222 @@
 
         </div>
       </div><!-- /#view-assinatura -->
+
+      <!-- VIEW 3: PASTA INSTITUCIONAL A4 -->
+      <div class="app-view" id="view-pasta">
+        <main class="studio-layout">
+          <section class="stage-panel">
+            <div class="stage-top-bar">
+              <div class="stage-title-wrap">
+                <h2>Visualização Lado a Lado</h2>
+                <p>CAPA (FRENTE) &bull; CONTRACAPA (VERSO) &bull; PASTA A4 (225 &times; 315 mm)</p>
+              </div>
+
+              <div class="stage-tools">
+                <div class="card-bg-switch" role="group" aria-label="Cor da pasta">
+                  <button type="button" class="btn-ui active" id="pasta-theme-offwhite-btn" onclick="setFolderTheme('offwhite')">
+                    <span class="swatch-dot" style="background: #FAF7F2;"></span>Off-White
+                  </button>
+                  <button type="button" class="btn-ui" id="pasta-theme-white-btn" onclick="setFolderTheme('white')">
+                    <span class="swatch-dot" style="background: #FFFFFF;"></span>Branco
+                  </button>
+                </div>
+                <button class="btn-ui" id="pasta-toggle-bleed-btn" onclick="toggleFolderBleedLines()">Margem Segura (5mm)</button>
+                <button class="btn-ui" id="pasta-toggle-texture-btn" onclick="toggleFolderPaperTexture()">Textura Papel</button>
+              </div>
+            </div>
+
+            <div class="folder-stage-grid">
+              <!-- CAPA (FRENTE) -->
+              <div class="folder-slot">
+                <div class="face-label-bar">
+                  <span>CAPA &bull; FRENTE</span>
+                  <span>225 &times; 315 mm</span>
+                </div>
+
+                <div class="folder-sheet" id="folder-front">
+                  <span class="bleed-tag">MARGEM SEGURA 5mm</span>
+
+                  <div class="folder-front-layout">
+                    <div class="folder-front-stripe"></div>
+
+                    <div class="folder-front-body">
+                      <div class="folder-front-main">
+                        <div class="folder-front-top">
+                          <!-- Logo Oficial Oliveira Navarro -->
+                          <svg class="folder-logo-svg" xmlns="http://www.w3.org/2000/svg" width="256" height="41.65" viewBox="33 9 1168 190">
+                            <path fill="#DD4F1D" d="M735.63,9.15h-169.79c-16.01,0-29.97,8.91-37.21,22.03-7.23-13.12-21.2-22.03-37.21-22.03H75.8c-23.41,0-42.46,19.05-42.46,42.46v103.68c0,23.41,19.05,42.46,42.46,42.46h415.62c16.21,0,30.31-9.13,37.47-22.51,7.3,12.87,21.12,21.57,36.94,21.57h169.79c23.41,0,42.46-19.05,42.46-42.46V51.6c0-23.41-19.05-42.46-42.46-42.46ZM491.42,187.96H75.8c-18.02,0-32.68-14.66-32.68-32.68V51.6c0-18.02,14.66-32.68,32.68-32.68h415.62c16.27,0,29.8,11.96,32.28,27.55-.2,1.68-.32,3.4-.32,5.13v102.74c0,1.91.14,3.79.39,5.64-2.29,15.8-15.91,27.98-32.34,27.98Z"/>
+                            <g fill="#1E1A18">
+                              <path d="M875.32,40.64c-5.25,0-9.64,1.03-13.16,3.09-3.53,2.06-6.17,4.94-7.91,8.63-1.75,3.7-2.62,8.06-2.62,13.08,0,7.62,2.03,13.67,6.09,18.16,4.06,4.49,9.93,6.73,17.61,6.73,5.19,0,9.54-1.04,13.04-3.13,3.5-2.09,6.15-5.01,7.96-8.76,1.81-3.75,2.71-8.08,2.71-12.99,0-7.56-2.02-13.59-6.05-18.07-4.04-4.49-9.92-6.73-17.65-6.73ZM888.87,73.95c-1.13,2.51-2.82,4.49-5.08,5.92-2.26,1.44-5.11,2.16-8.55,2.16s-6.29-.73-8.55-2.2c-2.26-1.47-3.94-3.46-5.04-5.97-1.1-2.51-1.65-5.32-1.65-8.42,0-5.02,1.3-9.06,3.89-12.1,2.6-3.05,6.38-4.57,11.34-4.57,3.44,0,6.29.72,8.55,2.16,2.26,1.44,3.95,3.41,5.08,5.92,1.13,2.51,1.69,5.38,1.69,8.59s-.56,6-1.69,8.51Z"/>
+                              <polygon points="939.4 81.77 915.87 81.77 915.87 41.48 907.24 41.48 907.24 81.77 907.24 88.72 907.24 89.14 939.4 89.14 939.4 81.77"/>
+                              <polygon points="968.01 81.77 961.75 81.77 961.75 48.93 968.01 48.93 968.01 41.48 946.76 41.48 946.76 48.93 953.2 48.93 953.2 81.77 946.76 81.77 946.76 89.14 968.01 89.14 968.01 81.77"/>
+                              <polygon points="1005 89.14 1020.74 41.48 1011.26 41.48 997.72 85.5 984.26 41.48 974.86 41.48 990.61 89.14 1005 89.14"/>
+                              <polygon points="1062.22 82.2 1035.89 82.2 1035.89 68.57 1055.45 68.57 1055.45 61.46 1035.89 61.46 1035.89 48.93 1061.37 48.93 1061.37 41.48 1027.34 41.48 1027.34 89.14 1062.22 89.14 1062.22 82.2"/>
+                              <polygon points="1091.59 81.77 1085.32 81.77 1085.32 48.93 1091.59 48.93 1091.59 41.48 1070.34 41.48 1070.34 48.93 1076.77 48.93 1076.77 81.77 1070.34 81.77 1070.34 89.14 1091.59 89.14 1091.59 81.77"/>
+                              <path d="M1111.73,69.42c3.39-.17,6.15-.21,8.3-.13,2.14.08,3.85.34,5.12.76,1.27.42,2.2,1.04,2.79,1.86.59.82.97,1.91,1.14,3.26.17,1.35.25,3.02.25,4.99,0,2.71.48,4.81,1.44,6.31.96,1.5,2.14,2.5,3.56,3,1.41.51,2.85.61,4.32.3,1.47-.31,2.74-.92,3.81-1.82v-4.99c-1.41.51-2.48.63-3.22.38-.73-.25-1.27-.79-1.61-1.61-.34-.82-.58-1.79-.72-2.92-.14-1.13-.3-2.29-.47-3.47-.17-1.19-.49-2.3-.97-3.34-.48-1.04-1.2-1.89-2.16-2.54-.96-.65-2.29-.97-3.98-.97,2.37,0,4.36-.55,5.97-1.65s2.82-2.62,3.64-4.57c.82-1.95,1.23-4.22,1.23-6.81,0-3.5-.78-6.25-2.33-8.25-1.55-2-3.78-3.46-6.69-4.36-2.91-.9-6.42-1.35-10.54-1.35h-17.52v47.66h8.63v-19.72ZM1111.73,48.51h6.86c2.99,0,5.52.13,7.58.38,2.06.25,3.62.92,4.7,1.99,1.07,1.07,1.61,2.82,1.61,5.25,0,2.15-.44,3.72-1.31,4.74-.88,1.02-2.2,1.65-3.98,1.9s-4.08.38-6.9.38h-8.55v-14.64Z"/>
+                              <path d="M1160.99,75.68h18.51l4.09,13.46h9.23l-15.66-47.66h-14.14l-15.24,47.66h9.14l4.06-13.46ZM1170.22,45.12l7.25,23.87h-14.46l7.21-23.87Z"/>
+                              <polygon points="887.6 160.17 887.43 160.17 869.99 116.33 854.76 116.33 854.76 163.98 863.64 163.98 863.64 120.14 863.81 120.14 880.15 163.98 896.57 163.98 896.57 116.33 887.6 116.33 887.6 160.17"/>
+                              <path d="M921.62,116.33l-15.24,47.66h9.14l4.06-13.46h18.51l4.09,13.46h9.23l-15.66-47.66h-14.14ZM921.61,143.84l7.21-23.87,7.25,23.87h-14.46Z"/>
+                              <polygon points="975.29 160.34 961.83 116.33 952.44 116.33 968.18 163.98 982.57 163.98 998.31 116.33 988.83 116.33 975.29 160.34"/>
+                              <path d="M1015.33,116.33l-15.24,47.66h9.14l4.06-13.46h18.51l4.09,13.46h9.23l-15.66-47.66h-14.14ZM1015.31,143.84l7.21-23.87,7.25,23.87h-14.46Z"/>
+                              <path d="M1090.66,158.19c-.73-.25-1.27-.79-1.61-1.61-.34-.82-.58-1.79-.72-2.92-.14-1.13-.3-2.29-.47-3.47-.17-1.19-.49-2.3-.97-3.34-.48-1.04-1.2-1.89-2.16-2.54-.96-.65-2.29-.97-3.98-.97,2.37,0,4.36-.55,5.97-1.65s2.82-2.62,3.64-4.57c.82-1.95,1.23-4.22,1.23-6.81,0-3.5-.78-6.25-2.33-8.25-1.55-2-3.78-3.46-6.69-4.36-2.91-.9-6.42-1.35-10.54-1.35h-17.52v47.66h8.63v-19.72c3.39-.17,6.15-.21,8.3-.13,2.14.08,3.85.34,5.12.76,1.27.42,2.2,1.04,2.79,1.86.59.82.97,1.91,1.14,3.26.17,1.35.25,3.02.25,4.99,0,2.71.48,4.81,1.44,6.31.96,1.5,2.14,2.5,3.55,3,1.41.51,2.85.61,4.32.3,1.47-.31,2.74-.92,3.81-1.82v-4.99c-1.41.51-2.48.63-3.22.38ZM1078.6,137.62c-1.78.25-4.08.38-6.9.38h-8.55v-14.64h6.86c2.99,0,5.52.13,7.58.38,2.06.25,3.62.92,4.7,1.99,1.07,1.07,1.61,2.82,1.61,5.25,0,2.15-.44,3.72-1.31,4.74-.88,1.02-2.2,1.65-3.98,1.9Z"/>
+                              <path d="M1141.02,158.19c-.73-.25-1.27-.79-1.61-1.61-.34-.82-.58-1.79-.72-2.92-.14-1.13-.3-2.29-.47-3.47-.17-1.19-.49-2.3-.97-3.34-.48-1.04-1.2-1.89-2.16-2.54-.96-.65-2.29-.97-3.98-.97,2.37,0,4.36-.55,5.97-1.65s2.82-2.62,3.64-4.57c.82-1.95,1.23-4.22,1.23-6.81,0-3.5-.78-6.25-2.33-8.25-1.55-2-3.78-3.46-6.69-4.36-2.91-.9-6.42-1.35-10.54-1.35h-17.52v47.66h8.63v-19.72c3.39-.17,6.15-.21,8.3-.13,2.14.08,3.85.34,5.12.76,1.27.42,2.2,1.04,2.79,1.86.59.82.97,1.91,1.14,3.26.17,1.35.25,3.02.25,4.99,0,2.71.48,4.81,1.44,6.31.96,1.5,2.14,2.5,3.55,3,1.41.51,2.85.61,4.32.3,1.47-.31,2.74-.92,3.81-1.82v-4.99c-1.41.51-2.48.63-3.22.38ZM1128.96,137.62c-1.78.25-4.08.38-6.9.38h-8.55v-14.64h6.86c2.99,0,5.52.13,7.58.38,2.06.25,3.62.92,4.7,1.99,1.07,1.07,1.61,2.82,1.61,5.25,0,2.15-.44,3.72-1.31,4.74-.88,1.02-2.2,1.65-3.98,1.9Z"/>
+                              <path d="M1193.38,122.21c-4.04-4.49-9.92-6.73-17.65-6.73-5.25,0-9.64,1.03-13.16,3.09-3.53,2.06-6.17,4.94-7.91,8.63-1.75,3.7-2.62,8.06-2.62,13.08,0,7.62,2.03,13.67,6.09,18.16s9.93,6.73,17.61,6.73c5.19,0,9.54-1.04,13.04-3.13,3.5-2.09,6.15-5.01,7.96-8.76,1.81-3.75,2.71-8.08,2.71-12.99,0-7.56-2.02-13.59-6.05-18.07ZM1189.27,148.79c-1.13,2.51-2.82,4.49-5.08,5.92-2.26,1.44-5.11,2.16-8.55,2.16s-6.29-.73-8.55-2.2c-2.26-1.47-3.94-3.46-5.04-5.97-1.1-2.51-1.65-5.32-1.65-8.42,0-5.02,1.3-9.06,3.89-12.1,2.59-3.05,6.38-4.57,11.34-4.57,3.44,0,6.29.72,8.55,2.16,2.26,1.44,3.95,3.41,5.08,5.92,1.13,2.51,1.69,5.38,1.69,8.59s-.56,6-1.69,8.51Z"/>
+                            </g>
+                          </svg>
+                        </div>
+
+                        <div class="folder-front-editorial">
+                          <div class="folder-front-headline">
+                            No ritmo<br><strong>dos negócios<span class="headline-dot">.</span></strong>
+                          </div>
+                          <div class="folder-front-areas">
+                            Advocacia<span class="area-dot">&middot;</span>Consultoria<span class="area-dot">&middot;</span>Relações Governamentais
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="folder-front-footer">
+                        <div class="folder-front-site" id="pasta-front-website">oliveiranavarro.com</div>
+                        <div class="folder-front-city" id="pasta-front-city">Brasília &middot; DF</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CONTRACAPA (VERSO) -->
+              <div class="folder-slot">
+                <div class="face-label-bar">
+                  <span>CONTRACAPA &bull; VERSO</span>
+                  <span>225 &times; 315 mm</span>
+                </div>
+
+                <div class="folder-sheet" id="folder-back">
+                  <span class="bleed-tag">MARGEM SEGURA 5mm</span>
+
+                  <div class="folder-back-layout">
+                    <div class="folder-back-upper">
+                      <svg class="folder-back-watermark" xmlns="http://www.w3.org/2000/svg" width="82" height="21.3" viewBox="30 6 752 195" aria-hidden="true">
+                        <path class="wm-capsule" d="M735.63,9.15h-169.79c-16.01,0-29.97,8.91-37.21,22.03-7.23-13.12-21.2-22.03-37.21-22.03H75.8c-23.41,0-42.46,19.05-42.46,42.46v103.68c0,23.41,19.05,42.46,42.46,42.46h415.62c16.21,0,30.31-9.13,37.47-22.51,7.3,12.87,21.12,21.57,36.94,21.57h169.79c23.41,0,42.46-19.05,42.46-42.46V51.6c0-23.41-19.05-42.46-42.46-42.46ZM491.42,187.96H75.8c-18.02,0-32.68-14.66-32.68-32.68V51.6c0-18.02,14.66-32.68,32.68-32.68h415.62c16.27,0,29.8,11.96,32.28,27.55-.2,1.68-.32,3.4-.32,5.13v102.74c0,1.91.14,3.79.39,5.64-2.29,15.8-15.91,27.98-32.34,27.98Z"/>
+                      </svg>
+                    </div>
+
+                    <div class="folder-back-rule" aria-hidden="true">
+                      <span class="rule-orange"></span>
+                      <span class="rule-gray"></span>
+                    </div>
+
+                    <div class="folder-back-footer">
+                      <div class="folder-back-info">
+                        <div class="folder-back-header">
+                          <h3 class="folder-back-title" id="pasta-display-title">Oliveira Navarro</h3>
+                          <div class="folder-back-subtitle" id="pasta-display-subtitle">ADVOCACIA PARA NEGÓCIOS</div>
+                        </div>
+
+                        <div class="folder-contacts">
+                          <div class="folder-contact-row is-hidden" id="pasta-row-phone">
+                            <svg class="v-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#DD4F1D" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            <span id="pasta-display-phone"></span>
+                          </div>
+                          <div class="folder-contact-row" id="pasta-row-email">
+                            <svg class="v-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#DD4F1D" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            <span id="pasta-display-email">contato@oliveiranavarro.com</span>
+                          </div>
+                          <div class="folder-contact-row" id="pasta-row-instagram">
+                            <svg class="v-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#DD4F1D" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                            <span id="pasta-display-instagram">oliveirasnavarro.on</span>
+                          </div>
+                          <div class="folder-contact-row" id="pasta-row-website">
+                            <svg class="v-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#DD4F1D" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                            <span id="pasta-display-website">oliveiranavarro.com</span>
+                          </div>
+                          <div class="folder-contact-row is-city" id="pasta-row-city">
+                            <svg class="v-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#DD4F1D" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <span id="pasta-display-city">Brasília &middot; DF</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="folder-qr-box" id="pasta-qr-target"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="stage-export-bar">
+              <span class="export-note">Fechada 225&times;315mm (Aberta 450&times;315mm) &bull; Couchê/Triplex 300g</span>
+              <div class="export-actions">
+                <select id="pasta-pdf-format-select" class="select-export" aria-label="Formato do PDF da pasta para gráfica">
+                  <option value="trim" selected>PDF Corte Exato (225&times;315mm &bull; 2 Págs)</option>
+                  <option value="bleed">PDF c/ Sangria 3mm (231&times;321mm &bull; 2 Págs)</option>
+                  <option value="crop">PDF c/ Marcas de Corte (237&times;327mm &bull; 2 Págs)</option>
+                  <option value="spread">PDF Pasta Aberta (450&times;315mm &bull; 1 Pág)</option>
+                </select>
+                <button class="btn-export-primary" onclick="downloadFolderPDF()">Baixar PDF Pasta</button>
+                <button class="btn-ui" onclick="downloadFolderPairSheet()">Prancha PNG</button>
+                <button class="btn-ui" onclick="downloadSingleFolder('folder-front', 'oliveira-navarro-pasta-capa')">Capa PNG</button>
+                <button class="btn-ui" onclick="downloadSingleFolder('folder-back', 'oliveira-navarro-pasta-contracapa')">Contracapa PNG</button>
+              </div>
+            </div>
+          </section>
+
+          <aside class="editor-sidebar">
+            <div class="sidebar-heading">
+              <span>Dados da Pasta A4</span>
+              <button type="button" class="btn-ui" style="padding: 3px 9px; font-size: 11px;" onclick="importCardToFolder()">Puxar do Cartão</button>
+            </div>
+
+            <div class="form-stack">
+              <div class="form-field">
+                <label>Título / Destaque</label>
+                <input type="text" id="pasta-input-title" value="Oliveira Navarro" oninput="updateFolder()">
+              </div>
+
+              <div class="form-field">
+                <label>Subtítulo / Atuação</label>
+                <input type="text" id="pasta-input-subtitle" value="ADVOCACIA PARA NEGÓCIOS" oninput="updateFolder()">
+              </div>
+
+              <div class="form-field">
+                <label>Telefone <small>(opcional — vazio por padrão)</small></label>
+                <input type="text" id="pasta-input-phone" value="" placeholder="Deixe vazio para ocultar" oninput="updateFolder()">
+              </div>
+
+              <div class="form-field">
+                <label>E-mail</label>
+                <input type="email" id="pasta-input-email" value="contato@oliveiranavarro.com" oninput="updateFolder()">
+              </div>
+
+              <div class="form-field">
+                <label>Instagram</label>
+                <input type="text" id="pasta-input-instagram" value="oliveirasnavarro.on" oninput="updateFolder()">
+              </div>
+
+              <div class="form-field">
+                <label>Site</label>
+                <input type="text" id="pasta-input-website" value="oliveiranavarro.com" oninput="updateFolder()">
+              </div>
+
+              <div class="form-field">
+                <label>Cidade / Endereço</label>
+                <input type="text" id="pasta-input-city" value="Brasília · DF" oninput="updateFolder()">
+              </div>
+
+              <div class="form-field">
+                <label>WhatsApp (QR Code) <small>apenas no QR</small></label>
+                <input type="text" id="pasta-input-whatsapp" value="+55 61 98171-5691" oninput="renderFolderQRCode()">
+              </div>
+
+              <div class="form-field">
+                <label>Mensagem Inicial</label>
+                <input type="text" id="pasta-input-wa-message" value="Olá!" oninput="renderFolderQRCode()">
+              </div>
+            </div>
+          </aside>
+        </main>
+      </div><!-- /#view-pasta -->
     </div><!-- /.app-main -->
   </div><!-- /.app-shell -->
 
@@ -1794,10 +2387,14 @@
 
   <script>
     const state = {
+      cardTheme: 'offwhite',
       showBleed: false,
       paperTexture: false,
       roundedCorners: false,
-      manualInstagram: false
+      manualInstagram: false,
+      pastaTheme: 'offwhite',
+      pastaShowBleed: false,
+      pastaPaperTexture: false
     };
 
     const OFFICE_INSTAGRAM_HANDLE = 'oliveirasnavarro.on';
@@ -1876,6 +2473,15 @@
       renderQRCode();
     }
 
+    function setCardTheme(theme) {
+      state.cardTheme = theme === 'white' ? 'white' : 'offwhite';
+      const isWhite = state.cardTheme === 'white';
+      document.getElementById('card-theme-offwhite-btn')?.classList.toggle('active', !isWhite);
+      document.getElementById('card-theme-white-btn')?.classList.toggle('active', isWhite);
+      document.querySelectorAll('.business-card').forEach(c => c.classList.toggle('theme-white', isWhite));
+      document.documentElement.style.setProperty('--olina-card-active-bg', isWhite ? '#FFFFFF' : '#FAF7F2');
+    }
+
     function toggleBleedLines() {
       state.showBleed = !state.showBleed;
       document.getElementById('toggle-bleed-btn').classList.toggle('active', state.showBleed);
@@ -1896,20 +2502,19 @@
       document.querySelectorAll('.business-card').forEach(c => c.classList.toggle('rounded-corners', state.roundedCorners));
     }
 
-    function getQRPayload() {
-      const waDigits = (document.getElementById('input-whatsapp')?.value || '5561981715691').replace(/\D/g, '') || '5561981715691';
-      const waMsg = (document.getElementById('input-wa-message')?.value || '').trim();
+    function getQRPayloadFromInputs(waId, msgId) {
+      const waDigits = (document.getElementById(waId)?.value || '5561981715691').replace(/\D/g, '') || '5561981715691';
+      const waMsg = (document.getElementById(msgId)?.value || '').trim();
       return waMsg
         ? `https://wa.me/${waDigits}?text=${encodeURIComponent(waMsg)}`
         : `https://wa.me/${waDigits}`;
     }
 
-    function renderQRCode() {
+    function renderWhatsAppQR(containerId, sizePx, payload) {
       if (typeof qrcode === 'undefined') return;
-      const container = document.getElementById('qr-target');
+      const container = document.getElementById(containerId);
       if (!container) return;
 
-      const payload = getQRPayload();
       qrcode.stringToBytes = qrcode.stringToBytesFuncs['UTF-8'];
 
       const qr = qrcode(0, 'H');
@@ -1941,7 +2546,15 @@
           <path d="M 8.6 9.0 C 8.6 8.2 9.1 7.8 9.8 7.8 L 10.8 9.6 C 10.9 9.9 10.6 10.1 10.2 10.3 C 10.8 11.6 12.0 12.8 13.3 13.4 C 13.5 13.0 13.7 12.7 14.0 12.8 L 15.8 13.8 C 15.8 14.5 15.4 15.0 14.6 15.0 C 11.3 15.0 8.6 12.3 8.6 9.0 Z" fill="#DD4F1D"/>
         </g>`;
 
-      container.innerHTML = `<svg width="128" height="128" viewBox="0 0 ${count} ${count}" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg"><path d="${pathD}" fill="#F1EAE1"/>${centerBadge}</svg>`;
+      container.innerHTML = `<svg width="${sizePx}" height="${sizePx}" viewBox="0 0 ${count} ${count}" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg"><path d="${pathD}" fill="#1E1A18"/>${centerBadge}</svg>`;
+    }
+
+    function renderQRCode() {
+      renderWhatsAppQR('qr-target', 128, getQRPayloadFromInputs('input-whatsapp', 'input-wa-message'));
+    }
+
+    function renderFolderQRCode() {
+      renderWhatsAppQR('pasta-qr-target', 104, getQRPayloadFromInputs('pasta-input-whatsapp', 'pasta-input-wa-message'));
     }
 
     function getNameSlug() {
@@ -1951,50 +2564,83 @@
         .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'cartao';
     }
 
-    async function captureCleanCard(cardId, scale = 5) {
+    async function captureCleanElement(elId, baseW, baseH, scale, bgColor) {
       if (document.fonts && document.fonts.ready) {
         await document.fonts.ready;
       }
-      const el = document.getElementById(cardId);
-      return await html2canvas(el, {
-        scale,
-        useCORS: true,
-        backgroundColor: '#141211',
-        logging: false,
-        onclone: (doc) => {
-          const grid = doc.querySelector('.cards-stage-grid');
-          if (grid) grid.style.zoom = '1';
-          const cloned = doc.getElementById(cardId);
-          if (!cloned) return;
-          cloned.style.zoom = '1';
-          cloned.classList.remove('show-bleed-lines', 'rounded-corners');
-          cloned.style.borderRadius = '0px';
-          cloned.style.boxShadow = 'none';
-          const tag = cloned.querySelector('.bleed-tag');
-          if (tag) tag.remove();
-        }
-      });
+      const el = document.getElementById(elId);
+      const host = document.createElement('div');
+      host.style.cssText = `position:absolute;left:0;top:0;width:${baseW}px;height:${baseH}px;z-index:-1;pointer-events:none;zoom:1;margin:0;padding:0;`;
+
+      const clone = el.cloneNode(true);
+      clone.removeAttribute('id');
+      clone.classList.remove('show-bleed-lines', 'rounded-corners');
+      clone.style.width = `${baseW}px`;
+      clone.style.height = `${baseH}px`;
+      clone.style.maxWidth = 'none';
+      clone.style.zoom = '1';
+      clone.style.borderRadius = '0px';
+      clone.style.boxShadow = 'none';
+      clone.style.transition = 'none';
+      clone.querySelector('.bleed-tag')?.remove();
+
+      host.appendChild(clone);
+      document.body.appendChild(host);
+
+      try {
+        return await html2canvas(clone, {
+          scale,
+          useCORS: true,
+          backgroundColor: bgColor,
+          width: baseW,
+          height: baseH,
+          x: 0,
+          y: 0,
+          scrollX: 0,
+          scrollY: 0,
+          windowWidth: 1600,
+          windowHeight: 900,
+          logging: false
+        });
+      } finally {
+        host.remove();
+      }
     }
 
-    function composeBleedCanvas(cardCanvas, scale, bleedMm, isFront) {
+    async function captureCleanCard(cardId, scale = 5) {
+      const bg = state.cardTheme === 'white' ? '#FFFFFF' : '#FAF7F2';
+      return await captureCleanElement(cardId, 450, 250, scale, bg);
+    }
+
+    function composeBleedCanvas(cardCanvas, scale, bleedMm, isFront, trimW = 90, stripeBasePx = 13, baseW = 450) {
       if (!bleedMm) return cardCanvas;
-      const bleedPx = Math.round(bleedMm * 5 * scale); // 1mm = 5px no layout 450x250
+      const w = cardCanvas.width;
+      const h = cardCanvas.height;
+      const pxPerMm = w / trimW;
+      const bleedPx = Math.round(bleedMm * pxPerMm);
       const out = document.createElement('canvas');
-      out.width = cardCanvas.width + bleedPx * 2;
-      out.height = cardCanvas.height + bleedPx * 2;
+      out.width = w + bleedPx * 2;
+      out.height = h + bleedPx * 2;
 
       const ctx = out.getContext('2d');
-      const cardCtx = cardCanvas.getContext('2d');
+      ctx.imageSmoothingEnabled = false;
 
-      // Amostra exata da cor de fundo (#141211) e da faixa (#DD4F1D) para emenda 100% invisível
-      const [bgR, bgG, bgB] = cardCtx.getImageData(cardCanvas.width - 4, 4, 1, 1).data;
-      ctx.fillStyle = `rgb(${bgR}, ${bgG}, ${bgB})`;
-      ctx.fillRect(0, 0, out.width, out.height);
+      // Estende as bordas reais de 1px para a sangria (cobre topo, faixa de rodape e lombada)
+      ctx.drawImage(cardCanvas, 0, 0, 1, 1, 0, 0, bleedPx, bleedPx);
+      ctx.drawImage(cardCanvas, w - 1, 0, 1, 1, bleedPx + w, 0, bleedPx, bleedPx);
+      ctx.drawImage(cardCanvas, 0, h - 1, 1, 1, 0, bleedPx + h, bleedPx, bleedPx);
+      ctx.drawImage(cardCanvas, w - 1, h - 1, 1, 1, bleedPx + w, bleedPx + h, bleedPx, bleedPx);
+
+      ctx.drawImage(cardCanvas, 0, 0, w, 1, bleedPx, 0, w, bleedPx);
+      ctx.drawImage(cardCanvas, 0, h - 1, w, 1, bleedPx, bleedPx + h, w, bleedPx);
+      ctx.drawImage(cardCanvas, 0, 0, 1, h, 0, bleedPx, bleedPx, h);
+      ctx.drawImage(cardCanvas, w - 1, 0, 1, h, bleedPx + w, bleedPx, bleedPx, h);
 
       ctx.drawImage(cardCanvas, bleedPx, bleedPx);
 
       if (isFront) {
-        const stripePx = Math.round(13 * scale);
+        const stripePx = Math.round((stripeBasePx / baseW) * w);
+        const cardCtx = cardCanvas.getContext('2d');
         const [stR, stG, stB] = cardCtx.getImageData(Math.max(2, Math.floor(stripePx / 2)), 4, 1, 1).data;
         ctx.fillStyle = `rgb(${stR}, ${stG}, ${stB})`;
         ctx.fillRect(0, 0, bleedPx + stripePx, out.height);
@@ -2009,7 +2655,7 @@
         return;
       }
 
-      const mode = document.getElementById('pdf-format-select')?.value || 'bleed';
+      const mode = document.getElementById('pdf-format-select')?.value || 'trim';
       showToast('Gerando PDF 1:1 para gráfica (600 DPI)...');
 
       const scale = 5;
@@ -2129,31 +2775,259 @@
     }
 
     /* ==========================================================================
-       NAVEGAÇÃO SIDEBAR (CARTÃO DE VISITA <-> ASSINATURA DE E-MAIL)
+       NAVEGAÇÃO SIDEBAR (ASSINATURA <-> CARTÃO <-> PASTA A4)
        ========================================================================== */
     function switchAppView(view) {
-      const isSig = view === 'assinatura';
-      document.getElementById('view-cartao').classList.toggle('active', !isSig);
-      document.getElementById('view-assinatura').classList.toggle('active', isSig);
-      document.getElementById('nav-btn-cartao').classList.toggle('active', !isSig);
-      document.getElementById('nav-btn-assinatura').classList.toggle('active', isSig);
+      const normalized = (view === 'cartao' || view === 'pasta') ? view : 'assinatura';
+      document.getElementById('view-assinatura').classList.toggle('active', normalized === 'assinatura');
+      document.getElementById('view-cartao').classList.toggle('active', normalized === 'cartao');
+      document.getElementById('view-pasta').classList.toggle('active', normalized === 'pasta');
 
-      document.getElementById('header-actions-cartao').style.display = isSig ? 'none' : 'flex';
-      document.getElementById('header-actions-assinatura').style.display = isSig ? 'flex' : 'none';
+      document.getElementById('nav-btn-assinatura').classList.toggle('active', normalized === 'assinatura');
+      document.getElementById('nav-btn-cartao').classList.toggle('active', normalized === 'cartao');
+      document.getElementById('nav-btn-pasta').classList.toggle('active', normalized === 'pasta');
+
+      document.getElementById('header-actions-assinatura').style.display = normalized === 'assinatura' ? 'flex' : 'none';
+      document.getElementById('header-actions-cartao').style.display = normalized === 'cartao' ? 'flex' : 'none';
+      document.getElementById('header-actions-pasta').style.display = normalized === 'pasta' ? 'flex' : 'none';
 
       const titleEl = document.getElementById('header-view-title');
       const subEl = document.getElementById('header-view-sub');
-      if (isSig) {
+      if (normalized === 'assinatura') {
         titleEl.innerHTML = 'Assinatura de E-mail <span class="badge-capsule">Padrão Institucional</span>';
         subEl.innerHTML = 'OLIVEIRA NAVARRO ADVOCACIA &bull; GMAIL &bull; OUTLOOK';
-      } else {
+      } else if (normalized === 'cartao') {
         titleEl.innerHTML = 'Cartão de Visita <span class="badge-capsule">Frente &amp; Verso</span>';
         subEl.innerHTML = 'OLIVEIRA NAVARRO ADVOCACIA &bull; 90 &times; 50 mm';
+      } else {
+        titleEl.innerHTML = 'Pasta Institucional A4 <span class="badge-capsule">Capa &amp; Contracapa</span>';
+        subEl.innerHTML = 'OLIVEIRA NAVARRO ADVOCACIA &bull; 225 &times; 315 mm';
       }
 
-      if (location.hash !== '#' + view) {
-        history.replaceState(null, '', '#' + view);
+      if (location.hash !== '#' + normalized) {
+        history.replaceState(null, '', '#' + normalized);
       }
+    }
+
+    /* ==========================================================================
+       PASTA INSTITUCIONAL A4 (225 x 315 mm)
+       ========================================================================== */
+    function setFolderTheme(theme) {
+      state.pastaTheme = theme === 'white' ? 'white' : 'offwhite';
+      const isWhite = state.pastaTheme === 'white';
+      document.getElementById('pasta-theme-offwhite-btn')?.classList.toggle('active', !isWhite);
+      document.getElementById('pasta-theme-white-btn')?.classList.toggle('active', isWhite);
+      document.querySelectorAll('.folder-sheet').forEach(s => s.classList.toggle('theme-white', isWhite));
+      document.documentElement.style.setProperty('--olina-pasta-active-bg', isWhite ? '#FFFFFF' : '#FAF7F2');
+    }
+
+    function toggleFolderBleedLines() {
+      state.pastaShowBleed = !state.pastaShowBleed;
+      document.getElementById('pasta-toggle-bleed-btn').classList.toggle('active', state.pastaShowBleed);
+      document.querySelectorAll('.folder-sheet').forEach(s => s.classList.toggle('show-bleed-lines', state.pastaShowBleed));
+    }
+
+    function toggleFolderPaperTexture() {
+      state.pastaPaperTexture = !state.pastaPaperTexture;
+      document.getElementById('pasta-toggle-texture-btn').classList.toggle('active', state.pastaPaperTexture);
+      document.querySelectorAll('.folder-sheet').forEach(s => s.classList.toggle('paper-texture', state.pastaPaperTexture));
+    }
+
+    function updateFolder() {
+      const title = document.getElementById('pasta-input-title').value;
+      const subtitle = document.getElementById('pasta-input-subtitle').value;
+      const phone = document.getElementById('pasta-input-phone').value;
+      const email = document.getElementById('pasta-input-email').value;
+      const instaRaw = document.getElementById('pasta-input-instagram').value;
+      const website = document.getElementById('pasta-input-website').value;
+      const city = document.getElementById('pasta-input-city').value;
+
+      document.getElementById('pasta-display-title').textContent = title;
+      document.getElementById('pasta-display-subtitle').textContent = subtitle;
+
+      toggleFieldRow('pasta-row-phone', 'pasta-display-phone', phone);
+      toggleFieldRow('pasta-row-email', 'pasta-display-email', email);
+      toggleFieldRow('pasta-row-instagram', 'pasta-display-instagram', formatInstagramDisplay(instaRaw));
+      toggleFieldRow('pasta-row-website', 'pasta-display-website', website);
+      toggleFieldRow('pasta-row-city', 'pasta-display-city', city);
+
+      const frontSite = document.getElementById('pasta-front-website');
+      if (frontSite) {
+        frontSite.textContent = (website || '').trim();
+        frontSite.style.display = (website || '').trim() ? 'block' : 'none';
+      }
+
+      const frontCity = document.getElementById('pasta-front-city');
+      if (frontCity) {
+        frontCity.textContent = (city || '').trim();
+        frontCity.style.display = (city || '').trim() ? 'block' : 'none';
+      }
+
+      renderFolderQRCode();
+    }
+
+    function importCardToFolder() {
+      const name = document.getElementById('input-name').value.trim();
+      const role = document.getElementById('input-role').value.trim();
+      const phone = document.getElementById('input-phone').value.trim();
+      const email = document.getElementById('input-email').value.trim();
+      const insta = document.getElementById('input-instagram').value.trim();
+      const website = document.getElementById('input-website').value.trim();
+      const city = document.getElementById('input-city').value.trim();
+      const wa = document.getElementById('input-whatsapp').value.trim();
+      const waMsg = document.getElementById('input-wa-message').value.trim();
+
+      if (name) document.getElementById('pasta-input-title').value = name;
+      if (role) document.getElementById('pasta-input-subtitle').value = role;
+      document.getElementById('pasta-input-phone').value = phone;
+      if (email) document.getElementById('pasta-input-email').value = email;
+      if (insta) document.getElementById('pasta-input-instagram').value = insta;
+      if (website) document.getElementById('pasta-input-website').value = website;
+      if (city) document.getElementById('pasta-input-city').value = city;
+      if (wa) document.getElementById('pasta-input-whatsapp').value = wa;
+      if (waMsg) document.getElementById('pasta-input-wa-message').value = waMsg;
+
+      updateFolder();
+      showToast('Dados do cartão importados para a pasta!');
+    }
+
+    async function captureCleanFolder(folderId, scale = 4) {
+      const bg = state.pastaTheme === 'white' ? '#FFFFFF' : '#FAF7F2';
+      return await captureCleanElement(folderId, 450, 630, scale, bg);
+    }
+
+    async function downloadFolderPDF() {
+      if (!window.jspdf || !window.jspdf.jsPDF) {
+        showToast('Biblioteca PDF não carregada.');
+        return;
+      }
+
+      const mode = document.getElementById('pasta-pdf-format-select')?.value || 'trim';
+      showToast('Gerando PDF da Pasta A4...');
+
+      const scale = 4; // 1800 x 2520 px (203+ DPI para 225 x 315 mm)
+      const [frontRaw, backRaw] = await Promise.all([
+        captureCleanFolder('folder-front', scale),
+        captureCleanFolder('folder-back', scale)
+      ]);
+
+      const { jsPDF } = window.jspdf;
+      const trimW = 225;
+      const trimH = 315;
+
+      if (mode === 'spread') {
+        const pdf = new jsPDF({
+          orientation: 'landscape',
+          unit: 'mm',
+          format: [trimW * 2, trimH],
+          compress: true
+        });
+        pdf.addImage(backRaw.toDataURL('image/png'), 'PNG', 0, 0, trimW, trimH, undefined, 'FAST');
+        pdf.addImage(frontRaw.toDataURL('image/png'), 'PNG', trimW, 0, trimW, trimH, undefined, 'FAST');
+        pdf.setDrawColor(180, 175, 168);
+        pdf.setLineWidth(0.2);
+        pdf.line(trimW, 0, trimW, 4);
+        pdf.line(trimW, trimH - 4, trimW, trimH);
+        pdf.save('pasta-a4-oliveira-navarro-aberta-450x315mm.pdf');
+        showToast('PDF da Pasta Aberta (450×315mm) exportado!');
+        return;
+      }
+
+      const bleed = mode === 'trim' ? 0 : 3;
+      const gutter = mode === 'crop' ? 3 : 0;
+      const pageW = trimW + (bleed + gutter) * 2;
+      const pageH = trimH + (bleed + gutter) * 2;
+      const bleedW = trimW + bleed * 2;
+      const bleedH = trimH + bleed * 2;
+
+      const frontImg = composeBleedCanvas(frontRaw, scale, bleed, true, trimW, 12, 450).toDataURL('image/png');
+      const backImg = composeBleedCanvas(backRaw, scale, bleed, false, trimW, 12, 450).toDataURL('image/png');
+
+      const pdf = new jsPDF({
+        orientation: 'portrait',
+        unit: 'mm',
+        format: [pageW, pageH],
+        compress: true
+      });
+
+      const drawCropMarks = () => {
+        if (mode !== 'crop') return;
+        const len = 2.4;
+        const gap = 0.4;
+        pdf.setDrawColor(25, 25, 25);
+        pdf.setLineWidth(0.18);
+        const x1 = gutter + bleed;
+        const x2 = x1 + trimW;
+        const y1 = gutter + bleed;
+        const y2 = y1 + trimH;
+
+        [x1, x2].forEach((x) => {
+          pdf.line(x, gap, x, gap + len);
+          pdf.line(x, pageH - gap - len, x, pageH - gap);
+        });
+        [y1, y2].forEach((y) => {
+          pdf.line(gap, y, gap + len, y);
+          pdf.line(pageW - gap - len, y, pageW - gap, y);
+        });
+      };
+
+      pdf.addImage(frontImg, 'PNG', gutter, gutter, bleedW, bleedH, undefined, 'FAST');
+      drawCropMarks();
+
+      pdf.addPage([pageW, pageH], 'portrait');
+      pdf.addImage(backImg, 'PNG', gutter, gutter, bleedW, bleedH, undefined, 'FAST');
+      drawCropMarks();
+
+      const suffix = mode === 'bleed' ? '231x321mm-sangria3mm' : mode === 'crop' ? '237x327mm-marcas' : '225x315mm';
+      pdf.save(`pasta-a4-oliveira-navarro-${suffix}.pdf`);
+      showToast('PDF da Pasta A4 exportado!');
+    }
+
+    async function downloadSingleFolder(id, filename) {
+      showToast('Gerando PNG da Pasta A4...');
+      const canvas = await captureCleanFolder(id, 4);
+      const link = document.createElement('a');
+      link.download = `${filename}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+      showToast('Download concluído.');
+    }
+
+    async function downloadFolderPairSheet() {
+      showToast('Montando prancha Capa + Contracapa...');
+      const [frontCanvas, backCanvas] = await Promise.all([
+        captureCleanFolder('folder-front', 2),
+        captureCleanFolder('folder-back', 2)
+      ]);
+
+      const sheet = document.createElement('canvas');
+      const pad = 90;
+      const gap = 60;
+      sheet.width = frontCanvas.width + backCanvas.width + pad * 2 + gap;
+      sheet.height = frontCanvas.height + pad * 2 + 110;
+
+      const ctx = sheet.getContext('2d');
+      ctx.fillStyle = '#110F0E';
+      ctx.fillRect(0, 0, sheet.width, sheet.height);
+
+      ctx.fillStyle = '#FFFFFF';
+      ctx.font = '700 28px Cairo, sans-serif';
+      ctx.fillText('OLIVEIRA NAVARRO ADVOCACIA — PASTA INSTITUCIONAL A4 (225 × 315 mm)', pad, 58);
+
+      const y = pad + 32;
+      ctx.drawImage(frontCanvas, pad, y);
+      ctx.drawImage(backCanvas, pad + frontCanvas.width + gap, y);
+
+      ctx.fillStyle = '#9D9389';
+      ctx.font = '600 16px JetBrains Mono, monospace';
+      ctx.fillText('CAPA · FRENTE (225 × 315 mm)', pad, y + frontCanvas.height + 34);
+      ctx.fillText('CONTRACAPA · VERSO (225 × 315 mm)', pad + frontCanvas.width + gap, y + backCanvas.height + 34);
+
+      const link = document.createElement('a');
+      link.download = 'pasta-a4-oliveira-navarro.png';
+      link.href = sheet.toDataURL('image/png');
+      link.click();
+      showToast('Prancha da Pasta exportada!');
     }
 
     /* ==========================================================================
@@ -2419,16 +3293,20 @@
 
     window.addEventListener('DOMContentLoaded', () => {
       updateCard();
+      updateFolder();
       updateSignature();
       loadEmbeddedLogoBase64();
       if (location.hash === '#cartao') {
         switchAppView('cartao');
+      } else if (location.hash === '#pasta') {
+        switchAppView('pasta');
       }
     });
 
     window.addEventListener('hashchange', () => {
       if (location.hash === '#assinatura') switchAppView('assinatura');
       else if (location.hash === '#cartao') switchAppView('cartao');
+      else if (location.hash === '#pasta') switchAppView('pasta');
     });
   </script>
 </body>
